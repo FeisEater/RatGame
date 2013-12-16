@@ -4,3 +4,5 @@
 
 		Implemented a timer. Made some test for it, that don't
 		exactly cover everything. 3 hours.
+
+17.12.2013	Added some constant variables. 30 minutes

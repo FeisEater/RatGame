@@ -1,7 +1,7 @@
 package rottapeli;
 
 import rottapeli.peli.RottaPeli;
-
+import rottapeli.resource.Const;
 /**
  *
  * @author Pavel
