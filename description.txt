@@ -1,6 +1,4 @@
-RatGame
-=======
-
+Subject: Rat Game
 A simple game that resembles Xonix in many respects. Player controls a rat,
 whose objective is to eat all of the pieces of cheese located in the playing
 field. When rat starts moving, its tail start to stretch behind it, covering
