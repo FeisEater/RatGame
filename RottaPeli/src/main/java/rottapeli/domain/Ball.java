@@ -5,7 +5,7 @@ import rottapeli.resource.Const;
  *
  * @author Pavel
  */
-public class Ball extends MoveableEntity {
+public class Ball extends Moveable implements Bouncable {
 
     public Ball(double x, double y, double ang)
     {

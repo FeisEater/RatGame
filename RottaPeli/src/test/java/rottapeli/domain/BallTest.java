@@ -18,7 +18,7 @@ import rottapeli.resource.Const;
  */
 public class BallTest {
     
-    private Entity ball;
+    private Moveable ball;
     public BallTest() {
     }
     

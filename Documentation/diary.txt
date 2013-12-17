@@ -12,3 +12,9 @@
 		Moved ball's moving functionality to the MoveableEntity
 		superclass. Added Rat that inherits it. Made appropriate
 		tests. 1 hour.
+
+		Figured out how to implement an EntityList, that can
+		filter entities by the interface they implement. Started
+		making tests for it. 2 hours.
+
+		Fixed up iheritance. 30 minutes.

@@ -1,16 +1,14 @@
 
 package rottapeli.domain;
 
-import rottapeli.resource.Const;
-
 /**
  *
  * @author Pavel
  */
-public class MoveableEntity extends Entity {
+public class Moveable extends Positioned implements Updatable {
     private double direction;
     private double speed;
-    public MoveableEntity(double x, double y, double dir, double speed)
+    public Moveable(double x, double y, double dir, double speed)
     {
         super(x,y);
         direction = dir;

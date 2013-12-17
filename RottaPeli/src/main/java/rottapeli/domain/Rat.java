@@ -7,7 +7,7 @@ import rottapeli.resource.Const;
  *
  * @author Pavel
  */
-public class Rat extends MoveableEntity {
+public class Rat extends Moveable {
     private boolean ismoving;
     public Rat(double x, double y)
     {

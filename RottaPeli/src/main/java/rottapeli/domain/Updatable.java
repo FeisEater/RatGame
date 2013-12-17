@@ -5,6 +5,6 @@ package rottapeli.domain;
  *
  * @author Pavel
  */
-public interface Entity {
-
+public interface Updatable {
+    public void update();
 }

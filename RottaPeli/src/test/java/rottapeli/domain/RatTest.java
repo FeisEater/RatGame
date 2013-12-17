@@ -18,7 +18,7 @@ import rottapeli.resource.Const;
  */
 public class RatTest {
     
-    private MoveableEntity rat;
+    private Moveable rat;
     public RatTest() {
     }
     
