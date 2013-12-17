@@ -10,4 +10,17 @@ public class Const {
     
     public static final int width = 256;
     public static final int height = 192;
+    
+    public static final double ballspeed = 1.0;
+    public static final double ratspeed = 1.0;
+    
+    public static final double right = 0;
+    public static final double down = Math.PI / 2;
+    public static final double left = Math.PI;
+    public static final double up = -Math.PI / 2;
+    public static final double rightdown = Math.PI / 4;
+    public static final double leftdown = 3 * Math.PI / 4;
+    public static final double leftup = -3 * Math.PI / 4;
+    public static final double rightup = -Math.PI / 4;
+
 }

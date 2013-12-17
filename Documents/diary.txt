@@ -1,8 +1,0 @@
-16.12.2013	Created a github repository, created a project directory,
-		wrote a short project description, other text files.
-		2 hours.
-
-		Implemented a timer. Made some test for it, that don't
-		exactly cover everything. 3 hours.
-
-17.12.2013	Added some constant variables. 30 minutes

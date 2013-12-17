@@ -1,0 +1,14 @@
+16.12.2013	Created a github repository, created a project directory,
+		wrote a short project description, other text files.
+		2 hours.
+
+		Implemented a timer. Made some test for it, that don't
+		exactly cover everything. 3 hours.
+
+17.12.2013	Added some constant variables. 30 minutes
+		Implemented an Entity and its subclass Ball. Balls can
+		move. Added appropriate tests. 1,5 hours.
+
+		Moved ball's moving functionality to the MoveableEntity
+		superclass. Added Rat that inherits it. Made appropriate
+		tests. 1 hour.
