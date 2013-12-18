@@ -34,7 +34,7 @@ public class MoveableTest {
     
     @Before
     public void setUp() {
-        m = new Moveable(0,0,1,1,Const.right,1,null);
+        m = new Moveable(0,0,1,1,Const.right,1);
     }
     
     @After
@@ -85,32 +85,32 @@ public class MoveableTest {
     @Test
     public void checksCollision()
     {
-        Positioned p = new Positioned(0.5, 0.5, 1, 1, null);
+        Positioned p = new Positioned(0.5, 0.5, 1, 1);
         assertTrue(m.collidesWith(p));
     }
     @Test
     public void checksCollision2()
     {
-        Positioned p = new Positioned(0, 0, 1, 1, null);
+        Positioned p = new Positioned(0, 0, 1, 1);
         assertTrue(m.collidesWith(p));
     }
     @Test
     public void checksCollision3()
     {
-        Positioned p = new Positioned(1, 1, 1, 1, null);
+        Positioned p = new Positioned(1, 1, 1, 1);
         assertTrue(m.collidesWith(p));
     }
     @Test
     public void bogusCollision()
     {
-        Positioned p = new Positioned(2, 0.5, 1, 1, null);
+        Positioned p = new Positioned(2, 0.5, 1, 1);
         assertTrue(!m.collidesWith(p));
     }
 
     @Test
     public void checksCollisionViaMovement()
     {
-        Positioned p = new Positioned(2, 0, 1, 1, null);
+        Positioned p = new Positioned(2, 0, 1, 1);
         boolean b1 = !m.collidesWith(p);
         m.move();
         boolean b2 = m.collidesWith(p);

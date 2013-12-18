@@ -9,30 +9,41 @@ import rottapeli.resource.Const;
  */
 public class Ball extends Moveable implements Bouncable {
 
-    public Ball(double x, double y, double ang, EntityList l)
+    public Ball(double x, double y, double ang)
     {
-        super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed, l);
+        super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed);
     }
-//Vanhentunutta pallopomppimisalgoritmia, hoidan kuntoon seuraavaan dedikseen mennessä
-    /*public void checkCollisions()
+
+    public void checkCollisions(double oldx, double oldy)
     {
+        if (getEntities() == null) return;
+
         List<Bouncable> bouncables = getEntities().getList(Bouncable.class);
         for (Bouncable other : bouncables)
         {
-            bounceOff(other);
+            if (this == other)  continue;
+            
+            Positioned testEntity = new Positioned(other.leftBorder(), other.topBorder(),
+                    other.rightBorder() - other.leftBorder(),
+                    other.bottomBorder() - other.topBorder());
+            if (collidesWith(testEntity))
+            {
+                bounceOff(other, oldx, oldy);
+            }
         }
     }
     
-    public void bounceOff(Bouncable other)
+    public void bounceOff(Bouncable other, double oldx, double oldy)
     {
         double newXspeed = xSpeed();
         double newYspeed = ySpeed();
-        if (rightBorder() >= other.leftBorder() || leftBorder() <= other.rightBorder())
+        
+        if (oldx + getWidth() < other.leftBorder() || oldx > other.rightBorder())
         {
             correctXposition(other);
             newXspeed = -xSpeed();
         }
-        if (bottomBorder() >= other.topBorder() || topBorder() <= other.bottomBorder())
+        if (oldy + getHeight() < other.topBorder() || oldy > other.bottomBorder())
         {
             correctYposition(other);
             newYspeed = -ySpeed();
@@ -40,6 +51,7 @@ public class Ball extends Moveable implements Bouncable {
         
         setDirection(newXspeed, newYspeed);
     }
+    
     public void correctXposition(Bouncable other)
     {
         double xOffset;
@@ -70,11 +82,13 @@ public class Ball extends Moveable implements Bouncable {
         }
         setPos(X(), Y() + yOffset);
     }
-    */
+
     @Override
     public void update()
     {
+        double oldx = X();
+        double oldy = Y();
         move();
-        //checkCollisions();
+        checkCollisions(oldx, oldy);
     }
 }

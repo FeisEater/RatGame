@@ -10,9 +10,9 @@ import rottapeli.resource.Const;
  */
 public class Rat extends Moveable {
     private boolean ismoving;
-    public Rat(double x, double y, EntityList l)
+    public Rat(double x, double y)
     {
-        super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed, l);
+        super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
         ismoving = false;
     }
 @Override

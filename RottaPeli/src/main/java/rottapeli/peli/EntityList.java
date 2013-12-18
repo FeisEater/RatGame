@@ -18,11 +18,13 @@ public class EntityList {
     
     public void addEntity(Entity e)
     {
+        e.setEntityList(this);
         entities.add(e);
     }
 
     public void removeEntity(Entity e)
     {
+        e.setEntityList(null);
         entities.remove(e);
     }
     

@@ -36,7 +36,7 @@ public class ToolsTest {
     
     @Before
     public void setUp() {
-        p = new Positioned(0,0,1,1,null);
+        p = new Positioned(0,0,1,1);
     }
     
     @After
@@ -67,19 +67,19 @@ public class ToolsTest {
     @Test
     public void objectInsideAnother()
     {
-        q = new Positioned(-0.5, -0.5, 1, 1, null);
+        q = new Positioned(-0.5, -0.5, 1, 1);
         assertTrue(Tools.isInside(q, p));
     }
     @Test
     public void objectInsideAnother2()
     {
-        q = new Positioned(0, 0, 1, 1, null);
+        q = new Positioned(0, 0, 1, 1);
         assertTrue(Tools.isInside(q, p));
     }
     @Test
     public void objectInsideAnother3()
     {
-        q = new Positioned(-1, -1, 3, 3, null);
+        q = new Positioned(-1, -1, 3, 3);
         assertTrue(Tools.isInside(q, p));
     }
 

@@ -45,7 +45,7 @@ public class BallTest {
     {
         boolean positivex = (Math.cos(ang) > 0);
         boolean positivey = (Math.sin(ang) > 0);
-        ball = new Ball(0, 0, ang, list);
+        ball = new Ball(0, 0, ang);
         ball.update();
         boolean b1 = (positivex && ball.X() > 0.01) || (!positivex && ball.X() < -0.01);
         boolean b2 = (positivey && ball.Y() > 0.01) || (!positivey && ball.Y() < -0.01);

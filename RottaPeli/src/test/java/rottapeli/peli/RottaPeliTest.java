@@ -53,7 +53,7 @@ public class RottaPeliTest {
     @Test
     public void gameUpdatesEntities() throws Exception
     {
-        Moveable e = new Ball(0,0,Const.right,rp.getEntityList());
+        Moveable e = new Ball(0,0,Const.right);
         rp.getEntityList().addEntity(e);
         Thread.sleep(100);
         assertTrue(e.X() > 0.1);

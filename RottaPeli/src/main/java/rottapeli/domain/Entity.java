@@ -9,9 +9,10 @@ import rottapeli.peli.EntityList;
  */
 public class Entity {
     private EntityList entities;
-    public Entity(EntityList l)
+    public Entity()
     {
-        entities = l;
     }
+    public void setEntityList(EntityList list)
+        {entities = list;}
     public EntityList getEntities() {return entities;}
 }

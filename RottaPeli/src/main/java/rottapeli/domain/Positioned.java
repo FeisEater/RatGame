@@ -12,9 +12,9 @@ public class Positioned extends Entity {
     private double y;
     private double width;
     private double height;
-    public Positioned(double x, double y, double w, double h, EntityList l)
+    public Positioned(double x, double y, double w, double h)
     {
-        super(l);
+        super();
         this.x = x;
         this.y = y;
         width = w;

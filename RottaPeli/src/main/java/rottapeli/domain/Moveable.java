@@ -11,9 +11,9 @@ import rottapeli.resource.Tools;
 public class Moveable extends Positioned implements Updatable {
     private double direction;
     private double speed;
-    public Moveable(double x, double y, double w, double h, double dir, double speed, EntityList l)
+    public Moveable(double x, double y, double w, double h, double dir, double speed)
     {
-        super(x,y,w,h,l);
+        super(x,y,w,h);
         direction = dir;
         this.speed = speed;
     }

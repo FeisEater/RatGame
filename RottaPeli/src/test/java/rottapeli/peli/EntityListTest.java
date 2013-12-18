@@ -50,9 +50,9 @@ public class EntityListTest {
      @Test
      public void getListWithoutParameter()
      {
-        Ball b1 = new Ball(0,0,0,list);
-        Ball b2 = new Ball(1,0,0,list);
-        Rat r = new Rat(2,0,list);
+        Ball b1 = new Ball(0,0,0);
+        Ball b2 = new Ball(1,0,0);
+        Rat r = new Rat(2,0);
         controlList.add(b1);
         controlList.add(b2);
         controlList.add(r);
@@ -65,9 +65,9 @@ public class EntityListTest {
      @Test
      public void getListOfBouncables()
      {
-        Ball b1 = new Ball(0,0,0,list);
-        Ball b2 = new Ball(1,0,0,list);
-        Rat r = new Rat(2,0,list);
+        Ball b1 = new Ball(0,0,0);
+        Ball b2 = new Ball(1,0,0);
+        Rat r = new Rat(2,0);
         controlList.add(b1);
         controlList.add(b2);
         list.addEntity(b1);

@@ -25,3 +25,6 @@
 		Removed temporarily ball's bouncing ability, migrated
 		collision detection algorithm to Moveable. Made more
 		thorough tests. 2 hours.
+
+		Reimplemented ball's bouncing ability. Going to test
+		it tomorrow. 2 hours.
