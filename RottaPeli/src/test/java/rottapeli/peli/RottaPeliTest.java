@@ -7,6 +7,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.domain.Ball;
+import rottapeli.domain.Entity;
+import rottapeli.domain.Moveable;
+import rottapeli.resource.Const;
 
 /**
  *
@@ -44,5 +48,14 @@ public class RottaPeliTest {
     public void timerCreatesActionEvents()
     {
         assertTrue(rp.getActionListeners().length > 0);
+    }
+    
+    @Test
+    public void gameUpdatesEntities() throws Exception
+    {
+        Moveable e = new Ball(0,0,Const.right,rp.getEntityList());
+        rp.getEntityList().addEntity(e);
+        Thread.sleep(100);
+        assertTrue(e.X() > 0.1);
     }
 }

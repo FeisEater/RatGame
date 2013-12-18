@@ -13,8 +13,8 @@ public class Ball extends Moveable implements Bouncable {
     {
         super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed, l);
     }
-    
-    public void checkCollisions()
+//Vanhentunutta pallopomppimisalgoritmia, hoidan kuntoon seuraavaan dedikseen mennessä
+    /*public void checkCollisions()
     {
         List<Bouncable> bouncables = getEntities().getList(Bouncable.class);
         for (Bouncable other : bouncables)
@@ -70,11 +70,11 @@ public class Ball extends Moveable implements Bouncable {
         }
         setPos(X(), Y() + yOffset);
     }
-    
+    */
     @Override
     public void update()
     {
         move();
-        checkCollisions();
+        //checkCollisions();
     }
 }

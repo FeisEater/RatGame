@@ -7,7 +7,7 @@ import rottapeli.peli.EntityList;
  *
  * @author Pavel
  */
-public abstract class Positioned extends Entity {
+public class Positioned extends Entity {
     private double x;
     private double y;
     private double width;

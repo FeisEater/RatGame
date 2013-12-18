@@ -21,7 +21,9 @@ public class RottaPeli extends Timer implements ActionListener {
         
         entities = new EntityList();
     }
-        
+
+    public EntityList getEntityList() {return entities;}
+    
 @Override
     public void actionPerformed(ActionEvent ae)
     {

@@ -2,6 +2,7 @@
 package rottapeli.domain;
 
 import rottapeli.peli.EntityList;
+import rottapeli.resource.Tools;
 
 /**
  *
@@ -41,6 +42,14 @@ public class Moveable extends Positioned implements Updatable {
         
         direction = Math.atan2(yspeed, xspeed);
     }
+    
+    public boolean collidesWith(Positioned other)
+    {
+        if (this == other)  return false;
+        
+        return Tools.isInside(this, other) || Tools.isInside(other, this);
+    }
+    
     @Override
     public void update()    {}
 }

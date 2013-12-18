@@ -22,4 +22,6 @@
 18.12.2013	Implemented ball's bouncing ability. Took longer than
 		expected, no tests yet. 2,5 hours.
 
-		
+		Removed temporarily ball's bouncing ability, migrated
+		collision detection algorithm to Moveable. Made more
+		thorough tests. 2 hours.
