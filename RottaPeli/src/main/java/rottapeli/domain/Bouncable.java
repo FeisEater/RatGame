@@ -4,6 +4,9 @@ package rottapeli.domain;
  *
  * @author Pavel
  */
-public interface Bouncable extends Entity {
-    
+public interface Bouncable {
+    public double leftBorder();
+    public double rightBorder();
+    public double topBorder();
+    public double bottomBorder();
 }

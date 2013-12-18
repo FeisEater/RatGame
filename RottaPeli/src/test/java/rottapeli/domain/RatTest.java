@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 
 /**
@@ -19,6 +20,7 @@ import rottapeli.resource.Const;
 public class RatTest {
     
     private Moveable rat;
+    private EntityList list;
     public RatTest() {
     }
     
@@ -32,7 +34,8 @@ public class RatTest {
     
     @Before
     public void setUp() {
-        rat = new Rat(0, 0);
+        list = new EntityList();
+        rat = new Rat(0, 0, list);
     }
     
     @After

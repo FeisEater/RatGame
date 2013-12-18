@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 
 /**
@@ -19,6 +20,7 @@ import rottapeli.resource.Const;
 public class BallTest {
     
     private Moveable ball;
+    private EntityList list;
     public BallTest() {
     }
     
@@ -32,6 +34,7 @@ public class BallTest {
     
     @Before
     public void setUp() {
+        list = new EntityList();
     }
     
     @After
@@ -42,7 +45,7 @@ public class BallTest {
     {
         boolean positivex = (Math.cos(ang) > 0);
         boolean positivey = (Math.sin(ang) > 0);
-        ball = new Ball(0, 0, ang);
+        ball = new Ball(0, 0, ang, list);
         ball.update();
         boolean b1 = (positivex && ball.X() > 0.01) || (!positivex && ball.X() < -0.01);
         boolean b2 = (positivey && ball.Y() > 0.01) || (!positivey && ball.Y() < -0.01);

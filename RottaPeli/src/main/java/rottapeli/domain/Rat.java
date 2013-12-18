@@ -1,6 +1,7 @@
 
 package rottapeli.domain;
 
+import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 
 /**
@@ -9,9 +10,9 @@ import rottapeli.resource.Const;
  */
 public class Rat extends Moveable {
     private boolean ismoving;
-    public Rat(double x, double y)
+    public Rat(double x, double y, EntityList l)
     {
-        super(x, y, 0, Const.ratspeed);
+        super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed, l);
         ismoving = false;
     }
 @Override

@@ -18,3 +18,8 @@
 		making tests for it. 2 hours.
 
 		Fixed up iheritance. 30 minutes.
+
+18.12.2013	Implemented ball's bouncing ability. Took longer than
+		expected, no tests yet. 2,5 hours.
+
+		

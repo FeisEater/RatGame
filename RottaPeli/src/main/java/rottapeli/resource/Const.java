@@ -14,6 +14,11 @@ public class Const {
     public static final double ballspeed = 1.0;
     public static final double ratspeed = 1.0;
     
+    public static final double ballwidth = 1.0;
+    public static final double ballheight = 1.0;
+    public static final double ratwidth = 1.0;
+    public static final double ratheight = 1.0;
+
     public static final double right = 0;
     public static final double down = Math.PI / 2;
     public static final double left = Math.PI;

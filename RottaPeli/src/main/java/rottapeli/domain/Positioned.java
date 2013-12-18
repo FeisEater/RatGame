@@ -1,17 +1,24 @@
 
 package rottapeli.domain;
 
+import rottapeli.peli.EntityList;
+
 /**
  *
  * @author Pavel
  */
-public abstract class Positioned implements Entity {
+public abstract class Positioned extends Entity {
     private double x;
     private double y;
-    public Positioned(double x, double y)
+    private double width;
+    private double height;
+    public Positioned(double x, double y, double w, double h, EntityList l)
     {
+        super(l);
         this.x = x;
         this.y = y;
+        width = w;
+        height = h;
     }
     public double X()    {return x;}
     public double Y()    {return y;}
@@ -20,5 +27,12 @@ public abstract class Positioned implements Entity {
         this.x = x;
         this.y = y;
     }
+    public double getWidth()    {return width;}
+    public double getHeight()    {return height;}
+    
+    public double leftBorder()  {return x;}
+    public double rightBorder()  {return x + width;}
+    public double topBorder()  {return y;}
+    public double bottomBorder()  {return y + height;}
 
 }
