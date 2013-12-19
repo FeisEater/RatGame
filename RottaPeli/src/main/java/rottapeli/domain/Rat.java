@@ -67,7 +67,7 @@ public class Rat extends Moveable implements Killable {
 @Override
     public void die()
     {
-        
+        //Add code here
     }
 @Override
     public void setDirection(double dir)
