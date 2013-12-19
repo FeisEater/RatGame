@@ -21,6 +21,7 @@ public class BallTest {
     
     private Moveable ball;
     private EntityList list;
+    private Positioned cheese;
     public BallTest() {
     }
     
@@ -72,4 +73,20 @@ public class BallTest {
          assertTrue(setupBall(Const.rightup));
      }
 
+    public void setupCollisionTest()
+    {
+        cheese = new Cheese(0,0);
+        list.addEntity(cheese);
+    }
+    @Test
+    public void bounce1()
+    {
+        setupCollisionTest();
+        ball = new Ball(-1, -2, Const.rightdown);
+        list.addEntity(ball);
+        ball.update();
+        ball.update();
+        assertTrue("xspeed: " + ball.xSpeed() + " yspeed: " + ball.ySpeed(),
+                ball.xSpeed() > 0.1 && ball.ySpeed() < -0.1);
+    }
 }

@@ -18,6 +18,8 @@ public class Const {
     public static final double ballheight = 1.0;
     public static final double ratwidth = 1.0;
     public static final double ratheight = 1.0;
+    public static final double cheesewidth = 1.0;
+    public static final double cheeseheight = 1.0;    
 
     public static final double right = 0;
     public static final double down = Math.PI / 2;

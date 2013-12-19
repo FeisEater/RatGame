@@ -40,47 +40,39 @@ public class Ball extends Moveable implements Bouncable {
         
         if (oldx + getWidth() < other.leftBorder() || oldx > other.rightBorder())
         {
-            correctXposition(other);
+            boolean fromLeft = oldx + getWidth() < other.leftBorder();
+            correctXposition(other, fromLeft);
             newXspeed = -xSpeed();
         }
         if (oldy + getHeight() < other.topBorder() || oldy > other.bottomBorder())
         {
-            correctYposition(other);
+            boolean fromTop = oldy + getHeight() < other.topBorder();
+            correctYposition(other, fromTop);
             newYspeed = -ySpeed();
         }
         
         setDirection(newXspeed, newYspeed);
     }
     
-    public void correctXposition(Bouncable other)
+    public void correctXposition(Bouncable other, boolean fromLeft)
     {
         double xOffset;
-        if (rightBorder() >= other.leftBorder())
-        {
+        if (fromLeft)
             xOffset = other.leftBorder() - rightBorder();
-            setPos(other.leftBorder() - getWidth(), Y());
-        }
         else
-        {
             xOffset = other.rightBorder() - leftBorder();
-            setPos(other.rightBorder(), Y());
-        }
-        setPos(X() + xOffset, Y());
+
+        setPos(X() + 2 * xOffset, Y());
     }
-    public void correctYposition(Bouncable other)
+    public void correctYposition(Bouncable other, boolean fromTop)
     {
         double yOffset;
-        if (bottomBorder() >= other.topBorder())
-        {
+        if (fromTop)
             yOffset = other.topBorder() - bottomBorder();
-            setPos(X(), other.topBorder() - getHeight());
-        }
         else
-        {
             yOffset = other.bottomBorder() - topBorder();
-            setPos(X(), other.bottomBorder());
-        }
-        setPos(X(), Y() + yOffset);
+
+        setPos(X(), Y() + 2 * yOffset);
     }
 
     @Override
