@@ -3,7 +3,6 @@ package rottapeli.domain.superclasses;
 
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
-import rottapeli.peli.EntityList;
 import rottapeli.resource.Tools;
 
 /**
@@ -33,6 +32,7 @@ public class Moveable extends Positioned implements Updatable {
         return Math.sin(direction) * speed;
     }
     
+    public double getDirection()    {return direction;}
     public void setDirection(double dir)
     {
         direction = dir;

@@ -1,8 +1,6 @@
 
 package rottapeli.domain.superclasses;
 
-import rottapeli.peli.EntityList;
-
 /**
  *
  * @author Pavel

@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.interfaces.Eatable;
 import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 
@@ -91,4 +92,16 @@ public class RatTest {
          assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
      }
 
+     @Test
+     public void ratEatsCheese()
+     {
+         Eatable cheese = new Cheese(0, 1.5);
+         list.addEntity(rat);
+         list.addEntity((Cheese)cheese);
+         rat.setDirection(Const.down);
+         boolean b1 = list.getList(Eatable.class).size() > 0;
+         rat.update();
+         boolean b2 = list.getList(Eatable.class).size() == 0;
+         assertTrue(b1 && b2);
+     }
 }

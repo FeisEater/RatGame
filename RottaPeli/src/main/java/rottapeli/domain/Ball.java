@@ -4,7 +4,7 @@ import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Bouncable;
 import java.util.List;
-import rottapeli.peli.EntityList;
+import rottapeli.interfaces.Killable;
 import rottapeli.resource.Const;
 /**
  *
@@ -21,6 +21,11 @@ public class Ball extends Moveable implements Bouncable {
     {
         if (getEntities() == null) return;
 
+        checkBouncables(oldx, oldy);
+        checkKillables();
+    }
+    public void checkBouncables(double oldx, double oldy)
+    {
         List<Bouncable> bouncables = getEntities().getList(Bouncable.class);
         for (Bouncable other : bouncables)
         {
@@ -31,6 +36,21 @@ public class Ball extends Moveable implements Bouncable {
                 bounceOff(other, oldx, oldy);
             }
         }
+    }
+    public void checkKillables()
+    {
+        List<Killable> killables = getEntities().getList(Killable.class);
+        for (Killable other : killables)
+        {
+            if (collidesWith((Positioned)other))
+            {
+                kill(other);
+            }
+        }
+    }
+    public void kill(Killable other)
+    {
+        other.die();
     }
     
     public void bounceOff(Bouncable other, double oldx, double oldy)
