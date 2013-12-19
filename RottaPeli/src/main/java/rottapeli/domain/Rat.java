@@ -47,7 +47,7 @@ public class Rat extends Moveable implements Killable {
         List<Tail> tails = getEntities().getList(Tail.class);
         for (Tail other : tails)
         {
-            if (collidesWith(other))
+            if (other.getOwner() == this && collidesWith(other))
             {
                 return;
             }

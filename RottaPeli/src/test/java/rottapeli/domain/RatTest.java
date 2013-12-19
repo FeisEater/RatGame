@@ -21,7 +21,7 @@ import rottapeli.resource.Const;
  */
 public class RatTest {
     
-    private Moveable rat;
+    private Rat rat;
     private EntityList list;
     public RatTest() {
     }
@@ -98,10 +98,46 @@ public class RatTest {
          Eatable cheese = new Cheese(0, 1.5);
          list.addEntity(rat);
          list.addEntity((Cheese)cheese);
+         rat.eat(cheese);
+         assertTrue(list.getList(Eatable.class).size() == 0);
+     }
+     @Test
+     public void ratEatsCheese2()
+     {
+         Eatable cheese = new Cheese(0, 0);
+         list.addEntity(rat);
+         list.addEntity((Cheese)cheese);
+         rat.checkCollisions();
+         assertTrue(list.getList(Eatable.class).size() == 0);
+     }
+     @Test
+     public void ratEatsCheese3()
+     {
+         Eatable cheese = new Cheese(0, 1.5);
+         list.addEntity(rat);
+         list.addEntity((Cheese)cheese);
          rat.setDirection(Const.down);
          boolean b1 = list.getList(Eatable.class).size() > 0;
          rat.update();
          boolean b2 = list.getList(Eatable.class).size() == 0;
          assertTrue(b1 && b2);
+     }
+     
+     @Test
+     public void ratstretchesTail()
+     {
+         list.addEntity(rat);
+         rat.setDirection(Const.down);
+         for (int i = 0; i < 100; i++)  rat.update();
+         assertTrue(list.getList(Tail.class).size() > 5);
+     }
+     @Test
+     public void ratDestroysTails()
+     {
+         list.addEntity(rat);
+         rat.setDirection(Const.down);
+         for (int i = 0; i < 100; i++)  rat.update();
+         rat.removeTails();
+         assertTrue(list.getList(Tail.class).size() == 0);
      }
 }

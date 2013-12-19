@@ -30,3 +30,8 @@
 		it tomorrow. 2 hours.
 
 19.12.2013	Made tests for Ball. Readjusted packages. 1 hour.
+
+		Added tail stretching and cheese eating abilities for
+		Rat. Ball calls Rat's die() method when it hits Rat or
+		its tail. Made some tests for all of this except the
+		dying ability. 4 hours.
