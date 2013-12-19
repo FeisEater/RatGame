@@ -15,6 +15,7 @@ public class Tail extends Positioned implements Killable {
         super(x, y, width, height);
         owner = rat;
     }
+    public Killable getOwner()  {return owner;}
     @Override
     public void die()
     {

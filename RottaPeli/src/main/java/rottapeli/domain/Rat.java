@@ -63,7 +63,17 @@ public class Rat extends Moveable implements Killable {
         Tail newtail = new Tail(X(), Y(), tailwidth, tailheight, this);
         getEntities().addEntity(newtail);
     }
-    
+    public void removeTails()
+    {
+        if (getEntities() == null) return;
+
+        List<Tail> tails = getEntities().getList(Tail.class);
+        for (Tail other : tails)
+        {
+            if (other.getOwner() == this)
+                getEntities().removeEntity(other);
+        }
+    }
 @Override
     public void die()
     {
