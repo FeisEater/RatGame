@@ -1,7 +1,7 @@
 
 package rottapeli.resource;
 
-import rottapeli.domain.Positioned;
+import rottapeli.domain.superclasses.Positioned;
 
 /**
  *

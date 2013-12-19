@@ -1,6 +1,7 @@
 
 package rottapeli.domain;
 
+import rottapeli.domain.superclasses.Moveable;
 import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 

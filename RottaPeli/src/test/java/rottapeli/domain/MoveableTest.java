@@ -6,6 +6,8 @@
 
 package rottapeli.domain;
 
+import rottapeli.domain.superclasses.Moveable;
+import rottapeli.domain.superclasses.Positioned;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

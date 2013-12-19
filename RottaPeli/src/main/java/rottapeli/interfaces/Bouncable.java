@@ -1,4 +1,4 @@
-package rottapeli.domain;
+package rottapeli.interfaces;
 
 /**
  *

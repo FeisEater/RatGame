@@ -28,3 +28,5 @@
 
 		Reimplemented ball's bouncing ability. Going to test
 		it tomorrow. 2 hours.
+
+19.12.2013	Made tests for Ball. Readjusted packages. 1 hour.

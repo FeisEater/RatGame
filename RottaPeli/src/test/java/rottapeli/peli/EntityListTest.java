@@ -15,7 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.domain.Ball;
-import rottapeli.domain.Bouncable;
+import rottapeli.interfaces.Bouncable;
 import rottapeli.domain.Rat;
 
 /**

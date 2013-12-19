@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rottapeli.domain.Positioned;
+import rottapeli.domain.superclasses.Positioned;
 
 /**
  *

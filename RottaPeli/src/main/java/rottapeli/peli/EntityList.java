@@ -3,7 +3,7 @@ package rottapeli.peli;
 
 import java.util.ArrayList;
 import java.util.List;
-import rottapeli.domain.Entity;
+import rottapeli.domain.superclasses.Entity;
 
 /**
  *

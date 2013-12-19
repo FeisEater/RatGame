@@ -1,5 +1,7 @@
 package rottapeli.domain;
 
+import rottapeli.domain.superclasses.Positioned;
+import rottapeli.interfaces.Bouncable;
 import rottapeli.resource.Const;
 
 /**

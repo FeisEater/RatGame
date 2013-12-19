@@ -1,5 +1,8 @@
 package rottapeli.domain;
 
+import rottapeli.domain.superclasses.Moveable;
+import rottapeli.domain.superclasses.Positioned;
+import rottapeli.interfaces.Bouncable;
 import java.util.List;
 import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
@@ -23,10 +26,7 @@ public class Ball extends Moveable implements Bouncable {
         {
             if (this == other)  continue;
             
-            Positioned testEntity = new Positioned(other.leftBorder(), other.topBorder(),
-                    other.rightBorder() - other.leftBorder(),
-                    other.bottomBorder() - other.topBorder());
-            if (collidesWith(testEntity))
+            if (collidesWith((Positioned)other))
             {
                 bounceOff(other, oldx, oldy);
             }

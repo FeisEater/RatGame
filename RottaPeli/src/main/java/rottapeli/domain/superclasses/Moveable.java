@@ -1,6 +1,8 @@
 
-package rottapeli.domain;
+package rottapeli.domain.superclasses;
 
+import rottapeli.domain.superclasses.Positioned;
+import rottapeli.interfaces.Updatable;
 import rottapeli.peli.EntityList;
 import rottapeli.resource.Tools;
 

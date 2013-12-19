@@ -8,8 +8,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.domain.Ball;
-import rottapeli.domain.Entity;
-import rottapeli.domain.Moveable;
+import rottapeli.domain.superclasses.Entity;
+import rottapeli.domain.superclasses.Moveable;
 import rottapeli.resource.Const;
 
 /**

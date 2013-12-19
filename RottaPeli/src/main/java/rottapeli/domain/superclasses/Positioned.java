@@ -1,5 +1,5 @@
 
-package rottapeli.domain;
+package rottapeli.domain.superclasses;
 
 import rottapeli.peli.EntityList;
 
