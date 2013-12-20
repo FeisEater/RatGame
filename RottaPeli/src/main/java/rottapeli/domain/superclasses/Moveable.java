@@ -1,6 +1,7 @@
 
 package rottapeli.domain.superclasses;
 
+import java.util.List;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Tools;
@@ -53,6 +54,19 @@ public class Moveable extends Positioned implements Updatable {
         direction = Math.atan2(yspeed, xspeed);
     }
     
+    public void checkCollisions()
+    {
+        List<Entity> entities = getEntities().getList(null);
+        for (Entity other : entities)
+        {
+            if (collidesWith((Positioned)other))
+            {
+                //redo this!!
+                //other.getClass().getClasses();
+            }
+        }
+
+    }
     public boolean collidesWith(Positioned other)
     {
         if (this == other)  return false;

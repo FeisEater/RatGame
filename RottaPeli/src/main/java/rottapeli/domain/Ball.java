@@ -19,10 +19,11 @@ public class Ball extends Moveable implements Bouncable {
 
     public void checkCollisions()
     {
-        if (getEntities() == null) return;
+/*        if (getEntities() == null) return;
 
         checkBouncables();
-        checkKillables();
+        checkKillables();*/
+        super.checkCollisions();
     }
     public void checkBouncables()
     {

@@ -26,6 +26,8 @@
 		collision detection algorithm to Moveable. Made more
 		thorough tests. 2 hours.
 
+
+
 		Reimplemented ball's bouncing ability. Going to test
 		it tomorrow. 2 hours.
 
@@ -35,3 +37,7 @@
 		Rat. Ball calls Rat's die() method when it hits Rat or
 		its tail. Made some tests for all of this except the
 		dying ability. 4 hours.
+
+20.12.2013	Added Hidable interface, Border class that implements it.
+		Redesigned collision responsibilities, will finish tomorrow.
+		2 hours.
