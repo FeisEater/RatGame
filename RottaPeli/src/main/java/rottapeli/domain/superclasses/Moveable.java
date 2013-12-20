@@ -12,17 +12,25 @@ import rottapeli.resource.Tools;
 public class Moveable extends Positioned implements Updatable {
     private double direction;
     private double speed;
+    private double oldx;
+    private double oldy;
     public Moveable(double x, double y, double w, double h, double dir, double speed)
     {
         super(x,y,w,h);
+        oldx = x;
+        oldy = y;
         direction = dir;
         this.speed = speed;
     }
     public void move()
     {
+        oldx = X();
+        oldy = Y();
         setPos( X() + xSpeed(),
                 Y() + ySpeed());
     }
+    public double oldX()  {return oldx;}
+    public double oldY()  {return oldy;}
     public double xSpeed()
     {
         return Math.cos(direction) * speed;

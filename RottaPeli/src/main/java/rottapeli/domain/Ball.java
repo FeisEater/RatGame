@@ -17,14 +17,14 @@ public class Ball extends Moveable implements Bouncable {
         super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed);
     }
 
-    public void checkCollisions(double oldx, double oldy)
+    public void checkCollisions()
     {
         if (getEntities() == null) return;
 
-        checkBouncables(oldx, oldy);
+        checkBouncables();
         checkKillables();
     }
-    public void checkBouncables(double oldx, double oldy)
+    public void checkBouncables()
     {
         List<Bouncable> bouncables = getEntities().getList(Bouncable.class);
         for (Bouncable other : bouncables)
@@ -33,7 +33,7 @@ public class Ball extends Moveable implements Bouncable {
             
             if (collidesWith((Positioned)other))
             {
-                bounceOff(other, oldx, oldy);
+                bounceOff(other);
             }
         }
     }
@@ -53,20 +53,20 @@ public class Ball extends Moveable implements Bouncable {
         other.die();
     }
     
-    public void bounceOff(Bouncable other, double oldx, double oldy)
+    public void bounceOff(Bouncable other)
     {
         double newXspeed = xSpeed();
         double newYspeed = ySpeed();
         
-        if (oldx + getWidth() < other.leftBorder() || oldx > other.rightBorder())
+        if (oldX() + getWidth() < other.leftBorder() || oldX() > other.rightBorder())
         {
-            boolean fromLeft = oldx + getWidth() < other.leftBorder();
+            boolean fromLeft = oldX() + getWidth() < other.leftBorder();
             correctXposition(other, fromLeft);
             newXspeed = -xSpeed();
         }
-        if (oldy + getHeight() < other.topBorder() || oldy > other.bottomBorder())
+        if (oldY() + getHeight() < other.topBorder() || oldY() > other.bottomBorder())
         {
-            boolean fromTop = oldy + getHeight() < other.topBorder();
+            boolean fromTop = oldY() + getHeight() < other.topBorder();
             correctYposition(other, fromTop);
             newYspeed = -ySpeed();
         }
@@ -98,9 +98,7 @@ public class Ball extends Moveable implements Bouncable {
     @Override
     public void update()
     {
-        double oldx = X();
-        double oldy = Y();
         move();
-        checkCollisions(oldx, oldy);
+        checkCollisions();
     }
 }

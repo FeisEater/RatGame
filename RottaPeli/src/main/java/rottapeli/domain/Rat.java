@@ -6,6 +6,7 @@ import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Eatable;
+import rottapeli.interfaces.Hidable;
 import rottapeli.interfaces.Killable;
 import rottapeli.resource.Const;
 
@@ -25,6 +26,12 @@ public class Rat extends Moveable implements Killable {
     {
         if (getEntities() == null) return;
 
+        checkEatables();
+        checkHidables();
+    }
+    
+    public void checkEatables()
+    {
         List<Eatable> eatables = getEntities().getList(Eatable.class);
         for (Eatable other : eatables)
         {
@@ -34,10 +41,46 @@ public class Rat extends Moveable implements Killable {
             }
         }
     }
-    
     public void eat(Eatable other)
     {
         other.getEaten();
+    }
+    
+    public void checkHidables()
+    {
+        List<Hidable> hidables = getEntities().getList(Hidable.class);
+        for (Hidable other : hidables)
+        {
+            if (collidesWith((Positioned)other))
+            {
+                hide(other);
+            }
+        }
+    }
+    public void hide(Hidable other)
+    {
+        removeTails();
+        switch (other.hide(this))
+        {
+            case TOP:
+                setPos(X(), other.bottomBorder());
+                setDirection(Const.down);
+                break;
+            case RIGHT:
+                setPos(other.leftBorder() - getWidth(), Y());
+                setDirection(Const.left);
+                break;                
+            case BOTTOM:
+                setPos(X(), other.topBorder() - getHeight());
+                setDirection(Const.left);
+                break;                
+            case LEFT:
+                setPos(other.rightBorder(), Y());
+                setDirection(Const.right);
+                break;                
+            default:    break;
+        }
+        ismoving = false;
     }
     
     public void createTail()
@@ -65,7 +108,8 @@ public class Rat extends Moveable implements Killable {
     }
     public void removeTails()
     {
-        if (getEntities() == null) return;
+        if (getEntities() == null || getEntities().getList(Tail.class).size() == 0)
+            return;
 
         List<Tail> tails = getEntities().getList(Tail.class);
         for (Tail other : tails)
