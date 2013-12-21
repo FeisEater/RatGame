@@ -10,6 +10,7 @@ import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Hidable;
 import rottapeli.interfaces.Killable;
+import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;
 
 /**
@@ -39,27 +40,20 @@ public class Rat extends Moveable implements Killable {
     public void hide(Hidable other)
     {
         removeTails();
-        switch (other.hide(this))
-        {
-            case TOP:
-                setPos(X(), other.bottomBorder());
-                setDirection(Const.down);
-                break;
-            case RIGHT:
-                setPos(other.leftBorder() - getWidth(), Y());
-                setDirection(Const.left);
-                break;                
-            case BOTTOM:
-                setPos(X(), other.topBorder() - getHeight());
-                setDirection(Const.left);
-                break;                
-            case LEFT:
-                setPos(other.rightBorder(), Y());
-                setDirection(Const.right);
-                break;                
-            default:    break;
-        }
+        faceAwayFrom(other);
+        correctPosition((Positioned) other);
         ismoving = false;
+    }
+    public void faceAwayFrom(Hidable other)
+    {
+        if (collisionType((Positioned) other)[0] == ApproachFrom.LEFT)
+            setDirection(Const.right);
+        if (collisionType((Positioned) other)[0] == ApproachFrom.RIGHT)
+            setDirection(Const.left);
+        if (collisionType((Positioned) other)[1] == ApproachFrom.ABOVE)
+            setDirection(Const.down);
+        if (collisionType((Positioned) other)[1] == ApproachFrom.BELOW)
+            setDirection(Const.up);
     }
     
     public void examineTail(Tail tail)

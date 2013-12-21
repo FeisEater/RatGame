@@ -6,7 +6,7 @@ import java.util.Set;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Tools;
-
+import rottapeli.resource.ApproachFrom;
 /**
  *
  * @author Pavel
@@ -76,6 +76,38 @@ public class Moveable extends Positioned implements Updatable {
     }
     
     public void reactToCollision(Set classes, Entity other)   {}
+    
+    public ApproachFrom[] collisionType(Positioned other)
+    {
+        ApproachFrom[] af = new ApproachFrom[2];
+        af[0] = ApproachFrom.NONE;
+        af[1] = ApproachFrom.NONE;
+
+        if (oldX() + getWidth() < other.leftBorder())
+            af[0] = ApproachFrom.LEFT;
+        else if (oldX() > other.rightBorder())
+            af[0] = ApproachFrom.RIGHT;
+        
+        if (oldY() + getHeight() < other.topBorder())
+            af[1] = ApproachFrom.ABOVE;
+        else if (oldY() > other.bottomBorder())
+            af[1] = ApproachFrom.BELOW;
+        
+        return af;
+    }
+    
+    public void correctPosition(Positioned other)
+    {
+        if (collisionType(other)[0] == ApproachFrom.LEFT)
+            setPos(other.leftBorder() - getWidth(), Y());
+        if (collisionType(other)[0] == ApproachFrom.RIGHT)
+            setPos(other.rightBorder(), Y());
+        
+        if (collisionType(other)[1] == ApproachFrom.ABOVE)
+            setPos(X(), other.topBorder() - getHeight());
+        if (collisionType(other)[1] == ApproachFrom.BELOW)
+            setPos(X(), other.bottomBorder());
+    }
     
     @Override
     public void update()    {}

@@ -49,3 +49,6 @@
 
 		Integrated tail creation algorithm with the new checkCollision()
 		method. Cleaned up other things in the code. 30 minutes.
+
+		Refactored code involving position correction after collision,
+		most of the code is now in Moveable class. 1 hour.

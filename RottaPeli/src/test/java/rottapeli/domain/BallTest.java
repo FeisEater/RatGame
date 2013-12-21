@@ -88,7 +88,7 @@ public class BallTest {
     {
         b = new Ball(-0.5, -0.5, Const.rightdown);
     }
-    @Test
+    /*@Test
     public void correctsXposition()
     {
         setupCollisionTest();
@@ -120,7 +120,7 @@ public class BallTest {
         b.correctYposition((Bouncable)cheese, false);
         assertTrue(b.X() == -0.5 && b.Y() == 2.5);
     }
-
+*/
     @Test
     public void bounce1()
     {

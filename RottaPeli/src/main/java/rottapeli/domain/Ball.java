@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Killable;
+import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;
 /**
  *
@@ -30,41 +31,24 @@ public class Ball extends Moveable implements Bouncable {
         double newXspeed = xSpeed();
         double newYspeed = ySpeed();
         
-        if (oldX() + getWidth() < other.leftBorder() || oldX() > other.rightBorder())
-        {
-            boolean fromLeft = oldX() + getWidth() < other.leftBorder();
-            correctXposition(other, fromLeft);
+        if (collisionType((Positioned) other)[0] != ApproachFrom.NONE)
             newXspeed = -xSpeed();
-        }
-        if (oldY() + getHeight() < other.topBorder() || oldY() > other.bottomBorder())
-        {
-            boolean fromTop = oldY() + getHeight() < other.topBorder();
-            correctYposition(other, fromTop);
+        if (collisionType((Positioned) other)[1] != ApproachFrom.NONE)
             newYspeed = -ySpeed();
-        }
-        
+
+        correctPosition((Positioned) other);
         setDirection(newXspeed, newYspeed);
     }
     
-    public void correctXposition(Bouncable other, boolean fromLeft)
+    @Override
+    public void correctPosition(Positioned other)
     {
-        double xOffset;
-        if (fromLeft)
-            xOffset = other.leftBorder() - rightBorder();
-        else
-            xOffset = other.rightBorder() - leftBorder();
-
-        setPos(X() + 2 * xOffset, Y());
-    }
-    public void correctYposition(Bouncable other, boolean fromTop)
-    {
-        double yOffset;
-        if (fromTop)
-            yOffset = other.topBorder() - bottomBorder();
-        else
-            yOffset = other.bottomBorder() - topBorder();
-
-        setPos(X(), Y() + 2 * yOffset);
+        double prevX = X();
+        double prevY = Y();
+        
+        super.correctPosition(other);
+        
+        setPos(X() + (X() - prevX), Y() + (Y() - prevY));
     }
 
     @Override
