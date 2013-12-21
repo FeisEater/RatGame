@@ -46,3 +46,6 @@
 		must call reactToCollision() to do appropriate actions
 		depending on object collided upon. Added removeAll() method
 		to EntityList
+
+		Integrated tail creation algorithm with the new checkCollision()
+		method. Cleaned up other things in the code. 30 minutes.

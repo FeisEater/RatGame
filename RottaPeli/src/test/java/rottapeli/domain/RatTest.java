@@ -38,6 +38,7 @@ public class RatTest {
     public void setUp() {
         list = new EntityList();
         rat = new Rat(0, 0);
+        list.addEntity(rat);
     }
     
     @After
@@ -96,7 +97,6 @@ public class RatTest {
      public void ratEatsCheese()
      {
          Eatable cheese = new Cheese(0, 1.5);
-         list.addEntity(rat);
          list.addEntity((Cheese)cheese);
          rat.eat(cheese);
          assertTrue(list.getList(Eatable.class).size() == 0);
@@ -105,7 +105,6 @@ public class RatTest {
      public void ratEatsCheese2()
      {
          Eatable cheese = new Cheese(0, 1.5);
-         list.addEntity(rat);
          list.addEntity((Cheese)cheese);
          rat.startMovingTo(Const.down);
          boolean b1 = list.getList(Eatable.class).size() > 0;
@@ -117,7 +116,6 @@ public class RatTest {
      @Test
      public void ratstretchesTail()
      {
-         list.addEntity(rat);
          rat.startMovingTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          assertTrue(list.getList(Tail.class).size() > 5);
@@ -125,7 +123,6 @@ public class RatTest {
      @Test
      public void ratDestroysTails()
      {
-         list.addEntity(rat);
          rat.startMovingTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          rat.removeTails();

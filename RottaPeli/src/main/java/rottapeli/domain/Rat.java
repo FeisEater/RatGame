@@ -1,6 +1,7 @@
 
 package rottapeli.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import rottapeli.domain.superclasses.Entity;
@@ -17,6 +18,7 @@ import rottapeli.resource.Const;
  */
 public class Rat extends Moveable implements Killable {
     private boolean ismoving;
+    private boolean canCreateTail;
     public Rat(double x, double y)
     {
         super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
@@ -60,18 +62,13 @@ public class Rat extends Moveable implements Killable {
         ismoving = false;
     }
     
+    public void examineTail(Tail tail)
+    {
+        if (tail.getOwner() == this)    canCreateTail = false;
+    }
     public void createTail()
     {
-        if (getEntities() == null) return;
-
-        List<Tail> tails = getEntities().getList(Tail.class);
-        for (Tail other : tails)
-        {
-            if (other.getOwner() == this && collidesWith(other))
-            {
-                return;
-            }
-        }
+        if (!canCreateTail) return;
         
         double tailwidth = (getDirection() == Const.right ||
                 getDirection() == Const.left) ?
@@ -88,12 +85,14 @@ public class Rat extends Moveable implements Killable {
         if (getEntities() == null)
             return;
 
+        List toberemoved = new ArrayList();
         List<Tail> tails = getEntities().getList(Tail.class);
         for (Tail other : tails)
         {
             if (other.getOwner() == this)
-                getEntities().removeEntity(other);
+                toberemoved.add(other);
         }
+        getEntities().removeAll(toberemoved);
     }
     
 @Override
@@ -104,6 +103,10 @@ public class Rat extends Moveable implements Killable {
 
         if (classes.contains(Eatable.class))
             eat((Eatable)other);
+
+        if (classes.contains(Tail.class))
+            examineTail((Tail)other);
+
     }
 
 @Override
@@ -118,8 +121,11 @@ public class Rat extends Moveable implements Killable {
         if (ismoving)
         {
             move();
-            createTail();
+            
+            canCreateTail = true;
             checkCollisions();
+            
+            createTail();
         }
     }
 }

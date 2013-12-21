@@ -4,6 +4,7 @@ package rottapeli.peli;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import rottapeli.domain.superclasses.Entity;
 
 /**
@@ -14,7 +15,7 @@ public class EntityList {
     private List entities;
     public EntityList()
     {
-        entities = new ArrayList();
+        entities = new CopyOnWriteArrayList();
     }
     
     public void addEntity(Entity e)
