@@ -1,6 +1,9 @@
 
 package rottapeli.resource;
 
+import java.util.HashSet;
+import java.util.Set;
+import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Positioned;
 
 /**
@@ -21,4 +24,24 @@ public class Tools {
                 y >= other.topBorder() && y <= other.bottomBorder();
     }
 
+    public static Set findAllClasses(Class type)
+    {
+        Set set = new HashSet();
+        findByClass(type, set);
+        return set;
+    }
+    public static void findByClass(Class type, Set list)
+    {
+        if (type == null)   return;
+
+        list.add(type);
+        if (type == Entity.class)   return;
+        
+        findByClass(type.getSuperclass(), list);
+        
+        Class[] interfaces = type.getInterfaces();
+        if (interfaces.length == 0) return;
+        for (int i = 0; i < interfaces.length; i++)
+            findByClass(interfaces[i], list);
+    }
 }

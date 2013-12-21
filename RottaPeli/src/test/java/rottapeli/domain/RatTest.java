@@ -66,28 +66,28 @@ public class RatTest {
      @Test
      public void ratMovesRight()
      {
-         rat.setDirection(Const.right);
+         rat.startMovingTo(Const.right);
          rat.update();
          assertTrue(rat.X() > 0.01 && approximates(rat.Y(), 0));
      }
      @Test
      public void ratMovesLeft()
      {
-         rat.setDirection(Const.left);
+         rat.startMovingTo(Const.left);
          rat.update();
          assertTrue(rat.X() < -0.01 && approximates(rat.Y(), 0));
      }
      @Test
      public void ratMovesUp()
      {
-         rat.setDirection(Const.up);
+         rat.startMovingTo(Const.up);
          rat.update();
          assertTrue(rat.Y() < -0.01 && approximates(rat.X(), 0));
      }
      @Test
      public void ratMovesDown()
      {
-         rat.setDirection(Const.down);
+         rat.startMovingTo(Const.down);
          rat.update();
          assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
      }
@@ -104,19 +104,10 @@ public class RatTest {
      @Test
      public void ratEatsCheese2()
      {
-         Eatable cheese = new Cheese(0, 0);
-         list.addEntity(rat);
-         list.addEntity((Cheese)cheese);
-         rat.checkCollisions();
-         assertTrue(list.getList(Eatable.class).size() == 0);
-     }
-     @Test
-     public void ratEatsCheese3()
-     {
          Eatable cheese = new Cheese(0, 1.5);
          list.addEntity(rat);
          list.addEntity((Cheese)cheese);
-         rat.setDirection(Const.down);
+         rat.startMovingTo(Const.down);
          boolean b1 = list.getList(Eatable.class).size() > 0;
          rat.update();
          boolean b2 = list.getList(Eatable.class).size() == 0;
@@ -127,7 +118,7 @@ public class RatTest {
      public void ratstretchesTail()
      {
          list.addEntity(rat);
-         rat.setDirection(Const.down);
+         rat.startMovingTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          assertTrue(list.getList(Tail.class).size() > 5);
      }
@@ -135,7 +126,7 @@ public class RatTest {
      public void ratDestroysTails()
      {
          list.addEntity(rat);
-         rat.setDirection(Const.down);
+         rat.startMovingTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          rat.removeTails();
          assertTrue(list.getList(Tail.class).size() == 0);

@@ -2,6 +2,7 @@
 package rottapeli.domain.superclasses;
 
 import java.util.List;
+import java.util.Set;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Tools;
@@ -56,16 +57,16 @@ public class Moveable extends Positioned implements Updatable {
     
     public void checkCollisions()
     {
+        if (getEntities() == null)  return;
+        
         List<Entity> entities = getEntities().getList(null);
         for (Entity other : entities)
         {
             if (collidesWith((Positioned)other))
             {
-                //redo this!!
-                //other.getClass().getClasses();
+                reactToCollision(Tools.findAllClasses(other.getClass()), other);
             }
         }
-
     }
     public boolean collidesWith(Positioned other)
     {
@@ -73,6 +74,8 @@ public class Moveable extends Positioned implements Updatable {
         
         return Tools.isInside(this, other) || Tools.isInside(other, this);
     }
+    
+    public void reactToCollision(Set classes, Entity other)   {}
     
     @Override
     public void update()    {}

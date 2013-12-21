@@ -2,6 +2,7 @@
 package rottapeli.domain;
 
 import java.util.List;
+import java.util.Set;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
@@ -22,41 +23,17 @@ public class Rat extends Moveable implements Killable {
         ismoving = false;
     }
 
-    public void checkCollisions()
+    public void startMovingTo(double dir)
     {
-        if (getEntities() == null) return;
-
-        checkEatables();
-        checkHidables();
+        setDirection(dir);
+        ismoving = true;
     }
-    
-    public void checkEatables()
-    {
-        List<Eatable> eatables = getEntities().getList(Eatable.class);
-        for (Eatable other : eatables)
-        {
-            if (collidesWith((Positioned)other))
-            {
-                eat(other);
-            }
-        }
-    }
+        
     public void eat(Eatable other)
     {
         other.getEaten();
     }
     
-    public void checkHidables()
-    {
-        List<Hidable> hidables = getEntities().getList(Hidable.class);
-        for (Hidable other : hidables)
-        {
-            if (collidesWith((Positioned)other))
-            {
-                hide(other);
-            }
-        }
-    }
     public void hide(Hidable other)
     {
         removeTails();
@@ -108,7 +85,7 @@ public class Rat extends Moveable implements Killable {
     }
     public void removeTails()
     {
-        if (getEntities() == null || getEntities().getList(Tail.class).size() == 0)
+        if (getEntities() == null)
             return;
 
         List<Tail> tails = getEntities().getList(Tail.class);
@@ -118,16 +95,21 @@ public class Rat extends Moveable implements Killable {
                 getEntities().removeEntity(other);
         }
     }
+    
+@Override
+    public void reactToCollision(Set classes, Entity other)
+    {
+        if (classes.contains(Hidable.class))
+            hide((Hidable)other);
+
+        if (classes.contains(Eatable.class))
+            eat((Eatable)other);
+    }
+
 @Override
     public void die()
     {
         //Add code here
-    }
-@Override
-    public void setDirection(double dir)
-    {
-        super.setDirection(dir);
-        ismoving = true;
     }
     
 @Override

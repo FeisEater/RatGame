@@ -2,6 +2,7 @@
 package rottapeli.peli;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import rottapeli.domain.superclasses.Entity;
 
@@ -26,6 +27,22 @@ public class EntityList {
     {
         e.setEntityList(null);
         entities.remove(e);
+    }
+    
+    public void removeAll(Class type)
+    {
+        if (type == null)
+        {
+            removeAll(entities);
+            return;
+        }
+        
+        removeAll(getList(type));
+    }
+    public void removeAll(Collection<Entity> c)
+    {
+        for (Entity e : c)    e.setEntityList(null);
+        entities.removeAll(c);
     }
     
     public List getList(Class type)

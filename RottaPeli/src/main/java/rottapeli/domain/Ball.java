@@ -4,6 +4,8 @@ import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Bouncable;
 import java.util.List;
+import java.util.Set;
+import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Killable;
 import rottapeli.resource.Const;
 /**
@@ -17,38 +19,7 @@ public class Ball extends Moveable implements Bouncable {
         super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed);
     }
 
-    public void checkCollisions()
-    {
-/*        if (getEntities() == null) return;
 
-        checkBouncables();
-        checkKillables();*/
-        super.checkCollisions();
-    }
-    public void checkBouncables()
-    {
-        List<Bouncable> bouncables = getEntities().getList(Bouncable.class);
-        for (Bouncable other : bouncables)
-        {
-            if (this == other)  continue;
-            
-            if (collidesWith((Positioned)other))
-            {
-                bounceOff(other);
-            }
-        }
-    }
-    public void checkKillables()
-    {
-        List<Killable> killables = getEntities().getList(Killable.class);
-        for (Killable other : killables)
-        {
-            if (collidesWith((Positioned)other))
-            {
-                kill(other);
-            }
-        }
-    }
     public void kill(Killable other)
     {
         other.die();
@@ -94,6 +65,17 @@ public class Ball extends Moveable implements Bouncable {
             yOffset = other.bottomBorder() - topBorder();
 
         setPos(X(), Y() + 2 * yOffset);
+    }
+
+    @Override
+    public void reactToCollision(Set classes, Entity other)
+    {
+        if (classes.contains(Bouncable.class))
+            bounceOff((Bouncable)other);
+
+        if (classes.contains(Killable.class))
+            kill((Killable)other);
+
     }
 
     @Override

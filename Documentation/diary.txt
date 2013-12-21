@@ -41,3 +41,8 @@
 20.12.2013	Added Hidable interface, Border class that implements it.
 		Redesigned collision responsibilities, will finish tomorrow.
 		2 hours.
+
+21.12.2013	Moved checkCollisions() method to Moveable, implementations
+		must call reactToCollision() to do appropriate actions
+		depending on object collided upon. Added removeAll() method
+		to EntityList
