@@ -52,3 +52,6 @@
 
 		Refactored code involving position correction after collision,
 		most of the code is now in Moveable class. 1 hour.
+
+22.12.2013	Caught up with testing. Many things are not tested multiple
+		times. Also testing code may have to be cleaned up. 1,5 hours.

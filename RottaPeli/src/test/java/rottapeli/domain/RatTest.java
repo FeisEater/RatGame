@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.interfaces.Eatable;
+import rottapeli.interfaces.Hidable;
 import rottapeli.peli.EntityList;
 import rottapeli.resource.Const;
 
@@ -114,6 +115,29 @@ public class RatTest {
      }
      
      @Test
+     public void ratDoesntCreateTailIfOneIsTouchingIt()
+     {
+         rat.startMovingTo(Const.down);
+         Tail tail = new Tail(0,0.5,1,1,rat);
+         list.addEntity(tail);
+         rat.update();
+         boolean b1 = list.getList(Tail.class).size() == 1;
+         rat.update();
+         boolean b2 = list.getList(Tail.class).size() == 2;
+         assertTrue(b1 && b2);
+     }
+     @Test
+     public void dontGiveARatsAssWhenItsSomeoneElsesTail()
+     {
+         rat.startMovingTo(Const.down);
+         Rat someoneElse = new Rat(0,0);
+         list.addEntity(someoneElse);
+         Tail tail = new Tail(0,0.5,1,1,someoneElse);
+         list.addEntity(tail);
+         rat.update();
+         assertTrue(list.getList(Tail.class).size() == 2);
+     }
+     @Test
      public void ratstretchesTail()
      {
          rat.startMovingTo(Const.down);
@@ -128,4 +152,60 @@ public class RatTest {
          rat.removeTails();
          assertTrue(list.getList(Tail.class).size() == 0);
      }
+     @Test
+     public void dontDestroyTailsThatDontBelongToYou()
+     {
+         Rat someoneElse = new Rat(0,0);
+         Tail someoneElsesTail = new Tail(0,0,0,0, someoneElse);
+         list.addEntity(rat);
+         list.addEntity(someoneElsesTail);
+         rat.startMovingTo(Const.down);
+         for (int i = 0; i < 100; i++)  rat.update();
+         rat.removeTails();
+         assertTrue(list.getList(Tail.class).size() == 1);
+     }
+     
+     public void setupHidingTest()
+     {
+         Border hole = new Border(0, 5, 1, 1);
+         list.addEntity(hole);
+         rat.startMovingTo(Const.down);
+         for (int i = 0; i < 10; i++)  rat.update();
+     }
+     @Test
+     public void ratDestroysTailsWhenItHides()
+     {
+         setupHidingTest();
+         assertTrue(list.getList(Tail.class).size() == 0);
+     }
+     @Test
+     public void ratfacesAwayWhenItHides()
+     {
+         setupHidingTest();
+         assertTrue(approximates(rat.getDirection(), Const.up));
+     }
+     @Test
+     public void ratStaysFacingAway()
+     {
+         setupHidingTest();
+         rat.startMovingTo(Const.down);
+         rat.update();
+         assertTrue("dir: " + rat.getDirection(), approximates(rat.getDirection(), Const.up));
+     }
+    @Test
+    public void ratStaysStillWhenItHides()
+    {
+        setupHidingTest();
+        for (int i = 0; i < 1000; i++)  rat.update();
+        assertTrue(approximates(rat.X(), 0) && approximates(rat.Y(), 4.0));
+    }
+    @Test
+    public void ratCorrectsPositionWhenHides()
+    {
+         Border hole = new Border(0, 1.5, 1, 1);
+         list.addEntity(hole);
+         rat.startMovingTo(Const.down);
+         rat.update();
+        assertTrue(approximates(rat.Y(), 0.5));
+    }
 }

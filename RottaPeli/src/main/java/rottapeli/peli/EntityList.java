@@ -32,12 +32,6 @@ public class EntityList {
     
     public void removeAll(Class type)
     {
-        if (type == null)
-        {
-            removeAll(entities);
-            return;
-        }
-        
         removeAll(getList(type));
     }
     public void removeAll(Collection<Entity> c)

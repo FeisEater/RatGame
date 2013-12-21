@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package rottapeli.domain;
+package rottapeli.domain.superclasses;
 
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;
 
 /**
@@ -23,6 +24,7 @@ import rottapeli.resource.Const;
 public class MoveableTest {
     
     private Moveable m;
+    private Positioned pos;
     public MoveableTest() {
     }
     
@@ -37,6 +39,7 @@ public class MoveableTest {
     @Before
     public void setUp() {
         m = new Moveable(0,0,1,1,Const.right,1);
+        pos = new Positioned(0,0,1,1);
     }
     
     @After
@@ -124,4 +127,87 @@ public class MoveableTest {
     {
         assertTrue(!m.collidesWith(m));
     }
+    
+    @Test
+    public void testCollisiontype1()
+    {
+        Moveable mov = new Moveable(-1.5, 0, 1, 1, Const.right, 1);
+        mov.move();
+        assertTrue(mov.collisionType(pos)[0] == ApproachFrom.LEFT && 
+                mov.collisionType(pos)[1] == ApproachFrom.NONE);
+    }
+    @Test
+    public void testCollisiontype2()
+    {
+        Moveable mov = new Moveable(1.5, 0, 1, 1, Const.left, 1);
+        mov.move();
+        assertTrue(mov.collisionType(pos)[0] == ApproachFrom.RIGHT && 
+                mov.collisionType(pos)[1] == ApproachFrom.NONE);
+    }
+    @Test
+    public void testCollisiontype3()
+    {
+        Moveable mov = new Moveable(0, -1.5, 1, 1, Const.down, 1);
+        mov.move();
+        assertTrue(mov.collisionType(pos)[0] == ApproachFrom.NONE && 
+                mov.collisionType(pos)[1] == ApproachFrom.ABOVE);
+    }
+    @Test
+    public void testCollisiontype4()
+    {
+        Moveable mov = new Moveable(0, 1.5, 1, 1, Const.up, 1);
+        mov.move();
+        assertTrue(mov.collisionType(pos)[0] == ApproachFrom.NONE && 
+                mov.collisionType(pos)[1] == ApproachFrom.BELOW);
+    }
+    @Test
+    public void testCollisiontype5()
+    {
+        Moveable mov = new Moveable(-1.5, -1.5, 1, 1, Const.rightdown, 1);
+        mov.move();
+        assertTrue(mov.collisionType(pos)[0] == ApproachFrom.LEFT && 
+                mov.collisionType(pos)[1] == ApproachFrom.ABOVE);
+    }    
+
+    @Test
+    public void correctsPosition1()
+    {
+        Moveable mov = new Moveable(-1.5, 0, 1, 1, Const.right, 1);
+        mov.move();
+        mov.correctPosition(pos);
+        assertTrue(approximates(mov.X(), -1) && approximates(mov.Y(), 0));
+    }
+    @Test
+    public void correctsPosition2()
+    {
+        Moveable mov = new Moveable(1.5, 0, 1, 1, Const.left, 1);
+        mov.move();
+        mov.correctPosition(pos);
+        assertTrue(approximates(mov.X(), 1) && approximates(mov.Y(), 0));
+    }
+    @Test
+    public void correctsPosition3()
+    {
+        Moveable mov = new Moveable(0, -1.5, 1, 1, Const.down, 1);
+        mov.move();
+        mov.correctPosition(pos);
+        assertTrue(approximates(mov.X(), 0) && approximates(mov.Y(), -1));
+    }
+    @Test
+    public void correctsPosition4()
+    {
+        Moveable mov = new Moveable(0, 1.5, 1, 1, Const.up, 1);
+        mov.move();
+        mov.correctPosition(pos);
+        assertTrue(approximates(mov.X(), 0) && approximates(mov.Y(), 1));
+    }
+    @Test
+    public void correctsPosition5()
+    {
+        Moveable mov = new Moveable(-1.5, -1.5, 1, 1, Const.rightdown, 1);
+        mov.move();
+        mov.correctPosition(pos);
+        assertTrue(approximates(mov.X(), -1) && approximates(mov.Y(), -1));
+    }    
+
 }

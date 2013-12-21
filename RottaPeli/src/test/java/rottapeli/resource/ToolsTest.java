@@ -6,13 +6,20 @@
 
 package rottapeli.resource;
 
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.domain.Ball;
+import rottapeli.domain.superclasses.Entity;
+import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
+import rottapeli.interfaces.Bouncable;
+import rottapeli.interfaces.Updatable;
 
 /**
  *
@@ -83,4 +90,16 @@ public class ToolsTest {
         assertTrue(Tools.isInside(q, p));
     }
 
+    @Test
+    public void allSuperClassesAreFound()
+    {
+        Set set = new HashSet();
+        set.add(Entity.class);
+        set.add(Positioned.class);
+        set.add(Moveable.class);
+        set.add(Updatable.class);
+        set.add(Bouncable.class);
+        set.add(Ball.class);
+        assertTrue(Tools.findAllClasses(Ball.class).equals(set));
+    }
 }

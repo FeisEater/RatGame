@@ -76,5 +76,47 @@ public class EntityListTest {
         assertTrue(list.getList(Bouncable.class).equals(controlList));
      }
 
+     @Test
+     public void removesItemsByClass()
+     {
+        Ball b1 = new Ball(0,0,0);
+        Ball b2 = new Ball(1,0,0);
+        Rat r = new Rat(2,0);
+        controlList.add(r);
+        list.addEntity(b1);
+        list.addEntity(b2);
+        list.addEntity(r);
+        list.removeAll(Bouncable.class);
+        assertTrue(list.getList(null).equals(controlList));
+     }
+
+     @Test
+     public void addedItemKnowEntityList()
+     {
+         Ball b1 = new Ball(0,0,0);
+         list.addEntity(b1);
+         assertTrue(b1.getEntities() == list);
+     }
+     @Test
+     public void removedItemForgetsEntityList()
+     {
+         Ball b1 = new Ball(0,0,0);
+         list.addEntity(b1);
+         boolean q1 = b1.getEntities() == list;
+         list.removeEntity(b1);
+         boolean q2 = b1.getEntities() == null;
+         assertTrue(q1 && q2);
+     }
+     @Test
+     public void removedItemForgetsEntityList2()
+     {
+         Ball b1 = new Ball(0,0,0);
+         controlList.add(b1);
+         list.addEntity(b1);
+         boolean q1 = b1.getEntities() == list;
+         list.removeAll(controlList);
+         boolean q2 = b1.getEntities() == null;
+         assertTrue(q1 && q2);
+     }
 
 }

@@ -20,6 +20,7 @@ import rottapeli.resource.Const;
 public class Rat extends Moveable implements Killable {
     private boolean ismoving;
     private boolean canCreateTail;
+    private double oldDirection;
     public Rat(double x, double y)
     {
         super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
@@ -40,20 +41,27 @@ public class Rat extends Moveable implements Killable {
     public void hide(Hidable other)
     {
         removeTails();
-        faceAwayFrom(other);
         correctPosition((Positioned) other);
+        faceAwayFrom(other);
         ismoving = false;
     }
     public void faceAwayFrom(Hidable other)
     {
+        if (collisionType((Positioned) other)[0] == ApproachFrom.NONE && 
+            collisionType((Positioned) other)[1] == ApproachFrom.NONE)
+        {
+            setDirection(oldDirection);
+            return;
+        }
+        
         if (collisionType((Positioned) other)[0] == ApproachFrom.LEFT)
             setDirection(Const.right);
         if (collisionType((Positioned) other)[0] == ApproachFrom.RIGHT)
             setDirection(Const.left);
         if (collisionType((Positioned) other)[1] == ApproachFrom.ABOVE)
-            setDirection(Const.down);
-        if (collisionType((Positioned) other)[1] == ApproachFrom.BELOW)
             setDirection(Const.up);
+        if (collisionType((Positioned) other)[1] == ApproachFrom.BELOW)
+            setDirection(Const.down);
     }
     
     public void examineTail(Tail tail)
@@ -113,13 +121,15 @@ public class Rat extends Moveable implements Killable {
     public void update()
     {
         if (ismoving)
-        {
+        {            
             move();
             
             canCreateTail = true;
             checkCollisions();
             
             createTail();
+            
+            oldDirection = getDirection();
         }
     }
 }

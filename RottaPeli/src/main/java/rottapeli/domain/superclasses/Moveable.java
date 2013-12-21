@@ -31,6 +31,7 @@ public class Moveable extends Positioned implements Updatable {
         setPos( X() + xSpeed(),
                 Y() + ySpeed());
     }
+    
     public double oldX()  {return oldx;}
     public double oldY()  {return oldy;}
     public double xSpeed()

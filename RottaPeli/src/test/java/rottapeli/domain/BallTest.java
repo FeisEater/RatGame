@@ -23,7 +23,6 @@ import rottapeli.resource.Const;
 public class BallTest {
     
     private Moveable ball;
-    private Ball b;
     private EntityList list;
     private Positioned cheese;
     public BallTest() {
@@ -84,43 +83,41 @@ public class BallTest {
         cheese = new Cheese(0,0);
         list.addEntity(cheese);
     }
-    public void setupCorrectionTest()
+    
+    public boolean approximates(double d, double exactValue, double tolerance)
     {
-        b = new Ball(-0.5, -0.5, Const.rightdown);
+        return d > exactValue - tolerance && d < exactValue + tolerance;
     }
-    /*@Test
-    public void correctsXposition()
+    
+    private double ballhalfstep = Math.cos(Const.rightdown) * Const.ballspeed / 2;
+    @Test
+    public void correctsPosition()
     {
         setupCollisionTest();
-        setupCorrectionTest();
-        b.correctXposition((Bouncable)cheese, true);
-        assertTrue(b.X() == -1.5 && b.Y() == -0.5);
+        ball = new Ball(0, -ballhalfstep - Const.ballheight, Const.rightdown);
+        list.addEntity(ball);
+        ball.update();
+        assertTrue(ball.X() > 0.1 && approximates(-ballhalfstep - Const.ballheight, ball.Y(), 0.1));
     }
     @Test
-    public void correctsXposition2()
+    public void correctsPosition2()
     {
         setupCollisionTest();
-        setupCorrectionTest();
-        b.correctXposition((Bouncable)cheese, false);
-        assertTrue(b.X() == 2.5 && b.Y() == -0.5);
+        ball = new Ball(-ballhalfstep - Const.ballheight, 0, Const.rightdown);
+        list.addEntity(ball);
+        ball.update();
+        assertTrue(ball.Y() > 0.1 && approximates(-ballhalfstep - Const.ballheight, ball.X(), 0.1));
     }
     @Test
-    public void correctsYposition()
+    public void correctsPosition3()
     {
         setupCollisionTest();
-        setupCorrectionTest();
-        b.correctYposition((Bouncable)cheese, true);
-        assertTrue(b.X() == -0.5 && b.Y() == -1.5);
+        ball = new Ball(-ballhalfstep - Const.ballheight, -ballhalfstep - Const.ballheight, Const.rightdown);
+        list.addEntity(ball);
+        ball.update();
+        assertTrue(approximates(-ballhalfstep - Const.ballheight, ball.X(), 0.1) && 
+                approximates(-ballhalfstep - Const.ballheight, ball.Y(), 0.1));
     }
-    @Test
-    public void correctsYposition2()
-    {
-        setupCollisionTest();
-        setupCorrectionTest();
-        b.correctYposition((Bouncable)cheese, false);
-        assertTrue(b.X() == -0.5 && b.Y() == 2.5);
-    }
-*/
     @Test
     public void bounce1()
     {
