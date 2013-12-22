@@ -130,7 +130,7 @@ public class RatTest {
      public void dontGiveARatsAssWhenItsSomeoneElsesTail()
      {
          rat.startMovingTo(Const.down);
-         Rat someoneElse = new Rat(0,0);
+         Rat someoneElse = new Rat(10,0);
          list.addEntity(someoneElse);
          Tail tail = new Tail(0,0.5,1,1,someoneElse);
          list.addEntity(tail);
@@ -155,7 +155,7 @@ public class RatTest {
      @Test
      public void dontDestroyTailsThatDontBelongToYou()
      {
-         Rat someoneElse = new Rat(0,0);
+         Rat someoneElse = new Rat(10,0);
          Tail someoneElsesTail = new Tail(0,0,0,0, someoneElse);
          list.addEntity(rat);
          list.addEntity(someoneElsesTail);
@@ -190,7 +190,7 @@ public class RatTest {
          setupHidingTest();
          rat.startMovingTo(Const.down);
          rat.update();
-         assertTrue("dir: " + rat.getDirection(), approximates(rat.getDirection(), Const.up));
+         assertTrue(approximates(rat.getDirection(), Const.up));
      }
     @Test
     public void ratStaysStillWhenItHides()

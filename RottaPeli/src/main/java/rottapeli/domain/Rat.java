@@ -21,10 +21,12 @@ public class Rat extends Moveable implements Killable {
     private boolean ismoving;
     private boolean canCreateTail;
     private double oldDirection;
+    private Tail lastTail;
     public Rat(double x, double y)
     {
         super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
         ismoving = false;
+        lastTail = null;
     }
 
     public void startMovingTo(double dir)
@@ -66,7 +68,11 @@ public class Rat extends Moveable implements Killable {
     
     public void examineTail(Tail tail)
     {
-        if (tail.getOwner() == this)    canCreateTail = false;
+        if (tail.getOwner() == this)
+        {
+            canCreateTail = false;
+            if (lastTail != tail)   tail.die();
+        }
     }
     public void createTail()
     {
@@ -81,6 +87,7 @@ public class Rat extends Moveable implements Killable {
         
         Tail newtail = new Tail(X(), Y(), tailwidth, tailheight, this);
         getEntities().addEntity(newtail);
+        lastTail = newtail;
     }
     public void removeTails()
     {
@@ -95,6 +102,7 @@ public class Rat extends Moveable implements Killable {
                 toberemoved.add(other);
         }
         getEntities().removeAll(toberemoved);
+        //lastTail = null;
     }
     
 @Override
@@ -115,6 +123,7 @@ public class Rat extends Moveable implements Killable {
     public void die()
     {
         //Add code here
+        System.out.println("DEAD!");
     }
     
 @Override
