@@ -71,7 +71,8 @@ public class Rat extends Moveable implements Killable {
         if (tail.getOwner() == this)
         {
             canCreateTail = false;
-            if (lastTail != tail)   tail.die();
+            if (lastTail != tail && lastTail != null)
+                tail.die();
         }
     }
     public void createTail()
@@ -102,7 +103,7 @@ public class Rat extends Moveable implements Killable {
                 toberemoved.add(other);
         }
         getEntities().removeAll(toberemoved);
-        //lastTail = null;
+        lastTail = null;
     }
     
 @Override

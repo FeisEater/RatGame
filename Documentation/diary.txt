@@ -55,3 +55,7 @@
 
 22.12.2013	Caught up with testing. Many things are not tested multiple
 		times. Also testing code may have to be cleaned up. 1,5 hours.
+
+		Rat can kill itself if it collides with its own tail. I don't
+		test for dying for now because I didn't implement any
+		concequences for death yet. 1 hour.
