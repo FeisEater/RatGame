@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 import rottapeli.domain.Ball;
 import rottapeli.interfaces.Bouncable;
 import rottapeli.domain.Rat;
+import rottapeli.resource.Const;
 
 /**
  *
@@ -119,4 +120,12 @@ public class EntityListTest {
          assertTrue(q1 && q2);
      }
 
+     @Test
+     public void updatesEntities()
+     {
+         Ball ball = new Ball(0,0,Const.right);
+         list.addEntity(ball);
+         list.update();
+         assertTrue(ball.X() > 0.1);
+     }
 }

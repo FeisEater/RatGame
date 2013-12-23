@@ -89,17 +89,4 @@ public class ToolsTest {
         q = new Positioned(-1, -1, 3, 3);
         assertTrue(Tools.isInside(q, p));
     }
-
-    @Test
-    public void allSuperClassesAreFound()
-    {
-        Set set = new HashSet();
-        set.add(Entity.class);
-        set.add(Positioned.class);
-        set.add(Moveable.class);
-        set.add(Updatable.class);
-        set.add(Bouncable.class);
-        set.add(Ball.class);
-        assertTrue(Tools.findAllClasses(Ball.class).equals(set));
-    }
 }

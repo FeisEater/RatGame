@@ -6,12 +6,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import rottapeli.domain.superclasses.Entity;
+import rottapeli.interfaces.Updatable;
 
 /**
  *
  * @author Pavel
  */
-public class EntityList {
+public class EntityList implements Updatable {
     private List entities;
     public EntityList()
     {
@@ -52,5 +53,13 @@ public class EntityList {
             }
         }
         return list;
+    }
+    
+    @Override
+    public void update()
+    {
+        List<Updatable> updatables = getList(Updatable.class);
+        for (Updatable u : updatables)
+            u.update();
     }
 }

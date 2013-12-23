@@ -26,8 +26,6 @@
 		collision detection algorithm to Moveable. Made more
 		thorough tests. 2 hours.
 
-
-
 		Reimplemented ball's bouncing ability. Going to test
 		it tomorrow. 2 hours.
 
@@ -59,3 +57,6 @@
 		Rat can kill itself if it collides with its own tail. I don't
 		test for dying for now because I didn't implement any
 		concequences for death yet. 1 hour.
+
+23.12.2013	Made the program run an updatable window. Removed redundant
+		methods from Tools (FindAllClasses()). 1,5 hours.

@@ -65,7 +65,7 @@ public class Moveable extends Positioned implements Updatable {
         {
             if (collidesWith((Positioned)other))
             {
-                reactToCollision(Tools.findAllClasses(other.getClass()), other);
+                reactToCollision(other);
             }
         }
     }
@@ -76,7 +76,7 @@ public class Moveable extends Positioned implements Updatable {
         return Tools.isInside(this, other) || Tools.isInside(other, this);
     }
     
-    public void reactToCollision(Set classes, Entity other)   {}
+    public void reactToCollision(Entity other)   {}
     
     public ApproachFrom[] collisionType(Positioned other)
     {

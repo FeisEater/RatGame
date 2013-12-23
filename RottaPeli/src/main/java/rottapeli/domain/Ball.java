@@ -52,12 +52,12 @@ public class Ball extends Moveable implements Bouncable {
     }
 
     @Override
-    public void reactToCollision(Set classes, Entity other)
+    public void reactToCollision(Entity other)
     {
-        if (classes.contains(Bouncable.class))
+        if (Bouncable.class.isInstance(other))
             bounceOff((Bouncable)other);
 
-        if (classes.contains(Killable.class))
+        if (Killable.class.isInstance(other))
             kill((Killable)other);
 
     }

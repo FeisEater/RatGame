@@ -107,15 +107,15 @@ public class Rat extends Moveable implements Killable {
     }
     
 @Override
-    public void reactToCollision(Set classes, Entity other)
+    public void reactToCollision(Entity other)
     {
-        if (classes.contains(Hidable.class))
+        if (Hidable.class.isInstance(other))
             hide((Hidable)other);
 
-        if (classes.contains(Eatable.class))
+        if (Eatable.class.isInstance(other))
             eat((Eatable)other);
 
-        if (classes.contains(Tail.class))
+        if (Tail.class.isInstance(other))
             examineTail((Tail)other);
 
     }
