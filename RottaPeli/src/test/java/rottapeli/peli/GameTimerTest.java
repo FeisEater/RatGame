@@ -16,9 +16,10 @@ import rottapeli.resource.Const;
  *
  * @author Pavel
  */
-public class RottaPeliTest {
-    //private RottaPeli rp = new RottaPeli();
-    public RottaPeliTest() {
+public class GameTimerTest {
+    private EntityList list;
+    private GameTimer gt;
+    public GameTimerTest() {
     }
     
     @BeforeClass
@@ -31,31 +32,33 @@ public class RottaPeliTest {
     
     @Before
     public void setUp() {
-        //rp.start();
+        list = new EntityList();
+        gt = new GameTimer(list, null);
+        gt.start();
     }
     
     @After
     public void tearDown() {
-        //rp.stop();
+        gt.stop();
     }
 
-/*    @Test
+    @Test
     public void timerIsCreatedAndItWorks()
     {
-        assertTrue(rp.isRunning());
+        assertTrue(gt.isRunning());
     }
     @Test
     public void timerCreatesActionEvents()
     {
-        assertTrue(rp.getActionListeners().length > 0);
+        assertTrue(gt.getActionListeners().length > 0);
     }
     
     @Test
     public void gameUpdatesEntities() throws Exception
     {
         Moveable e = new Ball(0,0,Const.right);
-        rp.getEntityList().addEntity(e);
+        list.addEntity(e);
         Thread.sleep(100);
         assertTrue(e.X() > 0.1);
-    }*/
+    }
 }

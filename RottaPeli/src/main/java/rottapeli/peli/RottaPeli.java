@@ -6,48 +6,51 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.SwingUtilities;
+import rottapeli.domain.Ball;
+import rottapeli.domain.Border;
 import rottapeli.gui.GameField;
 import rottapeli.gui.GraphicInterface;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
+import rottapeli.peli.GameTimer;
 /**
  *
  * @author Pavel
  */
-public class RottaPeli extends Timer implements ActionListener {
-    private EntityList entities;
-    private Updatable field;
+public class RottaPeli {
+
     public RottaPeli()
+    {        
+        EntityList entities = new EntityList();
+        
+        GameField field = createGUI(entities);
+        
+        GameTimer gt = new GameTimer(entities, field);
+        gt.start();
+        
+        entities.addEntity(new Ball(5,5,Const.rightdown));
+        entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
+        entities.addEntity(new Border(-32, -32, 32, Const.height + 64));
+        entities.addEntity(new Border(-32, Const.height, Const.width + 64, 32));
+        entities.addEntity(new Border(Const.width, -32, 32, Const.height + 64));
+    }
+    
+    public GameField createGUI(EntityList el)
     {
-        super(1000 / Const.fps, null);
-        addActionListener(this);
-        //setInitialDelay(0);
-        
-        entities = new EntityList();
-        
         GraphicInterface gui = new GraphicInterface();
         SwingUtilities.invokeLater(gui);
-        field = gui.getField();
+        GameField field = gui.getField();
         
         while (field == null) {
             try {
                 Thread.sleep(100);
                 field = gui.getField();
-                System.out.println("tried it");
             } catch (InterruptedException ex) {
                 System.out.println("Piirtoalustaa ei ole vielä luotu.");
             }
         }
         
-        start();
-    }
-
-    public EntityList getEntityList() {return entities;}
-    
-@Override
-    public void actionPerformed(ActionEvent ae)
-    {
-        entities.update();
-        field.update();
+        field.setEntityList(el);
+        return field;
     }
 }

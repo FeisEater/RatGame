@@ -60,3 +60,6 @@
 
 23.12.2013	Made the program run an updatable window. Removed redundant
 		methods from Tools (FindAllClasses()). 1,5 hours.
+
+		Demoed to myself how ball bounces off window's borders.
+		30 minutes.
