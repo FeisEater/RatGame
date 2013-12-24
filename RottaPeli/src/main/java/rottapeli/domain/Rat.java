@@ -83,8 +83,16 @@ public class Rat extends Moveable implements Killable, Controllable {
         double tailheight = (getDirection() == Const.up ||
                 getDirection() == Const.down) ?
                 Const.ratspeed : Const.tailthickness;
-        
-        Tail newtail = new Tail(oldX(), oldY(), tailwidth, tailheight, this);
+        double tailx = (getDirection() == Const.left) ?
+                X() + getWidth() : oldX();
+        if (getDirection() == Const.up || getDirection() == Const.down)
+            tailx = X() + Const.ratwidth / 2 - Const.tailthickness / 2;
+        double taily = (getDirection() == Const.up) ?
+                Y() + getHeight() : oldY();
+        if (getDirection() == Const.left || getDirection() == Const.right)
+            taily = Y() + Const.ratheight / 2 - Const.tailthickness / 2;
+
+        Tail newtail = new Tail(tailx, taily, tailwidth, tailheight, this);
         getEntities().addEntity(newtail);
         lastTail = newtail;
     }

@@ -36,6 +36,7 @@ public class RottaPeli {
         pi.setTimer(gt);
         
         entities.addEntity(new Ball(5,5,Const.rightdown));
+        entities.addEntity(new Ball(192,64,Const.rightdown));
         entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
         entities.addEntity(new Border(-32, -32, 32, Const.height + 64));
         entities.addEntity(new Border(-32, Const.height, Const.width + 64, 32));

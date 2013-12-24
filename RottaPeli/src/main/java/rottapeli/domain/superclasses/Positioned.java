@@ -3,6 +3,8 @@ package rottapeli.domain.superclasses;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import rottapeli.resource.Tools;
 
 /**
@@ -36,6 +38,19 @@ public class Positioned extends Entity {
     public double rightBorder()  {return x + width;}
     public double topBorder()  {return y;}
     public double bottomBorder()  {return y + height;}
+    
+    public void findNearestFreeSpot()
+    {
+        Deque<Double> xQueue = new ArrayDeque<Double>();
+        Deque<Double> yQueue = new ArrayDeque<Double>();
+        xQueue.add(x);
+        yQueue.add(y);
+        while (!xQueue.isEmpty())
+        {
+            x = xQueue.poll();
+            y = yQueue.poll();
+        }
+    }
     
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {

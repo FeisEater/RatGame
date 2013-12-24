@@ -29,7 +29,7 @@ public class Tail extends Positioned implements Killable {
     {
         g.setColor(Color.MAGENTA);
         g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+            (int)Math.ceil(getWidth() * xMultiplier), (int)Math.ceil(getHeight() * yMultiplier), true);
     }
 
 }
