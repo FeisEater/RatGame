@@ -1,5 +1,7 @@
 package rottapeli.domain;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Bouncable;
@@ -68,4 +70,13 @@ public class Ball extends Moveable implements Bouncable {
         move();
         checkCollisions();
     }
+    
+    @Override
+    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    {
+        g.setColor(Color.RED);
+        g.fillOval((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
+            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier));
+    }
+
 }

@@ -23,4 +23,16 @@ public class Tools {
         return  x >= other.leftBorder() && x <= other.rightBorder() &&
                 y >= other.topBorder() && y <= other.bottomBorder();
     }
+    
+    public static double round(double a)
+    {
+        double i = Math.floor(a);
+        double d = a - i;
+        
+        d *= Const.roundPrecision;
+        d = Math.round(d);
+        d /= Const.roundPrecision;
+        
+        return i + d;
+    }
 }

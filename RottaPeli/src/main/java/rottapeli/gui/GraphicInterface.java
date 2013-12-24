@@ -25,7 +25,7 @@ public class GraphicInterface implements Runnable {
     public void run()
     {
         frame = new JFrame("Rottapeli");
-        frame.setPreferredSize(new Dimension(Const.width * 2 + 16, Const.height * 2 + 36));
+        frame.setPreferredSize(new Dimension(Const.width * 4 + 16, Const.height * 4 + 36));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         createComponents(frame.getContentPane());
         frame.pack();
@@ -35,5 +35,9 @@ public class GraphicInterface implements Runnable {
     public GameField getField()
     {
         return field;
+    }
+    public JFrame getFrame()
+    {
+        return frame;
     }
 }

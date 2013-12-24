@@ -1,5 +1,6 @@
 package rottapeli.domain;
 
+import java.awt.Graphics;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Bouncable;
 import rottapeli.interfaces.Hidable;
@@ -14,4 +15,10 @@ public class Border extends Positioned implements Bouncable, Hidable {
     {
         super(x,y,width,height);
     }
+    
+    @Override
+    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    {
+    }
+
 }

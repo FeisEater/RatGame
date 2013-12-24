@@ -31,4 +31,5 @@ public class Const {
     public static final double leftup = -3 * Math.PI / 4;
     public static final double rightup = -Math.PI / 4;
 
+    public static final double roundPrecision = 100;
 }

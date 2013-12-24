@@ -33,7 +33,7 @@ public class GameTimerTest {
     @Before
     public void setUp() {
         list = new EntityList();
-        gt = new GameTimer(list, null);
+        gt = new GameTimer(list, null, null);
         gt.start();
     }
     

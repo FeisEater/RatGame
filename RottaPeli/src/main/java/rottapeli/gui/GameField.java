@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
 import rottapeli.peli.EntityList;
+import rottapeli.peli.PlayerInput;
+import rottapeli.resource.Const;
 
 /**
  *
@@ -26,12 +28,12 @@ public class GameField extends JPanel implements Updatable {
     {
         super.paintComponent(g);
         
+        double widthMultiplier = getWidth() / (double)Const.width;
+        double heightMultiplier = getHeight() / (double)Const.height;
         List<Positioned> drawables = entities.getList(Positioned.class);
         for (Positioned p : drawables)
         {
-            g.setColor(Color.RED);
-            g.fill3DRect((int)p.X() * 2, (int)p.Y() * 2,
-                    (int)p.getWidth() * 2, (int)p.getHeight() * 2, true);
+            p.draw(g, widthMultiplier, heightMultiplier);
         }
     }
     

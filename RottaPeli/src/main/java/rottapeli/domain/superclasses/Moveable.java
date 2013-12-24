@@ -84,14 +84,14 @@ public class Moveable extends Positioned implements Updatable {
         af[0] = ApproachFrom.NONE;
         af[1] = ApproachFrom.NONE;
 
-        if (oldX() + getWidth() < other.leftBorder())
+        if (oldX() + getWidth() <= other.leftBorder())
             af[0] = ApproachFrom.LEFT;
-        else if (oldX() > other.rightBorder())
+        else if (oldX() >= other.rightBorder())
             af[0] = ApproachFrom.RIGHT;
         
-        if (oldY() + getHeight() < other.topBorder())
+        if (oldY() + getHeight() <= other.topBorder())
             af[1] = ApproachFrom.ABOVE;
-        else if (oldY() > other.bottomBorder())
+        else if (oldY() >= other.bottomBorder())
             af[1] = ApproachFrom.BELOW;
         
         return af;

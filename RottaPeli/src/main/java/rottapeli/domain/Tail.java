@@ -1,6 +1,8 @@
 
 package rottapeli.domain;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Killable;
 
@@ -21,4 +23,13 @@ public class Tail extends Positioned implements Killable {
     {
         owner.die();
     }
+    
+    @Override
+    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    {
+        g.setColor(Color.MAGENTA);
+        g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
+            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+    }
+
 }

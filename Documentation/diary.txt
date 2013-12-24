@@ -63,3 +63,6 @@
 
 		Demoed to myself how ball bounces off window's borders.
 		30 minutes.
+
+		Implemented a KeyListener, Rat is now controlled by
+		arrow keys. 2 hours.

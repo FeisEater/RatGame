@@ -1,12 +1,15 @@
 
 package rottapeli.domain;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
+import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Hidable;
 import rottapeli.interfaces.Killable;
@@ -17,7 +20,7 @@ import rottapeli.resource.Const;
  *
  * @author Pavel
  */
-public class Rat extends Moveable implements Killable {
+public class Rat extends Moveable implements Killable, Controllable {
     private boolean ismoving;
     private boolean canCreateTail;
     private double oldDirection;
@@ -28,13 +31,7 @@ public class Rat extends Moveable implements Killable {
         ismoving = false;
         lastTail = null;
     }
-
-    public void startMovingTo(double dir)
-    {
-        setDirection(dir);
-        ismoving = true;
-    }
-        
+            
     public void eat(Eatable other)
     {
         other.getEaten();
@@ -46,6 +43,7 @@ public class Rat extends Moveable implements Killable {
         correctPosition((Positioned) other);
         faceAwayFrom(other);
         ismoving = false;
+        canCreateTail = false;
     }
     public void faceAwayFrom(Hidable other)
     {
@@ -81,12 +79,12 @@ public class Rat extends Moveable implements Killable {
         
         double tailwidth = (getDirection() == Const.right ||
                 getDirection() == Const.left) ?
-                Const.tailthickness : Const.ratspeed;
+                Const.ratspeed : Const.tailthickness;
         double tailheight = (getDirection() == Const.up ||
                 getDirection() == Const.down) ?
-                Const.tailthickness : Const.ratspeed;
+                Const.ratspeed : Const.tailthickness;
         
-        Tail newtail = new Tail(X(), Y(), tailwidth, tailheight, this);
+        Tail newtail = new Tail(oldX(), oldY(), tailwidth, tailheight, this);
         getEntities().addEntity(newtail);
         lastTail = newtail;
     }
@@ -142,4 +140,21 @@ public class Rat extends Moveable implements Killable {
             oldDirection = getDirection();
         }
     }
+    
+@Override
+    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    {
+        g.setColor(Color.BLACK);
+        g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
+            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+    }
+
+@Override
+    public void moveTo(double dir)
+    {
+        setDirection(dir);
+        ismoving = true;
+    }
+@Override
+    public int playerID()   {return 1;}
 }

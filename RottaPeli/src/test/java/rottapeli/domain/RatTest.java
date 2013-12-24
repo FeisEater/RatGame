@@ -68,28 +68,28 @@ public class RatTest {
      @Test
      public void ratMovesRight()
      {
-         rat.startMovingTo(Const.right);
+         rat.moveTo(Const.right);
          rat.update();
          assertTrue(rat.X() > 0.01 && approximates(rat.Y(), 0));
      }
      @Test
      public void ratMovesLeft()
      {
-         rat.startMovingTo(Const.left);
+         rat.moveTo(Const.left);
          rat.update();
          assertTrue(rat.X() < -0.01 && approximates(rat.Y(), 0));
      }
      @Test
      public void ratMovesUp()
      {
-         rat.startMovingTo(Const.up);
+         rat.moveTo(Const.up);
          rat.update();
          assertTrue(rat.Y() < -0.01 && approximates(rat.X(), 0));
      }
      @Test
      public void ratMovesDown()
      {
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          rat.update();
          assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
      }
@@ -107,7 +107,7 @@ public class RatTest {
      {
          Eatable cheese = new Cheese(0, 1.5);
          list.addEntity((Cheese)cheese);
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          boolean b1 = list.getList(Eatable.class).size() > 0;
          rat.update();
          boolean b2 = list.getList(Eatable.class).size() == 0;
@@ -117,7 +117,7 @@ public class RatTest {
      @Test
      public void ratDoesntCreateTailIfOneIsTouchingIt()
      {
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          Tail tail = new Tail(0,0.5,1,1,rat);
          list.addEntity(tail);
          rat.update();
@@ -129,7 +129,7 @@ public class RatTest {
      @Test
      public void dontGiveARatsAssWhenItsSomeoneElsesTail()
      {
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          Rat someoneElse = new Rat(10,0);
          list.addEntity(someoneElse);
          Tail tail = new Tail(0,0.5,1,1,someoneElse);
@@ -140,14 +140,14 @@ public class RatTest {
      @Test
      public void ratstretchesTail()
      {
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          assertTrue(list.getList(Tail.class).size() > 5);
      }
      @Test
      public void ratDestroysTails()
      {
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          rat.removeTails();
          assertTrue(list.getList(Tail.class).size() == 0);
@@ -159,7 +159,7 @@ public class RatTest {
          Tail someoneElsesTail = new Tail(0,0,0,0, someoneElse);
          list.addEntity(rat);
          list.addEntity(someoneElsesTail);
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          rat.removeTails();
          assertTrue(list.getList(Tail.class).size() == 1);
@@ -169,7 +169,7 @@ public class RatTest {
      {
          Border hole = new Border(0, 5, 1, 1);
          list.addEntity(hole);
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          for (int i = 0; i < 10; i++)  rat.update();
      }
      @Test
@@ -188,7 +188,7 @@ public class RatTest {
      public void ratStaysFacingAway()
      {
          setupHidingTest();
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          rat.update();
          assertTrue(approximates(rat.getDirection(), Const.up));
      }
@@ -204,7 +204,7 @@ public class RatTest {
     {
          Border hole = new Border(0, 1.5, 1, 1);
          list.addEntity(hole);
-         rat.startMovingTo(Const.down);
+         rat.moveTo(Const.down);
          rat.update();
         assertTrue(approximates(rat.Y(), 0.5));
     }
