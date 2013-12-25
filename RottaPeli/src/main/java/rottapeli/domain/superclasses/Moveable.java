@@ -69,12 +69,6 @@ public class Moveable extends Positioned implements Updatable {
             }
         }
     }
-    public boolean collidesWith(Positioned other)
-    {
-        if (this == other)  return false;
-        
-        return Tools.isInside(this, other) || Tools.isInside(other, this);
-    }
     
     public void reactToCollision(Entity other)   {}
     

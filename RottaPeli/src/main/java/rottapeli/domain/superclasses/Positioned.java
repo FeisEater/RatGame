@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.List;
+import rottapeli.resource.Const;
 import rottapeli.resource.Tools;
 
 /**
@@ -41,17 +43,61 @@ public class Positioned extends Entity {
     
     public void findNearestFreeSpot()
     {
+        if (getEntities() == null)  return;
+        
+        List<Entity> entities = getEntities().getList(null);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
+        
         xQueue.add(x);
         yQueue.add(y);
         while (!xQueue.isEmpty())
         {
             x = xQueue.poll();
             y = yQueue.poll();
+            boolean noCollisions = true;
+            for (Entity other : entities)
+            {
+                if (collidesWith((Positioned)other))
+                {
+                    noCollisions = false;
+                    
+                    if (x + getWidth() > Const.width)
+                    {
+                        xQueue.add(x + 2 * getWidth());
+                        yQueue.add(y);
+                    }
+
+                    if (y + getHeight() > Const.height)
+                    {
+                        xQueue.add(x);
+                        yQueue.add(y + 2 * getHeight());
+                    }
+
+                    if (x < 0)
+                    {
+                        xQueue.add(x - 2 * getWidth());
+                        yQueue.add(y);
+                    }
+                    
+                    if (y < 0)
+                    {
+                        xQueue.add(x);
+                        yQueue.add(y - 2 * getHeight());
+                    }
+                }
+            }
+            if (noCollisions)    return;
         }
     }
     
+    public boolean collidesWith(Positioned other)
+    {
+        if (this == other)  return false;
+        
+        return Tools.isInside(this, other) || Tools.isInside(other, this);
+    }
+
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.BLACK);
