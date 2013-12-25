@@ -61,30 +61,7 @@ public class Positioned extends Entity {
                 if (collidesWith((Positioned)other))
                 {
                     noCollisions = false;
-                    
-                    if (x + getWidth() > Const.width)
-                    {
-                        xQueue.add(x + 2 * getWidth());
-                        yQueue.add(y);
-                    }
-
-                    if (y + getHeight() > Const.height)
-                    {
-                        xQueue.add(x);
-                        yQueue.add(y + 2 * getHeight());
-                    }
-
-                    if (x < 0)
-                    {
-                        xQueue.add(x - 2 * getWidth());
-                        yQueue.add(y);
-                    }
-                    
-                    if (y < 0)
-                    {
-                        xQueue.add(x);
-                        yQueue.add(y - 2 * getHeight());
-                    }
+                    getNearbyPositions(xQueue, yQueue);
                 }
             }
             if (noCollisions)    return;
@@ -98,6 +75,33 @@ public class Positioned extends Entity {
         return Tools.isInside(this, other) || Tools.isInside(other, this);
     }
 
+    public void getNearbyPositions(Deque<Double> xQueue, Deque<Double> yQueue)
+    {
+        if (x + getWidth() > Const.width)
+        {
+            xQueue.add(x + 2 * getWidth());
+            yQueue.add(y);
+        }
+
+        if (y + getHeight() > Const.height)
+        {
+            xQueue.add(x);
+            yQueue.add(y + 2 * getHeight());
+        }
+
+        if (x < 0)
+        {
+            xQueue.add(x - 2 * getWidth());
+            yQueue.add(y);
+        }
+
+        if (y < 0)
+        {
+            xQueue.add(x);
+            yQueue.add(y - 2 * getHeight());
+        }
+    }
+    
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.BLACK);
