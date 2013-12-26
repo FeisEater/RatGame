@@ -12,22 +12,42 @@ import rottapeli.interfaces.Killable;
 import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;
 /**
- *
+ * Moving bouncing ball.
+ * <p>
+ * Main hazard in the game. Moves with a constant speed. Changes direction only
+ * if it collides with an Entity that implements Bouncable interface. On
+ * collision kills entities that implement Killable interface.
  * @author Pavel
  */
 public class Ball extends Moveable implements Bouncable {
-
+/**
+ * Constructor
+ * 
+ * @param x     X position where ball is created.
+ * @param y     Y position where ball is created.
+ * @param ang   Initial direction in radians where ball moves to.
+ */
     public Ball(double x, double y, double ang)
     {
         super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed);
     }
-
-
+/**
+ * Calls die() method to the Entity given as a parameter.
+ * 
+ * @param other Killable Entity that is to be killed.
+ */
     public void kill(Killable other)
     {
         other.die();
     }
-    
+/**
+ * Bounces off the Entity given as a parameter.
+ * <p>
+ * When method is called, Ball will change its direction depending on its
+ * previous trajectory and the other Entity's location.
+ * 
+ * @param other Entity from which Ball bounces off.
+ */
     public void bounceOff(Bouncable other)
     {
         double newXspeed = xSpeed();
@@ -41,7 +61,17 @@ public class Ball extends Moveable implements Bouncable {
         correctPosition((Positioned) other);
         setDirection(newXspeed, newYspeed);
     }
-    
+/**
+ * Corrects position to prevent this entity being inside the other.
+ * <p>
+ * This method is overriden by Ball. Instead of placing the ball at the edge
+ * of the other Entity, Ball is placed further away from the other Entity
+ * according to how much Ball penetrated the other Entity during collision. This
+ * way the game simulates where the Ball would be located between two timer
+ * ticks.
+ * 
+ * @param other Entity in respect to which this entity's position is corrected.
+ */
     @Override
     public void correctPosition(Positioned other)
     {
@@ -52,7 +82,15 @@ public class Ball extends Moveable implements Bouncable {
         
         setPos(X() + (X() - prevX), Y() + (Y() - prevY));
     }
-
+/**
+ * This method is called every collision in order to do further actions
+ * according to the collided entity's properties. Must be overriden if this
+ * Entity does anything on collisions
+ * <p>
+ * Ball bounces off Bouncable Entities and kills Killable Entities on collision.
+ * 
+ * @param other Entity with which this Entity has collided.
+ */
     @Override
     public void reactToCollision(Entity other)
     {
@@ -63,14 +101,26 @@ public class Ball extends Moveable implements Bouncable {
             kill((Killable)other);
 
     }
-
+/**
+ * This method is called every tick on the timer.
+ * <p>
+ * Ball moves and checks for collisions.
+ */
     @Override
     public void update()
     {
         move();
         checkCollisions();
     }
-    
+/**
+ * Contains instructions on how to represent this entity in the GameField.
+ * <p>
+ * Ball is a red oval.
+ * 
+ * @param g             Graphics data.
+ * @param xMultiplier   Horizontal stretching based on windows width.
+ * @param yMultiplier   Vertical stretching based on windows height.
+ */
     @Override
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {

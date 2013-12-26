@@ -10,7 +10,9 @@ import javax.swing.SwingUtilities;
 import rottapeli.domain.Ball;
 import rottapeli.domain.Border;
 import rottapeli.domain.Cheese;
+import rottapeli.domain.PlacementBlocker;
 import rottapeli.domain.Rat;
+import rottapeli.domain.superclasses.Positioned;
 import rottapeli.gui.GameField;
 import rottapeli.gui.GraphicInterface;
 import rottapeli.interfaces.Updatable;
@@ -35,15 +37,41 @@ public class RottaPeli {
         gt.start();
         pi.setTimer(gt);
         
-        entities.addEntity(new Ball(5,5,Const.rightdown));
-        entities.addEntity(new Ball(192,64,Const.rightdown));
         entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
         entities.addEntity(new Border(-32, -32, 32, Const.height + 64));
         entities.addEntity(new Border(-32, Const.height, Const.width + 64, 32));
         entities.addEntity(new Border(Const.width, -32, 32, Const.height + 64));
-        Rat rat = new Rat(64, 0);
+        entities.addEntity(new PlacementBlocker(0, 0, Const.width, Const.placementBlockerThickness));
+        entities.addEntity(new PlacementBlocker(0, 0, Const.placementBlockerThickness, Const.height));
+        entities.addEntity(new PlacementBlocker(0, Const.height - Const.placementBlockerThickness, Const.width, Const.placementBlockerThickness));
+        entities.addEntity(new PlacementBlocker(Const.width - Const.placementBlockerThickness, 0, Const.placementBlockerThickness, Const.height));
+        
+        Rat rat = new Rat(Math.round(Const.width / 2), 0);
         entities.addEntity(rat);
-        entities.addEntity(new Cheese(96,96));
+        
+        for (int i = 0; i < Const.ballAmountInFirstLevel; i++)
+            createAndPosition(new Ball(randomX(), randomY(), randomBallDirection()), entities);
+
+        for (int i = 0; i < Const.cheeseammount; i++)
+            createAndPosition(new Cheese(randomX(), randomY()), entities);
+    
+    }
+    
+    public void createAndPosition(Positioned p, EntityList entities)
+    {
+        entities.addEntity(p);
+        p.findNearestFreeSpot();
+    }
+    public double randomX() {return Math.round(Math.random() * Const.width);}
+    public double randomY() {return Math.round(Math.random() * Const.height);}
+    public double randomBallDirection()
+    {
+        double randomNumber = Math.random();
+        
+        if (randomNumber < 0.25)    return Const.rightdown;
+        if (randomNumber < 0.5)    return Const.leftdown;
+        if (randomNumber < 0.75)    return Const.leftup;
+        return Const.rightup;
     }
     
     public GameField createGUI(EntityList el)

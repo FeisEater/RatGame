@@ -71,3 +71,8 @@
 		the spot is free and if it isn't, places the entity somewhere
 		else nearby. Made tests for it. Will need refactoring most
 		likely. 4 hours.
+
+		RottaPeli creates all the necessary entities needed for the
+		game. Made tests for PlayerInput class. 1,5 hours.
+
+		Wrote JavaDoc for Ball. 30 minutes.
