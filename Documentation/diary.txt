@@ -66,3 +66,8 @@
 
 		Implemented a KeyListener, Rat is now controlled by
 		arrow keys. 2 hours.
+
+26.12.2013	Implemented an entity positioning algorithm that checks if
+		the spot is free and if it isn't, places the entity somewhere
+		else nearby. Made tests for it. Will need refactoring most
+		likely. 4 hours.
