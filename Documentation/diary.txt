@@ -86,3 +86,7 @@
 		Entity and for many of its subclasses. These constructors
 		don't require position as parameter, calling defaultPosition()
 		instead. 1,5 hours.
+
+		Collision algorithm can now make a distinction if entities
+		are simply touching sides or whether one is inside another.
+		Rat tells RottaPeli to reset Balls. 1,5 hours.

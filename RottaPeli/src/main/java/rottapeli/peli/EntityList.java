@@ -21,6 +21,7 @@ public class EntityList implements Updatable {
         entities = new CopyOnWriteArrayList();
     }
     
+    public RottaPeli gameLogic()    {return rp;}
     public void addEntity(Entity e)
     {
         e.setEntityList(this);

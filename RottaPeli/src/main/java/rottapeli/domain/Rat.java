@@ -125,15 +125,15 @@ public class Rat extends Moveable implements Killable, Controllable {
         setPos(Math.round(Const.width / 2), 0);
     }
 @Override
-    public void reactToCollision(Entity other)
+    public void reactToCollision(Entity other, boolean notOnTheEdge)
     {
         if (Hidable.class.isInstance(other))
             hide((Hidable)other);
 
-        if (Eatable.class.isInstance(other))
+        if (Eatable.class.isInstance(other) && notOnTheEdge)
             eat((Eatable)other);
 
-        if (Tail.class.isInstance(other))
+        if (Tail.class.isInstance(other) && notOnTheEdge)
             examineTail((Tail)other);
 
     }
@@ -142,17 +142,11 @@ public class Rat extends Moveable implements Killable, Controllable {
     public void die()
     {
         removeTails();
-        
-        List<Ball> balls = getEntities().getList(Ball.class);
-        for (Ball b : balls)
-        {
-            b.defaultPosition();
-        }
-        
         defaultPosition();
         setDirection(Const.down);
         ismoving = false;
         canCreateTail = false;
+        getEntities().gameLogic().playerDied();
     }
     
 @Override

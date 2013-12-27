@@ -99,4 +99,17 @@ public class RottaPeli {
         }
     }
 
+    public void resetPosition(Class type)
+    {
+        List<Positioned> resettables = entities.getList(type);
+        for (Positioned p : resettables)
+        {
+            p.defaultPosition();
+        }
+    }
+    
+    public void playerDied()
+    {
+        resetPosition(Ball.class);
+    }
 }

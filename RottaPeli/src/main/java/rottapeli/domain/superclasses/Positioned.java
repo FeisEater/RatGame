@@ -74,7 +74,7 @@ public class Positioned extends Entity {
             boolean noCollisions = true;
             for (Entity other : entities)
             {
-                if (collidesWith((Positioned)other))
+                if (collidesWith((Positioned)other, false))
                 {
                     noCollisions = false;
                     getNearbyPositions(xQueue, yQueue, usedX, usedY);
@@ -85,11 +85,12 @@ public class Positioned extends Entity {
         }
     }
     
-    public boolean collidesWith(Positioned other)
+    public boolean collidesWith(Positioned other, boolean notOnTheEdge)
     {
         if (this == other)  return false;
         
-        return Tools.isInside(this, other) || Tools.isInside(other, this);
+        return  Tools.isInside(this, other, notOnTheEdge) || 
+                Tools.isInside(other, this, notOnTheEdge);
     }
 
     public void getNearbyPositions(Deque<Double> xQueue, Deque<Double> yQueue, List<Double> usedX, List<Double> usedY)

@@ -53,41 +53,41 @@ public class ToolsTest {
     @Test
     public void pointIsInside()
     {
-        assertTrue(Tools.pointInside(p, 0.5, 0.5));
+        assertTrue(Tools.pointInside(p, 0.5, 0.5, false));
     }
     @Test
     public void pointIsInside2()
     {
-        assertTrue(Tools.pointInside(p, 0, 0));
+        assertTrue(Tools.pointInside(p, 0, 0, false));
     }
     @Test
     public void pointIsInside3()
     {
-        assertTrue(Tools.pointInside(p, 1, 1));
+        assertTrue(Tools.pointInside(p, 1, 1, false));
     }
     @Test
     public void pointNotInside()
     {
-        assertTrue(!Tools.pointInside(p, 0.5, 2));
+        assertTrue(!Tools.pointInside(p, 0.5, 2, false));
     }
 
     @Test
     public void objectInsideAnother()
     {
         q = new Positioned(-0.5, -0.5, 1, 1);
-        assertTrue(Tools.isInside(q, p));
+        assertTrue(Tools.isInside(q, p, false));
     }
     @Test
     public void objectInsideAnother2()
     {
         q = new Positioned(0, 0, 1, 1);
-        assertTrue(Tools.isInside(q, p));
+        assertTrue(Tools.isInside(q, p, false));
     }
     @Test
     public void objectInsideAnother3()
     {
         q = new Positioned(-1, -1, 3, 3);
-        assertTrue(Tools.isInside(q, p));
+        assertTrue(Tools.isInside(q, p, false));
     }
     
     @Test

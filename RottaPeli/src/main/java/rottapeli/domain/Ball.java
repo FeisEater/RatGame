@@ -22,6 +22,12 @@ import rottapeli.resource.Tools;
  */
 public class Ball extends Moveable implements Bouncable {
 
+/**
+ * Constructor
+ * <p>
+ * Calling an Entity constructor without parameters will place the Entity
+ * in defaultPosition.
+ */
     public Ball()
     {
         super(Const.ballwidth, Const.ballheight, 
@@ -98,9 +104,11 @@ public class Ball extends Moveable implements Bouncable {
  * Ball bounces off Bouncable Entities and kills Killable Entities on collision.
  * 
  * @param other Entity with which this Entity has collided.
+ * @param notOnTheEdge true if other is truly inside this Entity, not simply
+ *  on the edge.
  */
     @Override
-    public void reactToCollision(Entity other)
+    public void reactToCollision(Entity other, boolean notOnTheEdge)
     {
         if (Bouncable.class.isInstance(other))
             bounceOff((Bouncable)other);
@@ -120,7 +128,12 @@ public class Ball extends Moveable implements Bouncable {
         move();
         checkCollisions();
     }
-    
+/**
+ * Places the Entity at a specified location. Must be overriden to be functional.
+ * <p>
+ * Ball is placed at a random location. It is preferrable to call
+ * findNearestFreeSpot() after calling this method.
+ */
     @Override
     public void defaultPosition()
     {

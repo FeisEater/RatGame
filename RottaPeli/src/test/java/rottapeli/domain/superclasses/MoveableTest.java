@@ -91,41 +91,41 @@ public class MoveableTest {
     public void checksCollision()
     {
         Positioned p = new Positioned(0.5, 0.5, 1, 1);
-        assertTrue(m.collidesWith(p));
+        assertTrue(m.collidesWith(p, false));
     }
     @Test
     public void checksCollision2()
     {
         Positioned p = new Positioned(0, 0, 1, 1);
-        assertTrue(m.collidesWith(p));
+        assertTrue(m.collidesWith(p, false));
     }
     @Test
     public void checksCollision3()
     {
         Positioned p = new Positioned(1, 1, 1, 1);
-        assertTrue(m.collidesWith(p));
+        assertTrue(m.collidesWith(p, false));
     }
     @Test
     public void bogusCollision()
     {
         Positioned p = new Positioned(2, 0.5, 1, 1);
-        assertTrue(!m.collidesWith(p));
+        assertTrue(!m.collidesWith(p, false));
     }
 
     @Test
     public void checksCollisionViaMovement()
     {
         Positioned p = new Positioned(2, 0, 1, 1);
-        boolean b1 = !m.collidesWith(p);
+        boolean b1 = !m.collidesWith(p, false);
         m.move();
-        boolean b2 = m.collidesWith(p);
+        boolean b2 = m.collidesWith(p, false);
         assertTrue(b1 && b2);
     }
     
     @Test
     public void objectDoesntCollideWithItself()
     {
-        assertTrue(!m.collidesWith(m));
+        assertTrue(!m.collidesWith(m, false));
     }
     
     @Test

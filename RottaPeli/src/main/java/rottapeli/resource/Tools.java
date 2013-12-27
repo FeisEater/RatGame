@@ -1,9 +1,6 @@
 
 package rottapeli.resource;
 
-import java.util.HashSet;
-import java.util.Set;
-import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Positioned;
 
 /**
@@ -11,16 +8,45 @@ import rottapeli.domain.superclasses.Positioned;
  * @author Pavel
  */
 public class Tools {
-    public static boolean isInside(Positioned a, Positioned b)
+    public static boolean isInside(Positioned a, Positioned b, boolean notOnTheEdge)
     {
-        return  pointInside(a, b.leftBorder(), b.topBorder()) ||
-                pointInside(a, b.rightBorder(), b.topBorder()) ||
-                pointInside(a, b.leftBorder(), b.bottomBorder()) ||
-                pointInside(a, b.rightBorder(), b.bottomBorder());
+        if (notOnTheEdge)
+        {
+//Both entities are occupying the same space exactly
+            if (a.leftBorder() == b.leftBorder() &&
+                a.rightBorder() == b.rightBorder() &&
+                a.topBorder() == b.topBorder() &&
+                a.bottomBorder() == b.bottomBorder())
+                    return true;
+
+            if (a.leftBorder() == b.leftBorder() &&
+                a.rightBorder() == b.rightBorder())
+            {
+                if (pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.topBorder(), true) ||
+                    pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.bottomBorder(), true))
+                        return true;
+            }
+            if (a.topBorder() == b.topBorder() &&
+                a.bottomBorder() == b.bottomBorder())
+            {
+                if (pointInside(a, b.leftBorder(), (b.topBorder() + b.bottomBorder()) / 2, true) ||
+                    pointInside(a, b.rightBorder(), (b.topBorder() + b.bottomBorder()) / 2, true))
+                        return true;
+            }
+        }
+        
+        return  pointInside(a, b.leftBorder(), b.topBorder(), notOnTheEdge) ||
+                pointInside(a, b.rightBorder(), b.topBorder(), notOnTheEdge) ||
+                pointInside(a, b.leftBorder(), b.bottomBorder(), notOnTheEdge) ||
+                pointInside(a, b.rightBorder(), b.bottomBorder(), notOnTheEdge);
     }
-    public static boolean pointInside(Positioned other, double x, double y)
+    public static boolean pointInside(Positioned other, double x, double y, boolean notOnTheEdge)
     {
-        return  x >= other.leftBorder() && x <= other.rightBorder() &&
+        if (notOnTheEdge)
+            return  x > other.leftBorder() && x < other.rightBorder() &&
+                y > other.topBorder() && y < other.bottomBorder();
+        else
+            return  x >= other.leftBorder() && x <= other.rightBorder() &&
                 y >= other.topBorder() && y <= other.bottomBorder();
     }
     

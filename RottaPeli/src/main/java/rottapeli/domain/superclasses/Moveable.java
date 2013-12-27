@@ -70,14 +70,14 @@ public class Moveable extends Positioned implements Updatable {
         List<Entity> entities = getEntities().getList(null);
         for (Entity other : entities)
         {
-            if (collidesWith((Positioned)other))
+            if (collidesWith((Positioned)other, false))
             {
-                reactToCollision(other);
+                reactToCollision(other, collidesWith((Positioned)other, true));
             }
         }
     }
     
-    public void reactToCollision(Entity other)   {}
+    public void reactToCollision(Entity other, boolean notOnTheEdge)   {}
     
     public ApproachFrom[] collisionType(Positioned other)
     {
