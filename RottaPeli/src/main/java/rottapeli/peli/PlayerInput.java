@@ -34,7 +34,7 @@ public class PlayerInput implements KeyListener, Updatable {
             if (plr.playerID() == id)   plr.moveTo(dir);
         }
     }
-    
+        
     @Override
     public void update()
     {
@@ -63,6 +63,8 @@ public class PlayerInput implements KeyListener, Updatable {
     public void keyPressed(KeyEvent e)
     {
         pressedKeys.add(e.getKeyCode());
+        if (e.getKeyCode() == KeyEvent.VK_P)
+            timer.togglePause();
     }
 
     @Override

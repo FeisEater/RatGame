@@ -17,22 +17,30 @@ public class GameTimer extends Timer implements ActionListener {
     private Updatable entities;
     private Updatable field;
     private Updatable input;
+    private boolean gameIsPaused;
     public GameTimer(Updatable el, Updatable gf, Updatable pi)
     {
         super(1000 / Const.fps, null);
         addActionListener(this);
-        //setInitialDelay(0);
 
         entities = el;
         field = gf;
         input = pi;
+        
+        gameIsPaused = false;
     }
     
+    public void togglePause()
+    {
+        gameIsPaused = !gameIsPaused;
+    }
 @Override
     public void actionPerformed(ActionEvent ae)
     {
-        if (entities != null)   entities.update();
-        if (field != null)   field.update();
+        if (entities != null && !gameIsPaused)
+            entities.update();
+        if (field != null && !gameIsPaused)
+            field.update();
         if (input != null)   input.update();
     }
 

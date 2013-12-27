@@ -76,3 +76,6 @@
 		game. Made tests for PlayerInput class. 1,5 hours.
 
 		Wrote JavaDoc for Ball. 30 minutes.
+
+27.12.2013	Game can be paused. On death Rat and Balls reset position.
+		1 hour.

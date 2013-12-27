@@ -116,6 +116,12 @@ public class Positioned extends Entity {
         yQueue.add(y - 2 * getHeight());
     }
     
+    public void defaultPosition()
+    {
+        x = Math.round(Math.random() * Const.width);
+        y = Math.round(Math.random() * Const.height);
+    }
+    
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.BLACK);

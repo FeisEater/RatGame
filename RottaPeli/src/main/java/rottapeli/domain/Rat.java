@@ -111,7 +111,12 @@ public class Rat extends Moveable implements Killable, Controllable {
         getEntities().removeAll(toberemoved);
         lastTail = null;
     }
-    
+
+@Override
+    public void defaultPosition()
+    {
+        setPos(Math.round(Const.width / 2), 0);
+    }
 @Override
     public void reactToCollision(Entity other)
     {
@@ -129,8 +134,15 @@ public class Rat extends Moveable implements Killable, Controllable {
 @Override
     public void die()
     {
-        //Add code here
-        System.out.println("DEAD!");
+        removeTails();
+        
+        List<Ball> balls = getEntities().getList(Ball.class);
+        for (Ball b : balls)
+        {
+            b.defaultPosition();
+        }
+        
+        defaultPosition();
     }
     
 @Override
