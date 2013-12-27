@@ -25,11 +25,18 @@ public class Rat extends Moveable implements Killable, Controllable {
     private boolean canCreateTail;
     private double oldDirection;
     private Tail lastTail;
-    public Rat(double x, double y)
+
+    public Rat()
     {
-        super(x, y, Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
+        super(Const.ratwidth, Const.ratheight, 0, Const.ratspeed);
         ismoving = false;
         lastTail = null;
+    }
+    
+    public Rat(double x, double y)
+    {
+        this();
+        setPos(x,y);
     }
             
     public void eat(Eatable other)
@@ -143,6 +150,9 @@ public class Rat extends Moveable implements Killable, Controllable {
         }
         
         defaultPosition();
+        setDirection(Const.down);
+        ismoving = false;
+        canCreateTail = false;
     }
     
 @Override

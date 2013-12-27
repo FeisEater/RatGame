@@ -10,6 +10,6 @@ import rottapeli.resource.Const;
 public class Main {
     public static void main(String[] args)
     {
-        RottaPeli rottapeli = new RottaPeli();
+        RottaPeli rottapeli = new RottaPeli(true);
     }
 }

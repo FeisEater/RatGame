@@ -13,9 +13,11 @@ import rottapeli.interfaces.Updatable;
  * @author Pavel
  */
 public class EntityList implements Updatable {
+    private RottaPeli rp;
     private List entities;
-    public EntityList()
+    public EntityList(RottaPeli peli)
     {
+        rp = peli;
         entities = new CopyOnWriteArrayList();
     }
     

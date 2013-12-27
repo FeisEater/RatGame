@@ -19,13 +19,18 @@ public class Positioned extends Entity {
     private double y;
     private double width;
     private double height;
-    public Positioned(double x, double y, double w, double h)
+    public Positioned(double w, double h)
     {
         super();
-        this.x = x;
-        this.y = y;
         width = w;
         height = h;
+        defaultPosition();
+    }
+    public Positioned(double x, double y, double w, double h)
+    {
+        this(w, h);
+        this.x = x;
+        this.y = y;
     }
     public double X()    {return x;}
     public double Y()    {return y;}
@@ -116,11 +121,7 @@ public class Positioned extends Entity {
         yQueue.add(y - 2 * getHeight());
     }
     
-    public void defaultPosition()
-    {
-        x = Math.round(Math.random() * Const.width);
-        y = Math.round(Math.random() * Const.height);
-    }
+    public void defaultPosition()   {}
     
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {

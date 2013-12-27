@@ -40,7 +40,7 @@ public class PlayerInputTest {
     public void tearDown() {
     }
 
-    @Test
+/*    @Test
     public void inputControlsRat()
     {
         Rat rat = new Rat(0,0);
@@ -62,6 +62,6 @@ public class PlayerInputTest {
         pi.playerGo(2, Const.down);
         rat.update();
         assertTrue(rat.X() == 0 && rat.Y() == 0);
-    }
+    }*/
 
 }

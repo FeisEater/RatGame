@@ -15,6 +15,7 @@ import rottapeli.domain.Rat;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.gui.GameField;
 import rottapeli.gui.GraphicInterface;
+import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
 import rottapeli.peli.GameTimer;
@@ -23,58 +24,35 @@ import rottapeli.peli.GameTimer;
  * @author Pavel
  */
 public class RottaPeli {
-    private JFrame frame;
-    public RottaPeli()
+    private EntityList entities;
+    private GameField field;
+    private GameTimer timer;
+    private PlayerInput input;
+    public RottaPeli(boolean createsGUI)
     {        
-        EntityList entities = new EntityList();
+        input = new PlayerInput(this);
+        if (createsGUI)   field = createGUI(input);
+        entities = new EntityList(this);
+        timer = new GameTimer(this);
+        timer.start();
         
-        GameField field = createGUI(entities);
+        createBorders();
         
-        PlayerInput pi = new PlayerInput(entities);
-        frame.addKeyListener(pi);
-  
-        GameTimer gt = new GameTimer(entities, field, pi);
-        gt.start();
-        pi.setTimer(gt);
-        
-        entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
-        entities.addEntity(new Border(-32, -32, 32, Const.height + 64));
-        entities.addEntity(new Border(-32, Const.height, Const.width + 64, 32));
-        entities.addEntity(new Border(Const.width, -32, 32, Const.height + 64));
-        entities.addEntity(new PlacementBlocker(0, 0, Const.width, Const.placementBlockerThickness));
-        entities.addEntity(new PlacementBlocker(0, 0, Const.placementBlockerThickness, Const.height));
-        entities.addEntity(new PlacementBlocker(0, Const.height - Const.placementBlockerThickness, Const.width, Const.placementBlockerThickness));
-        entities.addEntity(new PlacementBlocker(Const.width - Const.placementBlockerThickness, 0, Const.placementBlockerThickness, Const.height));
-        
-        Rat rat = new Rat(Math.round(Const.width / 2), 0);
-        entities.addEntity(rat);
+        entities.addEntity(new Rat());
         
         for (int i = 0; i < Const.ballAmountInFirstLevel; i++)
-            createAndPosition(new Ball(randomX(), randomY(), randomBallDirection()), entities);
+            createAndPostionToFreeSpot(new Ball());
 
         for (int i = 0; i < Const.cheeseammount; i++)
-            createAndPosition(new Cheese(randomX(), randomY()), entities);
+            createAndPostionToFreeSpot(new Cheese());
     
     }
+    public EntityList getEntities() {return entities;}
+    public GameField getField()     {return field;}
+    public GameTimer getTimer()     {return timer;}
+    public PlayerInput getInput()   {return input;}
     
-    public void createAndPosition(Positioned p, EntityList entities)
-    {
-        entities.addEntity(p);
-        p.findNearestFreeSpot();
-    }
-    public double randomX() {return Math.round(Math.random() * Const.width);}
-    public double randomY() {return Math.round(Math.random() * Const.height);}
-    public double randomBallDirection()
-    {
-        double randomNumber = Math.random();
-        
-        if (randomNumber < 0.25)    return Const.rightdown;
-        if (randomNumber < 0.5)    return Const.leftdown;
-        if (randomNumber < 0.75)    return Const.leftup;
-        return Const.rightup;
-    }
-    
-    public GameField createGUI(EntityList el)
+    public GameField createGUI(PlayerInput pi)
     {
         GraphicInterface gui = new GraphicInterface();
         SwingUtilities.invokeLater(gui);
@@ -89,8 +67,36 @@ public class RottaPeli {
             }
         }
         
-        frame = gui.getFrame();
-        field.setEntityList(el);
+        field.setRottaPeli(this);
+        gui.setPlayerInput(pi);
         return field;
     }
+    
+    public void createBorders()
+    {
+        entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
+        entities.addEntity(new Border(-32, -32, 32, Const.height + 64));
+        entities.addEntity(new Border(-32, Const.height, Const.width + 64, 32));
+        entities.addEntity(new Border(Const.width, -32, 32, Const.height + 64));
+        
+        entities.addEntity(new PlacementBlocker(0, 0, Const.width, Const.placementBlockerThickness));
+        entities.addEntity(new PlacementBlocker(0, 0, Const.placementBlockerThickness, Const.height));
+        entities.addEntity(new PlacementBlocker(0, Const.height - Const.placementBlockerThickness, Const.width, Const.placementBlockerThickness));
+        entities.addEntity(new PlacementBlocker(Const.width - Const.placementBlockerThickness, 0, Const.placementBlockerThickness, Const.height));
+    }
+    public void createAndPostionToFreeSpot(Positioned p)
+    {
+        entities.addEntity(p);
+        p.findNearestFreeSpot();
+    }
+    
+    public void playerGo(int id, double dir)
+    {
+        List<Controllable> players = entities.getList(Controllable.class);
+        for (Controllable plr : players)
+        {
+            if (plr.playerID() == id)   plr.moveTo(dir);
+        }
+    }
+
 }

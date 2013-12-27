@@ -14,19 +14,14 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GameTimer extends Timer implements ActionListener {
-    private Updatable entities;
-    private Updatable field;
-    private Updatable input;
+    private RottaPeli rp;
     private boolean gameIsPaused;
-    public GameTimer(Updatable el, Updatable gf, Updatable pi)
+    public GameTimer(RottaPeli peli)
     {
         super(1000 / Const.fps, null);
         addActionListener(this);
 
-        entities = el;
-        field = gf;
-        input = pi;
-        
+        rp = peli;
         gameIsPaused = false;
     }
     
@@ -37,11 +32,11 @@ public class GameTimer extends Timer implements ActionListener {
 @Override
     public void actionPerformed(ActionEvent ae)
     {
-        if (entities != null && !gameIsPaused)
-            entities.update();
-        if (field != null && !gameIsPaused)
-            field.update();
-        if (input != null)   input.update();
+        if (rp.getEntities() != null && !gameIsPaused)
+            rp.getEntities().update();
+        if (rp.getField() != null && !gameIsPaused)
+            rp.getField().update();
+        if (rp.getInput() != null)   rp.getInput().update();
     }
 
 }

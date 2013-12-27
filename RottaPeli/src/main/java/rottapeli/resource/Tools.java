@@ -35,4 +35,14 @@ public class Tools {
         
         return i + d;
     }
+    
+    public static double randomDiagonalDirection()
+    {
+        double randomNumber = Math.random();
+        
+        if (randomNumber < 0.25)    return Const.rightdown;
+        if (randomNumber < 0.5)    return Const.leftdown;
+        if (randomNumber < 0.75)    return Const.leftup;
+        return Const.rightup;
+    }
 }

@@ -16,13 +16,20 @@ public class Moveable extends Positioned implements Updatable {
     private double speed;
     private double oldx;
     private double oldy;
-    public Moveable(double x, double y, double w, double h, double dir, double speed)
+    public Moveable(double w, double h, double dir, double speed)
     {
-        super(x,y,w,h);
-        oldx = x;
-        oldy = y;
+        super(w,h);
+        oldx = X();
+        oldy = Y();
         direction = dir;
         this.speed = speed;
+    }
+    public Moveable(double x, double y, double w, double h, double dir, double speed)
+    {
+        this(w, h, dir, speed);
+        oldx = x;
+        oldy = y;
+        setPos(x,y);
     }
     public void move()
     {

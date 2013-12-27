@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import rottapeli.interfaces.Updatable;
+import rottapeli.peli.PlayerInput;
 import rottapeli.resource.Const;
 
 /**
@@ -36,8 +37,8 @@ public class GraphicInterface implements Runnable {
     {
         return field;
     }
-    public JFrame getFrame()
+    public void setPlayerInput(PlayerInput pi)
     {
-        return frame;
+        frame.addKeyListener(pi);
     }
 }

@@ -16,23 +16,12 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class PlayerInput implements KeyListener, Updatable {
-    private EntityList entities;
-    private GameTimer timer;
+    private RottaPeli rp;
     private Set<Integer> pressedKeys;
-    public PlayerInput(EntityList list)
+    public PlayerInput(RottaPeli peli)
     {
-        entities = list;
+        rp = peli;
         pressedKeys = new HashSet<Integer>();
-    }
-    public void setTimer(GameTimer gt)  {timer = gt;}
-
-    public void playerGo(int id, double dir)
-    {
-        List<Controllable> players = entities.getList(Controllable.class);
-        for (Controllable plr : players)
-        {
-            if (plr.playerID() == id)   plr.moveTo(dir);
-        }
     }
         
     @Override
@@ -43,16 +32,16 @@ public class PlayerInput implements KeyListener, Updatable {
             switch (e)
             {
                 case KeyEvent.VK_RIGHT:
-                    playerGo(1, Const.right);
+                    rp.playerGo(1, Const.right);
                     break;
                 case KeyEvent.VK_LEFT:
-                    playerGo(1, Const.left);
+                    rp.playerGo(1, Const.left);
                     break;
                 case KeyEvent.VK_UP:
-                    playerGo(1, Const.up);
+                    rp.playerGo(1, Const.up);
                     break;
                 case KeyEvent.VK_DOWN:
-                    playerGo(1, Const.down);
+                    rp.playerGo(1, Const.down);
                     break;
                 default:
                     break;
@@ -64,7 +53,7 @@ public class PlayerInput implements KeyListener, Updatable {
     {
         pressedKeys.add(e.getKeyCode());
         if (e.getKeyCode() == KeyEvent.VK_P)
-            timer.togglePause();
+            rp.getTimer().togglePause();
     }
 
     @Override

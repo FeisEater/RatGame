@@ -17,7 +17,7 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GameTimerTest {
-    private EntityList list;
+    private RottaPeli rp;
     private GameTimer gt;
     public GameTimerTest() {
     }
@@ -32,9 +32,8 @@ public class GameTimerTest {
     
     @Before
     public void setUp() {
-        list = new EntityList();
-        gt = new GameTimer(list, null, null);
-        gt.start();
+        rp = new RottaPeli(false);
+        gt = rp.getTimer();
     }
     
     @After
@@ -57,7 +56,7 @@ public class GameTimerTest {
     public void gameUpdatesEntities() throws Exception
     {
         Moveable e = new Ball(0,0,Const.right);
-        list.addEntity(e);
+        rp.getEntities().addEntity(e);
         Thread.sleep(100);
         assertTrue(e.X() > 0.1);
     }

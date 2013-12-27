@@ -40,7 +40,7 @@ public class EntityListTest {
     
     @Before
     public void setUp() {
-        list = new EntityList();
+        list = new EntityList(null);
         controlList = new ArrayList();
     }
     

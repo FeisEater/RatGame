@@ -37,7 +37,7 @@ public class RatTest {
     
     @Before
     public void setUp() {
-        list = new EntityList();
+        list = new EntityList(null);
         rat = new Rat(0, 0);
         list.addEntity(rat);
     }

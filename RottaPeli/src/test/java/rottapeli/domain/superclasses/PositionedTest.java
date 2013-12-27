@@ -47,7 +47,7 @@ public class PositionedTest {
     public void getsNearbyPositions1()
     {
         Positioned p = new Positioned(64,64,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -59,7 +59,7 @@ public class PositionedTest {
     public void getsNearbyPositions2()
     {
         Positioned p = new Positioned(0,0,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -71,7 +71,7 @@ public class PositionedTest {
     public void getsNearbyPositions3()
     {
         Positioned p = new Positioned(255,191,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -83,7 +83,7 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds1()
     {
         Positioned p = new Positioned(-1,64,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -95,7 +95,7 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds2()
     {
         Positioned p = new Positioned(64,-1,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -107,7 +107,7 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds3()
     {
         Positioned p = new Positioned(Const.width,64,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -119,7 +119,7 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds4()
     {
         Positioned p = new Positioned(64,Const.height,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -131,7 +131,7 @@ public class PositionedTest {
     public void dontGetNearbyPositionIfAlreadyWasThere()
     {
         Positioned p = new Positioned(64,64,1,1);
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -160,7 +160,7 @@ public class PositionedTest {
     @Test
     public void ifSpotNotFreePlaceNearBy()
     {
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(64,64,1,1));
@@ -173,7 +173,7 @@ public class PositionedTest {
     @Test
     public void findWhichNearbySpotIsFree()
     {
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(48,64,128,128));
@@ -183,7 +183,7 @@ public class PositionedTest {
     @Test
     public void findWhichNearbySpotIsFree2()
     {
-        EntityList list = new EntityList();
+        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(48,48,32,32));

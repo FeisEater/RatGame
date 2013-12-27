@@ -11,6 +11,7 @@ import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Killable;
 import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;
+import rottapeli.resource.Tools;
 /**
  * Moving bouncing ball.
  * <p>
@@ -20,6 +21,12 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class Ball extends Moveable implements Bouncable {
+
+    public Ball()
+    {
+        super(Const.ballwidth, Const.ballheight, 
+                Tools.randomDiagonalDirection(), Const.ballspeed);
+    }
 /**
  * Constructor
  * 
@@ -31,6 +38,7 @@ public class Ball extends Moveable implements Bouncable {
     {
         super(x, y, Const.ballwidth, Const.ballheight, ang, Const.ballspeed);
     }
+    
 /**
  * Calls die() method to the Entity given as a parameter.
  * 
@@ -111,6 +119,13 @@ public class Ball extends Moveable implements Bouncable {
     {
         move();
         checkCollisions();
+    }
+    
+    @Override
+    public void defaultPosition()
+    {
+        setPos(Math.round(Math.random() * Const.width),
+                Math.round(Math.random() * Const.height));
     }
 /**
  * Contains instructions on how to represent this entity in the GameField.

@@ -35,7 +35,7 @@ public class CheeseTest {
     
     @Before
     public void setUp() {
-        list = new EntityList();
+        list = new EntityList(null);
         cheese = new Cheese(0,0);
         list.addEntity(cheese);
     }
