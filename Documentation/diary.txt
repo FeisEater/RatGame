@@ -90,3 +90,7 @@
 		Collision algorithm can now make a distinction if entities
 		are simply touching sides or whether one is inside another.
 		Rat tells RottaPeli to reset Balls. 1,5 hours.
+
+28.12.2013	Added ScoreKeeper. Implemented score adding and life losing
+		logic. Losing all lives ends the game. Going to try to
+		figure out how to use JLabels reasonably. 2,5 hours.

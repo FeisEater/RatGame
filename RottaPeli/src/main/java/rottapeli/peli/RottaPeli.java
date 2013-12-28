@@ -125,13 +125,15 @@ public class RottaPeli {
     
     public void playerAteCheese(int id)
     {
+        score.pointsForEatingCheese(id);
         if (entities.getList(Cheese.class).isEmpty())
         {
             resetPosition(Rat.class, false);
             resetPosition(Ball.class, true);
-            for (int i = 0; i < Const.cheeseammount; i++)
+            for (int i = 0; i < Const.cheeseamount; i++)
                 createAndPositionToFreeSpot(new Cheese());
             createAndPositionToFreeSpot(new Ball());
+            score.pointsForFinishingStage(id);
         }
     }
     
@@ -157,7 +159,7 @@ public class RottaPeli {
         for (int i = 0; i < Const.ballAmountInFirstLevel; i++)
             createAndPositionToFreeSpot(new Ball());
 
-        for (int i = 0; i < Const.cheeseammount; i++)
+        for (int i = 0; i < Const.cheeseamount; i++)
             createAndPositionToFreeSpot(new Cheese());
 
         score.resetScore(getPlayers());

@@ -18,7 +18,7 @@ public class GraphicInterface implements Runnable {
     
     public void createComponents(Container container)
     {
-        field = new GameField();
+        field = new GameField(container);
         container.add(field);
     }
     

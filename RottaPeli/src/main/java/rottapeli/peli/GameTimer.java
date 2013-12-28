@@ -36,6 +36,8 @@ public class GameTimer extends Timer implements ActionListener {
             rp.getEntities().update();
         if (rp.getField() != null && !gameIsPaused)
             rp.getField().update();
+        if (rp.getScore() != null && !gameIsPaused)
+            rp.getScore().update();
         if (rp.getInput() != null)   rp.getInput().update();
     }
 

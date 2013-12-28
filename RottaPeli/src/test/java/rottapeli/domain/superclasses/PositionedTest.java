@@ -70,14 +70,14 @@ public class PositionedTest {
     @Test
     public void getsNearbyPositions3()
     {
-        Positioned p = new Positioned(255,191,1,1);
+        Positioned p = new Positioned(127,95,1,1);
         EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
         p.getNearbyPositions(xQueue, yQueue, null, null);
-        assertTrue(xQueue.toString().equals("[257.0, 255.0, 253.0, 255.0]") &&
-                yQueue.toString().equals("[191.0, 193.0, 191.0, 189.0]"));
+        assertTrue(xQueue.toString().equals("[129.0, 127.0, 125.0, 127.0]") &&
+                yQueue.toString().equals("[95.0, 97.0, 95.0, 93.0]"));
     }
     @Test
     public void dontGetNearbyPositionsIfOutOfBounds1()

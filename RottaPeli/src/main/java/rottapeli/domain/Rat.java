@@ -42,7 +42,8 @@ public class Rat extends Moveable implements Killable, Controllable {
     public void eat(Eatable other)
     {
         other.getEaten();
-        getEntities().gameLogic().playerAteCheese(playerID());
+        if (getEntities() != null && getEntities().gameLogic() != null)
+            getEntities().gameLogic().playerAteCheese(playerID());
     }
     
     public void hide(Hidable other)
@@ -52,6 +53,8 @@ public class Rat extends Moveable implements Killable, Controllable {
         faceAwayFrom(other);
         ismoving = false;
         canCreateTail = false;
+        if (getEntities() != null && getEntities().gameLogic() != null)
+            getEntities().gameLogic().getScore().resetCombo(playerID());
     }
     public void faceAwayFrom(Hidable other)
     {
@@ -128,6 +131,8 @@ public class Rat extends Moveable implements Killable, Controllable {
         setDirection(Const.down);
         ismoving = false;
         canCreateTail = false;
+        if (getEntities() != null)
+            getEntities().gameLogic().getScore().resetCombo(playerID());
     }
 @Override
     public void reactToCollision(Entity other, boolean notOnTheEdge)

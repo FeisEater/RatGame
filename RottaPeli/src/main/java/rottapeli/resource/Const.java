@@ -16,7 +16,10 @@ public class Const {
     public static final double bonusDecreasingRate = 1;
     public static final int initialLifeAmount = 3;
     public static final double initialBonus = 5000;
-    public static final int cheeseammount = 10;
+    public static final double extraLifeReward = 10000;
+    public static final double cheesePoints = 1;
+    
+    public static final int cheeseamount = 10;
     public static final int ballAmountInFirstLevel = 2;
     public static final double ballspeed = 1.0;
     public static final double ratspeed = 1.0;
