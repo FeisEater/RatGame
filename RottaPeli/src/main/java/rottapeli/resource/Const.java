@@ -8,11 +8,14 @@ package rottapeli.resource;
 public class Const {
     public static final int fps = 60;
     
-    public static final int width = 256;
-    public static final int height = 192;
+    public static final int width = 128;
+    public static final int height = 96;
     
-    public static final double placementBlockerThickness = 32;
+    public static final double placementBlockerThickness = 16;
     
+    public static final double bonusDecreasingRate = 1;
+    public static final int initialLifeAmount = 3;
+    public static final double initialBonus = 5000;
     public static final int cheeseammount = 10;
     public static final int ballAmountInFirstLevel = 2;
     public static final double ballspeed = 1.0;
