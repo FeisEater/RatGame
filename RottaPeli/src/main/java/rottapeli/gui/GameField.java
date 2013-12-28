@@ -43,6 +43,7 @@ public class GameField extends JPanel implements Updatable {
         
         double widthMultiplier = getWidth() / (double)Const.width;
         double heightMultiplier = getHeight() / (double)Const.height;
+        //double multiplier = Math.min(widthMultiplier, heightMultiplier);
         
         List<Positioned> drawables = rp.getEntities().getList(Positioned.class);
         for (Positioned p : drawables)

@@ -1,10 +1,36 @@
 Subject: Rat Game
+
+Game rules, logic and objective:
 A simple game that resembles Xonix in many respects. Player controls a rat,
 whose objective is to eat all of the pieces of cheese located in the playing
 field. When rat starts moving, its tail start to stretch behind it, covering
 rat's track. When rat reaches an edge of the playing field, the tail
-disappears. Game also contains hazards, a certain amount of balls that bounce
+disappears. Game also contains hazards, a certain amount of balls. They bounce
 off walls, pieces of cheese and other balls. If a ball hits the rat or its
 tail, player loses a life. Player loses a life also if the rat hits it's tail.
-Once all of the pieces of cheese has been eaten, player proceeds to the next
-level. Consequtive levels increase the amount of balls by one.
+Once all of the pieces of cheese have been eaten, player proceeds to the next
+level. Consequtive levels increase the amount of balls by one. Game ends when
+player loses all of her/his lives. Extra lives are given when player reaches
+certain amount of points.
+
+High score:
+When game ends, score is saved to an external file. Score is saved in order.
+If score is among the best 10 scores, user is given an opportunity to enter
+his name. Top 10 scores can be viewed when 'High Score' button is selected
+in the main menu.
+
+Options:
+Game provides miscelanneous services.
+
+Language of the game can be selected. Game loads language specific information 
+from external files. User can provide his own translations by copying one of the
+language files and translating all of the text inside.
+
+All of the key inputs can be mapped specifically to any keys.
+
+Volume can be changed, or game audio can be muted all together.
+
+Aspect ratio can be toggled on and off.
+
+External file is used to store previous options. This file also stores
+previous window size in case user has been stretching the window.

@@ -12,16 +12,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rottapeli.domain.Rat;
-import rottapeli.resource.Const;
 
 /**
  *
  * @author Pavel
  */
-public class PlayerInputTest {
+public class ScoreKeeperTest {
     
-    public PlayerInputTest() {
+    public ScoreKeeperTest() {
     }
     
     @BeforeClass
@@ -40,6 +38,5 @@ public class PlayerInputTest {
     public void tearDown() {
     }
 
-
-    //test pressedKeys with keyPressed(), keyReleased() and update()
+    //test EVERYTHING
 }

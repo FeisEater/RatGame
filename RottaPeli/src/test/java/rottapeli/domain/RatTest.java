@@ -208,4 +208,9 @@ public class RatTest {
          rat.update();
         assertTrue(approximates(rat.Y(), 0.5));
     }
+    
+    //test defaulPosition()
+    //test eating and hiding if not precise collision
+    //test die()
+    //test hide() from other directions
 }

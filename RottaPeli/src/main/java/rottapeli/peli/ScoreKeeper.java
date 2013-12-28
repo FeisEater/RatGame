@@ -63,6 +63,10 @@ public class ScoreKeeper implements Updatable {
     }
     public void resetScore(Set<Integer> players)
     {
+        score.clear();
+        nextExtraLifeScore.clear();
+        combo.clear();
+        lives.clear();
         for (int id : players)
         {
             score.put(id, 0.0);

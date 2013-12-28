@@ -149,5 +149,5 @@ public class BallTest {
         assertTrue(ball.xSpeed() < -0.1 && ball.ySpeed() > 0.1);
     }
 
-
+    //test kill()
 }

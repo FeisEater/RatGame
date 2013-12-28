@@ -121,4 +121,27 @@ public class ToolsTest {
         assertTrue(Tools.round(2.9999999945) == 3);
     }
 
+    @Test
+    public void randomDiagonalDirectionIsRandom()
+    {
+        int[] count = {0,0,0,0};
+        for (int i = 0; i < 1000; i++)
+        {
+            double dir = Tools.randomDiagonalDirection();
+            if (dir == Const.leftdown)  count[0]++;
+            if (dir == Const.rightdown)  count[1]++;
+            if (dir == Const.leftup)  count[2]++;
+            if (dir == Const.rightup)  count[3]++;
+        }
+        boolean equalDistribution = true;
+        int sum = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            sum += count[i];
+            if (count[i] < 200 || count[i] > 300)
+                equalDistribution = false;
+        }
+        assertTrue(equalDistribution && sum == 1000);
+    }
+    //test isInside() and pointInside() if notOnTheEdge is true
 }

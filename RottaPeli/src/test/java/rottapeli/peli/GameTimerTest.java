@@ -33,6 +33,7 @@ public class GameTimerTest {
     @Before
     public void setUp() {
         rp = new RottaPeli(false);
+        rp.getEntities().removeAll(Entity.class);
         gt = rp.getTimer();
     }
     
@@ -60,4 +61,29 @@ public class GameTimerTest {
         Thread.sleep(100);
         assertTrue(e.X() > 0.1);
     }
+    
+    @Test
+    public void gameIsPaused() throws Exception
+    {
+        gt.togglePause();
+        Moveable e = new Ball(0,0,Const.right);
+        rp.getEntities().addEntity(e);
+        Thread.sleep(100);
+        assertTrue(e.X() == 0.0);
+    }
+
+    @Test
+    public void gameIsUnpaused() throws Exception
+    {
+        gt.togglePause();
+        Moveable e = new Ball(0,0,Const.right);
+        rp.getEntities().addEntity(e);
+        Thread.sleep(100);
+        boolean b1 = (e.X() == 0.0);
+        gt.togglePause();
+        Thread.sleep(100);
+        boolean b2 = (e.X() > 0.1);
+        assertTrue(b1 && b2);
+    }
+    //test if score updates
 }

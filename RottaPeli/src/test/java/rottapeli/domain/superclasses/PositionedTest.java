@@ -193,5 +193,6 @@ public class PositionedTest {
                     (p.X() == 46 && p.Y() == 64) ||
                     (p.X() == 64 && p.Y() == 46));
     }
+    //Tests for collidesWith()
 
 }
