@@ -318,4 +318,5 @@ public class RatTest {
          rat.update();
         assertTrue(!list.getList(Tail.class).isEmpty());
      }
+     //test tail creation coordinates
 }

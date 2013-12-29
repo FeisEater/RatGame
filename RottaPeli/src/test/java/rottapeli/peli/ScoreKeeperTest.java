@@ -114,5 +114,27 @@ public class ScoreKeeperTest {
         score.update();
         assertTrue(score.getBonus() == Const.initialBonus - Const.bonusDecreasingRate);
     }
-//test EVERYTHING
+    @Test
+    public void timeBonusCantBeNegative()
+    {
+        for (int i = 0; i < (Const.initialBonus / Const.bonusDecreasingRate) + 100; i++)
+            score.update();
+        assertTrue(score.getBonus() == 0);
+    }
+
+    @Test
+    public void timeBonusIsGiven()
+    {
+        score.update();
+        score.pointsForFinishingStage(1);
+        assertTrue(score.getPoints(1) == Const.initialBonus - Const.bonusDecreasingRate &&
+            score.getPoints(2) == Const.initialBonus - Const.bonusDecreasingRate);
+    }
+    @Test
+    public void ifTimeBonusIsGivenResetTimeBonus()
+    {
+        for (int i = 0; i < 100; i++)   score.update();
+        score.pointsForFinishingStage(1);
+        assertTrue(score.getBonus() == Const.initialBonus);
+    }
 }

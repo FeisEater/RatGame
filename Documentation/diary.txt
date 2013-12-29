@@ -94,3 +94,8 @@
 28.12.2013	Added ScoreKeeper. Implemented score adding and life losing
 		logic. Losing all lives ends the game. Going to try to
 		figure out how to use JLabels reasonably. 2,5 hours.
+
+29.12.2013	Caught up with tests. Some of them may not pass because of
+		a coincidence. For example one test tests if balls are placed
+		in a random location, and it fails when randomly generated
+		location is same as its previous location. 3 hours.
