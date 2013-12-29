@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.domain.Ball;
+import rottapeli.domain.Rat;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.resource.Const;
@@ -85,5 +86,23 @@ public class GameTimerTest {
         boolean b2 = (e.X() > 0.1);
         assertTrue(b1 && b2);
     }
-    //test if score updates
+    @Test
+    public void gameUpdatesScore() throws Exception
+    {
+        Rat plr = new Rat(0,0);
+        rp.getEntities().addEntity(plr);
+        Thread.sleep(100);
+        rp.playerAteCheese(1);
+        assertTrue(rp.getScore().getPoints(1) < Const.initialBonus);
+    }
+    @Test
+    public void gameDoesntUpdatesScoreWhenPaused() throws Exception
+    {
+        gt.togglePause();
+        Rat plr = new Rat(0,0);
+        rp.getEntities().addEntity(plr);
+        Thread.sleep(100);
+        rp.playerAteCheese(1);
+        assertTrue(rp.getScore().getPoints(1) >= Const.initialBonus);
+    }
 }

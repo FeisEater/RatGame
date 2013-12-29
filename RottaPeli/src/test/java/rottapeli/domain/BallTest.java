@@ -22,7 +22,7 @@ import rottapeli.resource.Const;
  */
 public class BallTest {
     
-    private Moveable ball;
+    private Ball ball;
     private EntityList list;
     private Positioned cheese;
     public BallTest() {
@@ -149,5 +149,25 @@ public class BallTest {
         assertTrue(ball.xSpeed() < -0.1 && ball.ySpeed() > 0.1);
     }
 
-    //test kill()
+    @Test
+    public void killsRat()
+    {
+        ball = new Ball(0, 0, Const.rightdown);
+        list.addEntity(ball);
+        Rat rat = new Rat(64, 64);
+        list.addEntity(rat);
+        ball.kill(rat);
+        assertTrue(rat.X() == Math.round(Const.width / 2) && rat.Y() == 0);
+    }
+    @Test
+    public void killsRatOnCollision()
+    {
+        ball = new Ball(62.5, 62.5, Const.rightdown);
+        list.addEntity(ball);
+        Rat rat = new Rat(64, 64);
+        list.addEntity(rat);
+        ball.update();
+        assertTrue(rat.X() == Math.round(Const.width / 2) && rat.Y() == 0);
+    }
+
 }

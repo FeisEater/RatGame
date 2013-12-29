@@ -66,9 +66,9 @@ public class Rat extends Moveable implements Killable, Controllable {
         }
         
         if (collisionType((Positioned) other)[0] == ApproachFrom.LEFT)
-            setDirection(Const.right);
-        if (collisionType((Positioned) other)[0] == ApproachFrom.RIGHT)
             setDirection(Const.left);
+        if (collisionType((Positioned) other)[0] == ApproachFrom.RIGHT)
+            setDirection(Const.right);
         if (collisionType((Positioned) other)[1] == ApproachFrom.ABOVE)
             setDirection(Const.up);
         if (collisionType((Positioned) other)[1] == ApproachFrom.BELOW)
@@ -131,7 +131,7 @@ public class Rat extends Moveable implements Killable, Controllable {
         setDirection(Const.down);
         ismoving = false;
         canCreateTail = false;
-        if (getEntities() != null)
+        if (getEntities() != null && getEntities().gameLogic() != null)
             getEntities().gameLogic().getScore().resetCombo(playerID());
     }
 @Override
@@ -152,7 +152,7 @@ public class Rat extends Moveable implements Killable, Controllable {
     public void die()
     {
         defaultPosition();
-        if (getEntities() != null)
+        if (getEntities() != null && getEntities().gameLogic() != null)
             getEntities().gameLogic().playerDied(playerID());
     }
     

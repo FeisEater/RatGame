@@ -23,7 +23,8 @@ import rottapeli.resource.Tools;
  * @author Pavel
  */
 public class PositionedTest {
-    
+    private Positioned q;
+    private EntityList list;
     public PositionedTest() {
     }
     
@@ -37,6 +38,7 @@ public class PositionedTest {
     
     @Before
     public void setUp() {
+        list = new EntityList(null);
     }
     
     @After
@@ -47,7 +49,6 @@ public class PositionedTest {
     public void getsNearbyPositions1()
     {
         Positioned p = new Positioned(64,64,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -59,7 +60,6 @@ public class PositionedTest {
     public void getsNearbyPositions2()
     {
         Positioned p = new Positioned(0,0,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -71,7 +71,6 @@ public class PositionedTest {
     public void getsNearbyPositions3()
     {
         Positioned p = new Positioned(127,95,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -83,7 +82,6 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds1()
     {
         Positioned p = new Positioned(-1,64,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -95,7 +93,6 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds2()
     {
         Positioned p = new Positioned(64,-1,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -107,7 +104,6 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds3()
     {
         Positioned p = new Positioned(Const.width,64,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -119,7 +115,6 @@ public class PositionedTest {
     public void dontGetNearbyPositionsIfOutOfBounds4()
     {
         Positioned p = new Positioned(64,Const.height,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -131,7 +126,6 @@ public class PositionedTest {
     public void dontGetNearbyPositionIfAlreadyWasThere()
     {
         Positioned p = new Positioned(64,64,1,1);
-        EntityList list = new EntityList(null);
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
@@ -160,7 +154,6 @@ public class PositionedTest {
     @Test
     public void ifSpotNotFreePlaceNearBy()
     {
-        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(64,64,1,1));
@@ -173,7 +166,6 @@ public class PositionedTest {
     @Test
     public void findWhichNearbySpotIsFree()
     {
-        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(48,64,128,128));
@@ -183,7 +175,6 @@ public class PositionedTest {
     @Test
     public void findWhichNearbySpotIsFree2()
     {
-        EntityList list = new EntityList(null);
         Positioned p = new Positioned(64,64,1,1);
         list.addEntity(p);
         list.addEntity(new Positioned(48,48,32,32));
@@ -193,6 +184,45 @@ public class PositionedTest {
                     (p.X() == 46 && p.Y() == 64) ||
                     (p.X() == 64 && p.Y() == 46));
     }
-    //Tests for collidesWith()
+    
+    public void setupCollision()
+    {
+        q = new Positioned(0,0,1,1);
+        list.addEntity(q);
+    }
+    @Test
+    public void checksCollision()
+    {
+        setupCollision();
+        Positioned p = new Positioned(0.5, 0.5, 1, 1);
+        assertTrue(q.collidesWith(p, false));
+    }
+    @Test
+    public void checksCollision2()
+    {
+        setupCollision();
+        Positioned p = new Positioned(0, 0, 1, 1);
+        assertTrue(q.collidesWith(p, false));
+    }
+    @Test
+    public void checksCollision3()
+    {
+        setupCollision();
+        Positioned p = new Positioned(1, 1, 1, 1);
+        assertTrue(q.collidesWith(p, false));
+    }
+    @Test
+    public void bogusCollision()
+    {
+        setupCollision();
+        Positioned p = new Positioned(2, 0.5, 1, 1);
+        assertTrue(!q.collidesWith(p, false));
+    }
+    @Test
+    public void objectDoesntCollideWithItself()
+    {
+        setupCollision();
+        assertTrue(!q.collidesWith(q, false));
+    }
 
 }

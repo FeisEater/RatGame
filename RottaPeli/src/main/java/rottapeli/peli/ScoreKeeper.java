@@ -26,6 +26,10 @@ public class ScoreKeeper implements Updatable {
         lives = new HashMap<Integer, Integer>();
     }
     public double getPoints(int id) {return score.get(id);}
+    public double getLives(int id) {return lives.get(id);}
+    public double getCombo(int id) {return combo.get(id);}
+    public double getBonus() {return timebonus;}
+    
     public void pointsForEatingCheese(int id)
     {
         addScore(id, combo.get(id));
@@ -82,6 +86,6 @@ public class ScoreKeeper implements Updatable {
     {
         timebonus -= Const.bonusDecreasingRate;
         if (timebonus < 0)  timebonus = 0;
-        System.out.println("score: " + score.get(1) + " lives: " + lives.get(1) + " combo: " + score.get(1) + " timebonus: " + timebonus);
+        //System.out.println("score: " + score.get(1) + " lives: " + lives.get(1) + " combo: " + score.get(1) + " timebonus: " + timebonus);
     }
 }

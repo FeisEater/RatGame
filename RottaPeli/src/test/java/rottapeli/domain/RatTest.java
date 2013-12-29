@@ -11,9 +11,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Hidable;
 import rottapeli.peli.EntityList;
+import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Const;
 
 /**
@@ -113,6 +115,16 @@ public class RatTest {
          boolean b2 = list.getList(Eatable.class).size() == 0;
          assertTrue(b1 && b2);
      }
+     @Test
+     public void ratDoesntEatCheeseIfItMerelyTouchesSide()
+     {
+         Eatable cheese = new Cheese(1, 1.5);
+         list.addEntity((Cheese)cheese);
+         rat.moveTo(Const.down);
+         rat.update();
+         rat.update();
+         assertTrue(list.getList(Eatable.class).size() == 1);
+     }
      
      @Test
      public void ratDoesntCreateTailIfOneIsTouchingIt()
@@ -184,7 +196,34 @@ public class RatTest {
          setupHidingTest();
          assertTrue(approximates(rat.getDirection(), Const.up));
      }
-     @Test
+    @Test
+    public void ratFacesLeftWhenHidingToTheRight()
+    {
+        Border hole = new Border(5, 0, 1, 1);
+        list.addEntity(hole);
+        rat.moveTo(Const.right);
+        for (int i = 0; i < 10; i++)  rat.update();
+        assertTrue(rat.getDirection() == Const.left);
+    }
+    @Test
+    public void ratFacesRightWhenHidingToTheLeft()
+    {
+        Border hole = new Border(-5, 0, 1, 1);
+        list.addEntity(hole);
+        rat.moveTo(Const.left);
+        for (int i = 0; i < 10; i++)  rat.update();
+        assertTrue(rat.getDirection() == Const.right);
+    }
+    @Test
+    public void ratFacesDownWhenHidingUp()
+    {
+        Border hole = new Border(0, -5, 1, 1);
+        list.addEntity(hole);
+        rat.moveTo(Const.up);
+        for (int i = 0; i < 10; i++)  rat.update();
+        assertTrue(rat.getDirection() == Const.down);
+    }
+    @Test
      public void ratStaysFacingAway()
      {
          setupHidingTest();
@@ -209,8 +248,74 @@ public class RatTest {
         assertTrue(approximates(rat.Y(), 0.5));
     }
     
-    //test defaulPosition()
-    //test eating and hiding if not precise collision
-    //test die()
-    //test hide() from other directions
+    @Test
+    public void onDeathDestroyTails()
+    {
+        Tail tail = new Tail(64,64,1,1,rat);
+        list.addEntity(tail);
+        rat.die();
+        assertTrue(list.getList(Tail.class).isEmpty());
+    }
+    @Test
+    public void onDeathPositionToDefaultPosition()
+    {
+        rat.die();
+        assertTrue(rat.X() == Math.round(Const.width / 2) && rat.Y() == 0);
+    }
+    @Test
+    public void onDeathFaceDown()
+    {
+        rat.moveTo(Const.right);
+        rat.die();
+        assertTrue(rat.getDirection() == Const.down);
+    }
+    @Test
+    public void onDeathStopMoving()
+    {
+        rat.moveTo(Const.down);
+        for (int i = 0; i < 100; i++)   rat.update();
+        rat.die();
+        for (int i = 0; i < 100; i++)   rat.update();
+        assertTrue(rat.X() == Math.round(Const.width / 2) && rat.Y() == 0);
+    }
+    @Test
+    public void onDeathStopCreatingTails()
+    {
+        rat.moveTo(Const.down);
+        for (int i = 0; i < 100; i++)   rat.update();
+        rat.die();
+        for (int i = 0; i < 100; i++)   rat.update();
+        assertTrue(list.getList(Tail.class).isEmpty());
+    }
+    @Test
+    public void whenAllLivesLostDisappear()
+    {
+        RottaPeli rp = new RottaPeli(false);
+        rp.getEntities().removeAll(Entity.class);
+        rp.getEntities().addEntity(rat);
+        for (int i = 0; i < Const.initialLifeAmount; i++)   rat.die();
+        assertTrue(rp.getEntities().getList(Rat.class).isEmpty());
+    }
+    
+     @Test
+     public void dieIfHitOwnTail()
+     {
+         Tail tail = new Tail(0, 2.5, 1, 1, rat);
+         list.addEntity(tail);
+         rat.moveTo(Const.down);
+         rat.update();
+         rat.update();
+        assertTrue(list.getList(Tail.class).isEmpty());
+     }
+     @Test
+     public void ratDoesntDieIfItMerelyTouchesTailsSide()
+     {
+         Tail tail = new Tail(1, 2.5, 1, 1, rat);
+         list.addEntity(tail);
+         rat.moveTo(Const.down);
+         rat.update();
+         rat.update();
+         rat.update();
+        assertTrue(!list.getList(Tail.class).isEmpty());
+     }
 }

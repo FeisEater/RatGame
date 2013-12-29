@@ -70,6 +70,21 @@ public class ToolsTest {
     {
         assertTrue(!Tools.pointInside(p, 0.5, 2, false));
     }
+    @Test
+    public void pointIsInsideNotOnTheEdge()
+    {
+        assertTrue(Tools.pointInside(p, 0.5, 0.5, true));
+    }
+    @Test
+    public void ifPointIsOnTheEdgeDontCountWithSpecialParameter()
+    {
+        assertTrue(!Tools.pointInside(p, 0, 0, true));
+    }
+    @Test
+    public void ifPointIsOnTheEdgeDontCountWithSpecialParameter2()
+    {
+        assertTrue(!Tools.pointInside(p, 1, 0.5, true));
+    }
 
     @Test
     public void objectInsideAnother()
@@ -90,6 +105,37 @@ public class ToolsTest {
         assertTrue(Tools.isInside(q, p, false));
     }
     
+    @Test
+    public void objectInsideAnotherWithSpecialParameter()
+    {
+        q = new Positioned(-0.5, -0.5, 1, 1);
+        assertTrue(Tools.isInside(q, p, true));
+    }
+    @Test
+    public void objectInsideAnotherWithSpecialParameter2()
+    {
+        q = new Positioned(0, -0.5, 1, 1);
+        assertTrue(Tools.isInside(q, p, true));
+    }
+    @Test
+    public void objectInsideAnotherWithSpecialParameter3()
+    {
+        q = new Positioned(-0.5, 0, 1, 1);
+        assertTrue(Tools.isInside(q, p, true));
+    }
+    @Test
+    public void obectsOccupySameLocationWithSpecialParameter()
+    {
+        q = new Positioned(0, 0, 1, 1);
+        assertTrue(Tools.isInside(q, p, true));
+    }
+    @Test
+    public void touchingEdgeIsntEnoughWithSpecialParameter()
+    {
+        q = new Positioned(-1, -0.5, 1, 1);
+        assertTrue(!Tools.isInside(q, p, true));
+    }
+
     @Test
     public void roundsCorrectly1()
     {
@@ -143,5 +189,4 @@ public class ToolsTest {
         }
         assertTrue(equalDistribution && sum == 1000);
     }
-    //test isInside() and pointInside() if notOnTheEdge is true
 }

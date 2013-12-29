@@ -31,5 +31,4 @@ public class Tail extends Positioned implements Killable {
         g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
             (int)Math.ceil(getWidth() * xMultiplier), (int)Math.ceil(getHeight() * yMultiplier), true);
     }
-
 }
