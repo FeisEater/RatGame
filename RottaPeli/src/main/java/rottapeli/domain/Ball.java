@@ -137,8 +137,8 @@ public class Ball extends Moveable implements Bouncable {
     @Override
     public void defaultPosition()
     {
-        setPos(Math.round(Math.random() * Const.width),
-                Math.round(Math.random() * Const.height));
+        setPos(Math.round(Math.random() * (Const.width - getWidth())),
+                Math.round(Math.random() * (Const.height - getHeight())));
     }
 /**
  * Contains instructions on how to represent this entity in the GameField.

@@ -26,8 +26,8 @@ public class Cheese extends Positioned implements Bouncable, Eatable {
     @Override
     public void defaultPosition()
     {
-        setPos(Math.round(Math.random() * Const.width),
-                Math.round(Math.random() * Const.height));
+        setPos(Math.round(Math.random() * (Const.width - getWidth())),
+                Math.round(Math.random() * (Const.height - getHeight())));
     }
     @Override
     public void getEaten()

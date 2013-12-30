@@ -23,7 +23,6 @@ import rottapeli.resource.Const;
 public class Rat extends Moveable implements Killable, Controllable {
     private boolean ismoving;
     private boolean canCreateTail;
-    private double oldDirection;
     private Tail lastTail;
 
     public Rat()
@@ -42,8 +41,8 @@ public class Rat extends Moveable implements Killable, Controllable {
     public void eat(Eatable other)
     {
         other.getEaten();
-        if (getEntities() != null && getEntities().gameLogic() != null)
-            getEntities().gameLogic().playerAteCheese(playerID());
+        if (hasEntities() && hasGameLogic())
+           gameLogic().playerAteCheese(playerID());
     }
     
     public void hide(Hidable other)
@@ -53,18 +52,11 @@ public class Rat extends Moveable implements Killable, Controllable {
         faceAwayFrom(other);
         ismoving = false;
         canCreateTail = false;
-        if (getEntities() != null && getEntities().gameLogic() != null)
-            getEntities().gameLogic().getScore().resetCombo(playerID());
+        if (hasEntities() && hasGameLogic())
+            gameLogic().getScore().resetCombo(playerID());
     }
     public void faceAwayFrom(Hidable other)
-    {
-        if (collisionType((Positioned) other)[0] == ApproachFrom.NONE && 
-            collisionType((Positioned) other)[1] == ApproachFrom.NONE)
-        {
-            setDirection(oldDirection);
-            return;
-        }
-        
+    {        
         if (collisionType((Positioned) other)[0] == ApproachFrom.LEFT)
             setDirection(Const.left);
         if (collisionType((Positioned) other)[0] == ApproachFrom.RIGHT)
@@ -131,8 +123,8 @@ public class Rat extends Moveable implements Killable, Controllable {
         setDirection(Const.down);
         ismoving = false;
         canCreateTail = false;
-        if (getEntities() != null && getEntities().gameLogic() != null)
-            getEntities().gameLogic().getScore().resetCombo(playerID());
+        if (hasEntities() && hasGameLogic())
+            gameLogic().getScore().resetCombo(playerID());
     }
 @Override
     public void reactToCollision(Entity other, boolean notOnTheEdge)
@@ -152,8 +144,8 @@ public class Rat extends Moveable implements Killable, Controllable {
     public void die()
     {
         defaultPosition();
-        if (getEntities() != null && getEntities().gameLogic() != null)
-            getEntities().gameLogic().playerDied(playerID());
+        if (hasEntities() && hasGameLogic())
+            gameLogic().playerDied(playerID());
     }
     
 @Override
@@ -167,8 +159,6 @@ public class Rat extends Moveable implements Killable, Controllable {
             checkCollisions();
             
             createTail();
-            
-            oldDirection = getDirection();
         }
     }
     

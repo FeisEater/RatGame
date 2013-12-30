@@ -25,7 +25,11 @@ public class ScoreKeeper implements Updatable {
         combo = new HashMap<Integer, Double>();
         lives = new HashMap<Integer, Integer>();
     }
-    public double getPoints(int id) {return score.get(id);}
+    public double getPoints(int id)
+    {
+        if (!score.containsKey(id)) return -1;
+        return score.get(id);
+    }
     public double getLives(int id) {return lives.get(id);}
     public double getCombo(int id) {return combo.get(id);}
     public double getBonus() {return timebonus;}
