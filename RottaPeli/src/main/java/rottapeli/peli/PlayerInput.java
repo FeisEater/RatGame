@@ -12,18 +12,26 @@ import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
 
 /**
- *
+ * Component responsible for receiving player input in a correct way.
  * @author Pavel
  */
 public class PlayerInput implements KeyListener, Updatable {
     private RottaPeli rp;
     private Set<Integer> pressedKeys;
+/**
+ * Constructor.
+ * @param peli Pointer to the game logic Object.
+ */
     public PlayerInput(RottaPeli peli)
     {
         rp = peli;
         pressedKeys = new HashSet<Integer>();
     }
-        
+/**
+ * This method is called every tick on the timer.
+ * <p>
+ * Examines which keys are being held pressed this tick and reacts appropriately.
+ */
     @Override
     public void update()
     {
@@ -48,6 +56,10 @@ public class PlayerInput implements KeyListener, Updatable {
             }
         }
     }
+/**
+ * Method is called immediately when certain key is pressed.
+ * @param e KeyEvent that called this method.
+ */
     @Override
     public void keyPressed(KeyEvent e)
     {
@@ -55,7 +67,10 @@ public class PlayerInput implements KeyListener, Updatable {
         if (e.getKeyCode() == KeyEvent.VK_P)
             rp.getTimer().togglePause();
     }
-
+/**
+ * Method is called immediately when certain key is released.
+ * @param e KeyEvent that called this method.
+ */
     @Override
     public void keyReleased(KeyEvent e)
     {

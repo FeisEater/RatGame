@@ -4,10 +4,23 @@ package rottapeli.resource;
 import rottapeli.domain.superclasses.Positioned;
 
 /**
- *
+ * Provides miscellaneous algorithms that are autonomous from any class.
  * @author Pavel
  */
 public class Tools {
+/**
+ * Checks if Positioned Entity b is inside Positioned Entity a. Used for
+ * collision checking.
+ * @param a Certain Positioned Entity.
+ * @param b Certain Positioned Entity.
+ * @param notOnTheEdge Set to true if method should return false even if two
+ *                      Entites are touching sides. That way true is returned
+ *                      if Entities are truly inside each other. All cases
+ *                      where isInside(a,b,false) == true will return
+ *                      isInside(a,b,true) == true. However this is not the case
+ *                      vice versa.
+ * @return True if b is inside a.
+ */
     public static boolean isInside(Positioned a, Positioned b, boolean notOnTheEdge)
     {
         if (notOnTheEdge)
@@ -27,6 +40,15 @@ public class Tools {
                 pointInside(a, b.leftBorder(), b.bottomBorder(), notOnTheEdge) ||
                 pointInside(a, b.rightBorder(), b.bottomBorder(), notOnTheEdge);
     }
+/**
+ * Checks if certain coordinates are inside certain Positioned Entity.
+ * @param other Positioned Entity.
+ * @param x X coordinate.
+ * @param y Y coordinate.
+ * @param notOnTheEdge If true, method will return false even if coordinates
+ *                      are on the side of the Positioned Entity.
+ * @return True if coordinates are inside a Positioned Entity.
+ */
     public static boolean pointInside(Positioned other, double x, double y, boolean notOnTheEdge)
     {
         if (notOnTheEdge)
@@ -57,7 +79,11 @@ public class Tools {
                     (pointInside(a, b.leftBorder(), (b.topBorder() + b.bottomBorder()) / 2, true) ||
                     pointInside(a, b.rightBorder(), (b.topBorder() + b.bottomBorder()) / 2, true));
     }
-    
+/**
+ * Rounds the value to a certain precision. Used for rounding off coordinates.
+ * @param a Value that needs to be round off.
+ * @return Rounded off value of a.
+ */
     public static double round(double a)
     {
         double i = Math.floor(a);
@@ -69,7 +95,10 @@ public class Tools {
         
         return i + d;
     }
-    
+/**
+ * Chooses one of four diagonal directions randomly.
+ * @return Randomly chosen diagonal direction.
+ */
     public static double randomDiagonalDirection()
     {
         double randomNumber = Math.random();

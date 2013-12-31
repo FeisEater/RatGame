@@ -52,7 +52,7 @@ public class Positioned extends Entity {
     public double X()    {return x;}
     public double Y()    {return y;}
 /**
- * Relocated Entity to given coordinates.
+ * Relocates Entity to given coordinates.
  * @param x X coordinate.
  * @param y Y cooridante.
  */

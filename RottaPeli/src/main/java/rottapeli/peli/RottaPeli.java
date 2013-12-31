@@ -19,11 +19,14 @@ import rottapeli.domain.superclasses.Positioned;
 import rottapeli.gui.GameField;
 import rottapeli.gui.GraphicInterface;
 import rottapeli.interfaces.Controllable;
+import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
 import rottapeli.peli.GameTimer;
 /**
- *
+ * Central hub of the program that stores all components of the game.
+ * <p>
+ * Provides global game logic decisions.
  * @author Pavel
  */
 public class RottaPeli {
@@ -32,6 +35,13 @@ public class RottaPeli {
     private GameTimer timer;
     private PlayerInput input;
     private ScoreKeeper score;
+/**
+ * Constructor.
+ * <p>
+ * Creates all components needed for the game.
+ * @param createsGUI Set to true to create GUI. Can be set to false
+ *          to improve testing environment.
+ */
     public RottaPeli(boolean createsGUI)
     {        
         input = new PlayerInput(this);
@@ -47,7 +57,12 @@ public class RottaPeli {
     public GameTimer getTimer()     {return timer;}
     public PlayerInput getInput()   {return input;}
     public ScoreKeeper getScore()   {return score;}
-    
+/**
+ * Creates GUI window
+ * @param pi Player input object that is to be attached as Key Listener to
+ *              the GUI JFrame.
+ * @return Retrieves GameField object that is created by GUI.
+ */
     public GameField createGUI(PlayerInput pi)
     {
         GraphicInterface gui = new GraphicInterface();
@@ -67,7 +82,14 @@ public class RottaPeli {
         gui.setPlayerInput(pi);
         return field;
     }
-    
+/**
+ * Creates Bouncable Borders around the playing field and a layer of
+ * PlacementBlockers.
+ * <p>
+ * PlacementBlockers are placed to prevent situations where Ball kills Rat
+ * immediately in the beginning of the game. Also prevents placing cheese
+ * to easy spots.
+ */
     public void createBorders()
     {
         entities.addEntity(new Border(-32, -32, Const.width + 64, 32));
@@ -80,12 +102,22 @@ public class RottaPeli {
         entities.addEntity(new PlacementBlocker(0, Const.height - Const.placementBlockerThickness, Const.width, Const.placementBlockerThickness));
         entities.addEntity(new PlacementBlocker(Const.width - Const.placementBlockerThickness, 0, Const.placementBlockerThickness, Const.height));
     }
+/**
+ * Creates a Positioned Entity and places it to the free spot.
+ * @param p Entity that is to be placed. Parameter is usually given
+ *          as a constructor without parameters in order to place it to the
+ *          defaultPosition().
+ */
     public void createAndPositionToFreeSpot(Positioned p)
     {
         entities.addEntity(p);
         p.findNearestFreeSpot();
     }
-    
+/**
+ * Signals Controllable Entity to move to a certain direction.
+ * @param id    Player ID that are supposed to receive this signal.
+ * @param dir   Direction towards which Entities are supposed to go.
+ */
     public void playerGo(int id, double dir)
     {
         List<Controllable> players = entities.getList(Controllable.class);
@@ -94,7 +126,13 @@ public class RottaPeli {
             if (plr.playerID() == id)   plr.moveTo(dir);
         }
     }
-
+/**
+ * Resets all Entities of a certain type to their defaultPosition().
+ * @param type  Class or Interface of the Entity that need to be reset.
+ *              Use null or Entity.class to reset all Entities.
+ * @param spotMustBeFree Set to true if Entity requires to be placed
+ *                          at an unoccupied location.
+ */
     public void resetPosition(Class type, boolean spotMustBeFree)
     {
         List<Positioned> resettables = entities.getList(type);
@@ -105,14 +143,24 @@ public class RottaPeli {
                 p.findNearestFreeSpot();
         }
     }
-    
+/**
+ * Reacts to the event of certain player dying.
+ * <p>
+ * Player loses a life. Resets Balls if amount of players is one.
+ * @param id ID of the player that died.
+ */
     public void playerDied(int id)
     {
         score.loseALife(id);
         if (getPlayers().size() == 1)
             resetPosition(Ball.class, true);
     }
-    
+/**
+ * Reacts to the event of certain player losing all of her/his lives.
+ * <p>
+ * Removes all Entities that are controlled by the player.
+ * @param id ID of the player that lost all lives.
+ */
     public void playerLostAllLives(int id)
     {
         List<Controllable> players = entities.getList(Controllable.class);
@@ -122,7 +170,12 @@ public class RottaPeli {
                 entities.removeEntity((Entity)plr);
         }
     }
-    
+/**
+ * Reacts to the event of certain player eating cheese.
+ * <p>
+ * Gives points. If no cheese left go to the next stage and give a time bonus.
+ * @param id ID of the player that ate cheese.
+ */
     public void playerAteCheese(int id)
     {
         score.pointsForEatingCheese(id);
@@ -132,16 +185,27 @@ public class RottaPeli {
             score.pointsForFinishingStage(id);
         }
     }
-    
+/**
+ * Goes to the next stage.
+ * <p>
+ * Resets Rat's and Balls', resets Cheese and increases Ball amount by one.
+ */
     public void nextStage()
     {
         resetPosition(Rat.class, false);
         resetPosition(Ball.class, true);
+        
+        entities.removeAll(Eatable.class);
         for (int i = 0; i < Const.cheeseamount; i++)
             createAndPositionToFreeSpot(new Cheese());
+        
         createAndPositionToFreeSpot(new Ball());
     }
-    
+/**
+ * Examines how many different players are playing the game.
+ * @return A Set of player IDs that exist in the game. Use getPlayers().size()
+ *          to calculate the amount in integer.
+ */
     public Set<Integer> getPlayers()
     {
         Set<Integer> players = new HashSet<Integer>();
@@ -152,7 +216,9 @@ public class RottaPeli {
         }
         return players;
     }
-    
+/**
+ * Resets all Entities, resets Score.
+ */
     public void resetGame()
     {
         entities.removeAll(Entity.class);
