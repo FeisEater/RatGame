@@ -5,7 +5,7 @@ import rottapeli.peli.EntityList;
 import rottapeli.peli.RottaPeli;
 
 /**
- *
+ * Entity that is stored by EntityList. All objects of the game extend this class.
  * @author Pavel
  */
 public class Entity {

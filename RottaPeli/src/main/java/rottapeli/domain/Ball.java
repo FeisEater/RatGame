@@ -36,8 +36,8 @@ public class Ball extends Moveable implements Bouncable {
 /**
  * Constructor
  * 
- * @param x     X position where ball is created.
- * @param y     Y position where ball is created.
+ * @param x     X position where Ball is created.
+ * @param y     Y position where Ball is created.
  * @param ang   Initial direction in radians where ball moves to.
  */
     public Ball(double x, double y, double ang)

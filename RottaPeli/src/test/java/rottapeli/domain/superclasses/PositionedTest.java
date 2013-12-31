@@ -52,7 +52,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[66.0, 64.0, 62.0, 64.0]") &&
                 yQueue.toString().equals("[64.0, 66.0, 64.0, 62.0]"));
     }
@@ -63,7 +65,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[2.0, 0.0, -2.0, 0.0]") &&
                 yQueue.toString().equals("[0.0, 2.0, 0.0, -2.0]"));
     }
@@ -74,7 +78,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[129.0, 127.0, 125.0, 127.0]") &&
                 yQueue.toString().equals("[95.0, 97.0, 95.0, 93.0]"));
     }
@@ -85,7 +91,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[]") &&
                 yQueue.toString().equals("[]"));
     }
@@ -96,7 +104,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[]") &&
                 yQueue.toString().equals("[]"));
     }
@@ -107,7 +117,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[]") &&
                 yQueue.toString().equals("[]"));
     }
@@ -118,7 +130,9 @@ public class PositionedTest {
         list.addEntity(p);
         Deque<Double> xQueue = new ArrayDeque<Double>();
         Deque<Double> yQueue = new ArrayDeque<Double>();
-        p.getNearbyPositions(xQueue, yQueue, null, null);
+        List<Double> usedX = new ArrayList<Double>();
+        List<Double> usedY = new ArrayList<Double>();
+        p.getNearbyPositions(xQueue, yQueue, usedX, usedY);
         assertTrue(xQueue.toString().equals("[]") &&
                 yQueue.toString().equals("[]"));
     }

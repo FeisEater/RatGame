@@ -12,27 +12,14 @@ public class Tools {
     {
         if (notOnTheEdge)
         {
-//Both entities are occupying the same space exactly
-            if (a.leftBorder() == b.leftBorder() &&
-                a.rightBorder() == b.rightBorder() &&
-                a.topBorder() == b.topBorder() &&
-                a.bottomBorder() == b.bottomBorder())
-                    return true;
+            if (occupySameSpace(a, b))
+                return true;
 
-            if (a.leftBorder() == b.leftBorder() &&
-                a.rightBorder() == b.rightBorder())
-            {
-                if (pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.topBorder(), true) ||
-                    pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.bottomBorder(), true))
-                        return true;
-            }
-            if (a.topBorder() == b.topBorder() &&
-                a.bottomBorder() == b.bottomBorder())
-            {
-                if (pointInside(a, b.leftBorder(), (b.topBorder() + b.bottomBorder()) / 2, true) ||
-                    pointInside(a, b.rightBorder(), (b.topBorder() + b.bottomBorder()) / 2, true))
-                        return true;
-            }
+            if (isInsideInSameHorizontalSpace(a, b))
+                return true;
+            
+            if (isInsideInSameVerticalSpace(a, b))
+                return true;
         }
         
         return  pointInside(a, b.leftBorder(), b.topBorder(), notOnTheEdge) ||
@@ -48,6 +35,27 @@ public class Tools {
         else
             return  x >= other.leftBorder() && x <= other.rightBorder() &&
                 y >= other.topBorder() && y <= other.bottomBorder();
+    }
+    private static boolean occupySameSpace(Positioned a, Positioned b)
+    {
+        return a.leftBorder() == b.leftBorder() &&
+                a.rightBorder() == b.rightBorder() &&
+                a.topBorder() == b.topBorder() &&
+                a.bottomBorder() == b.bottomBorder();
+    }
+    private static boolean isInsideInSameHorizontalSpace(Positioned a, Positioned b)
+    {
+        return  a.leftBorder() == b.leftBorder() &&
+                a.rightBorder() == b.rightBorder() &&
+                    (pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.topBorder(), true) ||
+                    pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.bottomBorder(), true));
+    }
+    private static boolean isInsideInSameVerticalSpace(Positioned a, Positioned b)
+    {
+        return  a.topBorder() == b.topBorder() &&
+                a.bottomBorder() == b.bottomBorder() &&
+                    (pointInside(a, b.leftBorder(), (b.topBorder() + b.bottomBorder()) / 2, true) ||
+                    pointInside(a, b.rightBorder(), (b.topBorder() + b.bottomBorder()) / 2, true));
     }
     
     public static double round(double a)

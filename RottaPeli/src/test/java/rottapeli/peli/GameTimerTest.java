@@ -92,8 +92,7 @@ public class GameTimerTest {
         Rat plr = new Rat(0,0);
         rp.getEntities().addEntity(plr);
         Thread.sleep(100);
-        rp.playerAteCheese(1);
-        assertTrue(rp.getScore().getPoints(1) < Const.initialBonus);
+        assertTrue(rp.getScore().getBonus() < Const.initialBonus);
     }
     @Test
     public void gameDoesntUpdatesScoreWhenPaused() throws Exception

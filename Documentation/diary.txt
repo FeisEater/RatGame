@@ -99,3 +99,8 @@
 		a coincidence. For example one test tests if balls are placed
 		in a random location, and it fails when randomly generated
 		location is same as its previous location. 3 hours.
+
+30.12.2013	Refactored some segments of the code. 2 hours.
+
+31.12.2013	Made javaDoc for all rottapeli.domain and rottapeli.gui
+		classes and public methods.

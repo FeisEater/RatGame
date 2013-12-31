@@ -32,13 +32,16 @@ public class GameTimer extends Timer implements ActionListener {
 @Override
     public void actionPerformed(ActionEvent ae)
     {
+        if (rp.getInput() != null)   rp.getInput().update();
+        
         if (rp.getEntities() != null && !gameIsPaused)
             rp.getEntities().update();
-        if (rp.getField() != null && !gameIsPaused)
-            rp.getField().update();
+        
         if (rp.getScore() != null && !gameIsPaused)
             rp.getScore().update();
-        if (rp.getInput() != null)   rp.getInput().update();
+        
+        if (rp.getField() != null && !gameIsPaused)
+            rp.getField().update();
     }
 
 }

@@ -20,8 +20,8 @@ public class EntityList implements Updatable {
         rp = peli;
         entities = new CopyOnWriteArrayList();
     }
-    
     public RottaPeli gameLogic()    {return rp;}
+    
     public void addEntity(Entity e)
     {
         e.setEntityList(this);

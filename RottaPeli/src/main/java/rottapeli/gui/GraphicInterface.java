@@ -9,19 +9,24 @@ import rottapeli.peli.PlayerInput;
 import rottapeli.resource.Const;
 
 /**
- *
+ * Creates a window that contains the graphical interface of the game.
  * @author Pavel
  */
 public class GraphicInterface implements Runnable {
     private JFrame frame;
     private GameField field;
-    
+/**
+ * Creates components of the GUI.
+ * @param container Component container.
+ */
     public void createComponents(Container container)
     {
         field = new GameField(container);
         container.add(field);
     }
-    
+/**
+ * Runs the window with GUI.
+ */
     @Override
     public void run()
     {
@@ -37,6 +42,10 @@ public class GraphicInterface implements Runnable {
     {
         return field;
     }
+/**
+ * Stores pointer for the player input.
+ * @param pi Player input object.
+ */
     public void setPlayerInput(PlayerInput pi)
     {
         frame.addKeyListener(pi);

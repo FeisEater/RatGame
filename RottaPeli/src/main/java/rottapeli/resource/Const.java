@@ -13,14 +13,15 @@ public class Const {
     
     public static final double placementBlockerThickness = 16;
     
-    public static final double bonusDecreasingRate = 1;
+    public static final double bonusDecreasingRate = 0.01667;
     public static final int initialLifeAmount = 3;
-    public static final double initialBonus = 5000;
-    public static final double extraLifeReward = 10000;
+    public static final double initialBonus = 60;
+    public static final double extraLifeReward = 100;
     public static final double cheesePoints = 1;
     
     public static final int cheeseamount = 10;
     public static final int ballAmountInFirstLevel = 2;
+    
     public static final double ballspeed = 1.0;
     public static final double ratspeed = 1.0;
     
@@ -28,7 +29,7 @@ public class Const {
     public static final double ballheight = 1.0;
     public static final double ratwidth = 1.0;
     public static final double ratheight = 1.0;
-    public static final double tailthickness = 1.0;
+    //public static final double tailthickness = 1.0;
     public static final double cheesewidth = 1.0;
     public static final double cheeseheight = 1.0;    
 
