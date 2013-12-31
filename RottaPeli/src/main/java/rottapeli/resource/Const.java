@@ -18,18 +18,18 @@ public class Const {
     public static final double placementBlockerThickness = 16;
     
     /** Amount of time bonus that is decreased each tick. */
-    public static final double bonusDecreasingRate = 0.01667;
+    public static final double bonusDecreasingRate = 1.667;
     /** Amount of lives that is given to each player initially. */
     public static final int initialLifeAmount = 3;
     /** Amount of time bonus that counter starts with. */
-    public static final double initialBonus = 60;
+    public static final double initialBonus = 6000;
     /** Amount of score that awards an extra life. */
-    public static final double extraLifeReward = 100;
+    public static final double extraLifeReward = 10000;
     /** Amount of points awarded for eating cheese. */
-    public static final double cheesePoints = 1;
+    public static final double cheesePoints = 100;
     
     /** Amount of cheese created for each stage. */
-    public static final int cheeseamount = 10;
+    public static final int cheeseamount = 15;
     /** Amount of balls in the first stage. */
     public static final int ballAmountInFirstLevel = 2;
     

@@ -2,7 +2,7 @@
 package rottapeli.interfaces;
 
 /**
- *
+ * Entity that can be killed by hazards.
  * @author Pavel
  */
 public interface Killable {

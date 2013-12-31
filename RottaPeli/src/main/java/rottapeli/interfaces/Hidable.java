@@ -1,7 +1,7 @@
 package rottapeli.interfaces;
 
 /**
- *
+ * Entity where Rat can hide in.
  * @author Pavel
  */
 public interface Hidable {

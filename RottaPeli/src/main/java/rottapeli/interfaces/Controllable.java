@@ -1,7 +1,7 @@
 package rottapeli.interfaces;
 
 /**
- *
+ * Object that can be controlled through player input.
  * @author Pavel
  */
 public interface Controllable {

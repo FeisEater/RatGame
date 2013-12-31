@@ -1,7 +1,7 @@
 package rottapeli.interfaces;
 
 /**
- *
+ * Entity from which Balls bounce off.
  * @author Pavel
  */
 public interface Bouncable {
