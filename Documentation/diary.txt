@@ -103,4 +103,4 @@
 30.12.2013	Refactored some segments of the code. 2 hours.
 
 31.12.2013	Made javaDoc for all rottapeli.domain and rottapeli.gui
-		classes and public methods.
+		classes and public methods. 2,5 hours.
