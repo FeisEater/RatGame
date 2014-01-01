@@ -51,6 +51,7 @@ public class RottaPeliTest {
     public void setUp() {
         rp = new RottaPeli(false);
         rp.getEntities().removeAll(Entity.class);
+        rp.getTimer().togglePause();
     }
     
     @After
@@ -232,7 +233,7 @@ public class RottaPeliTest {
         rp.getScore().resetScore(rp.getPlayers());
         rp.getEntities().removeAll(Cheese.class);
         rp.playerAteCheese(1);
-        assertTrue(rp.getScore().getPoints(1) >= Const.initialBonus &&
+        assertTrue("" + rp.getScore().getPoints(1) + " " + rp.getScore().getPoints(2), rp.getScore().getPoints(1) >= Const.initialBonus &&
                 rp.getScore().getPoints(2) >= Const.initialBonus);
     }
 }

@@ -75,6 +75,8 @@ public class PlayerInput implements KeyListener, Updatable {
     public void keyReleased(KeyEvent e)
     {
         pressedKeys.remove(e.getKeyCode());
+        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+            rp.resetGame();
     }
 
     @Override
