@@ -1,10 +1,13 @@
 package rottapeli.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -22,12 +25,23 @@ import rottapeli.resource.Const;
 public class GameField extends JPanel implements Updatable {
     private RottaPeli rp;
     private JLabel scoreText;
-    public GameField(Container container)
+    private JLabel livesText;
+    private JLabel bonusText;
+    public GameField(JFrame frame)
     {
-        super(new GridLayout(6,3));
-        for (int i = 0; i < 17; i++)    add(new JLabel(""));
+        frame.add(this);
+        JPanel scores = new JPanel(new GridLayout(0,3));
+        frame.add(scores, BorderLayout.SOUTH);
+        scores.setBackground(Color.WHITE);  
         scoreText = new JLabel("Score: ");
-        add(scoreText);
+        scoreText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
+        scores.add(scoreText);
+        livesText = new JLabel("Lives: ");
+        livesText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
+        scores.add(livesText);
+        bonusText = new JLabel("Bonus: ");
+        bonusText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
+        scores.add(bonusText);
     }
 /**
  * Stores a pointer to the game logic Object.
@@ -67,5 +81,7 @@ public class GameField extends JPanel implements Updatable {
     {
         this.repaint();
         scoreText.setText("Score: " + (int)rp.getScore().getPoints(1));
+        livesText.setText("Lives: " + (int)rp.getScore().getLives(1));
+        bonusText.setText("Bonus: " + (int)rp.getScore().getBonus());
     }
 }

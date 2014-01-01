@@ -1,8 +1,13 @@
 package rottapeli.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import rottapeli.interfaces.Updatable;
 import rottapeli.peli.PlayerInput;
@@ -17,12 +22,10 @@ public class GraphicInterface implements Runnable {
     private GameField field;
 /**
  * Creates components of the GUI.
- * @param container Component container.
  */
-    public void createComponents(Container container)
+    public void createComponents()
     {
-        field = new GameField(container);
-        container.add(field);
+        field = new GameField(frame);
     }
 /**
  * Runs the window with GUI.
@@ -33,7 +36,7 @@ public class GraphicInterface implements Runnable {
         frame = new JFrame("Rottapeli");
         frame.setPreferredSize(new Dimension(Const.width * 2 + 16, Const.height * 2 + 36));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        createComponents(frame.getContentPane());
+        createComponents();
         frame.pack();
         frame.setVisible(true);
     }
