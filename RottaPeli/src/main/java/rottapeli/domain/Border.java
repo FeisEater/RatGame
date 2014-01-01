@@ -6,7 +6,7 @@ import rottapeli.interfaces.Bouncable;
 import rottapeli.interfaces.Hidable;
 
 /**
- * Dummy entity which causes Balls to bouce off it and Rats to hide within it.
+ * Dummy entity which causes Balls to bounce off it and Rats to hide within it.
  * @author Pavel
  */
 public class Border extends Positioned implements Bouncable, Hidable {
