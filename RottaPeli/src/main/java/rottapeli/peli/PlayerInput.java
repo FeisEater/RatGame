@@ -1,6 +1,7 @@
 
 package rottapeli.peli;
 
+import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import rottapeli.resource.Const;
  * Component responsible for receiving player input in a correct way.
  * @author Pavel
  */
-public class PlayerInput implements KeyListener, Updatable {
+public class PlayerInput implements KeyEventDispatcher, Updatable {
     private RottaPeli rp;
     private Set<Integer> pressedKeys;
 /**
@@ -56,11 +57,26 @@ public class PlayerInput implements KeyListener, Updatable {
             }
         }
     }
+@Override
+    public boolean dispatchKeyEvent(KeyEvent e)
+    {
+        switch (e.getID())
+        {
+            case KeyEvent.KEY_PRESSED:
+                keyPressed(e);
+                break;
+            case KeyEvent.KEY_RELEASED:
+                keyReleased(e);
+                break;
+            default:
+                break;
+        }
+        return false;
+    }
 /**
  * Method is called immediately when certain key is pressed.
  * @param e KeyEvent that called this method.
  */
-    @Override
     public void keyPressed(KeyEvent e)
     {
         pressedKeys.add(e.getKeyCode());
@@ -71,16 +87,10 @@ public class PlayerInput implements KeyListener, Updatable {
  * Method is called immediately when certain key is released.
  * @param e KeyEvent that called this method.
  */
-    @Override
     public void keyReleased(KeyEvent e)
     {
         pressedKeys.remove(e.getKeyCode());
         if (e.getKeyCode() == KeyEvent.VK_ENTER)
             rp.resetGame();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e)
-    {
     }
 }

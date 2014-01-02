@@ -2,12 +2,21 @@ package rottapeli.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.KeyboardFocusManager;
+import java.awt.LayoutManager;
+import java.awt.PopupMenu;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.OverlayLayout;
 import javax.swing.WindowConstants;
 import rottapeli.interfaces.Updatable;
 import rottapeli.peli.PlayerInput;
@@ -25,7 +34,26 @@ public class GraphicInterface implements Runnable {
  */
     public void createComponents()
     {
-        field = new GameField(frame);
+        JPanel panel = new JPanel() {
+          public boolean isOptimizedDrawingEnabled() {
+            return false;
+          }
+        };
+        LayoutManager overlay = new OverlayLayout(panel);
+        panel.setLayout(overlay);
+        field = new GameField();
+        JPanel buttons = new JPanel(new GridLayout(3,0)) {
+          public boolean isOptimizedDrawingEnabled() {
+            return false;
+          }
+        };
+        JLabel empty = new JLabel("");
+        buttons.add(empty);
+        buttons.add(new JButton("nappi"));
+        buttons.setOpaque(false);
+        //panel.add(buttons);
+        panel.add(field);
+        frame.add(panel);
     }
 /**
  * Runs the window with GUI.
@@ -34,7 +62,7 @@ public class GraphicInterface implements Runnable {
     public void run()
     {
         frame = new JFrame("Rottapeli");
-        frame.setPreferredSize(new Dimension(Const.width * 2 + 16, Const.height * 2 + 36));
+        frame.setPreferredSize(new Dimension(Const.width * 6 + 16, Const.height * 6 + 36));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         createComponents();
         frame.pack();
@@ -51,6 +79,7 @@ public class GraphicInterface implements Runnable {
  */
     public void setPlayerInput(PlayerInput pi)
     {
-        frame.addKeyListener(pi);
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(pi);
     }
 }

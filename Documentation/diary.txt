@@ -106,3 +106,11 @@
 		classes and public methods. 2,5 hours.
 
 		Finished javaDoc. 3 hours.
+
+2.1.2014	Experimented with JSwing API. Main problem was to have layered
+		components: have a game in the background and menu selection
+		on the foreground. Solved the problem with OverlayLayout,
+		which according to the internet is old and unsupported. Tried
+		and failed to solve the problem with JLayeredPane, which should
+		have been more up-to-date. Reimplemented PlayerInput to extend
+		from KeyEventDispatcher rather than KeyListener. 3 hours.

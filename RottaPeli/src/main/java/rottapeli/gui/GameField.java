@@ -3,10 +3,12 @@ package rottapeli.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,11 +29,12 @@ public class GameField extends JPanel implements Updatable {
     private JLabel scoreText;
     private JLabel livesText;
     private JLabel bonusText;
-    public GameField(JFrame frame)
+    public GameField()
     {
-        frame.add(this);
+        setLayout(new BorderLayout());
+        setOpaque(false);
         JPanel scores = new JPanel(new GridLayout(0,3));
-        frame.add(scores, BorderLayout.SOUTH);
+        add(scores, BorderLayout.SOUTH);
         scores.setBackground(Color.WHITE);  
         scoreText = new JLabel("Score: ");
         scoreText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
@@ -84,4 +87,7 @@ public class GameField extends JPanel implements Updatable {
         livesText.setText("Lives: " + (int)rp.getScore().getLives(1));
         bonusText.setText("Bonus: " + (int)rp.getScore().getBonus());
     }
+    
+    @Override
+    public boolean isOptimizedDrawingEnabled() {return false;}
 }
