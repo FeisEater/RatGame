@@ -293,6 +293,7 @@ public class RatTest {
         RottaPeli rp = new RottaPeli(false);
         rp.getEntities().removeAll(Entity.class);
         rp.getEntities().addEntity(rat);
+        rp.getScore().resetScore(rp.getPlayers());
         for (int i = 0; i < Const.initialLifeAmount; i++)   rat.die();
         assertTrue(rp.getEntities().getList(Rat.class).isEmpty());
     }

@@ -15,6 +15,7 @@ import rottapeli.peli.RottaPeli;
  */
 public class Menu extends JPanel implements ActionListener {
     private RottaPeli rp;
+    private JButton continueGame;
     public Menu(RottaPeli peli)
     {
         super(new GridLayout(8,3, 0, 32));
@@ -22,19 +23,21 @@ public class Menu extends JPanel implements ActionListener {
         setOpaque(false);
         
         emptyRow();
-        createButton("Continue game");
+        continueGame = createButton("Continue game");
         createButton("New game");
         createButton("Options");
         createButton("High Score");
         createButton("Credits");
         createButton("Exit");
         emptyRow();
+        
+        popMenu(true);
     }
     public void emptyRow()
     {
         for (int i = 0; i < 3; i++) add(new JLabel(""));
     }
-    public void createButton(String label)
+    public JButton createButton(String label)
     {
         add(new JLabel(""));
         JButton button = new JButton(label);
@@ -42,6 +45,12 @@ public class Menu extends JPanel implements ActionListener {
         button.setActionCommand(label);
         add(button);
         add(new JLabel(""));
+        return button;
+    }
+    public void popMenu(boolean visible)
+    {
+        setVisible(visible);
+        continueGame.setVisible(!rp.isGameOver());
     }
     @Override
     public void actionPerformed(ActionEvent ae)
@@ -49,13 +58,16 @@ public class Menu extends JPanel implements ActionListener {
         switch (ae.getActionCommand())
         {
             case "Continue game":
-                setVisible(false);
+                popMenu(false);
                 rp.getTimer().setPaused(false);
                 break;
             case "New game":
                 rp.resetGame();
-                setVisible(false);
+                popMenu(false);
                 rp.getTimer().setPaused(false);
+                break;
+            case "Credits":
+                System.out.println("Lead development: FeisEater");
                 break;
             case "Exit":
                 System.exit(0);

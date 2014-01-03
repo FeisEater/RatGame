@@ -34,6 +34,7 @@ public class GameTimerTest {
     @Before
     public void setUp() {
         rp = new RottaPeli(false);
+        rp.resetGame();
         rp.getEntities().removeAll(Entity.class);
         gt = rp.getTimer();
     }
@@ -95,13 +96,12 @@ public class GameTimerTest {
         assertTrue(rp.getScore().getBonus() < Const.initialBonus);
     }
     @Test
-    public void gameDoesntUpdatesScoreWhenPaused() throws Exception
+    public void gameDoesntUpdateScoreWhenPaused() throws Exception
     {
         gt.togglePause();
         Rat plr = new Rat(0,0);
         rp.getEntities().addEntity(plr);
         Thread.sleep(100);
-        rp.playerAteCheese(1);
-        assertTrue(rp.getScore().getPoints(1) >= Const.initialBonus);
+        assertTrue(rp.getScore().getBonus() == Const.initialBonus);
     }
 }

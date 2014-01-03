@@ -116,3 +116,9 @@
 		from KeyEventDispatcher rather than KeyListener. 3 hours.
 
 3.1.2014	Redesigned class structure, progressed developing gui. 2 hours.
+
+		Started implementing main menu. New game button resets game.
+		Pausing the game makes main menu visible. If game is paused,
+		Continue game button is available which will unpause the game.
+		When game is over, main menu becomes visible. Exit button
+		ends the program. 3 hours.

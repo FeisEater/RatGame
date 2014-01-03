@@ -56,8 +56,7 @@ public class RottaPeli {
 
         if (createsGUI)   createGUI();
 
-        resetGame();
-        entities.removeAll(Rat.class);
+        resetDemo();
     }
     public EntityList getEntities() {return entities;}
     public Menu getMenu()     {return menu;}
@@ -169,6 +168,12 @@ public class RottaPeli {
             if (plr.playerID() == id)
                 entities.removeEntity((Entity)plr);
         }
+        if (menu != null && isGameOver())
+            menu.popMenu(true);
+    }
+    public boolean isGameOver()
+    {
+        return entities.getList(Controllable.class).isEmpty();
     }
 /**
  * Reacts to the event of certain player eating cheese.
@@ -234,5 +239,17 @@ public class RottaPeli {
             createAndPositionToFreeSpot(new Cheese());
 
         score.resetScore(getPlayers());
+    }
+    public void resetDemo()
+    {
+        entities.removeAll(Entity.class);
+        
+        createBorders();
+        
+        for (int i = 0; i < 10; i++)
+            createAndPositionToFreeSpot(new Ball());
+
+        for (int i = 0; i < Const.cheeseamount; i++)
+            createAndPositionToFreeSpot(new Cheese());
     }
 }
