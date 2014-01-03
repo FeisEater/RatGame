@@ -2,6 +2,7 @@
 package rottapeli.peli;
 
 import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
  */
     public PlayerInput(RottaPeli peli)
     {
+        KeyboardFocusManager manager = 
+                KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(this);
+
         rp = peli;
         pressedKeys = new HashSet<Integer>();
     }

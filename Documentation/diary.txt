@@ -114,3 +114,5 @@
 		and failed to solve the problem with JLayeredPane, which should
 		have been more up-to-date. Reimplemented PlayerInput to extend
 		from KeyEventDispatcher rather than KeyListener. 3 hours.
+
+3.1.2014	Redesigned class structure, progressed developing gui. 2 hours.

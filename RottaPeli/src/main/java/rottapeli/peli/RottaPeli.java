@@ -45,11 +45,16 @@ public class RottaPeli {
     public RottaPeli(boolean createsGUI)
     {        
         input = new PlayerInput(this);
-        if (createsGUI)   field = createGUI(input);
         entities = new EntityList(this);
         score = new ScoreKeeper(this);
+        
         timer = new GameTimer(this);
-        timer.start();
+        timer.addUpdatable(input);
+        timer.addUpdatable(entities);
+        timer.addUpdatable(score);
+
+        if (createsGUI)   createGUI();
+
         resetGame();
     }
     public EntityList getEntities() {return entities;}
@@ -59,15 +64,11 @@ public class RottaPeli {
     public ScoreKeeper getScore()   {return score;}
 /**
  * Creates GUI window
- * @param pi Player input object that is to be attached as Key Listener to
- *              the GUI JFrame.
- * @return Retrieves GameField object that is created by GUI.
  */
-    public GameField createGUI(PlayerInput pi)
+    public void createGUI()
     {
-        GraphicInterface gui = new GraphicInterface();
+        GraphicInterface gui = new GraphicInterface(this);
         SwingUtilities.invokeLater(gui);
-        GameField field = gui.getField();
         
         while (field == null) {
             try {
@@ -77,10 +78,6 @@ public class RottaPeli {
                 System.out.println("Piirtoalustaa ei ole vielä luotu.");
             }
         }
-        
-        field.setRottaPeli(this);
-        gui.setPlayerInput(pi);
-        return field;
     }
 /**
  * Creates Bouncable Borders around the playing field and a layer of

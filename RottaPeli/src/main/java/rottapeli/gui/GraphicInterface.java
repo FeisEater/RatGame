@@ -20,6 +20,7 @@ import javax.swing.OverlayLayout;
 import javax.swing.WindowConstants;
 import rottapeli.interfaces.Updatable;
 import rottapeli.peli.PlayerInput;
+import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Const;
 
 /**
@@ -29,6 +30,11 @@ import rottapeli.resource.Const;
 public class GraphicInterface implements Runnable {
     private JFrame frame;
     private GameField field;
+    private RottaPeli rp;
+    public GraphicInterface(RottaPeli peli)
+    {
+        rp = peli;
+    }
 /**
  * Creates components of the GUI.
  */
@@ -41,18 +47,14 @@ public class GraphicInterface implements Runnable {
         };
         LayoutManager overlay = new OverlayLayout(panel);
         panel.setLayout(overlay);
-        field = new GameField();
-        JPanel buttons = new JPanel(new GridLayout(3,0)) {
-          public boolean isOptimizedDrawingEnabled() {
-            return false;
-          }
-        };
-        JLabel empty = new JLabel("");
-        buttons.add(empty);
-        buttons.add(new JButton("nappi"));
-        buttons.setOpaque(false);
-        //panel.add(buttons);
-        panel.add(field);
+        
+        JPanel game = new JPanel(new BorderLayout());
+        field = new GameField(rp);
+        game.add(field);
+        game.add(new ScoreBar(rp), BorderLayout.SOUTH);
+        
+        //panel.add(new Menu());
+        panel.add(game);
         frame.add(panel);
     }
 /**
@@ -72,14 +74,5 @@ public class GraphicInterface implements Runnable {
     public GameField getField()
     {
         return field;
-    }
-/**
- * Stores pointer for the player input.
- * @param pi Player input object.
- */
-    public void setPlayerInput(PlayerInput pi)
-    {
-        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-        manager.addKeyEventDispatcher(pi);
     }
 }

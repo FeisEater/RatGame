@@ -26,33 +26,14 @@ import rottapeli.resource.Const;
  */
 public class GameField extends JPanel implements Updatable {
     private RottaPeli rp;
-    private JLabel scoreText;
-    private JLabel livesText;
-    private JLabel bonusText;
-    public GameField()
-    {
-        setLayout(new BorderLayout());
-        setOpaque(false);
-        JPanel scores = new JPanel(new GridLayout(0,3));
-        add(scores, BorderLayout.SOUTH);
-        scores.setBackground(Color.WHITE);  
-        scoreText = new JLabel("Score: ");
-        scoreText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
-        scores.add(scoreText);
-        livesText = new JLabel("Lives: ");
-        livesText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
-        scores.add(livesText);
-        bonusText = new JLabel("Bonus: ");
-        bonusText.setFont(new Font(scores.getFont().getName(), Font.BOLD, 32));
-        scores.add(bonusText);
-    }
 /**
- * Stores a pointer to the game logic Object.
+ * Constructor.
  * @param peli Game logic Object.
  */
-    public void setRottaPeli(RottaPeli peli)
+    public GameField(RottaPeli peli)
     {
         rp = peli;
+        rp.getTimer().addUpdatable(this);
     }
 /**
  * Paints all Entities and scales them to the size of the window.
@@ -83,11 +64,5 @@ public class GameField extends JPanel implements Updatable {
     public void update()
     {
         this.repaint();
-        scoreText.setText("Score: " + (int)rp.getScore().getPoints(1));
-        livesText.setText("Lives: " + (int)rp.getScore().getLives(1));
-        bonusText.setText("Bonus: " + (int)rp.getScore().getBonus());
     }
-    
-    @Override
-    public boolean isOptimizedDrawingEnabled() {return false;}
 }

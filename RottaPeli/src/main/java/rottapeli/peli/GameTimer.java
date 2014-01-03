@@ -3,6 +3,7 @@ package rottapeli.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Timer;
 import rottapeli.domain.Rat;
@@ -16,6 +17,7 @@ import rottapeli.resource.Const;
 public class GameTimer extends Timer implements ActionListener {
     private RottaPeli rp;
     private boolean gameIsPaused;
+    private List<Updatable> updatables;
 /**
  * Constructor.
  * @param peli Pointer to the game logic Object.
@@ -24,10 +26,14 @@ public class GameTimer extends Timer implements ActionListener {
     {
         super(1000 / Const.fps, null);
         addActionListener(this);
+        updatables = new ArrayList<Updatable>();
 
         rp = peli;
         gameIsPaused = false;
+        
+        start();
     }
+    public void addUpdatable(Updatable u)   {updatables.add(u);}
 /**
  * Toggles whether game should be paused or not.
  */
@@ -44,16 +50,14 @@ public class GameTimer extends Timer implements ActionListener {
 @Override
     public void actionPerformed(ActionEvent ae)
     {
-        if (rp.getInput() != null)   rp.getInput().update();
-        
-        if (rp.getEntities() != null && !gameIsPaused)
-            rp.getEntities().update();
-        
-        if (rp.getScore() != null && !gameIsPaused)
-            rp.getScore().update();
-        
-        if (rp.getField() != null && !gameIsPaused)
-            rp.getField().update();
+        for (Updatable u : updatables)
+        {
+            if (u != null)
+            {
+                if (!gameIsPaused || u == rp.getInput())
+                    u.update();
+            }
+        }
     }
 
 }
