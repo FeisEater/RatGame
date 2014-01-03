@@ -15,20 +15,19 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GameTimer extends Timer implements ActionListener {
-    private RottaPeli rp;
     private boolean gameIsPaused;
     private List<Updatable> updatables;
+    private RottaPeli rp;
 /**
  * Constructor.
- * @param peli Pointer to the game logic Object.
  */
     public GameTimer(RottaPeli peli)
     {
         super(1000 / Const.fps, null);
         addActionListener(this);
         updatables = new ArrayList<Updatable>();
-
         rp = peli;
+
         gameIsPaused = false;
         
         start();
@@ -40,6 +39,11 @@ public class GameTimer extends Timer implements ActionListener {
     public void togglePause()
     {
         gameIsPaused = !gameIsPaused;
+        rp.getMenu().setVisible(gameIsPaused);
+    }
+    public void setPaused(boolean paused)
+    {
+        gameIsPaused = paused;
     }
 /**
  * Method is called every tick on the timer.
@@ -54,7 +58,7 @@ public class GameTimer extends Timer implements ActionListener {
         {
             if (u != null)
             {
-                if (!gameIsPaused || u == rp.getInput())
+                if (!gameIsPaused || u.getClass() == PlayerInput.class)
                     u.update();
             }
         }

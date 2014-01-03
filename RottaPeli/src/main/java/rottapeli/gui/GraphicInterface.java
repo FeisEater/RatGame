@@ -27,35 +27,32 @@ import rottapeli.resource.Const;
  * Creates a window that contains the graphical interface of the game.
  * @author Pavel
  */
-public class GraphicInterface implements Runnable {
+public class GraphicInterface extends JPanel implements Runnable {
     private JFrame frame;
-    private GameField field;
+    private boolean componentsCreated;
     private RottaPeli rp;
+    private Menu menu;
     public GraphicInterface(RottaPeli peli)
     {
         rp = peli;
+        componentsCreated = false;
     }
 /**
  * Creates components of the GUI.
  */
     public void createComponents()
     {
-        JPanel panel = new JPanel() {
-          public boolean isOptimizedDrawingEnabled() {
-            return false;
-          }
-        };
-        LayoutManager overlay = new OverlayLayout(panel);
-        panel.setLayout(overlay);
+        LayoutManager overlay = new OverlayLayout(this);
+        setLayout(overlay);
         
         JPanel game = new JPanel(new BorderLayout());
-        field = new GameField(rp);
-        game.add(field);
+        game.add(new GameField(rp));
         game.add(new ScoreBar(rp), BorderLayout.SOUTH);
         
-        //panel.add(new Menu());
-        panel.add(game);
-        frame.add(panel);
+        menu = new Menu(rp);
+        add(menu);
+        add(game);
+        frame.add(this);
     }
 /**
  * Runs the window with GUI.
@@ -69,10 +66,21 @@ public class GraphicInterface implements Runnable {
         createComponents();
         frame.pack();
         frame.setVisible(true);
+        componentsCreated = true;
     }
     
-    public GameField getField()
+    public boolean componentsCreated()
     {
-        return field;
+        return componentsCreated;
+    }
+    public Menu getMenu()
+    {
+        return menu;
+    }
+    
+    @Override
+    public boolean isOptimizedDrawingEnabled()
+    {
+        return false;
     }
 }

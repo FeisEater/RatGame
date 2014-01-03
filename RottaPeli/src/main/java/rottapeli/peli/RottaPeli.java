@@ -18,6 +18,7 @@ import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.gui.GameField;
 import rottapeli.gui.GraphicInterface;
+import rottapeli.gui.Menu;
 import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Updatable;
@@ -31,7 +32,7 @@ import rottapeli.peli.GameTimer;
  */
 public class RottaPeli {
     private EntityList entities;
-    private GameField field;
+    private Menu menu;
     private GameTimer timer;
     private PlayerInput input;
     private ScoreKeeper score;
@@ -56,9 +57,10 @@ public class RottaPeli {
         if (createsGUI)   createGUI();
 
         resetGame();
+        entities.removeAll(Rat.class);
     }
     public EntityList getEntities() {return entities;}
-    public GameField getField()     {return field;}
+    public Menu getMenu()     {return menu;}
     public GameTimer getTimer()     {return timer;}
     public PlayerInput getInput()   {return input;}
     public ScoreKeeper getScore()   {return score;}
@@ -70,14 +72,15 @@ public class RottaPeli {
         GraphicInterface gui = new GraphicInterface(this);
         SwingUtilities.invokeLater(gui);
         
-        while (field == null) {
+        while (!gui.componentsCreated()) {
             try {
                 Thread.sleep(100);
-                field = gui.getField();
             } catch (InterruptedException ex) {
                 System.out.println("Piirtoalustaa ei ole vielä luotu.");
             }
         }
+        
+        menu = gui.getMenu();
     }
 /**
  * Creates Bouncable Borders around the playing field and a layer of
