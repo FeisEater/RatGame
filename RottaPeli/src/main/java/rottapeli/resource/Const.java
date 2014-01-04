@@ -39,13 +39,13 @@ public class Const {
     public static final double ratspeed = 1.0;
     
     /** Width of the Ball. */
-    public static final double ballwidth = 2.0;
+    public static final double ballwidth = 1.0;
     /** Height of the Ball. */
-    public static final double ballheight = 2.0;
+    public static final double ballheight = 1.0;
     /** Width of the Rat. */
-    public static final double ratwidth = 2.0;
+    public static final double ratwidth = 1.0;
     /** Height of the Rat. */
-    public static final double ratheight = 2.0;
+    public static final double ratheight = 1.0;
     //public static final double tailthickness = 1.0;
     /** Width of the Cheese. */
     public static final double cheesewidth = 1.0;

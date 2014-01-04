@@ -59,6 +59,13 @@ public class RottaPeliTest {
     }
 
     @Test
+    public void componentsAreNotNull()
+    {
+        assertTrue(rp.getEntities() != null && rp.getInput() != null &&
+                rp.getScore() != null && rp.getTimer() != null);
+    }
+    
+    @Test
     public void gameIsResetted()
     {
         rp.resetGame();
@@ -68,6 +75,17 @@ public class RottaPeliTest {
                 rp.getEntities().getList(Border.class).size() == 4 &&
                 rp.getEntities().getList(PlacementBlocker.class).size() == 4);
     }
+    @Test
+    public void demoIsResetted()
+    {
+        rp.resetDemo();
+        assertTrue(rp.getEntities().getList(Rat.class).size() == 0 &&
+                rp.getEntities().getList(Ball.class).size() == 10 &&
+                rp.getEntities().getList(Cheese.class).size() == Const.cheeseamount &&
+                rp.getEntities().getList(Border.class).size() == 4 &&
+                rp.getEntities().getList(PlacementBlocker.class).size() == 4);
+    }
+
     
     @Test
     public void inputControlsRat()
@@ -235,5 +253,22 @@ public class RottaPeliTest {
         rp.playerAteCheese(1);
         assertTrue("" + rp.getScore().getPoints(1) + " " + rp.getScore().getPoints(2), rp.getScore().getPoints(1) >= Const.initialBonus &&
                 rp.getScore().getPoints(2) >= Const.initialBonus);
+    }
+    
+    @Test
+    public void gameIsOverWhenNoMorePlayers()
+    {
+        rp.resetGame();
+        boolean b1 = !rp.isGameOver();
+        rp.getEntities().addEntity(new TestRat());
+        rp.getScore().resetScore(rp.getPlayers());
+        boolean b2 = !rp.isGameOver();
+        for (int i = 0; i < Const.initialLifeAmount; i++)
+            rp.playerDied(1);
+        boolean b3 = !rp.isGameOver();
+        for (int i = 0; i < Const.initialLifeAmount; i++)
+            rp.playerDied(2);
+        boolean b4 = rp.isGameOver();
+        assertTrue(b1 && b2 && b3 && b4);
     }
 }

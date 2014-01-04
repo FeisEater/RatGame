@@ -125,3 +125,6 @@
 
 4.1.2014	Made menu code more versatile. Made submenus for settings,
 		highscore and credits. 3 hours.
+
+		Made some tests for new code. Experimented with loading
+		images. 1,5 hours.

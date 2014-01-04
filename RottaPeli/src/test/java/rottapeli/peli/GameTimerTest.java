@@ -105,4 +105,14 @@ public class GameTimerTest {
         Thread.sleep(100);
         assertTrue(rp.getScore().getBonus() == Const.initialBonus);
     }
+    @Test
+    public void cantPauseIfGameIsOver() throws Exception
+    {
+        rp.getEntities().removeAll(Rat.class);
+        gt.togglePause();
+        Moveable e = new Ball(0,0,Const.right);
+        rp.getEntities().addEntity(e);
+        Thread.sleep(100);
+        assertTrue(e.X() > 0.1);
+    }
 }

@@ -3,9 +3,13 @@ package rottapeli.domain;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javax.imageio.ImageIO;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
@@ -247,6 +251,15 @@ public class Rat extends Moveable implements Killable, Controllable {
 @Override
     public void draw(Graphics g, double xMultiplier, double yMultiplier)
     {
+        /*BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("assets/rat.png"));
+        }   catch (IOException e) {
+            System.out.println("can't find image");
+        }
+        g.drawImage(image, (int)(X() * xMultiplier), (int)(Y() * yMultiplier),
+                (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), null);
+        */
         g.setColor(Color.BLACK);
         g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
             (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);

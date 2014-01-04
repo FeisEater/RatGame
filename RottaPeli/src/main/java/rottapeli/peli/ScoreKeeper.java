@@ -133,6 +133,5 @@ public class ScoreKeeper implements Updatable {
     {
         timebonus -= Const.bonusDecreasingRate;
         if (timebonus < 0)  timebonus = 0;
-        //System.out.println("score: " + score.get(1) + " lives: " + lives.get(1) + " combo: " + combo.get(1) + " timebonus: " + timebonus);
     }
 }

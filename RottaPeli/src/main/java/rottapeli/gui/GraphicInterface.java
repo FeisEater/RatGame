@@ -35,7 +35,6 @@ public class GraphicInterface extends JPanel implements Runnable {
     private JFrame frame;
     private boolean componentsCreated;
     private RottaPeli rp;
-    private MenuLayer menu;
     public GraphicInterface(RottaPeli peli)
     {
         rp = peli;
@@ -49,7 +48,7 @@ public class GraphicInterface extends JPanel implements Runnable {
         LayoutManager overlay = new OverlayLayout(this);
         setLayout(overlay);
                 
-        menu = new MenuLayer(rp);
+        MenuLayer menu = new MenuLayer(rp);
         rp.setMenu(menu);
 
         add(menu);
