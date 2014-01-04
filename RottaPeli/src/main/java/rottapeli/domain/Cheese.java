@@ -65,11 +65,11 @@ public class Cheese extends Positioned implements Bouncable, Eatable {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
     @Override
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.GREEN);
-        g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+        g.fillRect(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+            drawWidth(xMultiplier), drawHeight(yMultiplier));
     }
 
 }

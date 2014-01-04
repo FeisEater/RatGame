@@ -249,7 +249,7 @@ public class Rat extends Moveable implements Killable, Controllable {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
 @Override
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
         /*BufferedImage image = null;
         try {
@@ -257,12 +257,12 @@ public class Rat extends Moveable implements Killable, Controllable {
         }   catch (IOException e) {
             System.out.println("can't find image");
         }
-        g.drawImage(image, (int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-                (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), null);
+        g.drawImage(image, drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+                drawWidth(xMultiplier), drawHeight(yMultiplier), null);
         */
         g.setColor(Color.BLACK);
-        g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+        g.fill3DRect(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+            drawWidth(xMultiplier), drawHeight(yMultiplier), true);
     }
 /**
  * Signals Controlable Entity to move to the specified direction.

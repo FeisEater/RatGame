@@ -47,10 +47,10 @@ public class Tail extends Positioned implements Killable {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
     @Override
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.MAGENTA);
-        g.fillRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)Math.ceil(getWidth() * xMultiplier), (int)Math.ceil(getHeight() * yMultiplier));
+        g.fillRect(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+            drawWidth(xMultiplier), drawHeight(yMultiplier));
     }
 }

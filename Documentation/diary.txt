@@ -128,3 +128,5 @@
 
 		Made some tests for new code. Experimented with loading
 		images. 1,5 hours.
+
+		Implemented aspect ratio. 1 hour.

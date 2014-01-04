@@ -185,10 +185,20 @@ public class Positioned extends Entity {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
 
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.BLACK);
-        g.fill3DRect((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier), true);
+        g.fillRect(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+            drawWidth(xMultiplier), drawHeight(yMultiplier));
     }
+    public int drawX(double offsetX, double xMultiplier)
+    {
+        return (int)(xMultiplier * X() + offsetX);
+    }
+    public int drawY(double offsetY, double yMultiplier)
+    {
+        return (int)(yMultiplier * Y() + offsetY);
+    }
+    public int drawWidth(double xMultiplier)    {return (int)(getWidth() * xMultiplier);}
+    public int drawHeight(double yMultiplier)    {return (int)(getHeight() * yMultiplier);}
 }

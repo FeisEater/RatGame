@@ -150,11 +150,11 @@ public class Ball extends Moveable implements Bouncable {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
     @Override
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
         g.setColor(Color.RED);
-        g.fillOval((int)(X() * xMultiplier), (int)(Y() * yMultiplier),
-            (int)(getWidth() * xMultiplier), (int)(getHeight() * yMultiplier));
+        g.fillOval(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
+            drawWidth(xMultiplier), drawHeight(yMultiplier));
     }
 
 }

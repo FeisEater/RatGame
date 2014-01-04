@@ -47,14 +47,27 @@ public class GameField extends JPanel implements Updatable {
         if (rp == null && rp.getEntities() == null)
             return;
 
+        double offsetX = 0;
+        double offsetY = 0;
         double widthMultiplier = getWidth() / (double)Const.width;
         double heightMultiplier = getHeight() / (double)Const.height;
-        //double multiplier = Math.min(widthMultiplier, heightMultiplier);
+        if (widthMultiplier < heightMultiplier)
+        {
+            offsetY = Const.height * ((heightMultiplier - widthMultiplier) / 2);
+            heightMultiplier = widthMultiplier;
+        }
+        else
+        {
+            offsetX = Const.width * ((widthMultiplier - heightMultiplier) / 2);
+            widthMultiplier = heightMultiplier;
+        }
         
+        g.setColor(Color.white);
+        g.fillRect((int)offsetX, (int)offsetY, (int)(widthMultiplier * Const.width), (int)(heightMultiplier * Const.height));
         List<Positioned> drawables = rp.getEntities().getList(Positioned.class);
         for (Positioned p : drawables)
         {
-            p.draw(g, widthMultiplier, heightMultiplier);
+            p.draw(g, offsetX, offsetY, widthMultiplier, heightMultiplier);
         }
     }
 /**

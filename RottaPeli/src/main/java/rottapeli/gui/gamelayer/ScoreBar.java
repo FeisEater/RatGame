@@ -22,7 +22,7 @@ public class ScoreBar extends JPanel implements Updatable {
     {
         super(new GridLayout(0,3));
         rp = peli;
-        setBackground(Color.WHITE);
+        setBackground(Color.black);
         rp.getTimer().addUpdatable(this);
 
         scoreText = createLabel();
@@ -32,6 +32,7 @@ public class ScoreBar extends JPanel implements Updatable {
     public JLabel createLabel()
     {
         JLabel label = new JLabel("");
+        label.setForeground(Color.white);
         label.setFont(new Font(getFont().getName(), Font.BOLD, 32));
         add(label);
         return label;

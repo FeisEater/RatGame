@@ -31,7 +31,7 @@ public class Border extends Positioned implements Bouncable, Hidable {
  * @param yMultiplier   Vertical stretching based on windows height.
  */
     @Override
-    public void draw(Graphics g, double xMultiplier, double yMultiplier)
+    public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
     {
     }
 
