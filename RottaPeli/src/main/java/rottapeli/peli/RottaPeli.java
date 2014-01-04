@@ -16,9 +16,9 @@ import rottapeli.domain.PlacementBlocker;
 import rottapeli.domain.Rat;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Positioned;
-import rottapeli.gui.GameField;
+import rottapeli.gui.gamelayer.GameField;
 import rottapeli.gui.GraphicInterface;
-import rottapeli.gui.Menu;
+import rottapeli.gui.menulayer.MenuLayer;
 import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Updatable;
@@ -32,7 +32,7 @@ import rottapeli.peli.GameTimer;
  */
 public class RottaPeli {
     private EntityList entities;
-    private Menu menu;
+    private MenuLayer menu;
     private GameTimer timer;
     private PlayerInput input;
     private ScoreKeeper score;
@@ -59,7 +59,8 @@ public class RottaPeli {
         resetDemo();
     }
     public EntityList getEntities() {return entities;}
-    public Menu getMenu()     {return menu;}
+    public MenuLayer getMenu()     {return menu;}
+    public void setMenu(MenuLayer m)    {menu = m;}
     public GameTimer getTimer()     {return timer;}
     public PlayerInput getInput()   {return input;}
     public ScoreKeeper getScore()   {return score;}
@@ -78,8 +79,6 @@ public class RottaPeli {
                 System.out.println("Piirtoalustaa ei ole vielä luotu.");
             }
         }
-        
-        menu = gui.getMenu();
     }
 /**
  * Creates Bouncable Borders around the playing field and a layer of
@@ -251,5 +250,7 @@ public class RottaPeli {
 
         for (int i = 0; i < Const.cheeseamount; i++)
             createAndPositionToFreeSpot(new Cheese());
+        
+        if (menu != null)   menu.popMenu(true);
     }
 }

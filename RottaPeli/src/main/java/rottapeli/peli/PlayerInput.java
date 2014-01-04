@@ -95,7 +95,7 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
     public void keyReleased(KeyEvent e)
     {
         pressedKeys.remove(e.getKeyCode());
-        if (e.getKeyCode() == KeyEvent.VK_ENTER)
-            rp.resetGame();
+        //if (e.getKeyCode() == KeyEvent.VK_ENTER)
+        //    rp.resetGame();
     }
 }

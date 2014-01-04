@@ -36,6 +36,7 @@ public class GameTimerTest {
         rp = new RottaPeli(false);
         rp.resetGame();
         rp.getEntities().removeAll(Entity.class);
+        rp.getEntities().addEntity(new Rat());
         gt = rp.getTimer();
     }
     

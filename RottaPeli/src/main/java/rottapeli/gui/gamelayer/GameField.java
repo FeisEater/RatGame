@@ -1,4 +1,4 @@
-package rottapeli.gui;
+package rottapeli.gui.gamelayer;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

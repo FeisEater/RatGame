@@ -1,5 +1,5 @@
 
-package rottapeli.gui;
+package rottapeli.gui.gamelayer;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -25,17 +25,16 @@ public class ScoreBar extends JPanel implements Updatable {
         setBackground(Color.WHITE);
         rp.getTimer().addUpdatable(this);
 
-        scoreText = new JLabel("");
-        createLabel(scoreText);
-        livesText = new JLabel("");
-        createLabel(livesText);
-        bonusText = new JLabel("");
-        createLabel(bonusText);
+        scoreText = createLabel();
+        livesText = createLabel();
+        bonusText = createLabel();
     }
-    public void createLabel(JLabel label)
+    public JLabel createLabel()
     {
+        JLabel label = new JLabel("");
         label.setFont(new Font(getFont().getName(), Font.BOLD, 32));
         add(label);
+        return label;
     }
     @Override
     public void update()
@@ -44,7 +43,7 @@ public class ScoreBar extends JPanel implements Updatable {
         if (rp != null && rp.getScore() != null && !rp.isGameOver())
         {
             scoreText.setText("Score: " + (int)rp.getScore().getPoints(1));
-            livesText.setText("Lives: " + (int)rp.getScore().getLives(1));
+            livesText.setText("Lives: " + (int)(rp.getScore().getLives(1) - 1));
             bonusText.setText("Bonus: " + (int)rp.getScore().getBonus());
         }
     }

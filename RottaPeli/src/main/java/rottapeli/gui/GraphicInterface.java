@@ -1,5 +1,8 @@
 package rottapeli.gui;
 
+import rottapeli.gui.menulayer.MenuLayer;
+import rottapeli.gui.gamelayer.ScoreBar;
+import rottapeli.gui.gamelayer.GameField;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -18,6 +21,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.OverlayLayout;
 import javax.swing.WindowConstants;
+import rottapeli.gui.gamelayer.GameLayer;
 import rottapeli.interfaces.Updatable;
 import rottapeli.peli.PlayerInput;
 import rottapeli.peli.RottaPeli;
@@ -31,7 +35,7 @@ public class GraphicInterface extends JPanel implements Runnable {
     private JFrame frame;
     private boolean componentsCreated;
     private RottaPeli rp;
-    private Menu menu;
+    private MenuLayer menu;
     public GraphicInterface(RottaPeli peli)
     {
         rp = peli;
@@ -44,14 +48,13 @@ public class GraphicInterface extends JPanel implements Runnable {
     {
         LayoutManager overlay = new OverlayLayout(this);
         setLayout(overlay);
-        
-        JPanel game = new JPanel(new BorderLayout());
-        game.add(new GameField(rp));
-        game.add(new ScoreBar(rp), BorderLayout.SOUTH);
-        
-        menu = new Menu(rp);
+                
+        menu = new MenuLayer(rp);
+        rp.setMenu(menu);
+
         add(menu);
-        add(game);
+        add(new GameLayer(rp));
+        
         frame.add(this);
     }
 /**
@@ -72,10 +75,6 @@ public class GraphicInterface extends JPanel implements Runnable {
     public boolean componentsCreated()
     {
         return componentsCreated;
-    }
-    public Menu getMenu()
-    {
-        return menu;
     }
     
     @Override

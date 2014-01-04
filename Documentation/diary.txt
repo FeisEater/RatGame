@@ -122,3 +122,6 @@
 		Continue game button is available which will unpause the game.
 		When game is over, main menu becomes visible. Exit button
 		ends the program. 3 hours.
+
+4.1.2014	Made menu code more versatile. Made submenus for settings,
+		highscore and credits. 3 hours.
