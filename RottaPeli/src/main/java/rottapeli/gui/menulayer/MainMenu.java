@@ -16,12 +16,12 @@ public class MainMenu extends Menu {
     public void showMenu()
     {
         getMenuLayer().emptyRow();
-        continueGame = getMenuLayer().createButton("Continue game");
-        getMenuLayer().createButton("New game");
-        getMenuLayer().createButton("Settings");
-        getMenuLayer().createButton("High Score");
-        getMenuLayer().createButton("Credits");
-        getMenuLayer().createButton("Exit");
+        continueGame = getMenuLayer().createButton("#continue");
+        getMenuLayer().createButton("#newgame");
+        getMenuLayer().createButton("#settings");
+        getMenuLayer().createButton("#highscore");
+        getMenuLayer().createButton("#credits");
+        getMenuLayer().createButton("#exit");
         getMenuLayer().emptyRow();
         
         continueGame.setVisible(!gameLogic().isGameOver());
@@ -31,25 +31,26 @@ public class MainMenu extends Menu {
     {
         switch (ae.getActionCommand())
         {
-            case "Continue game":
+            case "#continue":
                 getMenuLayer().popMenu(false);
                 gameLogic().getTimer().setPaused(false);
                 break;
-            case "New game":
+            case "#newgame":
                 gameLogic().resetGame();
                 getMenuLayer().popMenu(false);
                 gameLogic().getTimer().setPaused(false);
                 break;
-            case "Settings":
+            case "#settings":
                 getMenuLayer().switchMenu(new SettingsMenu(rp));
                 break;
-            case "High Score":
+            case "#highscore":
                 getMenuLayer().switchMenu(new HighscoreMenu(rp));
                 break;
-            case "Credits":
+            case "#credits":
                 getMenuLayer().switchMenu(new CreditsMenu(rp));
                 break;
-            case "Exit":
+            case "#exit":
+                gameLogic().getSettings().saveSettings();
                 System.exit(0);
                 break;
             default:

@@ -130,3 +130,7 @@
 		images. 1,5 hours.
 
 		Implemented aspect ratio. 1 hour.
+
+5.1.2014	Aspect ratio and window size settings are saved in an
+		external file. Game loads language specific information
+		from an external file. 3 hours.

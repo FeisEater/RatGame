@@ -43,9 +43,9 @@ public class ScoreBar extends JPanel implements Updatable {
         this.repaint();
         if (rp != null && rp.getScore() != null && !rp.isGameOver())
         {
-            scoreText.setText("Score: " + (int)rp.getScore().getPoints(1));
-            livesText.setText("Lives: " + (int)(rp.getScore().getLives(1) - 1));
-            bonusText.setText("Bonus: " + (int)rp.getScore().getBonus());
+            scoreText.setText(rp.getLanguage().translate("#score") + ": " + (int)rp.getScore().getPoints(1));
+            livesText.setText(rp.getLanguage().translate("#lives") + ": " + (int)(rp.getScore().getLives(1) - 1));
+            bonusText.setText(rp.getLanguage().translate("#bonus") + ": " + (int)rp.getScore().getBonus());
         }
     }
 }

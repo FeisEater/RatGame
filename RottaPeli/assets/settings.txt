@@ -1,0 +1,3 @@
+aspectratio 1
+windowwidth 962
+windowheight 555

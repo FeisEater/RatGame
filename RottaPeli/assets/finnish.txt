@@ -1,0 +1,20 @@
+﻿
+#score%Pisteet
+#lives%Elämiä
+#bonus%Lisäpisteet
+
+#continue%Jatka peliä
+#newgame%Uusi peli
+#settings%Asetukset
+#highscore%Korkeimmat pisteet
+#credits%Tekijät
+#exit%Poistu
+
+#back%Palaa
+
+#language%Vaihda kieltä
+#controls%Muuta pelinohjaus
+#volume%Äänenvoimakkuus
+#aspectratio%Säilytä näytön suhde
+
+#fullcredits%Pelin tekijä: FeisEater

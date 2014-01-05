@@ -1,0 +1,20 @@
+
+#score%Score
+#lives%Lives left
+#bonus%Time bonus
+
+#continue%Continue game
+#newgame%New game
+#settings%Settings
+#highscore%High Score
+#credits%Credits
+#exit%Exit
+
+#back%Back
+
+#language%Change language
+#controls%Change controls
+#volume%Audio volume
+#aspectratio%Aspect ratio
+
+#fullcredits%Lead development: FeisEater

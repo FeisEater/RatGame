@@ -15,10 +15,10 @@ public class CreditsMenu extends Menu {
     {
         getMenuLayer().emptyRow();
         getMenuLayer().emptyRow();
-        getMenuLayer().createLabel("Lead development: FeisEater");
+        getMenuLayer().createLabel("#fullcredits");
         getMenuLayer().emptyRow();
         getMenuLayer().emptyRow();
-        getMenuLayer().createButton("Back");
+        getMenuLayer().createButton("#back");
         getMenuLayer().emptyRow();
     }
     @Override
@@ -26,7 +26,7 @@ public class CreditsMenu extends Menu {
     {
         switch (ae.getActionCommand())
         {
-            case "Back":
+            case "#back":
                 getMenuLayer().switchMenu(new MainMenu(rp));
                 break;
             default:

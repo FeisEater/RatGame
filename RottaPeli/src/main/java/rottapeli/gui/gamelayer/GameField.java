@@ -51,15 +51,18 @@ public class GameField extends JPanel implements Updatable {
         double offsetY = 0;
         double widthMultiplier = getWidth() / (double)Const.width;
         double heightMultiplier = getHeight() / (double)Const.height;
-        if (widthMultiplier < heightMultiplier)
+        if (rp.getSettings().hasAspectRatio())
         {
-            offsetY = Const.height * ((heightMultiplier - widthMultiplier) / 2);
-            heightMultiplier = widthMultiplier;
-        }
-        else
-        {
-            offsetX = Const.width * ((widthMultiplier - heightMultiplier) / 2);
-            widthMultiplier = heightMultiplier;
+            if (widthMultiplier < heightMultiplier)
+            {
+                offsetY = Const.height * ((heightMultiplier - widthMultiplier) / 2);
+                heightMultiplier = widthMultiplier;
+            }
+            else
+            {
+                offsetX = Const.width * ((widthMultiplier - heightMultiplier) / 2);
+                widthMultiplier = heightMultiplier;
+            }
         }
         
         g.setColor(Color.white);

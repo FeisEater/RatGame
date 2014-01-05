@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import rottapeli.peli.RottaPeli;
@@ -29,24 +32,39 @@ public class MenuLayer extends JPanel {
     }
     public JButton createButton(String label)
     {
-        add(new JLabel(""));
         JButton button = new JButton(label);
-        button.addActionListener(currentMenu);
-        button.setActionCommand(label);
-        add(button);
-        add(new JLabel(""));
+        createActionComponent(button);
         return button;
+    }
+    public JCheckBox createCheckBox(String label)
+    {
+        JCheckBox box = new JCheckBox(label);
+        createActionComponent(box);
+        return box;
     }
     public JLabel createLabel(String text)
     {
-        add(new JLabel(""));
         JLabel label = new JLabel(text);
         label.setOpaque(true);
         label.setBackground(Color.white);
         label.setHorizontalAlignment(JLabel.CENTER);
-        add(label);
-        add(new JLabel(""));
+        label.setText(rp.getLanguage().translate(label.getText()));
+        createComponent(label);
         return label;
+    }
+    public void createComponent(JComponent component)
+    {
+        add(new JLabel(""));
+        add(component);
+        add(new JLabel(""));
+    }
+    public void createActionComponent(AbstractButton button)
+    {
+        createComponent(button);
+        button.addActionListener(currentMenu);
+        button.setActionCommand(button.getText());
+        button.setHorizontalAlignment(AbstractButton.CENTER);
+        button.setText(rp.getLanguage().translate(button.getText()));
     }
     public void popMenu(boolean visible)
     {

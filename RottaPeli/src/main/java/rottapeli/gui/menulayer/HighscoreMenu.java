@@ -27,7 +27,7 @@ public class HighscoreMenu extends Menu {
         getMenuLayer().createLabel("#9 rererewer 9991");
         getMenuLayer().createLabel("#10 grgrdgdrg 1");
         getMenuLayer().emptyRow();
-        getMenuLayer().createButton("Back");
+        getMenuLayer().createButton("#back");
         getMenuLayer().emptyRow();
     }
     @Override
@@ -41,7 +41,7 @@ public class HighscoreMenu extends Menu {
     {
         switch (ae.getActionCommand())
         {
-            case "Back":
+            case "#back":
                 getMenuLayer().switchMenu(new MainMenu(rp));
                 break;
             default:

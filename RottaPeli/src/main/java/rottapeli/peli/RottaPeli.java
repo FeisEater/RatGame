@@ -3,9 +3,13 @@ package rottapeli.peli;
 import javax.swing.Timer;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -24,6 +28,7 @@ import rottapeli.interfaces.Eatable;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
 import rottapeli.peli.GameTimer;
+import rottapeli.resource.Language;
 /**
  * Central hub of the program that stores all components of the game.
  * <p>
@@ -36,6 +41,8 @@ public class RottaPeli {
     private GameTimer timer;
     private PlayerInput input;
     private ScoreKeeper score;
+    private Settings settings;
+    private Language language;
 /**
  * Constructor.
  * <p>
@@ -48,11 +55,13 @@ public class RottaPeli {
         input = new PlayerInput(this);
         entities = new EntityList(this);
         score = new ScoreKeeper(this);
-        
+        settings = new Settings();
+        language = new Language();
+
         timer = new GameTimer(this);
         timer.addUpdatable(input);
         timer.addUpdatable(entities);
-        timer.addUpdatable(score);
+        timer.addUpdatable(score);        
 
         if (createsGUI)   createGUI();
 
@@ -64,6 +73,8 @@ public class RottaPeli {
     public GameTimer getTimer()     {return timer;}
     public PlayerInput getInput()   {return input;}
     public ScoreKeeper getScore()   {return score;}
+    public Settings getSettings()   {return settings;}
+    public Language getLanguage()   {return language;}
 /**
  * Creates GUI window
  */
