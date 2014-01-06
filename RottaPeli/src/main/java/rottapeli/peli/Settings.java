@@ -16,6 +16,7 @@ public class Settings {
     private boolean aspectRatio;
     private int windowWidth;
     private int windowHeight;
+    private String language;
 
     private JFrame frame;
     public Settings()
@@ -23,6 +24,7 @@ public class Settings {
         aspectRatio = false;
         windowWidth = Const.width * 4;
         windowHeight = Const.height * 4;
+        language = Files.defaultLanguage;
         
         loadSettings();
     }
@@ -34,6 +36,12 @@ public class Settings {
     
     public int getSavedWidth()  {return windowWidth;}
     public int getSavedHeight()  {return windowHeight;}
+    
+    public String getLanguage() {return language;}
+    public void setLanguage(String lang)
+    {
+        language = "assets" + '\\' + lang;
+    }
 
     public void loadSettings()
     {
@@ -49,6 +57,8 @@ public class Settings {
                     windowWidth = Integer.parseInt(setting.split(" ")[1]);
                 if (setting.startsWith("windowheight"))
                     windowHeight = Integer.parseInt(setting.split(" ")[1]);
+                if (setting.startsWith("language"))
+                    language = setting.split(" ")[1];
             }
             sc.close();
         }
@@ -73,6 +83,10 @@ public class Settings {
 
             settings.append("windowheight ");
             settings.append("" + frame.getHeight());
+            settings.append(System.getProperty("line.separator"));
+
+            settings.append("language ");
+            settings.append("" + language);
             settings.append(System.getProperty("line.separator"));
 
             settings.close();

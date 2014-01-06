@@ -56,7 +56,7 @@ public class RottaPeli {
         entities = new EntityList(this);
         score = new ScoreKeeper(this);
         settings = new Settings();
-        language = new Language();
+        language = new Language(this);
 
         timer = new GameTimer(this);
         timer.addUpdatable(input);

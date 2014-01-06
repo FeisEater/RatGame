@@ -33,6 +33,10 @@ public class SettingsMenu extends Menu {
     {
         switch (ae.getActionCommand())
         {
+            case "#language":
+                gameLogic().getLanguage().chooseLanguage();
+                getMenuLayer().switchMenu(new SettingsMenu(rp));
+                break;
             case "#aspectratio":
                 gameLogic().getSettings().toggleAspectRatio();
                 break;

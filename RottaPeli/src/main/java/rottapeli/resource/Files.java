@@ -8,5 +8,6 @@ import java.io.File;
  */
 public class Files {
     public static final File settingsFile = new File("assets/settings.txt");
-    public static final File defaultLanguage = new File("assets/english.txt");
+    public static final String defaultLanguage = "assets/english.txt";
+    public static final File languageDirecory = new File("assets");
 }

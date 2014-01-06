@@ -1,5 +1,4 @@
-﻿
-#score%Pisteet
+﻿#score%Pisteet
 #lives%Elämiä
 #bonus%Lisäpisteet
 

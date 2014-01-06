@@ -1,3 +1,4 @@
 aspectratio 1
-windowwidth 962
-windowheight 555
+windowwidth 814
+windowheight 647
+language assets\english.txt
