@@ -79,4 +79,11 @@ public class MenuLayer extends JPanel {
         revalidate();
         repaint();
     }
+    public void showHighScore()
+    {
+        setVisible(true);
+        HighscoreMenu high = new HighscoreMenu(rp);
+        switchMenu(high);
+        high.enterName();
+    }
 }

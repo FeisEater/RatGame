@@ -104,6 +104,10 @@ public class ScoreKeeper implements Updatable {
     {
         combo.put(id, Const.cheesePoints);
     }
+    public Set<Integer> allAttendedPlayers()
+    {
+        return score.keySet();
+    }
 /**
  * Resets all score data.
  * @param players Set of player IDs that will play the game.

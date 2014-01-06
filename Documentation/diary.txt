@@ -134,3 +134,5 @@
 5.1.2014	Aspect ratio and window size settings are saved in an
 		external file. Game loads language specific information
 		from an external file. 3 hours.
+
+6.1.2014	Implemented high score. 3,5 hours

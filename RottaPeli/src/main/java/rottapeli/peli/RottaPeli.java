@@ -43,6 +43,7 @@ public class RottaPeli {
     private ScoreKeeper score;
     private Settings settings;
     private Language language;
+    private HighScore highscore;
 /**
  * Constructor.
  * <p>
@@ -52,11 +53,12 @@ public class RottaPeli {
  */
     public RottaPeli(boolean createsGUI)
     {        
+        settings = new Settings();
         input = new PlayerInput(this);
         entities = new EntityList(this);
         score = new ScoreKeeper(this);
-        settings = new Settings();
         language = new Language(this);
+        highscore = new HighScore();
 
         timer = new GameTimer(this);
         timer.addUpdatable(input);
@@ -75,6 +77,7 @@ public class RottaPeli {
     public ScoreKeeper getScore()   {return score;}
     public Settings getSettings()   {return settings;}
     public Language getLanguage()   {return language;}
+    public HighScore getHighScore() {return highscore;}
 /**
  * Creates GUI window
  */
@@ -179,7 +182,7 @@ public class RottaPeli {
                 entities.removeEntity((Entity)plr);
         }
         if (menu != null && isGameOver())
-            menu.popMenu(true);
+            menu.showHighScore();
     }
     public boolean isGameOver()
     {
