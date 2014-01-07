@@ -32,16 +32,23 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GraphicInterface extends JPanel implements Runnable {
+/** JFrame of the program. */
     private JFrame frame;
+/** true if gui is created and is ready to be used. */
     private boolean componentsCreated;
+/** Pointer to the game logic object. */
     private RottaPeli rp;
+/**
+ * Constructor.
+ * @param peli Pointer to the game logic object.
+ */
     public GraphicInterface(RottaPeli peli)
     {
         rp = peli;
         componentsCreated = false;
     }
 /**
- * Creates components of the GUI.
+ * Creates components of the GUI, game layer and menu layer.
  */
     public void createComponents()
     {
@@ -72,7 +79,10 @@ public class GraphicInterface extends JPanel implements Runnable {
         frame.setVisible(true);
         componentsCreated = true;
     }
-    
+/**
+ * 
+ * @return true if gui is created and is ready to be used.
+ */
     public boolean componentsCreated()
     {
         return componentsCreated;

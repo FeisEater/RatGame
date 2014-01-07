@@ -14,17 +14,28 @@ import rottapeli.resource.Files;
 import rottapeli.resource.Input;
 
 /**
- *
+ * Settings manager that can be reconfigured in the program. Settings are
+ * loaded from an external file and changed settings are saved to the
+ * external file.
  * @author Pavel
  */
 public class Settings {
+/** true if game representation should respect aspect ratio. */
     private boolean aspectRatio;
+/** Width of the window last retrieved from the settings file. */
     private int windowWidth;
+/** Height of the window last retrieved from the settings file. */
     private int windowHeight;
+/** Name of the language that is used in the program. */
     private String language;
+/** Mapped controls. */
     private Map<Integer, Input> controls;
-
+/** Frame of the GUI window. */
     private JFrame frame;
+/**
+ * Constructor. Loads default hard-coded settings then loads settings
+ * from an external file.
+ */
     public Settings()
     {
         controls = new HashMap<>();
@@ -46,7 +57,9 @@ public class Settings {
     {
         language = "assets" + '\\' + lang;
     }
-
+/**
+ * Hard-coded settings that will be in effect if external file can't be loaded.
+ */
     public void defaultSettings()
     {
         aspectRatio = false;
@@ -60,7 +73,9 @@ public class Settings {
         controls.put(KeyEvent.VK_UP, Input.PLR1UP);
         controls.put(KeyEvent.VK_P, Input.PAUSE);
     }
-    
+/**
+ * Loads the settings from an external file.
+ */
     public void loadSettings()
     {
         try
@@ -72,6 +87,10 @@ public class Settings {
         }
         catch (FileNotFoundException e)   {}
     }
+/**
+ * Changes a setting based on a line of String fetched from an external file,
+ * @param setting Line of String that contains a certain setting data.
+ */
     public void fetchSetting(String setting)
     {
         if (setting.startsWith("aspectratio"))
@@ -90,18 +109,36 @@ public class Settings {
                 reMap(i, fetchInteger(setting));
         } 
     }
+/**
+ * Converts an external data to a boolean.
+ * @param setting Line of String that contains a certain setting data.
+ * @return true if it ends in '1'
+ */
     public boolean fetchBoolean(String setting)
     {
         return setting.endsWith("1");
     }
+/**
+ * Converts an external data to an integer.
+ * @param setting Line of String that contains a certain setting data.
+ * @return integer value.
+ */
     public int fetchInteger(String setting)
     {
         return Integer.parseInt(setting.split(" ")[1]);
     }
+/**
+ * Converts an external data to a string.
+ * @param setting Line of String that contains a certain setting data.
+ * @return string value.
+ */
     public String fetchString(String setting)
     {
         return setting.split(" ")[1];
     }
+/**
+ * Saves possibly changed settings into an external file.
+ */
     public void saveSettings()
     {
         try
@@ -114,6 +151,11 @@ public class Settings {
         }
         catch (IOException e)   {}
     }
+/**
+ * Overwrites all settings that are possibly changed.
+ * @param settings Filewriter object.
+ * @throws IOException 
+ */
     public void writeSettings(FileWriter settings) throws IOException
     {
         writeBoolean(settings, "aspectratio", hasAspectRatio());
@@ -127,6 +169,14 @@ public class Settings {
             writeSetting(settings, i.toString(), findKey(i));
         } 
     }
+/**
+ * Converts a boolean attribute into a line of string that will be written into
+ * an external file.
+ * @param writer Filewriter object.
+ * @param var Name of the variable.
+ * @param bool Boolean value of the variable.
+ * @throws IOException 
+ */
     public void writeBoolean(FileWriter writer, String var, boolean bool) throws IOException
     {
         writer.append(var);
@@ -134,22 +184,45 @@ public class Settings {
         writer.append(" " + value);
         writer.append(System.getProperty("line.separator"));
     }
+/**
+ * Converts an object attribute into a line of string that will be written into
+ * an external file.
+ * @param writer Filewriter object.
+ * @param var Name of the variable.
+ * @param value Value of the object.
+ * @throws IOException 
+ */
     public void writeSetting(FileWriter writer, String var, Object value) throws IOException
     {
         writer.append(var);
         writer.append(" " + value.toString());
         writer.append(System.getProperty("line.separator"));
     }
+/**
+ * Converts a specific input code into an action that influences the game.
+ * @param key Keycode to be converted.
+ * @return An action input that is mapped to the given key.
+ */
     public Input getControl(int key)
     {
         if (!controls.containsKey(key)) return Input.NOTMAPPED;
         return controls.get(key);
     }
+/**
+ * Remaps a certain action into a keycode.
+ * @param action Input that the game will listen to.
+ * @param button Keycode of the key that should be configured to an input.
+ */
     public void reMap(Input action, int button)
     {
         controls.remove(findKey(action));
         controls.put(button, action);
     }
+/**
+ * Finds the current keycode that is configured to a certain input action.
+ * @param action Specific game input.
+ * @return Keycode of the key that causes a given action.
+ */
     public int findKey(Input action)
     {
         for (int key : controls.keySet())

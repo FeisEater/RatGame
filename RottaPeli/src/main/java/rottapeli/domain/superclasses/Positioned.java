@@ -18,9 +18,13 @@ import rottapeli.resource.Tools;
  * @author Pavel
  */
 public class Positioned extends Entity {
+/** Current X coordinate. */
     private double x;
+/** Current Y coordinate. */
     private double y;
+/** Width of the Entity. */
     private double width;
+/** Height of the Entity. */
     private double height;
 /**
  * Constructor.
@@ -181,8 +185,10 @@ public class Positioned extends Entity {
  * If not overriden draws a black rectangle.
  * 
  * @param g             Graphics data.
- * @param xMultiplier   Horizontal stretching based on windows width.
- * @param yMultiplier   Vertical stretching based on windows height.
+ * @param offsetX       X position of the drawing field in respect to window's location.
+ * @param offsetY       Y position of the drawing field in respect to window's location.
+ * @param xMultiplier   Horizontal stretching based on window's width.
+ * @param yMultiplier   Vertical stretching based on window's height.
  */
 
     public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)
@@ -191,16 +197,38 @@ public class Positioned extends Entity {
         g.fillRect(drawX(offsetX, xMultiplier), drawY(offsetY, yMultiplier),
             drawWidth(xMultiplier), drawHeight(yMultiplier));
     }
+/**
+ * 
+ * @param offsetX X position of the drawing field in respect to window's location.
+ * @param xMultiplier Horizontal stretching based on window's width.
+ * @return X position of the drawing representing this Entity.
+ */
     public int drawX(double offsetX, double xMultiplier)
     {
         return (int)Math.floor(xMultiplier * X() + offsetX);
     }
+/**
+ * 
+ * @param offsetY Y position of the drawing field in respect to window's location.
+ * @param yMultiplier Vertical stretching based on window's height.
+ * @return Y position of the drawing representing this Entity.
+ */
     public int drawY(double offsetY, double yMultiplier)
     {
         return (int)Math.floor(yMultiplier * Y() + offsetY);
     }
+/**
+ * 
+ * @param xMultiplier Horizontal stretching based on window's width.
+ * @return Width of the drawing representing this Entity.
+ */
     public int drawWidth(double xMultiplier)
         {return (int)Math.ceil(getWidth() * xMultiplier);}
+/**
+ * 
+ * @param yMultiplier Vertical stretching based on window's height.
+ * @return Height of the drawing representing this Entity.
+ */
     public int drawHeight(double yMultiplier)
         {return (int)Math.ceil(getHeight() * yMultiplier);}
 }

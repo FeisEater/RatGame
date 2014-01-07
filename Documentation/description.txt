@@ -28,7 +28,7 @@ language files and translating all of the text inside.
 
 All of the key inputs can be mapped specifically to any keys.
 
-Volume can be changed, or game audio can be muted all together.
+REDACTED: (Volume can be changed, or game audio can be muted all together.)
 
 Aspect ratio can be toggled on and off.
 

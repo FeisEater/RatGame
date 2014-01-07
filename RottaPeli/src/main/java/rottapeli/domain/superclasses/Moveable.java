@@ -15,9 +15,13 @@ import rottapeli.resource.ApproachFrom;
  * @author Pavel
  */
 public class Moveable extends Positioned implements Updatable {
+/** Direction towards which Moveable Entity is moving in radians. */
     private double direction;
+/** Current speed of the movement. */
     private double speed;
+/** X coordinate that Entity occupied in the previous tick. */
     private double oldx;
+/** Y coordinate that Entity occupied in the previous tick. */
     private double oldy;
 /**
  * Constructor.

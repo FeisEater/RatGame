@@ -30,21 +30,40 @@ public class ScoreKeeper implements Updatable {
         combo = new HashMap<Integer, Double>();
         lives = new HashMap<Integer, Integer>();
     }
+/**
+ * 
+ * @param id Player ID.
+ * @return Certain player's score.
+ */
     public double getPoints(int id)
     {
         if (!score.containsKey(id)) return -1;
         return score.get(id);
     }
+/**
+ * 
+ * @param id Player ID.
+ * @return Certain player's life amount.
+ */
     public double getLives(int id)
     {
         if (!lives.containsKey(id)) return -1;
         return lives.get(id);
     }
+/**
+ * 
+ * @param id Player ID.
+ * @return Certain player's combo.
+ */
     public double getCombo(int id)
     {
         if (!combo.containsKey(id)) return -1;
         return combo.get(id);
     }
+/**
+ * 
+ * @return Current time bonus left.
+ */
     public double getBonus() {return timebonus;}
 /**
  * Calculates and adds score for eating cheese. Increases combo, so more
@@ -71,6 +90,10 @@ public class ScoreKeeper implements Updatable {
                     nextExtraLifeScore.get(id) + Const.extraLifeReward);
         }
     }
+/**
+ * Give one life to a certain player.
+ * @param id Player ID.
+ */
     public void giveALife(int id)   {lives.put(id, lives.get(id) + 1);}
 /**
  * Decereases amount of lives by one. If no lives left, signal game logic
@@ -104,6 +127,10 @@ public class ScoreKeeper implements Updatable {
     {
         combo.put(id, Const.cheesePoints);
     }
+/**
+ * 
+ * @return All player ID's that have participated in the game.
+ */
     public Set<Integer> allAttendedPlayers()
     {
         return score.keySet();

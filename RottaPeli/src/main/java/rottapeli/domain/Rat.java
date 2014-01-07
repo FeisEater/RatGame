@@ -32,8 +32,12 @@ import rottapeli.resource.Tools;
  * @author Pavel
  */
 public class Rat extends Moveable implements Killable, Controllable {
+/** true if Rat is currently moving. */
     private boolean ismoving;
+/** true if Rat has nothing stopping it from creating a Tail segment. */
     private boolean canCreateTail;
+/** Most recently created Tail segment. Colliding with it won't cause
+    the Rat to die. */
     private Tail lastTail;
 /**
  * Constructor
@@ -245,8 +249,10 @@ public class Rat extends Moveable implements Killable, Controllable {
  * Rat is a black rectangle.
  * 
  * @param g             Graphics data.
- * @param xMultiplier   Horizontal stretching based on windows width.
- * @param yMultiplier   Vertical stretching based on windows height.
+ * @param offsetX       X position of the drawing field in respect to window's location.
+ * @param offsetY       Y position of the drawing field in respect to window's location.
+ * @param xMultiplier   Horizontal stretching based on window's width.
+ * @param yMultiplier   Vertical stretching based on window's height.
  */
 @Override
     public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)

@@ -25,6 +25,7 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GameField extends JPanel implements Updatable {
+/** Game logic Object. */
     private RottaPeli rp;
 /**
  * Constructor.
@@ -54,7 +55,8 @@ public class GameField extends JPanel implements Updatable {
         return 0;
     }
 /**
- * Paints all Entities and scales them to the size of the window.
+ * Paints all Entities and scales them to the size of the window. Looks up
+ * whether aspect ratio should be respected from the current settings.
  * @param g Graphics data Object.
  */
     @Override

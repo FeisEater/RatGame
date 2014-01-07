@@ -103,5 +103,9 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
         pressedKeys.remove(input);
         if (listeningMenu != null)  listeningMenu.keyReleased(e);
     }
+/**
+ * Set certain menu to listen for KeyEvents.
+ * @param menu Menu that will react to KeyEvents.
+ */
     public void setListenerMenu(Menu menu)  {listeningMenu = menu;}
 }

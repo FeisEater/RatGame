@@ -13,7 +13,9 @@ import rottapeli.interfaces.Updatable;
  * @author Pavel
  */
 public class EntityList implements Updatable {
+/** Game logic object. */
     private RottaPeli rp;
+/** List of entities that this object will manage. */
     private List entities;
 /**
  * Constructor.

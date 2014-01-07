@@ -9,10 +9,8 @@ import rottapeli.peli.RottaPeli;
  * @author Pavel
  */
 public class Entity {
+/** Pointer to the Entity list. */
     private EntityList entities;
-    public Entity()
-    {
-    }
     public void setEntityList(EntityList list)
         {entities = list;}
     public EntityList getEntities() {return entities;}

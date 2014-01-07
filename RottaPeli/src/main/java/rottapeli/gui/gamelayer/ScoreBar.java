@@ -10,14 +10,22 @@ import rottapeli.interfaces.Updatable;
 import rottapeli.peli.RottaPeli;
 
 /**
- *
+ * Score bar that shows player's current statistics.
  * @author Pavel
  */
 public class ScoreBar extends JPanel implements Updatable {
+/** Game logic object. */
     private RottaPeli rp;
+/** Label that shows player's current score. */
     private JLabel scoreText;
+/** Label that shows player's current amount of lives. */
     private JLabel livesText;
+/** Label that shows time bonus left. */
     private JLabel bonusText;
+/**
+ * Constructor.
+ * @param peli Game logic object.
+ */
     public ScoreBar(RottaPeli peli)
     {
         super(new GridLayout(0,3));
@@ -29,6 +37,10 @@ public class ScoreBar extends JPanel implements Updatable {
         livesText = createLabel();
         bonusText = createLabel();
     }
+/**
+ * Creates a label that is consistent with the visual representation.
+ * @return pointer to the created label.
+ */
     public JLabel createLabel()
     {
         JLabel label = new JLabel("");
@@ -52,6 +64,9 @@ public class ScoreBar extends JPanel implements Updatable {
         return rp.getLanguage().translate("#bonus") + 
                 ": " + (int)rp.getScore().getBonus();
     }
+/**
+ * Called on every tick on the timer. Scorebar is not updated if the game is over.
+ */
     @Override
     public void update()
     {

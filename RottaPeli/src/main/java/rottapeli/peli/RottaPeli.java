@@ -36,13 +36,21 @@ import rottapeli.resource.Language;
  * @author Pavel
  */
 public class RottaPeli {
+/** Pointer to the Entity conteiner. */
     private EntityList entities;
+/** Pointer to the menu layer. */
     private MenuLayer menu;
+/** Pointer to the timer. */
     private GameTimer timer;
+/** Pointer to the Input manager. */
     private PlayerInput input;
+/** Pointer to the score manager. */
     private ScoreKeeper score;
+/** Pointer to the settings manager. */
     private Settings settings;
+/** Pointer to the language container. */
     private Language language;
+/** Pointer to the highscore container. */
     private HighScore highscore;
 /**
  * Constructor.
@@ -171,6 +179,7 @@ public class RottaPeli {
  * Reacts to the event of certain player losing all of her/his lives.
  * <p>
  * Removes all Entities that are controlled by the player.
+ * If all players have lost their lives, show high score.
  * @param id ID of the player that lost all lives.
  */
     public void playerLostAllLives(int id)
@@ -184,6 +193,10 @@ public class RottaPeli {
         if (menu != null && isGameOver())
             menu.showHighScore();
     }
+/**
+ * 
+ * @return True if the game is over.
+ */
     public boolean isGameOver()
     {
         return entities.getList(Controllable.class).isEmpty();
@@ -253,6 +266,9 @@ public class RottaPeli {
 
         score.resetScore(getPlayers());
     }
+/**
+ * Resets Entities in order to show a demo of the game without players involvement.
+ */
     public void resetDemo()
     {
         entities.removeAll(Entity.class);

@@ -12,6 +12,7 @@ import rottapeli.interfaces.Killable;
  * @author Pavel
  */
 public class Tail extends Positioned implements Killable {
+/** Killable Entity that created this Tail. */
     private Killable owner;
 /**
  * Constructor.
@@ -43,8 +44,10 @@ public class Tail extends Positioned implements Killable {
  * Tail is a magenta rectangle.
  * 
  * @param g             Graphics data.
- * @param xMultiplier   Horizontal stretching based on windows width.
- * @param yMultiplier   Vertical stretching based on windows height.
+ * @param offsetX       X position of the drawing field in respect to window's location.
+ * @param offsetY       Y position of the drawing field in respect to window's location.
+ * @param xMultiplier   Horizontal stretching based on window's width.
+ * @param yMultiplier   Vertical stretching based on window's height.
  */
     @Override
     public void draw(Graphics g, double offsetX, double offsetY, double xMultiplier, double yMultiplier)

@@ -15,8 +15,11 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class GameTimer extends Timer implements ActionListener {
+/** True if game is paused. */
     private boolean gameIsPaused;
+/** List of objects that get updated every tick on the timer. */
     private List<Updatable> updatables;
+/** Game logic object. */
     private RottaPeli rp;
 /**
  * Constructor.
@@ -32,6 +35,10 @@ public class GameTimer extends Timer implements ActionListener {
         
         start();
     }
+/**
+ * Adds an upadatable object that will be updated every tick on the timer.
+ * @param u Updatable object to be updated.
+ */
     public void addUpdatable(Updatable u)   {updatables.add(u);}
 /**
  * Toggles whether game should be paused or not.

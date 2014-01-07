@@ -69,7 +69,9 @@ public class Const {
     /** Direction to the right and up in radians. */
     public static final double rightup = -Math.PI / 4;
 
+    /** Amount of highest scores that will be shown in the High Score menu. */
     public static final int highScoreAmount = 10;
+    
     /** Precision on which X- and Y-coordinates are rounded off.
     *   Smallest increment is this value ^ -1. 
     */
