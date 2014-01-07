@@ -1,6 +1,7 @@
 package rottapeli.resource;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,17 +45,16 @@ public class Language {
         {
             Scanner sc = new Scanner(language, "UTF-8");
             while (sc.hasNextLine())
-            {
-                String wordPair = sc.nextLine();
-                if (!wordPair.startsWith("#"))   continue;
-                
-                words.put(wordPair.split("%")[0], wordPair.split("%")[1]);
-            }
+                mapWord(sc.nextLine());
             sc.close();
         }
-        catch (IOException e)   {
-            System.out.println("no file, stupid!");
-        }
+        catch (FileNotFoundException e)   {}
+    }
+    public void mapWord(String wordPair)
+    {
+        if (!wordPair.startsWith("#"))   return;
+
+        words.put(wordPair.split("%")[0], wordPair.split("%")[1]);
     }
     public String translate(String word)
     {

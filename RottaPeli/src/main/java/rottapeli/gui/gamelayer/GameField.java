@@ -35,6 +35,24 @@ public class GameField extends JPanel implements Updatable {
         rp = peli;
         rp.getTimer().addUpdatable(this);
     }
+    private void drawBackground(Graphics g, double offsetX, double offsetY, double widthMultiplier, double heightMultiplier)
+    {
+        g.setColor(Color.white);
+        g.fillRect((int)offsetX, (int)offsetY, 
+                (int)(widthMultiplier * Const.width), (int)(heightMultiplier * Const.height));
+    }
+    private double offsetXforAspectRatio(double widthMultiplier, double heightMultiplier)
+    {
+        if (heightMultiplier < widthMultiplier)
+            return Const.width * ((widthMultiplier - heightMultiplier) / 2);
+        return 0;
+    }
+    private double offsetYforAspectRatio(double widthMultiplier, double heightMultiplier)
+    {
+        if (widthMultiplier < heightMultiplier)
+            return Const.height * ((heightMultiplier - widthMultiplier) / 2);
+        return 0;
+    }
 /**
  * Paints all Entities and scales them to the size of the window.
  * @param g Graphics data Object.
@@ -51,27 +69,21 @@ public class GameField extends JPanel implements Updatable {
         double offsetY = 0;
         double widthMultiplier = getWidth() / (double)Const.width;
         double heightMultiplier = getHeight() / (double)Const.height;
+        
         if (rp.getSettings().hasAspectRatio())
         {
-            if (widthMultiplier < heightMultiplier)
-            {
-                offsetY = Const.height * ((heightMultiplier - widthMultiplier) / 2);
-                heightMultiplier = widthMultiplier;
-            }
-            else
-            {
-                offsetX = Const.width * ((widthMultiplier - heightMultiplier) / 2);
-                widthMultiplier = heightMultiplier;
-            }
+            offsetX = offsetXforAspectRatio(widthMultiplier, heightMultiplier);
+            offsetY = offsetYforAspectRatio(widthMultiplier, heightMultiplier);
+
+            widthMultiplier = Math.min(widthMultiplier, heightMultiplier);
+            heightMultiplier = Math.min(widthMultiplier, heightMultiplier);
         }
         
-        g.setColor(Color.white);
-        g.fillRect((int)offsetX, (int)offsetY, (int)(widthMultiplier * Const.width), (int)(heightMultiplier * Const.height));
+        drawBackground(g, offsetX, offsetY, widthMultiplier, heightMultiplier);
+        
         List<Positioned> drawables = rp.getEntities().getList(Positioned.class);
         for (Positioned p : drawables)
-        {
             p.draw(g, offsetX, offsetY, widthMultiplier, heightMultiplier);
-        }
     }
 /**
  * This method is called every tick on the timer.

@@ -9,11 +9,9 @@ import rottapeli.peli.RottaPeli;
  * @author Pavel
  */
 public class GameLayer extends JPanel {
-    RottaPeli rp;
-    public GameLayer(RottaPeli peli)
+    public GameLayer(RottaPeli rp)
     {
         super(new BorderLayout());
-        rp = peli;
         
         add(new GameField(rp));
         add(new ScoreBar(rp), BorderLayout.SOUTH);

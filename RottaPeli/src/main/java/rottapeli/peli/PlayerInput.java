@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import rottapeli.gui.menulayer.Menu;
 import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
@@ -21,6 +22,7 @@ import rottapeli.resource.Input;
 public class PlayerInput implements KeyEventDispatcher, Updatable {
     private RottaPeli rp;
     private Set<Input> pressedKeys;
+    private Menu listeningMenu;
 /**
  * Constructor.
  * @param peli Pointer to the game logic Object.
@@ -32,7 +34,7 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
         manager.addKeyEventDispatcher(this);
 
         rp = peli;
-        pressedKeys = new HashSet<Input>();
+        pressedKeys = new HashSet<>();
     }
 /**
  * This method is called every tick on the timer.
@@ -89,6 +91,7 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
         pressedKeys.add(input);
         if (input == Input.PAUSE)
             rp.getTimer().togglePause();
+        if (listeningMenu != null)  listeningMenu.keyPressed(e);
     }
 /**
  * Method is called immediately when certain key is released.
@@ -98,5 +101,7 @@ public class PlayerInput implements KeyEventDispatcher, Updatable {
     {
         Input input = rp.getSettings().getControl(e.getKeyCode());
         pressedKeys.remove(input);
+        if (listeningMenu != null)  listeningMenu.keyReleased(e);
     }
+    public void setListenerMenu(Menu menu)  {listeningMenu = menu;}
 }

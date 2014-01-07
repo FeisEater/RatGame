@@ -2,6 +2,7 @@ package rottapeli.peli;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,19 +27,9 @@ public class Settings {
     private JFrame frame;
     public Settings()
     {
-        controls = new HashMap<Integer, Input>();
+        controls = new HashMap<>();
         
-        aspectRatio = false;
-        windowWidth = Const.width * 4;
-        windowHeight = Const.height * 4;
-        language = Files.defaultLanguage;
-        
-        controls.put(KeyEvent.VK_RIGHT, Input.PLR1RIGHT);
-        controls.put(KeyEvent.VK_DOWN, Input.PLR1DOWN);
-        controls.put(KeyEvent.VK_LEFT, Input.PLR1LEFT);
-        controls.put(KeyEvent.VK_UP, Input.PLR1UP);
-        controls.put(KeyEvent.VK_P, Input.PAUSE);
-        
+        defaultSettings();
         loadSettings();
     }
     public void setFrame(JFrame fr)  {frame = fr;}
@@ -56,68 +47,92 @@ public class Settings {
         language = "assets" + '\\' + lang;
     }
 
+    public void defaultSettings()
+    {
+        aspectRatio = false;
+        windowWidth = Const.width * 4;
+        windowHeight = Const.height * 4;
+        language = Files.defaultLanguage;
+        
+        controls.put(KeyEvent.VK_RIGHT, Input.PLR1RIGHT);
+        controls.put(KeyEvent.VK_DOWN, Input.PLR1DOWN);
+        controls.put(KeyEvent.VK_LEFT, Input.PLR1LEFT);
+        controls.put(KeyEvent.VK_UP, Input.PLR1UP);
+        controls.put(KeyEvent.VK_P, Input.PAUSE);
+    }
+    
     public void loadSettings()
     {
         try
         {
             Scanner sc = new Scanner(Files.settingsFile);
             while (sc.hasNextLine())
-            {
-                String setting = sc.nextLine();
-                if (setting.startsWith("aspectratio"))
-                    setAspectRatio(setting.endsWith("1"));
-                if (setting.startsWith("windowwidth"))
-                    windowWidth = Integer.parseInt(setting.split(" ")[1]);
-                if (setting.startsWith("windowheight"))
-                    windowHeight = Integer.parseInt(setting.split(" ")[1]);
-                if (setting.startsWith("language"))
-                    language = setting.split(" ")[1];
-                
-                if (setting.startsWith("plr1right"))
-                    reMap(Input.PLR1RIGHT, Integer.parseInt(setting.split(" ")[1]));
-                if (setting.startsWith("plr1left"))
-                    reMap(Input.PLR1LEFT, Integer.parseInt(setting.split(" ")[1]));
-                if (setting.startsWith("plr1up"))
-                    reMap(Input.PLR1UP, Integer.parseInt(setting.split(" ")[1]));
-                if (setting.startsWith("plr1down"))
-                    reMap(Input.PLR1DOWN, Integer.parseInt(setting.split(" ")[1]));
-                if (setting.startsWith("pausebutton"))
-                    reMap(Input.PAUSE, Integer.parseInt(setting.split(" ")[1]));
- 
-            }
+                fetchSetting(sc.nextLine());
             sc.close();
         }
-        catch (IOException e)   {
-            System.out.println("no file, stupid!");
-        }
+        catch (FileNotFoundException e)   {}
+    }
+    public void fetchSetting(String setting)
+    {
+        if (setting.startsWith("aspectratio"))
+            setAspectRatio(fetchBoolean(setting));
+        if (setting.startsWith("windowwidth"))
+            windowWidth = fetchInteger(setting);
+        if (setting.startsWith("windowheight"))
+            windowHeight = fetchInteger(setting);
+        if (setting.startsWith("language"))
+            language = fetchString(setting);
+
+        for (Input i : Input.values())
+        {
+            if (i == Input.NOTMAPPED)   continue;
+            if (setting.startsWith(i.toString()))
+                reMap(i, fetchInteger(setting));
+        } 
+    }
+    public boolean fetchBoolean(String setting)
+    {
+        return setting.endsWith("1");
+    }
+    public int fetchInteger(String setting)
+    {
+        return Integer.parseInt(setting.split(" ")[1]);
+    }
+    public String fetchString(String setting)
+    {
+        return setting.split(" ")[1];
     }
     public void saveSettings()
     {
         try
         {
             FileWriter settings = new FileWriter(Files.settingsFile);
-            settings.write("aspectratio ");
-            if (hasAspectRatio())
-                settings.append("1");
-            else    settings.append("0");
-            settings.append(System.getProperty("line.separator"));
+            settings.write("");
             
-            writeSetting(settings, "windowwidth", frame.getWidth());
-            writeSetting(settings, "windowheight", frame.getHeight());
-            writeSetting(settings, "language", language);
-
-            writeSetting(settings, "plr1right", findKey(Input.PLR1RIGHT));
-            writeSetting(settings, "plr1left", findKey(Input.PLR1LEFT));
-            writeSetting(settings, "plr1up", findKey(Input.PLR1UP));
-            writeSetting(settings, "plr1down", findKey(Input.PLR1DOWN));
-            writeSetting(settings, "pausebutton", findKey(Input.PAUSE));
-            
+            writeSettings(settings);
             settings.close();
         }
-        catch (IOException e)
+        catch (IOException e)   {}
+    }
+    public void writeSettings(FileWriter settings) throws IOException
+    {
+        writeBoolean(settings, "aspectratio", hasAspectRatio());
+        writeSetting(settings, "windowwidth", frame.getWidth());
+        writeSetting(settings, "windowheight", frame.getHeight());
+        writeSetting(settings, "language", language);
+
+        for (Input i : Input.values())
         {
-            System.out.println(e);
-        }
+            if (i == Input.NOTMAPPED)   continue;
+            writeSetting(settings, i.toString(), findKey(i));
+        } 
+    }
+    public void writeBoolean(FileWriter writer, String var, boolean bool) throws IOException
+    {
+        writer.append(var);
+        String value = bool ? "1" : "0";
+        writer.append(" " + value);
+        writer.append(System.getProperty("line.separator"));
     }
     public void writeSetting(FileWriter writer, String var, Object value) throws IOException
     {
@@ -132,15 +147,8 @@ public class Settings {
     }
     public void reMap(Input action, int button)
     {
-        for (int key : controls.keySet())
-        {
-            if (controls.get(key) == action)
-            {
-                controls.remove(key);
-                controls.put(button, action);
-                return;
-            }
-        }
+        controls.remove(findKey(action));
+        controls.put(button, action);
     }
     public int findKey(Input action)
     {

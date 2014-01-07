@@ -32,29 +32,53 @@ public class MainMenu extends Menu {
         switch (ae.getActionCommand())
         {
             case "#continue":
-                getMenuLayer().popMenu(false);
-                gameLogic().getTimer().setPaused(false);
+                continuePressed();
                 break;
             case "#newgame":
-                gameLogic().resetGame();
-                getMenuLayer().popMenu(false);
-                gameLogic().getTimer().setPaused(false);
+                newGamePressed();
                 break;
             case "#settings":
-                getMenuLayer().switchMenu(new SettingsMenu(rp));
+                settingsPressed();
                 break;
             case "#highscore":
-                getMenuLayer().switchMenu(new HighscoreMenu(rp));
+                highscorePressed();
                 break;
             case "#credits":
-                getMenuLayer().switchMenu(new CreditsMenu(rp));
+                creditsPressed();
                 break;
             case "#exit":
-                gameLogic().getSettings().saveSettings();
-                System.exit(0);
+                exitPressed();
                 break;
             default:
                 break;
         }
+    }
+    public void continuePressed()
+    {
+        getMenuLayer().popMenu(false);
+        gameLogic().getTimer().setPaused(false);
+    }
+    public void newGamePressed()
+    {
+        gameLogic().resetGame();
+        getMenuLayer().popMenu(false);
+        gameLogic().getTimer().setPaused(false);
+    }
+    public void settingsPressed()
+    {
+        getMenuLayer().switchMenu(new SettingsMenu(rp));
+    }
+    public void highscorePressed()
+    {
+        getMenuLayer().switchMenu(new HighscoreMenu(rp));
+    }
+    public void creditsPressed()
+    {
+        getMenuLayer().switchMenu(new CreditsMenu(rp));
+    }
+    public void exitPressed()
+    {
+        gameLogic().getSettings().saveSettings();
+        System.exit(0);
     }
 }

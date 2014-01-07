@@ -16,8 +16,8 @@ public class CreditsMenu extends Menu {
         getMenuLayer().emptyRow();
         getMenuLayer().emptyRow();
         getMenuLayer().createLabel("#fullcredits");
-        getMenuLayer().emptyRow();
-        getMenuLayer().emptyRow();
+        getMenuLayer().createLabel("#fullcredits2");
+        getMenuLayer().createLabel("#fullcredits3");
         getMenuLayer().createButton("#back");
         getMenuLayer().emptyRow();
     }

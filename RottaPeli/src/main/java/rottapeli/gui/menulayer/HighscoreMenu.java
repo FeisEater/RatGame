@@ -8,6 +8,7 @@ import java.util.Deque;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import rottapeli.peli.RottaPeli;
+import rottapeli.resource.Const;
 
 /**
  *
@@ -28,7 +29,7 @@ public class HighscoreMenu extends Menu {
         for (int plr : rp.getScore().allAttendedPlayers())
         {
             int score = (int)rp.getScore().getPoints(plr);
-            if (rp.getHighScore().isInTop(10, score))
+            if (rp.getHighScore().isInTop(Const.highScoreAmount, score))
                 scoreEnterQueue.add(plr);
         }
         letNextPlayerEnterName();
@@ -45,52 +46,47 @@ public class HighscoreMenu extends Menu {
     {
         currentScore = (int)rp.getScore().getPoints(plr);
         int playersRank = rp.getHighScore().getRankByScore(currentScore);
-        
+        createComponents(playersRank);
+    }
+    public void showScore(int rank, int playersRank)
+    {
+        if (rank == playersRank)
+            createNameTextField();
+        else
+        {
+            int j = (rank > playersRank) ? rank-1 : rank;
+            String score = "" + (rank+1) + ") " + 
+                    rp.getHighScore().getNameByRank(j) + " " + 
+                    rp.getHighScore().getScoreByRank(j);
+            getMenuLayer().createLabel(score);
+        }
+    }
+    public void createNameTextField()
+    {
+        nameField = new JTextField("#highscoreachieved");
+        nameField.setHorizontalAlignment(JTextField.CENTER);
+        nameField.addActionListener(this);
+        getMenuLayer().createComponent(nameField);
+    }
+    public void createComponents(int playersRank)
+    {
         getMenuLayer().setLayout(new GridLayout(0,3));
         getMenuLayer().emptyRow();
         
-        for (int i = 0; i < 10; i++)
-        {
-            if (i == playersRank)
-            {
-                nameField = new JTextField("#highscoreachieved");
-                nameField.setHorizontalAlignment(JTextField.CENTER);
-                nameField.addActionListener(this);
-                getMenuLayer().createComponent(nameField);
-            }
-            else
-            {
-                int j = (i > playersRank) ? i-1 : i+1;
-                String score = "" + (i+1) + ") " + rp.getHighScore().getNameByRank(j) + " " + rp.getHighScore().getScoreByRank(j);
-                getMenuLayer().createLabel(score);
-            }
-        }
+        for (int i = 0; i < Const.highScoreAmount; i++)
+            showScore(i, playersRank);
 
         getMenuLayer().emptyRow();
-        getMenuLayer().createButton("#accept");
+        if (playersRank > Const.highScoreAmount)
+            getMenuLayer().createButton("#back");
+        else
+            getMenuLayer().createButton("#confirm");
         getMenuLayer().emptyRow();
     }
     @Override
     public void showMenu()
     {
-        getMenuLayer().setLayout(new GridLayout(0,3));
-        getMenuLayer().emptyRow();
-        
-        for (int i = 0; i < 10; i++)
-        {
-            String score = "" + (i+1) + ") " + rp.getHighScore().getNameByRank(i) + " " + rp.getHighScore().getScoreByRank(i);
-            getMenuLayer().createLabel(score);
-        }
-
-        getMenuLayer().emptyRow();
-        getMenuLayer().createButton("#back");
-        getMenuLayer().emptyRow();
-    }
-    @Override
-    public void hideMenu()
-    {
-        getMenuLayer().setLayout(new GridLayout(0,3, 0, 32));
-        super.hideMenu();
+        createComponents(Const.highScoreAmount + 1);
     }
     @Override
     public void actionPerformed(ActionEvent ae)
@@ -100,18 +96,22 @@ public class HighscoreMenu extends Menu {
             switch (ae.getActionCommand())
             {
                 case "#back":
-                    getMenuLayer().switchMenu(new MainMenu(rp));
+                    backPressed();
                     break;
                 default:
                     break;
             }
         }
-        else
-        {
-            rp.getHighScore().insertScore(nameField.getText(), currentScore);
-            scoreEnterQueue.poll();
-            letNextPlayerEnterName();
-        }
+        else    confirmNameEnter();
     }
-
+    public void backPressed()
+    {
+        getMenuLayer().switchMenu(new MainMenu(rp));
+    }
+    public void confirmNameEnter()
+    {
+        rp.getHighScore().insertScore(nameField.getText(), currentScore);
+        scoreEnterQueue.poll();
+        letNextPlayerEnterName();
+    }
 }

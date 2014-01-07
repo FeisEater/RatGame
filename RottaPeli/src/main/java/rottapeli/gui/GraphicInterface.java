@@ -62,7 +62,7 @@ public class GraphicInterface extends JPanel implements Runnable {
     @Override
     public void run()
     {
-        frame = new JFrame("Rottapeli");
+        frame = new JFrame("#title");
         rp.getSettings().setFrame(frame);
         frame.setPreferredSize(new Dimension(rp.getSettings().getSavedWidth(),
                 rp.getSettings().getSavedHeight()));

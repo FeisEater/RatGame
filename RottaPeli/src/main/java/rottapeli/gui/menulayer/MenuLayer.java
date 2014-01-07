@@ -22,7 +22,7 @@ public class MenuLayer extends JPanel {
     private Menu currentMenu;
     public MenuLayer(RottaPeli peli)
     {
-        super(new GridLayout(0,3, 0, 32));
+        super(new GridLayout(0,3, 0, 16));
         rp = peli;
         setOpaque(false);
     }
@@ -46,7 +46,7 @@ public class MenuLayer extends JPanel {
     {
         JLabel label = new JLabel(text);
         label.setOpaque(true);
-        label.setBackground(Color.white);
+        label.setBackground(Color.LIGHT_GRAY);
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setText(rp.getLanguage().translate(label.getText()));
         createComponent(label);
@@ -85,5 +85,9 @@ public class MenuLayer extends JPanel {
         HighscoreMenu high = new HighscoreMenu(rp);
         switchMenu(high);
         high.enterName();
+    }
+    public void defaultLayout()
+    {
+        setLayout(new GridLayout(0,3, 0, 16));
     }
 }

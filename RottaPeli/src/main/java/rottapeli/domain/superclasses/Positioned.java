@@ -90,11 +90,11 @@ public class Positioned extends Entity {
     {
         if (getEntities() == null)  return;
 
-        Deque<Double> xQueue = new ArrayDeque<Double>();
-        Deque<Double> yQueue = new ArrayDeque<Double>();
+        Deque<Double> xQueue = new ArrayDeque<>();
+        Deque<Double> yQueue = new ArrayDeque<>();
         
-        List<Double> usedX = new ArrayList<Double>();
-        List<Double> usedY = new ArrayList<Double>();
+        List<Double> usedX = new ArrayList<>();
+        List<Double> usedY = new ArrayList<>();
         
         enqueueCoordinate(x, y, xQueue, yQueue);
         
@@ -193,12 +193,14 @@ public class Positioned extends Entity {
     }
     public int drawX(double offsetX, double xMultiplier)
     {
-        return (int)(xMultiplier * X() + offsetX);
+        return (int)Math.floor(xMultiplier * X() + offsetX);
     }
     public int drawY(double offsetY, double yMultiplier)
     {
-        return (int)(yMultiplier * Y() + offsetY);
+        return (int)Math.floor(yMultiplier * Y() + offsetY);
     }
-    public int drawWidth(double xMultiplier)    {return (int)(getWidth() * xMultiplier);}
-    public int drawHeight(double yMultiplier)    {return (int)(getHeight() * yMultiplier);}
+    public int drawWidth(double xMultiplier)
+        {return (int)Math.ceil(getWidth() * xMultiplier);}
+    public int drawHeight(double yMultiplier)
+        {return (int)Math.ceil(getHeight() * yMultiplier);}
 }

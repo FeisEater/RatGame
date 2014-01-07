@@ -2,6 +2,7 @@
 package rottapeli.gui.menulayer;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import rottapeli.peli.RottaPeli;
 
 /**
@@ -20,5 +21,8 @@ public abstract class Menu implements ActionListener {
     public void hideMenu()
     {
         getMenuLayer().removeAll();
+        getMenuLayer().defaultLayout();
     }
+    public void keyPressed(KeyEvent e)  {}
+    public void keyReleased(KeyEvent e)  {}
 }

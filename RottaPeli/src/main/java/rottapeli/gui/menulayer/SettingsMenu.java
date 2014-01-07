@@ -34,22 +34,37 @@ public class SettingsMenu extends Menu {
         switch (ae.getActionCommand())
         {
             case "#language":
-                gameLogic().getLanguage().chooseLanguage();
-                getMenuLayer().switchMenu(new SettingsMenu(rp));
+                languagePressed();
                 break;
             case "#controls":
-                
+                controlsPressed();
                 break;
             case "#aspectratio":
-                gameLogic().getSettings().toggleAspectRatio();
+                aspectratioPressed();
                 break;
             case "#back":
-                gameLogic().getSettings().saveSettings();
-                getMenuLayer().switchMenu(new MainMenu(rp));
+                backPressed();
                 break;
             default:
                 break;
         }
     }
-
+    public void languagePressed()
+    {
+        gameLogic().getLanguage().chooseLanguage();
+        getMenuLayer().switchMenu(new SettingsMenu(rp));
+    }
+    public void controlsPressed()
+    {
+        getMenuLayer().switchMenu(new ControlsMenu(rp));
+    }
+    public void aspectratioPressed()
+    {
+        gameLogic().getSettings().toggleAspectRatio();
+    }
+    public void backPressed()
+    {
+        gameLogic().getSettings().saveSettings();
+        getMenuLayer().switchMenu(new MainMenu(rp));
+    }
 }

@@ -1,5 +1,6 @@
 package rottapeli.peli;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,13 +39,11 @@ public class HighScore {
             Score other = (Score)o;
             return other.points - this.points;
         }
-        @Override
-        public String toString()    {return name + ": " + points;}
     }
     private List<Score> scores;
     public HighScore()
     {
-        scores = new ArrayList<Score>();
+        scores = new ArrayList<>();
         loadHighScore();
     }
     public void loadHighScore()
@@ -56,27 +55,38 @@ public class HighScore {
             boolean sorted = true;
             while (sc.hasNextLine())
             {
-                String score = sc.nextLine();
-                if (score.isEmpty())    continue;
-                
-                int points = Integer.parseInt(score.split(" ")[0]);
-                String name = score.split(" ")[1];
-                for (int i = 2; i < score.split(" ").length; i++)
-                    name = name + " " + score.split(" ")[i];
-                scores.add(new Score(name, points));
+                String string = sc.nextLine();
+                if (string.isEmpty())    continue;
+
+                int points = retrieveScore(string);
                 if (oldpoints < points) sorted = false;
                 oldpoints = points;
             }
             sc.close();
-            if (!sorted)
-            {
-                System.out.println("sort was called");
-                Collections.sort(scores);
-            }
+            if (!sorted)    Collections.sort(scores);
         }
-        catch (IOException e)   {
-            System.out.println("no file, stupid!");
-        }
+        catch (FileNotFoundException e)   {}
+    }
+    public int retrieveScore(String string)
+    {
+        String[] splitString = string.split(" ");
+        int points = getPoints(splitString);
+
+        scores.add(new Score(getName(splitString), points));
+        return points;
+    }
+    private String getName(String[] splitString)
+    {
+        if (splitString.length <= 1)    return "";
+        String name = splitString[1];
+        for (int i = 2; i < splitString.length; i++)
+            name = name + " " + splitString[i];
+        return name;
+    }
+    private int getPoints(String[] splitString)
+    {
+        if (splitString.length <= 0)    return 0;
+        return Integer.parseInt(splitString[0]);
     }
     public void saveHighScore()
     {
@@ -85,18 +95,18 @@ public class HighScore {
             FileWriter writer = new FileWriter(Files.highscoreFile);
             writer.write("");
 
-            for (int i = 0; i < scores.size(); i++)
-            {
-                writer.append("" + getScoreByRank(i));
-                writer.append(" " + getNameByRank(i));
-                writer.append(System.getProperty("line.separator"));
-            }
-
+            writeScores(writer);
             writer.close();
         }
-        catch (IOException e)
+        catch (IOException e)   {}
+    }
+    public void writeScores(FileWriter writer) throws IOException
+    {
+        for (int i = 0; i < scores.size(); i++)
         {
-            System.out.println(e);
+            writer.append("" + getScoreByRank(i));
+            writer.append(" " + getNameByRank(i));
+            writer.append(System.getProperty("line.separator"));
         }
     }
     public String getNameByRank(int rank)

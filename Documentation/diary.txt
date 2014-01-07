@@ -136,3 +136,5 @@
 		from an external file. 3 hours.
 
 6.1.2014	Implemented high score. 3,5 hours
+
+		Controls can be changed. 2 hours.

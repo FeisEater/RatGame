@@ -25,7 +25,7 @@ public class GameTimer extends Timer implements ActionListener {
     {
         super(1000 / Const.fps, null);
         addActionListener(this);
-        updatables = new ArrayList<Updatable>();
+        updatables = new ArrayList<>();
         rp = peli;
 
         gameIsPaused = false;
