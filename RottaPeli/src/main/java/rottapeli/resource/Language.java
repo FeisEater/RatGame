@@ -16,8 +16,6 @@ import rottapeli.peli.RottaPeli;
  * @author Pavel
  */
 public class Language {
-/** Language file. */
-    private File language;
 /** Map of words and phrases. */
     private Map<String, String> words;
 /** Game logic object. */
@@ -29,9 +27,9 @@ public class Language {
     public Language(RottaPeli peli)
     {
         rp = peli;
-        words = new HashMap<String, String>();
-        language = new File(rp.getSettings().getLanguage());
-        retrieveWords();
+        words = new HashMap<>();
+        File language = new File(rp.getSettings().getLanguage());
+        retrieveWords(language);
     }
 /**
  * Shows a file chooser window and lets the user choose another
@@ -50,25 +48,47 @@ public class Language {
  */
     public void chooseLanguage(File file)
     {
-        language = file;
-        rp.getSettings().setLanguage(file.getName());
-        retrieveWords();
+        if (retrieveWords(file))
+            rp.getSettings().setLanguage(file.getName());
     }
 /**
  * Loads all words and phrases of a specific language.
+ * @param language File from which words will be retrieved.
+ * @return true if words were retrieved.
  */
-    public void retrieveWords()
+    public boolean retrieveWords(File language)
     {
-        words.clear();
-        
         try
         {
             Scanner sc = new Scanner(language, "UTF-8");
+            if (!isValidLanguageFile(sc))
+                return false;
+            
+            words.clear();
             while (sc.hasNextLine())
                 mapWord(sc.nextLine());
             sc.close();
         }
-        catch (FileNotFoundException e)   {}
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
+        return true;
+    }
+/**
+ * Checks if language file is valid. File is valid if it has appropriate
+ * String in the first line.
+ * @param sc    Scanner object that scans the language file.
+ * @return true if language file is usable.
+ */
+    public boolean isValidLanguageFile(Scanner sc)
+    {
+        if (!sc.nextLine().contains("###Ratgame language file###"))
+        {
+            sc.close();
+            return false;
+        }
+        return true;
     }
 /**
  * Maps a translation from generic to a specific language based on a
@@ -78,6 +98,12 @@ public class Language {
     public void mapWord(String wordPair)
     {
         if (!wordPair.startsWith("#"))   return;
+        
+        if (wordPair.split("%").length == 1)
+        {
+            words.put(wordPair.split("%")[0], "");
+            return;
+        }
 
         words.put(wordPair.split("%")[0], wordPair.split("%")[1]);
     }

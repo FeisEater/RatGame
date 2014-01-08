@@ -1,9 +1,13 @@
 
 package rottapeli.gui.menulayer;
 
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Input;
 
@@ -15,6 +19,8 @@ public class ControlsMenu extends Menu {
 /** Game action that is waiting to be configured for a certain input. 
     If null, no action is currently waiting to be configured. */
     private Input waitingInput;
+/** Label that instructs the user how to reconfigure input. */
+    private JLabel instructionLabel;
 /**
  * Constructor.
  * @param rp Game logic object.
@@ -29,7 +35,13 @@ public class ControlsMenu extends Menu {
     public void setInputWaiting(Input input)
     {
         waitingInput = input;
-        setEnabledToAllButtons(waitingInput == null);
+        
+        boolean enabled = waitingInput == null;
+        setEnabledToAllButtons(enabled);
+        
+        String instruction = enabled ? "#controlstitle" : "#waitinginput";
+        instructionLabel.setText(rp.getLanguage().translate(instruction));
+        resetTextToButtons();
     }
 /**
  * Enabled or disables all buttons in the menu.
@@ -41,6 +53,33 @@ public class ControlsMenu extends Menu {
             getMenuLayer().getComponent(i).setEnabled(enabled);
     }
 /**
+ * Resets text to buttons that configure input.
+ */
+    public void resetTextToButtons()
+    {
+        for (int i = 0; i < getMenuLayer().getComponentCount(); i++)
+        {
+            Component component = getMenuLayer().getComponent(i);
+            if (component.getClass() != JButton.class)  continue;
+            JButton button = (JButton)component;
+            for (Input j : Input.values())
+            {
+                if (button.getActionCommand().equals(j.toString()))
+                    setButtonText(button);
+            }
+        }
+    }
+/**
+ * Sets a text for the button that configures input.
+ * @param button Button whos text is resetted.
+ */
+    public void setButtonText(JButton button)
+    {
+        String actionText = rp.getLanguage().translate("#" + button.getActionCommand());
+        String inputText = KeyEvent.getKeyText(rp.getSettings().findKey(Input.valueOf(button.getActionCommand())));
+        button.setText(actionText + " - " + inputText);
+    }
+/**
  * Performs all necessary actions to make this menu show up. Creates all
  * neccessary components.
  */
@@ -50,18 +89,19 @@ public class ControlsMenu extends Menu {
         getMenuLayer().setLayout(new GridLayout(0,3));
 
         getMenuLayer().emptyRow();
-        getMenuLayer().createLabel("#controlstitle");
+        instructionLabel = getMenuLayer().createLabel("#controlstitle");
         getMenuLayer().emptyRow();
         for (Input i : Input.values())
         {
             if (i == Input.NOTMAPPED)   continue;
-            getMenuLayer().createButton(i.toString());
+            JButton button = getMenuLayer().createButton(i.toString());
         }
         getMenuLayer().emptyRow();
         getMenuLayer().createButton("#back");
         getMenuLayer().emptyRow();
         
         rp.getInput().setListenerMenu(this);
+        resetTextToButtons();
     }
 /**
  * Makes all necessary actions to make this menu not show up anymore.

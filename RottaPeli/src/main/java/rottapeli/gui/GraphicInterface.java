@@ -69,8 +69,8 @@ public class GraphicInterface extends JPanel implements Runnable {
     @Override
     public void run()
     {
-        frame = new JFrame("#title");
-        rp.getSettings().setFrame(frame);
+        frame = new JFrame(rp.getLanguage().translate("#title"));
+        rp.setFrame(frame);
         frame.setPreferredSize(new Dimension(rp.getSettings().getSavedWidth(),
                 rp.getSettings().getSavedHeight()));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

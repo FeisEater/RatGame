@@ -30,21 +30,20 @@ public class Settings {
     private String language;
 /** Mapped controls. */
     private Map<Integer, Input> controls;
-/** Frame of the GUI window. */
-    private JFrame frame;
+/** Game logic object. */
+    private RottaPeli rp;
 /**
  * Constructor. Loads default hard-coded settings then loads settings
  * from an external file.
  */
-    public Settings()
+    public Settings(RottaPeli peli)
     {
         controls = new HashMap<>();
-        
+        rp = peli;
+
         defaultSettings();
         loadSettings();
-    }
-    public void setFrame(JFrame fr)  {frame = fr;}
-    
+    }    
     public boolean hasAspectRatio() {return aspectRatio;}
     public void setAspectRatio(boolean b)   {aspectRatio = b;}
     public void toggleAspectRatio() {aspectRatio = !aspectRatio;}
@@ -55,7 +54,8 @@ public class Settings {
     public String getLanguage() {return language;}
     public void setLanguage(String lang)
     {
-        language = "assets" + '\\' + lang;
+        language = Files.languagePath + "\\" + lang;
+        rp.getFrame().setTitle(rp.getLanguage().translate("#title"));
     }
 /**
  * Hard-coded settings that will be in effect if external file can't be loaded.
@@ -159,8 +159,8 @@ public class Settings {
     public void writeSettings(FileWriter settings) throws IOException
     {
         writeBoolean(settings, "aspectratio", hasAspectRatio());
-        writeSetting(settings, "windowwidth", frame.getWidth());
-        writeSetting(settings, "windowheight", frame.getHeight());
+        writeSetting(settings, "windowwidth", rp.getFrame().getWidth());
+        writeSetting(settings, "windowheight", rp.getFrame().getHeight());
         writeSetting(settings, "language", language);
 
         for (Input i : Input.values())

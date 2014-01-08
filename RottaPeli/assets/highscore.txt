@@ -1,2 +1,7 @@
 1800 FeisEater
+500 hey
+300 Paveli
+100 Paveli
+100 Pelaaja 1 , Anna nimesi
 0 noscore
+0 Anonymous

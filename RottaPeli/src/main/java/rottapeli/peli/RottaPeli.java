@@ -52,6 +52,8 @@ public class RottaPeli {
     private Language language;
 /** Pointer to the highscore container. */
     private HighScore highscore;
+/** Frame of the GUI window. */
+    private JFrame frame;
 /**
  * Constructor.
  * <p>
@@ -61,7 +63,7 @@ public class RottaPeli {
  */
     public RottaPeli(boolean createsGUI)
     {        
-        settings = new Settings();
+        settings = new Settings(this);
         input = new PlayerInput(this);
         entities = new EntityList(this);
         score = new ScoreKeeper(this);
@@ -86,6 +88,8 @@ public class RottaPeli {
     public Settings getSettings()   {return settings;}
     public Language getLanguage()   {return language;}
     public HighScore getHighScore() {return highscore;}
+    public JFrame getFrame()    {return frame;}
+    public void setFrame(JFrame fr) {frame = fr;}
 /**
  * Creates GUI window
  */

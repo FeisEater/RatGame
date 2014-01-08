@@ -45,7 +45,7 @@ public class ScoreBar extends JPanel implements Updatable {
     {
         JLabel label = new JLabel("");
         label.setForeground(Color.white);
-        label.setFont(new Font(getFont().getName(), Font.BOLD, 32));
+        label.setFont(new Font(getFont().getName(), Font.BOLD, 24));
         add(label);
         return label;
     }

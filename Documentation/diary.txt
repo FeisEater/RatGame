@@ -2,7 +2,7 @@
 		wrote a short project description, other text files.
 		2 hours.
 
-		Implemented a timer. Made some test for it, that don't
+		Implemented a timer. Made some tests for it, that don't
 		exactly cover everything. 3 hours.
 
 17.12.2013	Added some constant variables. 30 minutes
@@ -140,3 +140,5 @@
 		Controls can be changed. 2 hours.
 
 7.1.2014	Added javaDoc to new code. 3 hours.
+
+		Made more words translatable. 2 hours.

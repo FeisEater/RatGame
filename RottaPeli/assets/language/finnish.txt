@@ -1,0 +1,36 @@
+﻿###Ratgame language file###
+#title%RottaPeli
+
+#score%Pisteet
+#lives%Elämiä
+#bonus%Lisäpisteet
+
+#continue%Jatka peliä
+#newgame%Uusi peli
+#settings%Asetukset
+#highscore%Korkeimmat pisteet
+#credits%Tekijät
+#exit%Poistu
+
+#back%Palaa
+
+#language%Vaihda kieltä
+#controls%Muuta pelinohjaus
+#volume%Äänenvoimakkuus
+#aspectratio%Säilytä näytön suhde
+
+#controlstitle%Valitse komento, jonka ohjausta haluat muuttaa
+#waitinginput%Paina haluamaasi nappia
+#PLR1RIGHT%Liiku oikealle
+#PLR1LEFT%Liiku vasemmalle
+#PLR1DOWN%Liiku alas
+#PLR1UP%Liiku ylös
+#PAUSE%Keskeytä peli
+
+#highscoreachieved%Pelaaja
+#highscoreachieved2%, Anna nimesi
+#confirm%Vahvista nimi
+
+#fullcredits%Pelin tekijä: FeisEater
+#fullcredits2%
+#fullcredits3%

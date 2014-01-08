@@ -28,7 +28,7 @@ public class HighscoreMenu extends Menu {
     public HighscoreMenu(RottaPeli rp)
     {
         super(rp);
-        scoreEnterQueue = new ArrayDeque<Integer>();
+        scoreEnterQueue = new ArrayDeque<>();
     }
 /**
  * Check if any players hit the high score and should enter their name.
@@ -90,10 +90,20 @@ public class HighscoreMenu extends Menu {
  */
     public void createNameTextField()
     {
-        nameField = new JTextField("#highscoreachieved");
+        nameField = new JTextField("");
+        setNameFieldText();
         nameField.setHorizontalAlignment(JTextField.CENTER);
         nameField.addActionListener(this);
         getMenuLayer().createComponent(nameField);
+    }
+/**
+ * Set a default text to the name entering text field.
+ */
+    public void setNameFieldText()
+    {
+        String firstPart = rp.getLanguage().translate("#highscoreachieved");
+        String lastPart = rp.getLanguage().translate("#highscoreachieved2");
+        nameField.setText(firstPart + " " + scoreEnterQueue.peek() + " " + lastPart);
     }
 /**
  * Creates components for the menu to show.
