@@ -35,6 +35,7 @@ public class Settings {
 /**
  * Constructor. Loads default hard-coded settings then loads settings
  * from an external file.
+ * @param peli Game logic object.
  */
     public Settings(RottaPeli peli)
     {

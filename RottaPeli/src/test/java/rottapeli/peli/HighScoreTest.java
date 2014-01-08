@@ -68,6 +68,13 @@ public class HighScoreTest {
                 high.getScoreByRank(0) == 100);
     }
     @Test
+    public void emptyScoreIfStringIsEmpty()
+    {
+        high.retrieveScore("");
+        assertTrue(high.getNameByRank(0).isEmpty() &&
+                high.getScoreByRank(0) == 0);
+    }
+    @Test
     public void dontRetrieveScoreIfFirstPartIsntInteger()
     {
         high.retrieveScore("pavel 100");

@@ -59,11 +59,13 @@
                         <param>rottapeli.domain*</param>
                         <param>rottapeli.peli*</param>
                         <param>rottapeli.resource.Tools</param>
+                        <param>rottapeli.resource.Language</param>
                     </targetClasses>
                     <targetTests>
                         <param>rottapeli.domain*</param>
                         <param>rottapeli.peli*</param>
                         <param>rottapeli.resource.ToolsTest</param>
+                        <param>rottapeli.resource.LanguageTest</param>
                     </targetTests>
                 </configuration>
             </plugin>

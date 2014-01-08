@@ -15,7 +15,7 @@ import rottapeli.peli.RottaPeli;
 public class SettingsMenu extends Menu {
 /**
  * Constructor.
- * @param peli Game logic object.
+ * @param rp Game logic object.
  */
     public SettingsMenu(RottaPeli rp)   {super(rp);}
 /**

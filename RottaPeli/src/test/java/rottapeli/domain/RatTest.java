@@ -95,6 +95,22 @@ public class RatTest {
          rat.update();
          assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
      }
+     @Test
+     public void changeDirection()
+     {
+         rat.moveTo(Const.right);
+         rat.moveTo(Const.down);
+         rat.update();
+         assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
+     }
+     @Test
+     public void dontMoveImmediatelyToTheOppositeDirection()
+     {
+         rat.moveTo(Const.down);
+         rat.moveTo(Const.up);
+         rat.update();
+         assertTrue(rat.Y() > 0.01 && approximates(rat.X(), 0));
+     }
 
      @Test
      public void ratEatsCheese()
