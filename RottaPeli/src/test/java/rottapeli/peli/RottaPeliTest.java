@@ -62,7 +62,9 @@ public class RottaPeliTest {
     public void componentsAreNotNull()
     {
         assertTrue(rp.getEntities() != null && rp.getInput() != null &&
-                rp.getScore() != null && rp.getTimer() != null);
+                rp.getScore() != null && rp.getTimer() != null &&
+                rp.getSettings() != null && rp.getHighScore() != null &&
+                rp.getLanguage() != null);
     }
     
     @Test
@@ -252,7 +254,7 @@ public class RottaPeliTest {
         rp.getEntities().removeAll(Cheese.class);
         rp.playerAteCheese(1);
         assertTrue("" + rp.getScore().getPoints(1) + " " + rp.getScore().getPoints(2), rp.getScore().getPoints(1) >= Const.initialBonus &&
-                rp.getScore().getPoints(2) >= Const.initialBonus);
+                rp.getScore().getPoints(2) >= Const.initialBonus - Const.bonusDecreasingRate * 3);
     }
     
     @Test
@@ -270,5 +272,29 @@ public class RottaPeliTest {
             rp.playerDied(2);
         boolean b4 = rp.isGameOver();
         assertTrue(b1 && b2 && b3 && b4);
+    }
+    @Test
+    public void gameIsNotOverIfItsJustStarting()
+    {
+        rp.resetGame();
+        assertTrue(!rp.isGameOver());
+    }
+    @Test
+    public void gameIsNotOverIfOnlyOneLifeLost()
+    {
+        if (Const.initialLifeAmount <= 1)   return;
+        rp.resetGame();
+        rp.playerDied(1);
+        assertTrue(!rp.isGameOver());
+    }
+    @Test
+    public void gameIsNotOverIfOneOfMultiplePlayersLostAllLives()
+    {
+        rp.resetGame();
+        rp.getEntities().addEntity(new TestRat());
+        rp.getScore().resetScore(rp.getPlayers());
+        for (int i = 0; i < Const.initialLifeAmount; i++)
+            rp.playerDied(1);
+        assertTrue(!rp.isGameOver());
     }
 }

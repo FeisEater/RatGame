@@ -52,10 +52,15 @@ public class Settings {
     public int getSavedHeight()  {return windowHeight;}
     
     public String getLanguage() {return language;}
+/**
+ * Sets a language for the program
+ * @param lang name of the language file ('english.txt')
+ */
     public void setLanguage(String lang)
     {
-        language = Files.languagePath + "\\" + lang;
-        rp.getFrame().setTitle(rp.getLanguage().translate("#title"));
+        language = Files.languagePath + "/" + lang;
+        if (rp != null && rp.getFrame() != null)
+            rp.getFrame().setTitle(rp.getLanguage().translate("#title"));
     }
 /**
  * Hard-coded settings that will be in effect if external file can't be loaded.

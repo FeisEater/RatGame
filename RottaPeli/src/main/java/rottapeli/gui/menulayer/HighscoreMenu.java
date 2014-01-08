@@ -170,7 +170,7 @@ public class HighscoreMenu extends Menu {
  */
     public void confirmNameEnter()
     {
-        rp.getHighScore().insertScore(nameField.getText(), currentScore);
+        rp.getHighScore().insertScore(nameField.getText(), currentScore, true);
         scoreEnterQueue.poll();
         letNextPlayerEnterName();
     }

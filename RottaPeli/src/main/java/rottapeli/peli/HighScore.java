@@ -118,7 +118,14 @@ public class HighScore {
     private int getPoints(String[] splitString)
     {
         if (splitString.length <= 0)    return 0;
-        return Integer.parseInt(splitString[0]);
+        
+        int i = 0;
+        try { 
+             i = Integer.parseInt(splitString[0]); 
+        } catch(NumberFormatException e) { 
+            return 0; 
+        }
+        return i;
     }
 /**
  * Saves the updated highscore data.
@@ -187,17 +194,17 @@ public class HighScore {
  * Inserts a score into the high score while not breaking the order of the high score.
  * @param name Name of the player that achieved the score.
  * @param points Score value that is to be inserted.
+ * @param saveChanges Set to true if changes should be saved to an external file.
  */
-    public void insertScore(String name, int points)
+    public void insertScore(String name, int points, boolean saveChanges)
     {
-        if (name.isEmpty()) name = "Anonymous";
         Score score = new Score(name, points);
         
         for (int i = getRankByScore(points); i < scores.size(); i++)
             score.switchPointers(scores.get(i));
         
         scores.add(score);
-        saveHighScore();
+        if (saveChanges)    saveHighScore();
     }
 /**
  * Checks if the specified score value is among the best scores.
@@ -208,7 +215,14 @@ public class HighScore {
  */
     public boolean isInTop(int topRanks, int points)
     {
-        if (topRanks >= scores.size())  return true;
+        if (topRanks-1 >= scores.size())  return true;
         return points > scores.get(topRanks-1).points;
+    }
+/**
+ * Empties highscore.
+ */
+    public void clearHighScore()
+    {
+        scores.clear();
     }
 }

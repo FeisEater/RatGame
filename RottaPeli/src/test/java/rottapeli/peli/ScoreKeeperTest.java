@@ -22,6 +22,7 @@ import rottapeli.resource.Const;
  */
 public class ScoreKeeperTest {
     private ScoreKeeper score;
+    private RottaPeli rp;
     public ScoreKeeperTest() {
     }
     
@@ -35,7 +36,10 @@ public class ScoreKeeperTest {
     
     @Before
     public void setUp() {
-        score = new ScoreKeeper(null);
+        rp = new RottaPeli(false);
+        rp.resetGame();
+        rp.getTimer().setPaused(true);
+        score = new ScoreKeeper(rp);
         Set<Integer> players = new HashSet<Integer>();
         players.add(1);
         players.add(2);
@@ -136,5 +140,26 @@ public class ScoreKeeperTest {
         for (int i = 0; i < 100; i++)   score.update();
         score.pointsForFinishingStage(1);
         assertTrue(score.getBonus() == Const.initialBonus);
+    }
+    @Test
+    public void amountOfAttendedPlayersIsCorrect()
+    {
+        assertTrue(score.allAttendedPlayers().size() == 2);
+    }
+    @Test
+    public void amountOfAttendedPlayersIsCorrect2()
+    {
+        Set<Integer> plrs = new HashSet<>();
+        plrs.add(1);
+        plrs.add(1);
+        score.resetScore(plrs);
+        assertTrue(score.allAttendedPlayers().size() == 1);
+    }
+    @Test
+    public void amountOfAttendedPlayersIsCorrect3()
+    {
+        Set<Integer> plrs = new HashSet<>();
+        score.resetScore(plrs);
+        assertTrue(score.allAttendedPlayers().isEmpty());
     }
 }

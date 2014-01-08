@@ -142,3 +142,5 @@
 7.1.2014	Added javaDoc to new code. 3 hours.
 
 		Made more words translatable. 2 hours.
+
+8.1.2014	Made tests for new code. 3 hours.

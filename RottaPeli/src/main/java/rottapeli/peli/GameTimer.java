@@ -45,18 +45,22 @@ public class GameTimer extends Timer implements ActionListener {
  */
     public void togglePause()
     {
+        setPaused(!gameIsPaused);
+    }
+/**
+ * Pauses or unpauses the game.
+ * @param paused if true pauses game. otherwise unpauses.
+ */
+    public void setPaused(boolean paused)
+    {
         if (rp != null && rp.isGameOver())
         {
             gameIsPaused = false;
             return;
         }
-        gameIsPaused = !gameIsPaused;
+        gameIsPaused = paused;
         if (rp != null && rp.getMenu() != null)
             rp.getMenu().popMenu(gameIsPaused);
-    }
-    public void setPaused(boolean paused)
-    {
-        gameIsPaused = paused;
     }
 /**
  * Method is called every tick on the timer.
@@ -73,9 +77,6 @@ public class GameTimer extends Timer implements ActionListener {
                 continue;
             //When game is paused only update PlayerInput
             if (gameIsPaused && u.getClass() != PlayerInput.class)
-                continue;
-            //When game is over don't update ScoreKeeper
-            if (rp.isGameOver() && u.getClass() == ScoreKeeper.class)
                 continue;
             
             u.update();

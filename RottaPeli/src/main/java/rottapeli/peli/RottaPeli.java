@@ -243,7 +243,7 @@ public class RottaPeli {
  */
     public Set<Integer> getPlayers()
     {
-        Set<Integer> players = new HashSet<Integer>();
+        Set<Integer> players = new HashSet<>();
         List<Controllable> controllables = entities.getList(Controllable.class);
         for (Controllable c : controllables)
         {

@@ -162,6 +162,9 @@ public class ScoreKeeper implements Updatable {
     @Override
     public void update()
     {
+//Don't update scorebar if game is over.
+        if (rp.isGameOver())    return;
+        
         timebonus -= Const.bonusDecreasingRate;
         if (timebonus < 0)  timebonus = 0;
     }
