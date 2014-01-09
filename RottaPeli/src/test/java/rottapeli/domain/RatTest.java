@@ -134,7 +134,7 @@ public class RatTest {
      @Test
      public void ratDoesntEatCheeseIfItMerelyTouchesSide()
      {
-         Eatable cheese = new Cheese(1, 1.5);
+         Eatable cheese = new Cheese(Const.ratwidth, Const.ratheight * 1.5);
          list.addEntity((Cheese)cheese);
          rat.moveTo(Const.down);
          rat.update();
@@ -252,16 +252,16 @@ public class RatTest {
     {
         setupHidingTest();
         for (int i = 0; i < 1000; i++)  rat.update();
-        assertTrue(approximates(rat.X(), 0) && approximates(rat.Y(), 4.0));
+        assertTrue(approximates(rat.X(), 0) && approximates(rat.Y(), 5 - Const.ratheight));
     }
     @Test
     public void ratCorrectsPositionWhenHides()
     {
-         Border hole = new Border(0, 1.5, 1, 1);
+         Border hole = new Border(0, Const.ratheight * 1.5, 1, 1);
          list.addEntity(hole);
          rat.moveTo(Const.down);
          rat.update();
-        assertTrue(approximates(rat.Y(), 0.5));
+        assertTrue(approximates(rat.Y(), Const.ratheight * 0.5));
     }
     
     @Test
@@ -317,7 +317,7 @@ public class RatTest {
      @Test
      public void dieIfHitOwnTail()
      {
-         Tail tail = new Tail(0, 2.5, 1, 1, rat);
+         Tail tail = new Tail(0, Const.ratspeed + Const.ratheight + 0.5, 1, 1, rat);
          list.addEntity(tail);
          rat.moveTo(Const.down);
          rat.update();

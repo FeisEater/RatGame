@@ -2,12 +2,10 @@ package rottapeli.domain;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Bouncable;
-import java.util.List;
-import java.util.Set;
-import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Killable;
 import rottapeli.resource.ApproachFrom;
 import rottapeli.resource.Const;

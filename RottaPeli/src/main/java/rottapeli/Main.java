@@ -1,10 +1,8 @@
 package rottapeli;
 
-import rottapeli.domain.Ball;
 import rottapeli.peli.RottaPeli;
-import rottapeli.resource.Const;
 /**
- *
+ * Starting point of the program.
  * @author Pavel
  */
 public class Main {

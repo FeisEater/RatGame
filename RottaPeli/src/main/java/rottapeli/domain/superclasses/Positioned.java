@@ -231,4 +231,5 @@ public class Positioned extends Entity {
  */
     public int drawHeight(double yMultiplier)
         {return (int)Math.ceil(getHeight() * yMultiplier);}
+    public String toString()    {return "" + x + " " + y;}
 }

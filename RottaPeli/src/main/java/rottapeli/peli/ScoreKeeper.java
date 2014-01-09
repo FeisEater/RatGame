@@ -25,10 +25,10 @@ public class ScoreKeeper implements Updatable {
     public ScoreKeeper(RottaPeli peli)
     {
         rp = peli;
-        score = new HashMap<Integer, Double>();
-        nextExtraLifeScore = new HashMap<Integer, Double>();
-        combo = new HashMap<Integer, Double>();
-        lives = new HashMap<Integer, Integer>();
+        score = new HashMap<>();
+        nextExtraLifeScore = new HashMap<>();
+        combo = new HashMap<>();
+        lives = new HashMap<>();
     }
 /**
  * 

@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import javax.swing.JButton;
 import javax.swing.JTextField;
 import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Const;

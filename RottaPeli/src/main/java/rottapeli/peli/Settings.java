@@ -1,14 +1,12 @@
 package rottapeli.peli;
 
 import java.awt.event.KeyEvent;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import javax.swing.JFrame;
 import rottapeli.resource.Const;
 import rottapeli.resource.Files;
 import rottapeli.resource.Input;

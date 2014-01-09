@@ -1,31 +1,14 @@
 package rottapeli.gui;
 
-import rottapeli.gui.menulayer.MenuLayer;
-import rottapeli.gui.gamelayer.ScoreBar;
-import rottapeli.gui.gamelayer.GameField;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.KeyboardFocusManager;
 import java.awt.LayoutManager;
-import java.awt.PopupMenu;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.OverlayLayout;
 import javax.swing.WindowConstants;
 import rottapeli.gui.gamelayer.GameLayer;
-import rottapeli.interfaces.Updatable;
-import rottapeli.peli.PlayerInput;
+import rottapeli.gui.menulayer.MenuLayer;
 import rottapeli.peli.RottaPeli;
-import rottapeli.resource.Const;
 
 /**
  * Creates a window that contains the graphical interface of the game.

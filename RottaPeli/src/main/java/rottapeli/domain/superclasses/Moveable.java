@@ -2,10 +2,7 @@
 package rottapeli.domain.superclasses;
 
 import java.util.List;
-import java.util.Set;
-import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
-import rottapeli.resource.Tools;
 import rottapeli.resource.ApproachFrom;
 /**
  * Entity that moves.

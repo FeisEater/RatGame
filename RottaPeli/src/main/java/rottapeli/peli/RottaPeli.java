@@ -1,15 +1,7 @@
 package rottapeli.peli;
 
-import javax.swing.Timer;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -20,14 +12,11 @@ import rottapeli.domain.PlacementBlocker;
 import rottapeli.domain.Rat;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.domain.superclasses.Positioned;
-import rottapeli.gui.gamelayer.GameField;
 import rottapeli.gui.GraphicInterface;
 import rottapeli.gui.menulayer.MenuLayer;
 import rottapeli.interfaces.Controllable;
 import rottapeli.interfaces.Eatable;
-import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
-import rottapeli.peli.GameTimer;
 import rottapeli.resource.Language;
 /**
  * Central hub of the program that stores all components of the game.

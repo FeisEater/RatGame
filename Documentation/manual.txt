@@ -83,10 +83,17 @@ There, copy one of the language files, preferrably of a language that you
 understand. Change its name with the name of the language you're about to
 translate the game into (japanese.txt). Open the file. There, you will see several
 lines that look something like this:
+
 #continue%Continue game
+
 Translate the phrase that is on the right side of the '%' character. Do this for
-every line in the file. WARNING: Do not change the left part of the line. Also do
-not edit the first line of the file.
-If everything is done correctly, run the program, go to Main menu>Settings>Change
-language and choose the file you created with the file chooser. The program should
-now speak your language.
+every line in the file.
+WARNING: Do not change the left part of the line. Also do not edit the first line
+of the file.
+If everything is done correctly, run the program, go to 'Main menu > Settings > 
+Change language' and choose the file you created with the file chooser. The program
+should now speak your language.
+
+Reset highscore:
+From the directory where .jar file is, go to 'assets' directory and delete
+highscore.txt.

@@ -2,9 +2,6 @@
 package rottapeli.gui.menulayer;
 
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import javax.swing.JCheckBox;
 import rottapeli.peli.RottaPeli;
 

@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Timer;
-import rottapeli.domain.Rat;
 import rottapeli.interfaces.Updatable;
 import rottapeli.resource.Const;
 

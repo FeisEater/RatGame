@@ -1,22 +1,11 @@
 package rottapeli.gui.gamelayer;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import rottapeli.domain.superclasses.Positioned;
 import rottapeli.interfaces.Updatable;
-import rottapeli.peli.EntityList;
-import rottapeli.peli.PlayerInput;
 import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Const;
 
