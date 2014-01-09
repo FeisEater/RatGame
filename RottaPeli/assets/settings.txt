@@ -1,9 +1,9 @@
 aspectratio 1
-windowwidth 816
-windowheight 522
+windowwidth 822
+windowheight 476
 language assets/language/english.txt
-PLR1RIGHT 39
-PLR1DOWN 40
-PLR1LEFT 37
-PLR1UP 38
+PLR1RIGHT 68
+PLR1DOWN 83
+PLR1LEFT 65
+PLR1UP 87
 PAUSE 27

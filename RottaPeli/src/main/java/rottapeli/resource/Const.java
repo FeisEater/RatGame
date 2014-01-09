@@ -10,9 +10,9 @@ public class Const {
     public static final int fps = 60;
 
     /** Width of the playing field. */
-    public static final int width = 128;
+    public static final int width = 192;
     /** Height of the playing field. */
-    public static final int height = 96;
+    public static final int height = 148;
     
     /** Thickness from borders where Entities can't be placed randomly. */
     public static final double placementBlockerThickness = 16;
@@ -20,7 +20,7 @@ public class Const {
     /** Amount of time bonus that is decreased each tick. */
     public static final double bonusDecreasingRate = 1.667;
     /** Amount of lives that is given to each player initially. */
-    public static final int initialLifeAmount = 3;
+    public static final int initialLifeAmount = 100;
     /** Amount of time bonus that counter starts with. */
     public static final double initialBonus = 6000;
     /** Amount of score that awards an extra life. */
@@ -39,13 +39,13 @@ public class Const {
     public static final double ratspeed = 1.0;
     
     /** Width of the Ball. */
-    public static final double ballwidth = 1.0;
+    public static final double ballwidth = 2.0;
     /** Height of the Ball. */
-    public static final double ballheight = 1.0;
+    public static final double ballheight = 2.0;
     /** Width of the Rat. */
-    public static final double ratwidth = 1.0;
+    public static final double ratwidth = 2.0;
     /** Height of the Rat. */
-    public static final double ratheight = 1.0;
+    public static final double ratheight = 2.0;
     //public static final double tailthickness = 1.0;
     /** Width of the Cheese. */
     public static final double cheesewidth = 1.0;

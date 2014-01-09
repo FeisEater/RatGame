@@ -73,11 +73,11 @@ public class Settings {
         windowHeight = Const.height * 4;
         language = Files.defaultLanguage;
         
-        controls.put(KeyEvent.VK_RIGHT, Input.PLR1RIGHT);
-        controls.put(KeyEvent.VK_DOWN, Input.PLR1DOWN);
-        controls.put(KeyEvent.VK_LEFT, Input.PLR1LEFT);
-        controls.put(KeyEvent.VK_UP, Input.PLR1UP);
-        controls.put(KeyEvent.VK_P, Input.PAUSE);
+        reMap(Input.PLR1RIGHT, KeyEvent.VK_RIGHT);
+        reMap(Input.PLR1LEFT, KeyEvent.VK_LEFT);
+        reMap(Input.PLR1UP, KeyEvent.VK_UP);
+        reMap(Input.PLR1DOWN, KeyEvent.VK_DOWN);
+        reMap(Input.PAUSE, KeyEvent.VK_P);
     }
 /**
  * Loads the settings from an external file.
