@@ -8,10 +8,7 @@ package rottapeli.peli;
 
 import java.util.HashSet;
 import java.util.Set;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.resource.Const;
@@ -25,29 +22,17 @@ public class ScoreKeeperTest {
     private RottaPeli rp;
     public ScoreKeeperTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+        
     @Before
     public void setUp() {
         rp = new RottaPeli(false);
         rp.resetGame();
         rp.getTimer().setPaused(true);
         score = new ScoreKeeper(rp);
-        Set<Integer> players = new HashSet<Integer>();
+        Set<Integer> players = new HashSet<>();
         players.add(1);
         players.add(2);
         score.resetScore(players);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test

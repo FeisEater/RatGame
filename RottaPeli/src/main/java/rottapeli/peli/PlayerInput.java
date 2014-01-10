@@ -16,8 +16,11 @@ import rottapeli.resource.Input;
  * @author Pavel
  */
 public class PlayerInput implements KeyEventDispatcher, Updatable {
+/** Game logic object. */
     private RottaPeli rp;
+/** Set of keys that are held this tick on the timer. */
     private Set<Input> pressedKeys;
+/** Menu that is listening to the KeyEvents. */
     private Menu listeningMenu;
 /**
  * Constructor.

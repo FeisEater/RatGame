@@ -5,10 +5,7 @@
 package rottapeli.peli;
 
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,23 +17,11 @@ public class HighScoreTest {
     private HighScore high;
     public HighScoreTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+        
     @Before
     public void setUp() {
         high = new HighScore();
         high.clearHighScore();
-    }
-    
-    @After
-    public void tearDown() {
     }
     
     @Test

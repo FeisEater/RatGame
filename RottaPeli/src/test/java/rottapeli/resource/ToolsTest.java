@@ -6,20 +6,10 @@
 
 package rottapeli.resource;
 
-import java.util.HashSet;
-import java.util.Set;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import rottapeli.domain.Ball;
-import rottapeli.domain.superclasses.Entity;
-import rottapeli.domain.superclasses.Moveable;
 import rottapeli.domain.superclasses.Positioned;
-import rottapeli.interfaces.Bouncable;
-import rottapeli.interfaces.Updatable;
 
 /**
  *
@@ -29,25 +19,10 @@ public class ToolsTest {
     
     private Positioned p;
     private Positioned q;
-
-    public ToolsTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
         p = new Positioned(0,0,1,1);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test

@@ -6,10 +6,7 @@ package rottapeli.peli;
 
 import java.awt.event.KeyEvent;
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.resource.Input;
@@ -20,16 +17,6 @@ import rottapeli.resource.Input;
  */
 public class SettingsTest {
     private Settings settings;
-    public SettingsTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
@@ -37,10 +24,6 @@ public class SettingsTest {
         settings.defaultSettings();
     }
     
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void setsLanguage()
     {

@@ -58,6 +58,12 @@ public class Tools {
             return  x >= other.leftBorder() && x <= other.rightBorder() &&
                 y >= other.topBorder() && y <= other.bottomBorder();
     }
+/**
+ * 
+ * @param a Certain Positioned Entity.
+ * @param b Certain Positioned Entity.
+ * @return True if both Entities have exact same position, width and height.
+ */
     private static boolean occupySameSpace(Positioned a, Positioned b)
     {
         return a.leftBorder() == b.leftBorder() &&
@@ -65,6 +71,12 @@ public class Tools {
                 a.topBorder() == b.topBorder() &&
                 a.bottomBorder() == b.bottomBorder();
     }
+/**
+ * 
+ * @param a Certain Positioned Entity.
+ * @param b Certain Positioned Entity.
+ * @return True if Entities are inside each other while on the same X-axis.
+ */
     private static boolean isInsideInSameHorizontalSpace(Positioned a, Positioned b)
     {
         return  a.leftBorder() == b.leftBorder() &&
@@ -72,6 +84,12 @@ public class Tools {
                     (pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.topBorder(), true) ||
                     pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.bottomBorder(), true));
     }
+/**
+ * 
+ * @param a Certain Positioned Entity.
+ * @param b Certain Positioned Entity.
+ * @return True if Entities are inside each other while on the same Y-axis.
+ */
     private static boolean isInsideInSameVerticalSpace(Positioned a, Positioned b)
     {
         return  a.topBorder() == b.topBorder() &&

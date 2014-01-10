@@ -5,10 +5,7 @@
 package rottapeli.resource;
 
 import java.io.File;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.peli.RottaPeli;
@@ -19,24 +16,10 @@ import rottapeli.peli.RottaPeli;
  */
 public class LanguageTest {
     private RottaPeli rp;
-    public LanguageTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
         rp = new RottaPeli(false);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     public boolean languageWasSet(String path)

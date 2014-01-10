@@ -6,10 +6,7 @@
 
 package rottapeli.domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.peli.EntityList;
@@ -22,16 +19,6 @@ public class CheeseTest {
     
     private Cheese cheese;
     private EntityList list;
-    public CheeseTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
@@ -40,10 +27,6 @@ public class CheeseTest {
         list.addEntity(cheese);
     }
     
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void cheeseGetsEaten()
     {

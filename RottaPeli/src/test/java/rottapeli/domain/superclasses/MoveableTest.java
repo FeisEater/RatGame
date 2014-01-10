@@ -6,12 +6,7 @@
 
 package rottapeli.domain.superclasses;
 
-import rottapeli.domain.superclasses.Moveable;
-import rottapeli.domain.superclasses.Positioned;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.resource.ApproachFrom;
@@ -25,25 +20,11 @@ public class MoveableTest {
     
     private Moveable m;
     private Positioned pos;
-    public MoveableTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
         m = new Moveable(0,0,1,1,Const.right,1);
         pos = new Positioned(0,0,1,1);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     public boolean approximates(double d, double exactValue)

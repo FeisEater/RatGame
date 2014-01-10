@@ -102,13 +102,11 @@ public class Positioned extends Entity {
         
         enqueueCoordinate(x, y, xQueue, yQueue);
         
-        List<Positioned> entities = getEntities().getList(Positioned.class);
-
         while (!xQueue.isEmpty())
         {
             dequeueCoordinate(xQueue, yQueue);
             
-            if (isColliding(entities))
+            if (isColliding())
             {
                 getNearbyPositions(xQueue, yQueue, usedX, usedY);
                 markCurrentCoordinateAsUsed(usedX, usedY);
@@ -135,24 +133,46 @@ public class Positioned extends Entity {
         enqueueCoordinate(x - 2 * getWidth(), y, xQueue, yQueue);
         enqueueCoordinate(x, y - 2 * getHeight(), xQueue, yQueue);
     }
-    
+/**
+ * Queues a coordinate.
+ * @param ix    X components of queued coordinate.
+ * @param iy    Y components of queued coordinate.
+ * @param xQueue    Queue that contains X components of coordinates.
+ * @param yQueue    Queue that contains Y components of coordinates.
+ */
     private void enqueueCoordinate(double ix, double iy, Deque<Double> xQueue, Deque<Double> yQueue)
     {
         xQueue.add(ix);
         yQueue.add(iy);
     }
+/**
+ * Dequeues a coordinate.
+ * @param xQueue    Queue that contains X components of coordinates.
+ * @param yQueue    Queue that contains Y components of coordinates.
+ */
     private void dequeueCoordinate(Deque<Double> xQueue, Deque<Double> yQueue)
     {
         x = xQueue.poll();
         y = yQueue.poll();
     }
+/**
+ * Marks Entity's current position coordinate as used, so it can't be queued again.
+ * @param usedX List of X components of used coordinates.
+ * @param usedY List of Y components of used coordinates.
+ */
     private void markCurrentCoordinateAsUsed(List<Double> usedX, List<Double> usedY)
     {
         usedX.add(x);
         usedY.add(y);
     }
-    private boolean isColliding(List<Positioned> entities)
+/**
+ * Checks if this Entity is colliding with other entities.
+ * @return true if Entity in its current position is colliding with any other Entity.
+ */
+    private boolean isColliding()
     {
+        List<Positioned> entities = getEntities().getList(Positioned.class);
+
         for (Positioned other : entities)
         {
             if (collidesWith(other, false))
@@ -160,12 +180,22 @@ public class Positioned extends Entity {
         }
         return false;
     }
+/**
+ * Check if this Entity is out of bounds.
+ * @return true if Entity is out of bounds.
+ */
     private boolean outOfBounds()
     {
         return x + getWidth() > Const.width ||
             y + getHeight() > Const.height ||
             x < 0 || y < 0;
     }
+/**
+ * Checks if this Entity's current position has been marked as a used coordinate.
+ * @param usedX List of X components of used coordinates.
+ * @param usedY List of Y components of used coordinates.
+ * @return true if Entity's current position has been marked as a used coordinate.
+ */
     private boolean currentCoordinateIsUsed(List<Double> usedX, List<Double> usedY)
     {
         for (int i = 0; i < usedX.size(); i++)
@@ -231,5 +261,4 @@ public class Positioned extends Entity {
  */
     public int drawHeight(double yMultiplier)
         {return (int)Math.ceil(getHeight() * yMultiplier);}
-    public String toString()    {return "" + x + " " + y;}
 }

@@ -144,3 +144,6 @@
 		Made more words translatable. 2 hours.
 
 8.1.2014	Made tests for new code. 3 hours.
+
+9.1.2014	Demoed the game. Cleaned code, added javaDocs to private
+		methods. 2 hours.

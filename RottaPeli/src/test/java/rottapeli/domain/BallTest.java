@@ -4,13 +4,7 @@
  */
 package rottapeli.domain;
 
-import rottapeli.domain.superclasses.Moveable;
-import rottapeli.domain.superclasses.Positioned;
-import rottapeli.interfaces.Bouncable;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.peli.EntityList;
@@ -24,25 +18,10 @@ public class BallTest {
     
     private Ball ball;
     private EntityList list;
-    private Positioned cheese;
-    public BallTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
         list = new EntityList(null);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     public boolean setupBall(double ang)
@@ -80,8 +59,7 @@ public class BallTest {
 //TODO: generalize
     public void setupCollisionTest()
     {
-        cheese = new Cheese(0,0);
-        list.addEntity(cheese);
+        list.addEntity(new Cheese(0,0));
     }
     
     public boolean approximates(double d, double exactValue, double tolerance)

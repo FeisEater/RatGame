@@ -278,6 +278,11 @@ public class Rat extends Moveable implements Killable, Controllable {
         setDirection(dir);
         ismoving = true;
     }
+/**
+ * Checks if direction given in the parameter is opposite to the current direction.
+ * @param dir Direction that is checked with the current direction.
+ * @return true if direction given in the parameter is opposite to the current direction.
+ */
     private boolean newDirectionIsOppositeToCurrentDirection(double dir)
     {
         return Tools.round(Math.abs(dir - getDirection())) == Tools.round(Math.PI);

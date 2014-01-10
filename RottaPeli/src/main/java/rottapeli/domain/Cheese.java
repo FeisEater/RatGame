@@ -32,8 +32,7 @@ public class Cheese extends Positioned implements Bouncable, Eatable {
  */
     public Cheese(double x, double y)
     {
-        this();
-        setPos(x,y);
+        super(x, y, Const.cheesewidth, Const.cheeseheight);
     }
 /**
  * Places the Entity at a specified location. Must be overriden to be functional.

@@ -25,18 +25,38 @@ public class GameField extends JPanel implements Updatable {
         rp = peli;
         rp.getTimer().addUpdatable(this);
     }
+/**
+ * Draws a background for the entire game field.
+ * @param g Graphics data.
+ * @param offsetX X position of the drawing field in respect to window's location.
+ * @param offsetY Y position of the drawing field in respect to window's location.
+ * @param widthMultiplier Horizontal stretching based on window's width.
+ * @param heightMultiplier Vertical stretching based on window's height.
+ */
     private void drawBackground(Graphics g, double offsetX, double offsetY, double widthMultiplier, double heightMultiplier)
     {
         g.setColor(Color.white);
         g.fillRect((int)offsetX, (int)offsetY, 
                 (int)(widthMultiplier * Const.width), (int)(heightMultiplier * Const.height));
     }
+/**
+ * Calculates an x offset in case aspect ratio is on.
+ * @param widthMultiplier Horizontal stretching based on window's width.
+ * @param heightMultiplier Vertical stretching based on window's height.
+ * @return X position from which gamefield will be drawn in respect to window.
+ */
     private double offsetXforAspectRatio(double widthMultiplier, double heightMultiplier)
     {
         if (heightMultiplier < widthMultiplier)
             return Const.width * ((widthMultiplier - heightMultiplier) / 2);
         return 0;
     }
+/**
+ * Calculates an y offset in case aspect ratio is on.
+ * @param widthMultiplier Horizontal stretching based on window's width.
+ * @param heightMultiplier Vertical stretching based on window's height.
+ * @return Y position from which gamefield will be drawn in respect to window.
+ */
     private double offsetYforAspectRatio(double widthMultiplier, double heightMultiplier)
     {
         if (widthMultiplier < heightMultiplier)

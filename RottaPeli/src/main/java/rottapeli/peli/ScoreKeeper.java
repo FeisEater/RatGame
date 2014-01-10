@@ -12,11 +12,17 @@ import rottapeli.resource.Const;
  * @author Pavel
  */
 public class ScoreKeeper implements Updatable {
+/** Game logic object. */
     private RottaPeli rp;
+/** Scores by player ID. */
     private Map<Integer, Double> score;
+/** Next score reaching which will award an extra life by player ID. */
     private Map<Integer, Double> nextExtraLifeScore;
+/** Combo by player ID. */
     private Map<Integer, Double> combo;
+/** Lives left by player ID. */
     private Map<Integer, Integer> lives;
+/** Current time bonus counter value. */
     private double timebonus;
 /**
  * Constructor.

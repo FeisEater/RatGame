@@ -49,16 +49,28 @@ public class ScoreBar extends JPanel implements Updatable {
         add(label);
         return label;
     }
+/**
+ * 
+ * @return Text that is shown in the 'Score' label.
+ */
     private String getScoreText()
     {
         return rp.getLanguage().translate("#score") + 
                 ": " + (int)rp.getScore().getPoints(1);
     }
+/**
+ * 
+ * @return Text that is shown in the 'Lives left' label.
+ */
     private String getLivesText()
     {
         return rp.getLanguage().translate("#lives") + 
                 ": " + (int)(rp.getScore().getLives(1) - 1);
     }
+/**
+ * 
+ * @return Text that is shown in the 'Time bonus' label.
+ */
     private String getBonusText()
     {
         return rp.getLanguage().translate("#bonus") + 

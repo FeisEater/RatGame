@@ -107,6 +107,11 @@ public class HighScore {
         scores.add(new Score(getName(splitString), points));
         return points;
     }
+/**
+ * Retrieves score owner's name from the line of the highscore file.
+ * @param splitString Line from the highscore file that is split by whitespace.
+ * @return score owner's name.
+ */
     private String getName(String[] splitString)
     {
         if (splitString.length <= 1)    return "";
@@ -115,6 +120,11 @@ public class HighScore {
             name = name + " " + splitString[i];
         return name;
     }
+/**
+ * Retrieves score value from the line of the highscore file.
+ * @param splitString Line from the highscore file that is split by whitespace.
+ * @return score value.
+ */
     private int getPoints(String[] splitString)
     {
         if (splitString.length <= 0)    return 0;

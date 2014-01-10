@@ -4,16 +4,11 @@
  */
 package rottapeli.domain;
 
-import rottapeli.domain.superclasses.Moveable;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.domain.superclasses.Entity;
 import rottapeli.interfaces.Eatable;
-import rottapeli.interfaces.Hidable;
 import rottapeli.peli.EntityList;
 import rottapeli.peli.RottaPeli;
 import rottapeli.resource.Const;
@@ -26,26 +21,12 @@ public class RatTest {
     
     private Rat rat;
     private EntityList list;
-    public RatTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
         list = new EntityList(null);
         rat = new Rat(0, 0);
         list.addEntity(rat);
-    }
-    
-    @After
-    public void tearDown() {
     }
 
      @Test
@@ -118,7 +99,7 @@ public class RatTest {
          Eatable cheese = new Cheese(0, 1.5);
          list.addEntity((Cheese)cheese);
          rat.eat(cheese);
-         assertTrue(list.getList(Eatable.class).size() == 0);
+         assertTrue(list.getList(Eatable.class).isEmpty());
      }
      @Test
      public void ratEatsCheese2()
@@ -128,7 +109,7 @@ public class RatTest {
          rat.moveTo(Const.down);
          boolean b1 = list.getList(Eatable.class).size() > 0;
          rat.update();
-         boolean b2 = list.getList(Eatable.class).size() == 0;
+         boolean b2 = list.getList(Eatable.class).isEmpty();
          assertTrue(b1 && b2);
      }
      @Test
@@ -178,7 +159,7 @@ public class RatTest {
          rat.moveTo(Const.down);
          for (int i = 0; i < 100; i++)  rat.update();
          rat.removeTails();
-         assertTrue(list.getList(Tail.class).size() == 0);
+         assertTrue(list.getList(Tail.class).isEmpty());
      }
      @Test
      public void dontDestroyTailsThatDontBelongToYou()
@@ -204,7 +185,7 @@ public class RatTest {
      public void ratDestroysTailsWhenItHides()
      {
          setupHidingTest();
-         assertTrue(list.getList(Tail.class).size() == 0);
+         assertTrue(list.getList(Tail.class).isEmpty());
      }
      @Test
      public void ratfacesAwayWhenItHides()

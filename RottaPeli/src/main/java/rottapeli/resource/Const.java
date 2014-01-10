@@ -20,7 +20,7 @@ public class Const {
     /** Amount of time bonus that is decreased each tick. */
     public static final double bonusDecreasingRate = 1.667;
     /** Amount of lives that is given to each player initially. */
-    public static final int initialLifeAmount = 100;
+    public static final int initialLifeAmount = 3;
     /** Amount of time bonus that counter starts with. */
     public static final double initialBonus = 6000;
     /** Amount of score that awards an extra life. */

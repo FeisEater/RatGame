@@ -6,13 +6,8 @@
 
 package rottapeli.peli;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import rottapeli.domain.Ball;
@@ -36,26 +31,11 @@ public class RottaPeliTest {
         @Override
         public int playerID()   {return 2;}
     }
-    public RottaPeliTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         rp = new RottaPeli(false);
         rp.getEntities().removeAll(Entity.class);
         rp.getTimer().togglePause();
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -81,7 +61,7 @@ public class RottaPeliTest {
     public void demoIsResetted()
     {
         rp.resetDemo();
-        assertTrue(rp.getEntities().getList(Rat.class).size() == 0 &&
+        assertTrue(rp.getEntities().getList(Rat.class).isEmpty() &&
                 rp.getEntities().getList(Ball.class).size() == 10 &&
                 rp.getEntities().getList(Cheese.class).size() == Const.cheeseamount &&
                 rp.getEntities().getList(Border.class).size() == 4 &&
@@ -200,7 +180,7 @@ public class RottaPeliTest {
     @Test
     public void noPlayersInGame()
     {
-        assertTrue(rp.getPlayers().size() == 0);
+        assertTrue(rp.getPlayers().isEmpty());
     }
     
     @Test
