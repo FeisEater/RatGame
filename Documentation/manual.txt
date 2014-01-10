@@ -1,3 +1,11 @@
+Installing, running the program:
+There are two crucial files for running the program: The RottaPeli.jar file and
+'assets' directory. These files have to be in the same directory for the program
+to run correctly. There are no restrictions on which directory should hold these
+two files. In windows, double clicking the .jar file should be enough to run the
+program. Otherwise, start terminal, navigate to the directory containing the files
+then type 'java -jar RottaPeli.jar'.
+
 How to play the game/Game rules:
 
 -Rat navigation:

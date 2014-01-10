@@ -1,0 +1,106 @@
+Structure description:
+
+Central class of the code structure is RottaPeli, which has pointers
+to all main components of the code. RottaPeli object is the first
+object created in the program, and in its constructor it creates all
+other components. These components are:
+-EntityList
+-GameTimer
+-PlayerInput
+-ScoreKeeper
+-MenuLayer
+-Settings
+-Language
+-HighScore
+-JFrame
+
+In order for these components to communicate with each other, they must
+retrieve the pointer to the other component from RottaPeli.
+
+Some interfaces that should be mentioned before proceeding:
+-Updatable: Object can be updated through timer tick.
+-Controllable: Object can be controlled via input.
+Other interfaces assume that objects implementing them extend Positioned
+class. This will be elaborated upon later.
+
+EntityList:
+EntityList is an Entity container. Entities can be added to and removed
+from EntityList. List can also be filtered by class or interface. Entities
+that are not contained in the EntityList do not exist as far as user is
+concerned, because they're not drawn and they are not considered in any
+collision detection algorithms. EntityList is updatable and on update
+updates all of the contained entities that are updatable.
+
+Entity is an autonomous object that exists in the overall game logic.
+Most of the game rules are configured in the code of classes that extend
+Entity class. Other game logic decisions that require communication with
+other components or global decisions are made in the RottaPeli class.
+
+All objects that extend Positioned class also extend Entity class. 
+Positioned entities are positioned in a certain coordinate and have 
+width and height dimensions. Most of positioned entities can be drawn.
+Code permits entities that are not positioned for the sake of flexibility.
+Examples of this are not present in the current code.
+
+Moveable class extends Positioned class. Moveable Entities can change
+their location, in other words they can move. Moveable Entity has a speed
+and a direction, which gives them a possibility to move at a constant speed.
+Because their location is changed often, Moveable class implements Updatable
+interface.
+
+GameTimer:
+GameTimer causes ticks at a specified framerate. GameTimer has a list of
+Updatable objects, which are updated on every tick.
+
+PlayerInput:
+PlayerInput is an input manager that notifies every tick what keys are being
+held at the time. Implements Updatable. PlayerInput also notifies about input
+events that are unbound by timer, if the key was pressed or released. PlayerInput
+retrieves input information based on keycodes, which is then translated through
+Settings object into a specific action input that is defined in the code.
+PlayerInput also has a pointer to a Menu that listens for the events. This is 
+used in the input reconfiguration service.
+
+ScoreKeeper:
+Keeps score and other stats for every player. Implements updatable, because
+time bonus counter is decreased throughout time.
+
+
+Program GUI has two layers in it: Game Layer and Menu Layer. RottaPeli has a
+direct pointer to the MenuLayer, while GameLayer doesn't have an immediate
+connection with RottaPeli. However both GameLayer's components retrieve
+data through RottaPeli:
+-GameField: Retrieves a list of Positioned entities which are then drawn into
+the window. Implements updatable to repaint.
+-ScoreBar: Retrieves score data that is shown at the bottom of the window.
+Implements updatable to show up-to-date score stats.
+
+MenuLayer:
+Shows components of the current menu. While it doesn't contain a Menu object
+directly, current Menu sends commands to MenuLayer through RottaPeli. When
+user accesses another menu, current menu is removed and another menu is created
+in its place. A concrete menu (main menu, credits menu) extends Menu class.
+Button pressing event on the menu is delegated to the Menu class, thus Menu
+implements ActionListener.
+
+Settings:
+Holds all game settings that are reconfigurable on run-time. When some part of
+the code requires an attribute that may be changed in settings menu, it requests
+the current value from the Settings object. Settings values are loaded from an
+external file when Settings object is created. If settings are changed,
+they are overwritten to that external file.
+
+Language:
+Loads language specific information from a language file. In the code, all
+text information that can be translated is written in a generic language,
+which is then requested to be translated by the Language object.
+
+HighScore:
+Stores score and maintains it to be sorted from highest to lowest score.
+Loads highscore data when the HighScore object is created. Saves highscore
+data when changes are saved.
+
+JFrame:
+JFrame that contains window data. This is used to store settings based
+on window's dimensions. On startup window's dimensions are reset based on
+latest settings. Windows title is translated by current language.

@@ -1,0 +1,15 @@
+Some tests may occasionally fail. They, however, should pass if tests are
+run again. There are two reasons for this:
+
+-Several tests are based on random chance. For example
+whenAllCheeseIsEatenResetCheese() takes one cheese before position reset
+then takes one cheese after position reset and compares their coordinates.
+There is a chance that these coordinates will be the same, causing the
+test to fail.
+
+-Several tests are based on the timer functionality. On slower machines
+or when machine is preoccupied with miscellaneous code editor services
+these tests may fail because timer may work at a different speed than expected.
+
+Many tests fail if constant values in static classes are changed for game
+design.

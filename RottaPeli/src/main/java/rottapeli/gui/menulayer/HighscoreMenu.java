@@ -39,6 +39,8 @@ public class HighscoreMenu extends Menu {
             int score = (int)rp.getScore().getPoints(plr);
             if (rp.getHighScore().isInTop(Const.highScoreAmount, score))
                 scoreEnterQueue.add(plr);
+            else
+                rp.getHighScore().insertScore("", score, true);
         }
         letNextPlayerEnterName();
     }
