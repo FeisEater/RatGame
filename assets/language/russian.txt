@@ -1,0 +1,36 @@
+﻿###Ratgame language file###
+#title%Крыса
+
+#score%Очки
+#lives%Жизней
+#bonus%Награда за время
+
+#continue%Продолжить игру
+#newgame%Новая игра
+#settings%Настройки
+#highscore%Лучшие результаты
+#credits%Автор игры
+#exit%Выйти из игры
+
+#back%Вернуться
+
+#language%Поменять язык
+#controls%Настроить управление
+#volume%Громкость звука
+#aspectratio%Окно пропорционально
+
+#controlstitle%Выбери команду, которую хотите настроить
+#waitinginput%Нажми кнопку, которая выполнит команду
+#PLR1RIGHT%Двинуть направо
+#PLR1LEFT%Двинуть налево
+#PLR1DOWN%Двинуть вниз
+#PLR1UP%Двинуть вверх
+#PAUSE%Остановить игру
+
+#highscoreachieved%Игрок
+#highscoreachieved2%, Наберите Ваше имя
+#confirm%Подтвердить имя
+
+#fullcredits%Автор: МордоЕд
+#fullcredits2%
+#fullcredits3%

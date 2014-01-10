@@ -157,7 +157,7 @@ public class HighScore {
  * @param writer Filewriter object.
  * @throws IOException 
  */
-    public void writeScores(FileWriter writer) throws IOException
+    private void writeScores(FileWriter writer) throws IOException
     {
         for (int i = 0; i < scores.size(); i++)
         {

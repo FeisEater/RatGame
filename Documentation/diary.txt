@@ -147,3 +147,5 @@
 
 9.1.2014	Demoed the game. Cleaned code, added javaDocs to private
 		methods. 2 hours.
+
+10.1.2014	Added a structure description, finished up the project. 3 hours.

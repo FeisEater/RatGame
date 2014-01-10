@@ -6,7 +6,7 @@ import javax.swing.JCheckBox;
 import rottapeli.peli.RottaPeli;
 
 /**
- *
+ * The menu that is accessed from Main menu > Settings
  * @author Pavel
  */
 public class SettingsMenu extends Menu {

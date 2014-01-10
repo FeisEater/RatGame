@@ -92,7 +92,7 @@ public class Settings {
         catch (FileNotFoundException e)   {}
     }
 /**
- * Changes a setting based on a line of String fetched from an external file,
+ * Changes a setting based on a line of String fetched from an external file.
  * @param setting Line of String that contains a certain setting data.
  */
     public void fetchSetting(String setting)
@@ -160,7 +160,7 @@ public class Settings {
  * @param settings Filewriter object.
  * @throws IOException 
  */
-    public void writeSettings(FileWriter settings) throws IOException
+    private void writeSettings(FileWriter settings) throws IOException
     {
         writeBoolean(settings, "aspectratio", hasAspectRatio());
         writeSetting(settings, "windowwidth", rp.getFrame().getWidth());
@@ -181,7 +181,7 @@ public class Settings {
  * @param bool Boolean value of the variable.
  * @throws IOException 
  */
-    public void writeBoolean(FileWriter writer, String var, boolean bool) throws IOException
+    private void writeBoolean(FileWriter writer, String var, boolean bool) throws IOException
     {
         writer.append(var);
         String value = bool ? "1" : "0";
@@ -196,7 +196,7 @@ public class Settings {
  * @param value Value of the object.
  * @throws IOException 
  */
-    public void writeSetting(FileWriter writer, String var, Object value) throws IOException
+    private void writeSetting(FileWriter writer, String var, Object value) throws IOException
     {
         writer.append(var);
         writer.append(" " + value.toString());

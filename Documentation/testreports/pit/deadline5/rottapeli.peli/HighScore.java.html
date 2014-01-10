@@ -1,0 +1,3311 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>HighScore.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_1'></a>
+</td>
+<td class=''><pre><span  class=''>package rottapeli.peli;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.FileNotFoundException;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.FileWriter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_5'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_6'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_7'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_8'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_9'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.Scanner;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_10'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.resource.Files;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_11'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_12'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_13'></a>
+</td>
+<td class=''><pre><span  class=''> * High score container. Object that reads an external highscore file and</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_14'></a>
+</td>
+<td class=''><pre><span  class=''> * stores the data within it. When the game is over, new scores are added</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_15'></a>
+</td>
+<td class=''><pre><span  class=''> * into the container and updated highscore data is overwritten to the</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_16'></a>
+</td>
+<td class=''><pre><span  class=''> * external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_17'></a>
+</td>
+<td class=''><pre><span  class=''> * @author Pavel</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_18'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_19'></a>
+</td>
+<td class=''><pre><span  class=''>public class HighScore {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_20'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_21'></a>
+</td>
+<td class=''><pre><span  class=''> * Internal Score class that stores a name and score value. Scores</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_22'></a>
+</td>
+<td class=''><pre><span  class=''> * can be compared by the amount of points.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_23'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_24'></a>
+</td>
+<td class=''><pre><span  class=''>    private class Score implements Comparable</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_25'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_26'></a>
+</td>
+<td class=''><pre><span  class=''>/** Score gotten from the game. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_27'></a>
+</td>
+<td class=''><pre><span  class=''>        int points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_28'></a>
+</td>
+<td class=''><pre><span  class=''>/** The name of the player that achieved the score. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_29'></a>
+</td>
+<td class=''><pre><span  class=''>        String name;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_30'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_31'></a>
+</td>
+<td class=''><pre><span  class=''> * Constructor.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_32'></a>
+</td>
+<td class=''><pre><span  class=''> * @param n The name of the player that achieved the score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_33'></a>
+</td>
+<td class=''><pre><span  class=''> * @param p Score gotten from the game.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_34'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_35'></a>
+</td>
+<td class=''><pre><span  class=''>        public Score(String n, int p)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_36'></a>
+</td>
+<td class='covered'><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_37'></a>
+</td>
+<td class='covered'><pre><span  class=''>            points = p;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_38'></a>
+</td>
+<td class='covered'><pre><span  class=''>            name = n;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_39'></a>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_40'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_41'></a>
+</td>
+<td class=''><pre><span  class=''> * Switches data between this Score and other Score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_42'></a>
+</td>
+<td class=''><pre><span  class=''> * @param other Another score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_43'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_44'></a>
+</td>
+<td class=''><pre><span  class=''>        public void switchPointers(Score other)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_45'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_46'></a>
+</td>
+<td class='covered'><pre><span  class=''>            int bufferPoints = this.points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_47'></a>
+</td>
+<td class='covered'><pre><span  class=''>            String bufferName = this.name;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_48'></a>
+</td>
+<td class='covered'><pre><span  class=''>            this.points = other.points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_49'></a>
+</td>
+<td class='covered'><pre><span  class=''>            this.name = other.name;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_50'></a>
+</td>
+<td class='covered'><pre><span  class=''>            other.points = bufferPoints;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_51'></a>
+</td>
+<td class='covered'><pre><span  class=''>            other.name = bufferName;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_52'></a>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_53'></a>
+</td>
+<td class=''><pre><span  class=''>        @Override</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_54'></a>
+</td>
+<td class=''><pre><span  class=''>        public int compareTo(Object o)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_55'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_56'/>
+56
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_56'>2</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (o.getClass() != Score.class)  return 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_57'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            Score other = (Score)o;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_58'/>
+58
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_58'>2</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return other.points - this.points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_59'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_60'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_61'></a>
+</td>
+<td class=''><pre><span  class=''>/** Score container. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_62'></a>
+</td>
+<td class=''><pre><span  class=''>    private List&#60;Score&#62; scores;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_63'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_64'></a>
+</td>
+<td class=''><pre><span  class=''> * Constructor. Loads the high score data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_65'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_66'/>
+66
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_66'></a>
+</td>
+<td class=''><pre><span  class=''>    public HighScore()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_67'></a>
+</td>
+<td class='covered'><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_68'></a>
+</td>
+<td class='covered'><pre><span  class=''>        scores = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_69'/>
+69
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_69'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        loadHighScore();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_70'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_71'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_72'></a>
+</td>
+<td class=''><pre><span  class=''> * Loads and stores the highscore data. Stored highscore will be in order</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_73'></a>
+</td>
+<td class=''><pre><span  class=''> * from highest to lowest score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_74'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_75'></a>
+</td>
+<td class=''><pre><span  class=''>    public void loadHighScore()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_76'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_77'></a>
+</td>
+<td class=''><pre><span  class=''>        try</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_78'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_79'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Scanner sc = new Scanner(Files.highscoreFile);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_80'></a>
+</td>
+<td class='covered'><pre><span  class=''>            int oldpoints = Integer.MAX_VALUE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_81'></a>
+</td>
+<td class='covered'><pre><span  class=''>            boolean sorted = true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_82'/>
+82
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_82'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            while (sc.hasNextLine())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_83'></a>
+</td>
+<td class=''><pre><span  class=''>            {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_84'/>
+84
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_84'></a>
+</td>
+<td class='covered'><pre><span  class=''>                String string = sc.nextLine();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_85'/>
+85
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_85'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (string.isEmpty())    continue;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_86'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_87'/>
+87
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_87'></a>
+</td>
+<td class='covered'><pre><span  class=''>                int points = retrieveScore(string);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_88'/>
+88
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_88'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (oldpoints &#60; points) sorted = false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_89'/>
+89
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_89'></a>
+</td>
+<td class='covered'><pre><span  class=''>                oldpoints = points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_90'/>
+90
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_90'></a>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_91'/>
+91
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_91'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            sc.close();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_92'/>
+92
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_92'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!sorted)    Collections.sort(scores);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_93'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_94'></a>
+</td>
+<td class='covered'><pre><span  class=''>        catch (FileNotFoundException e)   {}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_95'/>
+95
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_95'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_96'/>
+96
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_96'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_97'></a>
+</td>
+<td class=''><pre><span  class=''> * Translates a line of string into the score data that contains</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_98'></a>
+</td>
+<td class=''><pre><span  class=''> * a name and score value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_99'></a>
+</td>
+<td class=''><pre><span  class=''> * @param string A line of string found from the external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_100'/>
+100
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_100'></a>
+</td>
+<td class=''><pre><span  class=''> * @return Score value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_101'/>
+101
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_101'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_102'/>
+102
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_102'></a>
+</td>
+<td class=''><pre><span  class=''>    public int retrieveScore(String string)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_103'/>
+103
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_103'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_104'/>
+104
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_104'></a>
+</td>
+<td class='covered'><pre><span  class=''>        String[] splitString = string.split(&#34; &#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_105'/>
+105
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_105'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int points = getPoints(splitString);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_106'/>
+106
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_106'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_107'/>
+107
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_107'></a>
+</td>
+<td class='covered'><pre><span  class=''>        scores.add(new Score(getName(splitString), points));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_108'/>
+108
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_108'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_109'/>
+109
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_109'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_110'/>
+110
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_110'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_111'/>
+111
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_111'></a>
+</td>
+<td class=''><pre><span  class=''> * Retrieves score owner&#39;s name from the line of the highscore file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_112'/>
+112
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_112'></a>
+</td>
+<td class=''><pre><span  class=''> * @param splitString Line from the highscore file that is split by whitespace.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_113'/>
+113
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_113'></a>
+</td>
+<td class=''><pre><span  class=''> * @return score owner&#39;s name.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_114'/>
+114
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_114'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_115'/>
+115
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_115'></a>
+</td>
+<td class=''><pre><span  class=''>    private String getName(String[] splitString)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_116'/>
+116
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_116'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_117'/>
+117
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_117'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (splitString.length &#60;= 1)    return &#34;&#34;;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_118'/>
+118
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_118'></a>
+</td>
+<td class='covered'><pre><span  class=''>        String name = splitString[1];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_119'/>
+119
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_119'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 2; i &#60; splitString.length; i++)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_120'/>
+120
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_120'></a>
+</td>
+<td class='covered'><pre><span  class=''>            name = name + &#34; &#34; + splitString[i];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_121'/>
+121
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_121'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return name;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_122'/>
+122
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_122'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_123'/>
+123
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_123'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_124'/>
+124
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_124'></a>
+</td>
+<td class=''><pre><span  class=''> * Retrieves score value from the line of the highscore file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_125'/>
+125
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_125'></a>
+</td>
+<td class=''><pre><span  class=''> * @param splitString Line from the highscore file that is split by whitespace.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_126'/>
+126
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_126'></a>
+</td>
+<td class=''><pre><span  class=''> * @return score value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_127'/>
+127
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_127'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_128'/>
+128
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_128'></a>
+</td>
+<td class=''><pre><span  class=''>    private int getPoints(String[] splitString)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_129'/>
+129
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_129'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_130'/>
+130
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_130'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (splitString.length &#60;= 0)    return 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_131'/>
+131
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_131'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_132'/>
+132
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_132'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int i = 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_133'/>
+133
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_133'></a>
+</td>
+<td class=''><pre><span  class=''>        try { </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_134'/>
+134
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_134'></a>
+</td>
+<td class='covered'><pre><span  class=''>             i = Integer.parseInt(splitString[0]); </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_135'/>
+135
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_135'></a>
+</td>
+<td class='covered'><pre><span  class=''>        } catch(NumberFormatException e) { </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_136'/>
+136
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_136'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return 0; </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_137'/>
+137
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_137'></a>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_138'/>
+138
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_138'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_139'/>
+139
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_139'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_140'/>
+140
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_140'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_141'/>
+141
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_141'></a>
+</td>
+<td class=''><pre><span  class=''> * Saves the updated highscore data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_142'/>
+142
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_142'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_143'/>
+143
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_143'></a>
+</td>
+<td class=''><pre><span  class=''>    public void saveHighScore()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_144'/>
+144
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_144'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_145'/>
+145
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_145'></a>
+</td>
+<td class=''><pre><span  class=''>        try</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_146'/>
+146
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_146'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_147'/>
+147
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_147'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            FileWriter writer = new FileWriter(Files.highscoreFile);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_148'/>
+148
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_148'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            writer.write(&#34;&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_149'/>
+149
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_149'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_150'/>
+150
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_150'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            writeScores(writer);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_151'/>
+151
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_151'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            writer.close();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_152'/>
+152
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_152'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_153'/>
+153
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_153'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        catch (IOException e)   {}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_154'/>
+154
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_154'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_155'/>
+155
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_155'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_156'/>
+156
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_156'></a>
+</td>
+<td class=''><pre><span  class=''> * Writes all of the scores contained in this object into an external data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_157'/>
+157
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_157'></a>
+</td>
+<td class=''><pre><span  class=''> * @param writer Filewriter object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_158'/>
+158
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_158'></a>
+</td>
+<td class=''><pre><span  class=''> * @throws IOException </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_159'/>
+159
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_159'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_160'/>
+160
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_160'></a>
+</td>
+<td class=''><pre><span  class=''>    public void writeScores(FileWriter writer) throws IOException</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_161'/>
+161
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_161'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_162'/>
+162
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_162'>3</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (int i = 0; i &#60; scores.size(); i++)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_163'/>
+163
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_163'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_164'/>
+164
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_164'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            writer.append(&#34;&#34; + getScoreByRank(i));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_165'/>
+165
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_165'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            writer.append(&#34; &#34; + getNameByRank(i));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_166'/>
+166
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_166'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            writer.append(System.getProperty(&#34;line.separator&#34;));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_167'/>
+167
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_167'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_168'/>
+168
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_168'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_169'/>
+169
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_169'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_170'/>
+170
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_170'></a>
+</td>
+<td class=''><pre><span  class=''> * Retrieves the name of the player that has a high score at a specified rank.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_171'/>
+171
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_171'></a>
+</td>
+<td class=''><pre><span  class=''> * @param rank Specified rank of the high score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_172'/>
+172
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_172'></a>
+</td>
+<td class=''><pre><span  class=''> * @return The name of the player at a specified rank.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_173'/>
+173
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_173'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_174'/>
+174
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_174'></a>
+</td>
+<td class=''><pre><span  class=''>    public String getNameByRank(int rank)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_175'/>
+175
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_175'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_176'/>
+176
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_176'>5</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (rank &#60; 0 || rank &#62;= scores.size())  return &#34;&#34;;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_177'/>
+177
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_177'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return scores.get(rank).name;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_178'/>
+178
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_178'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_179'/>
+179
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_179'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_180'/>
+180
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_180'></a>
+</td>
+<td class=''><pre><span  class=''> * Retrieves the score at a specified rank.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_181'/>
+181
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_181'></a>
+</td>
+<td class=''><pre><span  class=''> * @param rank Specified rank of the high score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_182'/>
+182
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_182'></a>
+</td>
+<td class=''><pre><span  class=''> * @return The score value at a specified rank.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_183'/>
+183
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_183'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_184'/>
+184
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_184'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getScoreByRank(int rank)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_185'/>
+185
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_185'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_186'/>
+186
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_186'>5</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (rank &#60; 0 || rank &#62;= scores.size())  return 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_187'/>
+187
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_187'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return scores.get(rank).points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_188'/>
+188
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_188'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_189'/>
+189
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_189'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_190'/>
+190
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_190'></a>
+</td>
+<td class=''><pre><span  class=''> * Retrieves a rank that given score value is entitled for.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_191'/>
+191
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_191'></a>
+</td>
+<td class=''><pre><span  class=''> * @param points Specified score value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_192'/>
+192
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_192'></a>
+</td>
+<td class=''><pre><span  class=''> * @return A rank that given score value is entitled for.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_193'/>
+193
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_193'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_194'/>
+194
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_194'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getRankByScore(int points)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_195'/>
+195
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_195'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_196'/>
+196
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_196'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; scores.size(); i++)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_197'/>
+197
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_197'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_198'/>
+198
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_198'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (points &#62; scores.get(i).points)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_199'/>
+199
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_199'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_200'/>
+200
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_200'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_201'/>
+201
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_201'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return scores.size();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_202'/>
+202
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_202'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_203'/>
+203
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_203'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_204'/>
+204
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_204'></a>
+</td>
+<td class=''><pre><span  class=''> * Inserts a score into the high score while not breaking the order of the high score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_205'/>
+205
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_205'></a>
+</td>
+<td class=''><pre><span  class=''> * @param name Name of the player that achieved the score.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_206'/>
+206
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_206'></a>
+</td>
+<td class=''><pre><span  class=''> * @param points Score value that is to be inserted.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_207'/>
+207
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_207'></a>
+</td>
+<td class=''><pre><span  class=''> * @param saveChanges Set to true if changes should be saved to an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_208'/>
+208
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_208'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_209'/>
+209
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_209'></a>
+</td>
+<td class=''><pre><span  class=''>    public void insertScore(String name, int points, boolean saveChanges)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_210'/>
+210
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_210'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_211'/>
+211
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_211'></a>
+</td>
+<td class='covered'><pre><span  class=''>        Score score = new Score(name, points);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_212'/>
+212
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_212'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_213'/>
+213
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_213'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = getRankByScore(points); i &#60; scores.size(); i++)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_214'/>
+214
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_214'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            score.switchPointers(scores.get(i));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_215'/>
+215
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_215'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_216'/>
+216
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_216'></a>
+</td>
+<td class='covered'><pre><span  class=''>        scores.add(score);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_217'/>
+217
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_217'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (saveChanges)    saveHighScore();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_218'/>
+218
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_218'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_219'/>
+219
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_219'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_220'/>
+220
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_220'></a>
+</td>
+<td class=''><pre><span  class=''> * Checks if the specified score value is among the best scores.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_221'/>
+221
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_221'></a>
+</td>
+<td class=''><pre><span  class=''> * @param topRanks Lowest rank to be considered. To check if points</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_222'/>
+222
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_222'></a>
+</td>
+<td class=''><pre><span  class=''> *                  are among top ten scores, set topRanks = 10;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_223'/>
+223
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_223'></a>
+</td>
+<td class=''><pre><span  class=''> * @param points Score value that is checked.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_224'/>
+224
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_224'></a>
+</td>
+<td class=''><pre><span  class=''> * @return true if score is among best scores.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_225'/>
+225
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_225'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_226'/>
+226
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_226'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean isInTop(int topRanks, int points)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_227'/>
+227
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_227'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_228'/>
+228
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_228'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (topRanks-1 &#62;= scores.size())  return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_229'/>
+229
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_229'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return points &#62; scores.get(topRanks-1).points;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_230'/>
+230
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_230'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_231'/>
+231
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_231'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_232'/>
+232
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_232'></a>
+</td>
+<td class=''><pre><span  class=''> * Empties highscore.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_233'/>
+233
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_233'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_234'/>
+234
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_234'></a>
+</td>
+<td class=''><pre><span  class=''>    public void clearHighScore()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_235'/>
+235
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_235'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_236'/>
+236
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_236'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        scores.clear();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_237'/>
+237
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_237'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f566bc_238'/>
+238
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_238'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_56'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> <p class='NO_COVERAGE'>replaced return of integer sized value with (x == 0 ? 1 : 0) : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_58'/> 
+
+<p class='NO_COVERAGE'>replaced return of integer sized value with (x == 0 ? 1 : 0) : NO_COVERAGE</p> <p class='NO_COVERAGE'>Replaced integer subtraction with addition : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_69'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/HighScore::loadHighScore : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_82'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_85'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_88'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_91'/> 
+
+<p class='KILLED'>removed call to java/util/Scanner::close : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_92'/> 
+
+<p class='KILLED'>removed call to java/util/Collections::sort : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_108'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_117'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/HighScore::getName to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger2(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger2(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_119'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_121'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/HighScore::getName to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_130'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.RottaPeliTest.whenSinglePlayerResetBallsOnDeath(rottapeli.peli.RottaPeliTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_136'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_138'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_148'/> 
+
+<p class='NO_COVERAGE'>removed call to java/io/FileWriter::write : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_150'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/HighScore::writeScores : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_151'/> 
+
+<p class='NO_COVERAGE'>removed call to java/io/FileWriter::close : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_162'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> <p class='NO_COVERAGE'>changed conditional boundary : NO_COVERAGE</p> <p class='NO_COVERAGE'>Changed increment from 1 to -1 : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_176'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.emptyResultsIfGettersOutOfBounds(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>mutated return of Object value for rottapeli/peli/HighScore::getNameByRank to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.HighScoreTest.emptyResultsIfGettersOutOfBounds(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_177'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/HighScore::getNameByRank to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_186'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.emptyResultsIfGettersOutOfBounds(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.emptyResultsIfGettersOutOfBounds(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_187'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_196'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_198'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.ifScoreIsSameGiveLowerRank2(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_199'>199</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_199'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_201'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_213'>213</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_213'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> rottapeli.peli.HighScoreTest.insertingScoresMaintainOrder(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_214'>214</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_214'/> 
+
+<p class='SURVIVED'>removed call to rottapeli/peli/HighScore$Score::switchPointers : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_217'>217</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_217'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='SURVIVED'>removed call to rottapeli/peli/HighScore::saveHighScore : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_228'>228</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_228'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly4(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>Replaced integer subtraction with addition : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly2(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly4(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly4(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_229'>229</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_229'/> 
+
+<p class='KILLED'>Replaced integer subtraction with addition : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly1(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectlyWithExactScores(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly1(rottapeli.peli.HighScoreTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.HighScoreTest.isInTopWorksCorrectly1(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f566bc_236'>236</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f566bc_236'/> 
+
+<p class='KILLED'>removed call to java/util/List::clear : KILLED -> rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>rottapeli.peli.HighScoreTest.isInTopWorksCorrectly3(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.nameAndScoreGettersAreOK(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetBalls(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.peli.HighScoreTest.scoreIsRetrievedFromFileCorrectly(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileDoesntExist(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.peli.HighScoreTest.ifScoreIsSameGiveLowerRank2(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.positionEntitiesToFreeSpots(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect2(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger3(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.morePointsGiveExtraLife(rottapeli.peli.ScoreKeeperTest) (78 ms)</li><li>rottapeli.resource.LanguageTest.setsLanguage(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenGiveTimeBonus(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.RottaPeliTest.demoIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.emptyScoreIfStringIsEmpty(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesScore(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsUnpaused(rottapeli.peli.GameTimerTest) (282 ms)</li><li>rottapeli.peli.RottaPeliTest.noPlayersInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.twoPlayersInGame(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.whenAllLivesLostDisappear(rottapeli.domain.RatTest) (94 ms)</li><li>rottapeli.peli.RottaPeliTest.onDeathLoseALife(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.peli.ScoreKeeperTest.decreaseLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.inputDoesntControlWrongThings(rottapeli.peli.RottaPeliTest) (15 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileIsNotStandard(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.HighScoreTest.dontRetrieveScoreIfFirstPartIsntInteger2(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.resource.LanguageTest.whenAskedToTranslateAnUntranslatableWordReturnWordItself(rottapeli.resource.LanguageTest) (15 ms)</li><li>rottapeli.peli.RottaPeliTest.componentsAreNotNull(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetRat(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOneOfMultiplePlayersLostAllLives(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsReset(rottapeli.peli.ScoreKeeperTest) (46 ms)</li><li>rottapeli.resource.LanguageTest.mapsWord(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusCantBeNegative(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.HighScoreTest.correctRankForScore(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.insertsScore(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.clearsHighScore(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.isInTopWorksCorrectlyWithExactScores(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOnlyOneLifeLost(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.GameTimerTest.timerIsCreatedAndItWorks(rottapeli.peli.GameTimerTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.emptyResultsIfGettersOutOfBounds(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetBalls(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.isInTopWorksCorrectly2(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsAdded(rottapeli.peli.ScoreKeeperTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.resetRatAndPositionToFreeSpot(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.GameTimerTest.gameDoesntUpdateScoreWhenPaused(rottapeli.peli.GameTimerTest) (171 ms)</li><li>rottapeli.peli.ScoreKeeperTest.eatingCheeseIncreasesCombo(rottapeli.peli.ScoreKeeperTest) (15 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenAddBall(rottapeli.peli.RottaPeliTest) (63 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsPaused(rottapeli.peli.GameTimerTest) (125 ms)</li><li>rottapeli.peli.ScoreKeeperTest.ifTimeBonusIsGivenResetTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.ifFirstPartEmptyPutZeroAsScore(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.isInTopWorksCorrectly1(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest) (140 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsOverWhenNoMorePlayers(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.RottaPeliTest.whenMultiPlayerDontResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.HighScoreTest.isInTopWorksCorrectly4(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.retrieveScoreWithoutName(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.canRetrieveScoreWithWhitespaces(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord2(rottapeli.resource.LanguageTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenPlayerLosesAllLivesRemoveRat(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.ifScoreIsSameGiveLowerRank(rottapeli.peli.HighScoreTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.whenSinglePlayerResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.updateDecreasesTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord(rottapeli.resource.LanguageTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfItsJustStarting(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect3(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.aLotOfPointsGiveSeveralExtraLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusIsGiven(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.HighScoreTest.insertsScoreWithEmptyName(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.insertingScoresMaintainOrder(rottapeli.peli.HighScoreTest) (0 ms)</li><li>rottapeli.peli.HighScoreTest.retrieveScoreWithoutName2(rottapeli.peli.HighScoreTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetCheese(rottapeli.peli.RottaPeliTest) (109 ms)</li><li>rottapeli.peli.GameTimerTest.timerCreatesActionEvents(rottapeli.peli.GameTimerTest) (31 ms)</li><li>rottapeli.resource.LanguageTest.dontMapWordIfDoesntStartWithSpecialCharacter(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.inputControlsRat(rottapeli.peli.RottaPeliTest) (32 ms)</li><li>rottapeli.peli.GameTimerTest.cantPauseIfGameIsOver(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.ScoreKeeperTest.interruptCombo(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.RottaPeliTest.onePlayerInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+###Ratgame language file###
+#title%RatGame
+
+#score%Score
+#lives%Lives left
+#bonus%Time bonus
+
+#continue%Continue game
+#newgame%New game
+#settings%Settings
+#highscore%High Score
+#credits%Credits
+#exit%Exit
+
+#back%Back
+
+#language%Change language
+#controls%Change controls
+#volume%Audio volume
+#aspectratio%Aspect ratio
+
+#controlstitle%Choose an action to reconfigure
+#waitinginput%Press a key to configure the action
+#PLR1RIGHT%Move right
+#PLR1LEFT%Move left
+#PLR1DOWN%Move down
+#PLR1UP%Move up
+#PAUSE%Pause the game
+
+#highscoreachieved%Player
+#highscoreachieved2%, Enter your name
+#confirm%Confirm name
+
+#fullcredits%Lead development: FeisEater
+#fullcredits2%
+#fullcredits3%

@@ -31,6 +31,7 @@ public class HighscoreMenu extends Menu {
     }
 /**
  * Check if any players hit the high score and should enter their name.
+ * If a player hasn't hit the high score, saves his score without a name.
  */
     public void enterName()
     {

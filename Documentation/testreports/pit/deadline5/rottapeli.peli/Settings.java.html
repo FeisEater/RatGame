@@ -1,0 +1,3466 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Settings.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_1'></a>
+</td>
+<td class=''><pre><span  class=''>package rottapeli.peli;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.awt.event.KeyEvent;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.FileNotFoundException;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_5'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.FileWriter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_6'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_7'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_8'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_9'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.Scanner;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_10'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.resource.Const;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_11'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.resource.Files;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_12'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.resource.Input;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_13'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_14'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_15'></a>
+</td>
+<td class=''><pre><span  class=''> * Settings manager that can be reconfigured in the program. Settings are</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_16'></a>
+</td>
+<td class=''><pre><span  class=''> * loaded from an external file and changed settings are saved to the</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_17'></a>
+</td>
+<td class=''><pre><span  class=''> * external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_18'></a>
+</td>
+<td class=''><pre><span  class=''> * @author Pavel</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_19'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_20'></a>
+</td>
+<td class=''><pre><span  class=''>public class Settings {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_21'></a>
+</td>
+<td class=''><pre><span  class=''>/** true if game representation should respect aspect ratio. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_22'></a>
+</td>
+<td class=''><pre><span  class=''>    private boolean aspectRatio;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_23'></a>
+</td>
+<td class=''><pre><span  class=''>/** Width of the window last retrieved from the settings file. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_24'></a>
+</td>
+<td class=''><pre><span  class=''>    private int windowWidth;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_25'></a>
+</td>
+<td class=''><pre><span  class=''>/** Height of the window last retrieved from the settings file. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_26'></a>
+</td>
+<td class=''><pre><span  class=''>    private int windowHeight;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_27'></a>
+</td>
+<td class=''><pre><span  class=''>/** Name of the language that is used in the program. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_28'></a>
+</td>
+<td class=''><pre><span  class=''>    private String language;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_29'></a>
+</td>
+<td class=''><pre><span  class=''>/** Mapped controls. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_30'></a>
+</td>
+<td class=''><pre><span  class=''>    private Map&#60;Integer, Input&#62; controls;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_31'></a>
+</td>
+<td class=''><pre><span  class=''>/** Game logic object. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_32'></a>
+</td>
+<td class=''><pre><span  class=''>    private RottaPeli rp;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_33'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_34'></a>
+</td>
+<td class=''><pre><span  class=''> * Constructor. Loads default hard-coded settings then loads settings</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_35'></a>
+</td>
+<td class=''><pre><span  class=''> * from an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_36'></a>
+</td>
+<td class=''><pre><span  class=''> * @param peli Game logic object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_37'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_38'></a>
+</td>
+<td class=''><pre><span  class=''>    public Settings(RottaPeli peli)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_39'></a>
+</td>
+<td class='covered'><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_40'></a>
+</td>
+<td class='covered'><pre><span  class=''>        controls = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_41'></a>
+</td>
+<td class='covered'><pre><span  class=''>        rp = peli;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_42'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_43'/>
+43
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_43'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        defaultSettings();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_44'/>
+44
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_44'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        loadSettings();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_45'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_46'/>
+46
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_46'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean hasAspectRatio() {return aspectRatio;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_47'></a>
+</td>
+<td class='covered'><pre><span  class=''>    public void setAspectRatio(boolean b)   {aspectRatio = b;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_48'/>
+48
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_48'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    public void toggleAspectRatio() {aspectRatio = !aspectRatio;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_49'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_50'/>
+50
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_50'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public int getSavedWidth()  {return windowWidth;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_51'/>
+51
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_51'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public int getSavedHeight()  {return windowHeight;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_52'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_53'/>
+53
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_53'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public String getLanguage() {return language;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_54'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_55'></a>
+</td>
+<td class=''><pre><span  class=''> * Sets a language for the program</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_56'/>
+56
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_56'></a>
+</td>
+<td class=''><pre><span  class=''> * @param lang name of the language file (&#39;english.txt&#39;)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_57'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_58'></a>
+</td>
+<td class=''><pre><span  class=''>    public void setLanguage(String lang)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_59'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_60'></a>
+</td>
+<td class='covered'><pre><span  class=''>        language = Files.languagePath + &#34;/&#34; + lang;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_61'/>
+61
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_61'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (rp != null &#38;&#38; rp.getFrame() != null)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_62'/>
+62
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_62'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            rp.getFrame().setTitle(rp.getLanguage().translate(&#34;#title&#34;));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_63'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_64'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_65'></a>
+</td>
+<td class=''><pre><span  class=''> * Hard-coded settings that will be in effect if external file can&#39;t be loaded.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_66'/>
+66
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_66'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_67'></a>
+</td>
+<td class=''><pre><span  class=''>    public void defaultSettings()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_68'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_69'></a>
+</td>
+<td class='covered'><pre><span  class=''>        aspectRatio = false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_70'></a>
+</td>
+<td class='covered'><pre><span  class=''>        windowWidth = Const.width * 4;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_71'></a>
+</td>
+<td class='covered'><pre><span  class=''>        windowHeight = Const.height * 4;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_72'></a>
+</td>
+<td class='covered'><pre><span  class=''>        language = Files.defaultLanguage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_73'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_74'/>
+74
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_74'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        reMap(Input.PLR1RIGHT, KeyEvent.VK_RIGHT);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_75'/>
+75
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_75'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        reMap(Input.PLR1LEFT, KeyEvent.VK_LEFT);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_76'/>
+76
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_76'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        reMap(Input.PLR1UP, KeyEvent.VK_UP);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_77'/>
+77
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_77'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        reMap(Input.PLR1DOWN, KeyEvent.VK_DOWN);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_78'/>
+78
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_78'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        reMap(Input.PAUSE, KeyEvent.VK_P);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_79'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_80'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_81'></a>
+</td>
+<td class=''><pre><span  class=''> * Loads the settings from an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_82'/>
+82
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_82'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_83'></a>
+</td>
+<td class=''><pre><span  class=''>    public void loadSettings()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_84'/>
+84
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_84'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_85'></a>
+</td>
+<td class=''><pre><span  class=''>        try</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_86'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_87'/>
+87
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_87'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Scanner sc = new Scanner(Files.settingsFile);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_88'/>
+88
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_88'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            while (sc.hasNextLine())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_89'/>
+89
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_89'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                fetchSetting(sc.nextLine());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_90'/>
+90
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_90'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            sc.close();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_91'/>
+91
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_91'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_92'/>
+92
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_92'></a>
+</td>
+<td class='covered'><pre><span  class=''>        catch (FileNotFoundException e)   {}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_93'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_94'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_95'/>
+95
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_95'></a>
+</td>
+<td class=''><pre><span  class=''> * Changes a setting based on a line of String fetched from an external file,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_96'/>
+96
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_96'></a>
+</td>
+<td class=''><pre><span  class=''> * @param setting Line of String that contains a certain setting data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_97'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_98'></a>
+</td>
+<td class=''><pre><span  class=''>    public void fetchSetting(String setting)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_99'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_100'/>
+100
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_100'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (setting.startsWith(&#34;aspectratio&#34;))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_101'/>
+101
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_101'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            setAspectRatio(fetchBoolean(setting));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_102'/>
+102
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_102'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (setting.startsWith(&#34;windowwidth&#34;))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_103'/>
+103
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_103'></a>
+</td>
+<td class='covered'><pre><span  class=''>            windowWidth = fetchInteger(setting);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_104'/>
+104
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_104'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (setting.startsWith(&#34;windowheight&#34;))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_105'/>
+105
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_105'></a>
+</td>
+<td class='covered'><pre><span  class=''>            windowHeight = fetchInteger(setting);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_106'/>
+106
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_106'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (setting.startsWith(&#34;language&#34;))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_107'/>
+107
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_107'></a>
+</td>
+<td class='covered'><pre><span  class=''>            language = fetchString(setting);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_108'/>
+108
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_108'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_109'/>
+109
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_109'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (Input i : Input.values())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_110'/>
+110
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_110'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_111'/>
+111
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_111'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (i == Input.NOTMAPPED)   continue;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_112'/>
+112
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_112'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (setting.startsWith(i.toString()))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_113'/>
+113
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_113'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                reMap(i, fetchInteger(setting));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_114'/>
+114
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_114'></a>
+</td>
+<td class=''><pre><span  class=''>        } </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_115'/>
+115
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_115'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_116'/>
+116
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_116'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_117'/>
+117
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_117'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts an external data to a boolean.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_118'/>
+118
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_118'></a>
+</td>
+<td class=''><pre><span  class=''> * @param setting Line of String that contains a certain setting data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_119'/>
+119
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_119'></a>
+</td>
+<td class=''><pre><span  class=''> * @return true if it ends in &#39;1&#39;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_120'/>
+120
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_120'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_121'/>
+121
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_121'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean fetchBoolean(String setting)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_122'/>
+122
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_122'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_123'/>
+123
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_123'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return setting.endsWith(&#34;1&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_124'/>
+124
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_124'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_125'/>
+125
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_125'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_126'/>
+126
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_126'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts an external data to an integer.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_127'/>
+127
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_127'></a>
+</td>
+<td class=''><pre><span  class=''> * @param setting Line of String that contains a certain setting data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_128'/>
+128
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_128'></a>
+</td>
+<td class=''><pre><span  class=''> * @return integer value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_129'/>
+129
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_129'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_130'/>
+130
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_130'></a>
+</td>
+<td class=''><pre><span  class=''>    public int fetchInteger(String setting)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_131'/>
+131
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_131'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_132'/>
+132
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_132'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Integer.parseInt(setting.split(&#34; &#34;)[1]);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_133'/>
+133
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_133'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_134'/>
+134
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_134'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_135'/>
+135
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_135'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts an external data to a string.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_136'/>
+136
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_136'></a>
+</td>
+<td class=''><pre><span  class=''> * @param setting Line of String that contains a certain setting data.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_137'/>
+137
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_137'></a>
+</td>
+<td class=''><pre><span  class=''> * @return string value.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_138'/>
+138
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_138'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_139'/>
+139
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_139'></a>
+</td>
+<td class=''><pre><span  class=''>    public String fetchString(String setting)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_140'/>
+140
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_140'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_141'/>
+141
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_141'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return setting.split(&#34; &#34;)[1];</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_142'/>
+142
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_142'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_143'/>
+143
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_143'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_144'/>
+144
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_144'></a>
+</td>
+<td class=''><pre><span  class=''> * Saves possibly changed settings into an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_145'/>
+145
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_145'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_146'/>
+146
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_146'></a>
+</td>
+<td class=''><pre><span  class=''>    public void saveSettings()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_147'/>
+147
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_147'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_148'/>
+148
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_148'></a>
+</td>
+<td class=''><pre><span  class=''>        try</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_149'/>
+149
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_149'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_150'/>
+150
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_150'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            FileWriter settings = new FileWriter(Files.settingsFile);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_151'/>
+151
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_151'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            settings.write(&#34;&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_152'/>
+152
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_152'></a>
+</td>
+<td class=''><pre><span  class=''>            </span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_153'/>
+153
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_153'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            writeSettings(settings);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_154'/>
+154
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_154'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            settings.close();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_155'/>
+155
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_155'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_156'/>
+156
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_156'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        catch (IOException e)   {}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_157'/>
+157
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_157'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_158'/>
+158
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_158'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_159'/>
+159
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_159'></a>
+</td>
+<td class=''><pre><span  class=''> * Overwrites all settings that are possibly changed.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_160'/>
+160
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_160'></a>
+</td>
+<td class=''><pre><span  class=''> * @param settings Filewriter object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_161'/>
+161
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_161'></a>
+</td>
+<td class=''><pre><span  class=''> * @throws IOException </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_162'/>
+162
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_162'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_163'/>
+163
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_163'></a>
+</td>
+<td class=''><pre><span  class=''>    public void writeSettings(FileWriter settings) throws IOException</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_164'/>
+164
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_164'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_165'/>
+165
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_165'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        writeBoolean(settings, &#34;aspectratio&#34;, hasAspectRatio());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_166'/>
+166
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_166'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        writeSetting(settings, &#34;windowwidth&#34;, rp.getFrame().getWidth());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_167'/>
+167
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_167'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        writeSetting(settings, &#34;windowheight&#34;, rp.getFrame().getHeight());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_168'/>
+168
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_168'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        writeSetting(settings, &#34;language&#34;, language);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_169'/>
+169
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_169'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_170'/>
+170
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_170'>3</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (Input i : Input.values())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_171'/>
+171
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_171'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_172'/>
+172
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_172'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (i == Input.NOTMAPPED)   continue;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_173'/>
+173
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_173'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            writeSetting(settings, i.toString(), findKey(i));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_174'/>
+174
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_174'></a>
+</td>
+<td class=''><pre><span  class=''>        } </span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_175'/>
+175
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_175'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_176'/>
+176
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_176'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_177'/>
+177
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_177'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts a boolean attribute into a line of string that will be written into</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_178'/>
+178
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_178'></a>
+</td>
+<td class=''><pre><span  class=''> * an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_179'/>
+179
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_179'></a>
+</td>
+<td class=''><pre><span  class=''> * @param writer Filewriter object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_180'/>
+180
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_180'></a>
+</td>
+<td class=''><pre><span  class=''> * @param var Name of the variable.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_181'/>
+181
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_181'></a>
+</td>
+<td class=''><pre><span  class=''> * @param bool Boolean value of the variable.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_182'/>
+182
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_182'></a>
+</td>
+<td class=''><pre><span  class=''> * @throws IOException </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_183'/>
+183
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_183'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_184'/>
+184
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_184'></a>
+</td>
+<td class=''><pre><span  class=''>    public void writeBoolean(FileWriter writer, String var, boolean bool) throws IOException</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_185'/>
+185
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_185'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_186'/>
+186
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_186'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(var);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_187'/>
+187
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_187'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        String value = bool ? &#34;1&#34; : &#34;0&#34;;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_188'/>
+188
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_188'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(&#34; &#34; + value);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_189'/>
+189
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_189'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(System.getProperty(&#34;line.separator&#34;));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_190'/>
+190
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_190'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_191'/>
+191
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_191'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_192'/>
+192
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_192'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts an object attribute into a line of string that will be written into</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_193'/>
+193
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_193'></a>
+</td>
+<td class=''><pre><span  class=''> * an external file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_194'/>
+194
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_194'></a>
+</td>
+<td class=''><pre><span  class=''> * @param writer Filewriter object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_195'/>
+195
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_195'></a>
+</td>
+<td class=''><pre><span  class=''> * @param var Name of the variable.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_196'/>
+196
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_196'></a>
+</td>
+<td class=''><pre><span  class=''> * @param value Value of the object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_197'/>
+197
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_197'></a>
+</td>
+<td class=''><pre><span  class=''> * @throws IOException </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_198'/>
+198
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_198'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_199'/>
+199
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_199'></a>
+</td>
+<td class=''><pre><span  class=''>    public void writeSetting(FileWriter writer, String var, Object value) throws IOException</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_200'/>
+200
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_200'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_201'/>
+201
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_201'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(var);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_202'/>
+202
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_202'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(&#34; &#34; + value.toString());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_203'/>
+203
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_203'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        writer.append(System.getProperty(&#34;line.separator&#34;));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_204'/>
+204
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_204'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_205'/>
+205
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_205'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_206'/>
+206
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_206'></a>
+</td>
+<td class=''><pre><span  class=''> * Converts a specific input code into an action that influences the game.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_207'/>
+207
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_207'></a>
+</td>
+<td class=''><pre><span  class=''> * @param key Keycode to be converted.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_208'/>
+208
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_208'></a>
+</td>
+<td class=''><pre><span  class=''> * @return An action input that is mapped to the given key.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_209'/>
+209
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_209'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_210'/>
+210
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_210'></a>
+</td>
+<td class=''><pre><span  class=''>    public Input getControl(int key)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_211'/>
+211
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_211'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_212'/>
+212
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_212'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!controls.containsKey(key)) return Input.NOTMAPPED;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_213'/>
+213
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_213'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return controls.get(key);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_214'/>
+214
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_214'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_215'/>
+215
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_215'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_216'/>
+216
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_216'></a>
+</td>
+<td class=''><pre><span  class=''> * Remaps a certain action into a keycode.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_217'/>
+217
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_217'></a>
+</td>
+<td class=''><pre><span  class=''> * @param action Input that the game will listen to.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_218'/>
+218
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_218'></a>
+</td>
+<td class=''><pre><span  class=''> * @param button Keycode of the key that should be configured to an input.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_219'/>
+219
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_219'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_220'/>
+220
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_220'></a>
+</td>
+<td class=''><pre><span  class=''>    public void reMap(Input action, int button)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_221'/>
+221
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_221'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_222'/>
+222
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_222'></a>
+</td>
+<td class='covered'><pre><span  class=''>        controls.remove(findKey(action));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_223'/>
+223
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_223'></a>
+</td>
+<td class='covered'><pre><span  class=''>        controls.put(button, action);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_224'/>
+224
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_224'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_225'/>
+225
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_225'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_226'/>
+226
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_226'></a>
+</td>
+<td class=''><pre><span  class=''> * Finds the current keycode that is configured to a certain input action.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_227'/>
+227
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_227'></a>
+</td>
+<td class=''><pre><span  class=''> * @param action Specific game input.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_228'/>
+228
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_228'></a>
+</td>
+<td class=''><pre><span  class=''> * @return Keycode of the key that causes a given action.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_229'/>
+229
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_229'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_230'/>
+230
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_230'></a>
+</td>
+<td class=''><pre><span  class=''>    public int findKey(Input action)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_231'/>
+231
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_231'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_232'/>
+232
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_232'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int key : controls.keySet())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_233'/>
+233
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_233'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_234'/>
+234
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_234'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (controls.get(key) == action)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_235'/>
+235
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_235'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return key;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_236'/>
+236
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_236'></a>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_237'/>
+237
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_237'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return -1;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_238'/>
+238
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_238'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@d1be26_239'/>
+239
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_239'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_43'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::defaultSettings : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_44'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::loadSettings : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_46'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_48'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_50'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesWindowWidth(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_51'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesWindowHeight(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_53'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/Settings::getLanguage to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.SettingsTest.setsLanguage(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_61'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.LanguageTest.setsLanguage(rottapeli.resource.LanguageTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.setsLanguage(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_62'/> 
+
+<p class='NO_COVERAGE'>removed call to javax/swing/JFrame::setTitle : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_74'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_75'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_76'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_77'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_78'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_88'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_89'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::fetchSetting : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_90'/> 
+
+<p class='KILLED'>removed call to java/util/Scanner::close : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_100'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_101'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::setAspectRatio : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_102'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_104'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_106'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_109'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_111'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_112'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_113'/> 
+
+<p class='KILLED'>removed call to rottapeli/peli/Settings::reMap : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_123'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_132'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_141'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/Settings::fetchString to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.resource.LanguageTest.mapsEmptyWord2(rottapeli.resource.LanguageTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_151'/> 
+
+<p class='NO_COVERAGE'>removed call to java/io/FileWriter::write : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_153'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeSettings : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_154'/> 
+
+<p class='NO_COVERAGE'>removed call to java/io/FileWriter::close : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_165'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeBoolean : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_166'>166</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_166'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeSetting : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_167'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeSetting : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_168'>168</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_168'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeSetting : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_170'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> <p class='NO_COVERAGE'>changed conditional boundary : NO_COVERAGE</p> <p class='NO_COVERAGE'>Changed increment from 1 to -1 : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_172'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_173'/> 
+
+<p class='NO_COVERAGE'>removed call to rottapeli/peli/Settings::writeSetting : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_187'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_212'>212</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_212'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/Settings::getControl to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.SettingsTest.remapsKey(rottapeli.peli.SettingsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_213'>213</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_213'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/peli/Settings::getControl to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_232'>232</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_232'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_234'>234</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_234'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_235'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@d1be26_237'>237</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@d1be26_237'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.peli.SettingsTest.tryFindingAKeyForUnMappedInput(rottapeli.peli.SettingsTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetBalls(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileDoesntExist(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.positionEntitiesToFreeSpots(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect2(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.morePointsGiveExtraLife(rottapeli.peli.ScoreKeeperTest) (78 ms)</li><li>rottapeli.resource.LanguageTest.setsLanguage(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenGiveTimeBonus(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.RottaPeliTest.demoIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.SettingsTest.fetchesWindowWidth(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesScore(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsUnpaused(rottapeli.peli.GameTimerTest) (282 ms)</li><li>rottapeli.peli.RottaPeliTest.noPlayersInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.twoPlayersInGame(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.SettingsTest.tryNotMappedKey(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.domain.RatTest.whenAllLivesLostDisappear(rottapeli.domain.RatTest) (94 ms)</li><li>rottapeli.peli.RottaPeliTest.onDeathLoseALife(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileIsNotStandard(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.inputDoesntControlWrongThings(rottapeli.peli.RottaPeliTest) (15 ms)</li><li>rottapeli.peli.ScoreKeeperTest.decreaseLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.SettingsTest.fetchesWindowHeight(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.resource.LanguageTest.whenAskedToTranslateAnUntranslatableWordReturnWordItself(rottapeli.resource.LanguageTest) (15 ms)</li><li>rottapeli.peli.RottaPeliTest.componentsAreNotNull(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetRat(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOneOfMultiplePlayersLostAllLives(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.resource.LanguageTest.mapsWord(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsReset(rottapeli.peli.ScoreKeeperTest) (46 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusCantBeNegative(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.SettingsTest.fetchesAspectRatio(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.SettingsTest.fetchesInputs(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.SettingsTest.onSeveralRemappingsNoRedundantKeys(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.SettingsTest.whenKeyIsUnmappedItDoesntDoAnything(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOnlyOneLifeLost(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.GameTimerTest.timerIsCreatedAndItWorks(rottapeli.peli.GameTimerTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.resetBalls(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsAdded(rottapeli.peli.ScoreKeeperTest) (16 ms)</li><li>rottapeli.peli.SettingsTest.remapsKey(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.SettingsTest.findsCorrectDefaultInputs(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetRatAndPositionToFreeSpot(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.SettingsTest.tryFindingAKeyForUnMappedInput(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameDoesntUpdateScoreWhenPaused(rottapeli.peli.GameTimerTest) (171 ms)</li><li>rottapeli.peli.ScoreKeeperTest.eatingCheeseIncreasesCombo(rottapeli.peli.ScoreKeeperTest) (15 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenAddBall(rottapeli.peli.RottaPeliTest) (63 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsPaused(rottapeli.peli.GameTimerTest) (125 ms)</li><li>rottapeli.peli.ScoreKeeperTest.ifTimeBonusIsGivenResetTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest) (140 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsOverWhenNoMorePlayers(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.RottaPeliTest.whenMultiPlayerDontResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord2(rottapeli.resource.LanguageTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenPlayerLosesAllLivesRemoveRat(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.updateDecreasesTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.whenSinglePlayerResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord(rottapeli.resource.LanguageTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfItsJustStarting(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect3(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.peli.SettingsTest.setsLanguage(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.aLotOfPointsGiveSeveralExtraLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusIsGiven(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetCheese(rottapeli.peli.RottaPeliTest) (109 ms)</li><li>rottapeli.peli.GameTimerTest.timerCreatesActionEvents(rottapeli.peli.GameTimerTest) (31 ms)</li><li>rottapeli.resource.LanguageTest.dontMapWordIfDoesntStartWithSpecialCharacter(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.inputControlsRat(rottapeli.peli.RottaPeliTest) (32 ms)</li><li>rottapeli.peli.GameTimerTest.cantPauseIfGameIsOver(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.ScoreKeeperTest.interruptCombo(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.SettingsTest.findsCorrectDefaultKeys(rottapeli.peli.SettingsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.onePlayerInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

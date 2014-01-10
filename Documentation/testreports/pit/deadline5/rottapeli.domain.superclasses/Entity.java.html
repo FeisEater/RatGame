@@ -1,0 +1,376 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Entity.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_1'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_2'></a>
+</td>
+<td class=''><pre><span  class=''>package rottapeli.domain.superclasses;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_3'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_4'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.peli.EntityList;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_5'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.peli.RottaPeli;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_6'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_7'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_8'></a>
+</td>
+<td class=''><pre><span  class=''> * Entity that is stored by EntityList. All objects of the game extend this class.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_9'></a>
+</td>
+<td class=''><pre><span  class=''> * @author Pavel</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_10'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_11'></a>
+</td>
+<td class='covered'><pre><span  class=''>public class Entity {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_12'></a>
+</td>
+<td class=''><pre><span  class=''>/** Pointer to the Entity list. */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_13'></a>
+</td>
+<td class=''><pre><span  class=''>    private EntityList entities;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_14'></a>
+</td>
+<td class=''><pre><span  class=''>    public void setEntityList(EntityList list)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_15'></a>
+</td>
+<td class='covered'><pre><span  class=''>        {entities = list;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_16'/>
+16
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_16'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public EntityList getEntities() {return entities;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_17'/>
+17
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_17'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public RottaPeli gameLogic()   {return entities.gameLogic();}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_18'/>
+18
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_18'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean hasGameLogic()   {return gameLogic() != null;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_19'/>
+19
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_19'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean hasEntities()    {return entities != null;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f13e99_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_20'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f13e99_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_16'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/domain/superclasses/Entity::getEntities to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.domain.superclasses.PositionedTest.ifFreeSpotJustPlaceIt(rottapeli.domain.superclasses.PositionedTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f13e99_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_17'/> 
+
+<p class='KILLED'>mutated return of Object value for rottapeli/domain/superclasses/Entity::gameLogic to ( if (x != null) null else throw new RuntimeException ) : KILLED -> rottapeli.domain.RatTest.onDeathFaceDown(rottapeli.domain.RatTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f13e99_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_18'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.domain.RatTest.onDeathFaceDown(rottapeli.domain.RatTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.domain.RatTest.onDeathFaceDown(rottapeli.domain.RatTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f13e99_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f13e99_19'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.domain.RatTest.ratDoesntMoveWhenSpawnedWithMultipleUpdates(rottapeli.domain.RatTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.domain.RatTest.ratDoesntMoveWhenSpawnedWithMultipleUpdates(rottapeli.domain.RatTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>rottapeli.peli.EntityListTest.removesItemsByClass(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetBalls(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.domain.RatTest.onDeathDestroyTails(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.domain.RatTest.ratEatsCheese(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratStaysStillWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileDoesntExist(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.domain.RatTest.ratFacesRightWhenHidingToTheLeft(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.positionEntitiesToFreeSpots(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.BallTest.bounce3(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenGiveTimeBonus(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsUnpaused(rottapeli.peli.GameTimerTest) (282 ms)</li><li>rottapeli.peli.EntityListTest.addedItemKnowEntityList(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.noPlayersInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.RatTest.ratMovesUp(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.domain.RatTest.whenAllLivesLostDisappear(rottapeli.domain.RatTest) (94 ms)</li><li>rottapeli.peli.RottaPeliTest.onDeathLoseALife(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileIsNotStandard(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.decreaseLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOneOfMultiplePlayersLostAllLives(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.resource.LanguageTest.mapsWord(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusCantBeNegative(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.domain.RatTest.ratDestroysTailsWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratFacesLeftWhenHidingToTheRight(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.getListWithoutParameter(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.RatTest.onDeathPositionToDefaultPosition(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratstretchesTail(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.domain.RatTest.onDeathStopMoving(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.peli.EntityListTest.removedItemForgetsEntityList(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratEatsCheese2(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOnlyOneLifeLost(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.onDeathFaceDown(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.timerIsCreatedAndItWorks(rottapeli.peli.GameTimerTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratfacesAwayWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetRatAndPositionToFreeSpot(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.RatTest.onDeathStopCreatingTails(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.findWhichNearbySpotIsFree2(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.eatingCheeseIncreasesCombo(rottapeli.peli.ScoreKeeperTest) (15 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsPaused(rottapeli.peli.GameTimerTest) (125 ms)</li><li>rottapeli.domain.RatTest.ratStaysFacingAway(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.ifTimeBonusIsGivenResetTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.resource.ToolsTest.pointIsInsideNotOnTheEdge(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.BallTest.ballMovesDownLeft(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.BallTest.killsRatOnCollision(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.dontMoveImmediatelyToTheOppositeDirection(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.findWhichNearbySpotIsFree(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.updateDecreasesTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.whenSinglePlayerResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect3(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.domain.RatTest.ratCorrectsPositionWhenHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.ifSpotNotFreePlaceNearBy(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.timerCreatesActionEvents(rottapeli.peli.GameTimerTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetCheese(rottapeli.peli.RottaPeliTest) (109 ms)</li><li>rottapeli.domain.RatTest.ratMovesDown(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.cantPauseIfGameIsOver(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.ScoreKeeperTest.interruptCombo(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.RottaPeliTest.onePlayerInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.RatTest.changeDirection(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect2(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.morePointsGiveExtraLife(rottapeli.peli.ScoreKeeperTest) (78 ms)</li><li>rottapeli.domain.RatTest.dontGiveARatsAssWhenItsSomeoneElsesTail(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.BallTest.bounce1(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.setsLanguage(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.demoIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratDoesntEatCheeseIfItMerelyTouchesSide(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesScore(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.domain.BallTest.correctsPosition3(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.twoPlayersInGame(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratMovesRight(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.inputDoesntControlWrongThings(rottapeli.peli.RottaPeliTest) (15 ms)</li><li>rottapeli.resource.LanguageTest.whenAskedToTranslateAnUntranslatableWordReturnWordItself(rottapeli.resource.LanguageTest) (15 ms)</li><li>rottapeli.peli.RottaPeliTest.componentsAreNotNull(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.EntityListTest.getListOfBouncables(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.removedItemForgetsEntityList2(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.BallTest.ballMovesUpRight(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetRat(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsReset(rottapeli.peli.ScoreKeeperTest) (46 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.ifFreeSpotJustPlaceIt(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.domain.TailTest.onDeathKillOwner(rottapeli.domain.TailTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntCreateTailIfOneIsTouchingIt(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.CheeseTest.cheeseGetsEaten(rottapeli.domain.CheeseTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetBalls(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsAdded(rottapeli.peli.ScoreKeeperTest) (16 ms)</li><li>rottapeli.domain.BallTest.ballMovesUpLeft(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDestroysTails(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.peli.GameTimerTest.gameDoesntUpdateScoreWhenPaused(rottapeli.peli.GameTimerTest) (171 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenAddBall(rottapeli.peli.RottaPeliTest) (63 ms)</li><li>rottapeli.domain.RatTest.dontDestroyTailsThatDontBelongToYou(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsOverWhenNoMorePlayers(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest) (140 ms)</li><li>rottapeli.peli.RottaPeliTest.whenMultiPlayerDontResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.BallTest.correctsPosition2(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.dieIfHitOwnTail(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.domain.BallTest.correctsPosition(rottapeli.domain.BallTest) (15 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord2(rottapeli.resource.LanguageTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenPlayerLosesAllLivesRemoveRat(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.BallTest.killsRat(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord(rottapeli.resource.LanguageTest) (47 ms)</li><li>rottapeli.domain.BallTest.ballMovesDownRight(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.updatesEntities(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfItsJustStarting(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.RatTest.ratFacesDownWhenHidingUp(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.BallTest.bounce2(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntMoveWhenSpawnedWithMultipleUpdates(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.aLotOfPointsGiveSeveralExtraLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusIsGiven(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratMovesLeft(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.dontMapWordIfDoesntStartWithSpecialCharacter(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.inputControlsRat(rottapeli.peli.RottaPeliTest) (32 ms)</li><li>rottapeli.domain.RatTest.ratDoesntDieIfItMerelyTouchesTailsSide(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntMoveWhenSpawned(rottapeli.domain.RatTest) (16 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

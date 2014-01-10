@@ -76,7 +76,8 @@ public class Language {
     }
 /**
  * Checks if language file is valid. File is valid if it has appropriate
- * String in the first line.
+ * String in the first line. Note that after calling this method sc.nextLine()
+ * shouldn't be called as this method does that already.
  * @param sc    Scanner object that scans the language file.
  * @return true if language file is usable.
  */

@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import rottapeli.peli.RottaPeli;
 
 /**
- *
+ * Menu abstract class that a concrete menu should inherit.
  * @author Pavel
  */
 public abstract class Menu implements ActionListener {

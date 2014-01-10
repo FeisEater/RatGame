@@ -105,7 +105,7 @@ public class Rat extends Moveable implements Killable, Controllable {
  * Reacts to the collision with Tail.
  * <p>
  * If tail was created by this Rat calls die() method on the Tail unless Tail is
- * last created Tail. In that case don't create Tail this tick on the timer.
+ * the most recently created Tail. In that case don't create Tail this tick on the timer.
  * @param tail Tail with which Rat collided.
  */
     public void examineTail(Tail tail)

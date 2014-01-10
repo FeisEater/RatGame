@@ -15,6 +15,6 @@ public class Files {
     public static final String languagePath = "assets/language";
 /** Directory that contains language files. */
     public static final File languageDirecory = new File(languagePath);
-/** Path to the language that is loaded on default, if no file is speciffied in the settings. */
+/** Path to the language that is loaded on default, if no file is specified in the settings. */
     public static final String defaultLanguage = languagePath + "/english.txt";
 }

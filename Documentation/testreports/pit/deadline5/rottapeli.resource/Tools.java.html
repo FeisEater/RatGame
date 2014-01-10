@@ -1,0 +1,1882 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Tools.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_1'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_2'></a>
+</td>
+<td class=''><pre><span  class=''>package rottapeli.resource;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_3'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_4'></a>
+</td>
+<td class=''><pre><span  class=''>import rottapeli.domain.superclasses.Positioned;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_5'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_6'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_7'></a>
+</td>
+<td class=''><pre><span  class=''> * Provides miscellaneous algorithms that are autonomous from any class.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_8'></a>
+</td>
+<td class=''><pre><span  class=''> * @author Pavel</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_9'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_10'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>public class Tools {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_11'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_12'></a>
+</td>
+<td class=''><pre><span  class=''> * Checks if Positioned Entity b is inside Positioned Entity a. Used for</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_13'></a>
+</td>
+<td class=''><pre><span  class=''> * collision checking.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_14'></a>
+</td>
+<td class=''><pre><span  class=''> * @param a Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_15'></a>
+</td>
+<td class=''><pre><span  class=''> * @param b Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_16'></a>
+</td>
+<td class=''><pre><span  class=''> * @param notOnTheEdge Set to true if method should return false even if two</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_17'></a>
+</td>
+<td class=''><pre><span  class=''> *                      Entites are touching sides. That way true is returned</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_18'></a>
+</td>
+<td class=''><pre><span  class=''> *                      if Entities are truly inside each other. All cases</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_19'></a>
+</td>
+<td class=''><pre><span  class=''> *                      where isInside(a,b,false) == true will return</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_20'></a>
+</td>
+<td class=''><pre><span  class=''> *                      isInside(a,b,true) == true. However this is not the case</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_21'></a>
+</td>
+<td class=''><pre><span  class=''> *                      vice versa.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_22'></a>
+</td>
+<td class=''><pre><span  class=''> * @return True if b is inside a.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_23'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_24'></a>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isInside(Positioned a, Positioned b, boolean notOnTheEdge)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_25'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_26'/>
+26
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_26'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (notOnTheEdge)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_27'></a>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_28'/>
+28
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_28'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (occupySameSpace(a, b))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_29'/>
+29
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_29'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_30'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_31'/>
+31
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_31'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isInsideInSameHorizontalSpace(a, b))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_32'/>
+32
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_32'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_33'></a>
+</td>
+<td class=''><pre><span  class=''>            </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_34'/>
+34
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_34'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (isInsideInSameVerticalSpace(a, b))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_35'/>
+35
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_35'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_36'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_37'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_38'/>
+38
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_38'>5</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return  pointInside(a, b.leftBorder(), b.topBorder(), notOnTheEdge) ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_39'></a>
+</td>
+<td class=''><pre><span  class=''>                pointInside(a, b.rightBorder(), b.topBorder(), notOnTheEdge) ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_40'></a>
+</td>
+<td class=''><pre><span  class=''>                pointInside(a, b.leftBorder(), b.bottomBorder(), notOnTheEdge) ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_41'></a>
+</td>
+<td class=''><pre><span  class=''>                pointInside(a, b.rightBorder(), b.bottomBorder(), notOnTheEdge);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_42'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_43'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_44'></a>
+</td>
+<td class=''><pre><span  class=''> * Checks if certain coordinates are inside certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_45'></a>
+</td>
+<td class=''><pre><span  class=''> * @param other Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_46'></a>
+</td>
+<td class=''><pre><span  class=''> * @param x X coordinate.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_47'></a>
+</td>
+<td class=''><pre><span  class=''> * @param y Y coordinate.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_48'></a>
+</td>
+<td class=''><pre><span  class=''> * @param notOnTheEdge If true, method will return false even if coordinates</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_49'></a>
+</td>
+<td class=''><pre><span  class=''> *                      are on the side of the Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_50'></a>
+</td>
+<td class=''><pre><span  class=''> * @return True if coordinates are inside a Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_51'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_52'></a>
+</td>
+<td class=''><pre><span  class=''>    public static boolean pointInside(Positioned other, double x, double y, boolean notOnTheEdge)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_53'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_54'/>
+54
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_54'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (notOnTheEdge)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_55'/>
+55
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_55'>9</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return  x &#62; other.leftBorder() &#38;&#38; x &#60; other.rightBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_56'/>
+56
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_56'></a>
+</td>
+<td class=''><pre><span  class=''>                y &#62; other.topBorder() &#38;&#38; y &#60; other.bottomBorder();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_57'></a>
+</td>
+<td class=''><pre><span  class=''>        else</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_58'/>
+58
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_58'>9</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return  x &#62;= other.leftBorder() &#38;&#38; x &#60;= other.rightBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_59'></a>
+</td>
+<td class=''><pre><span  class=''>                y &#62;= other.topBorder() &#38;&#38; y &#60;= other.bottomBorder();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_60'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_61'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_62'></a>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_63'></a>
+</td>
+<td class=''><pre><span  class=''> * @param a Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_64'></a>
+</td>
+<td class=''><pre><span  class=''> * @param b Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_65'></a>
+</td>
+<td class=''><pre><span  class=''> * @return True if both Entities have exact same position, width and height.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_66'/>
+66
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_66'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_67'></a>
+</td>
+<td class=''><pre><span  class=''>    private static boolean occupySameSpace(Positioned a, Positioned b)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_68'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_69'/>
+69
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_69'>5</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return a.leftBorder() == b.leftBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_70'></a>
+</td>
+<td class=''><pre><span  class=''>                a.rightBorder() == b.rightBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_71'></a>
+</td>
+<td class=''><pre><span  class=''>                a.topBorder() == b.topBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_72'></a>
+</td>
+<td class=''><pre><span  class=''>                a.bottomBorder() == b.bottomBorder();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_73'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_74'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_75'></a>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_76'></a>
+</td>
+<td class=''><pre><span  class=''> * @param a Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_77'></a>
+</td>
+<td class=''><pre><span  class=''> * @param b Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_78'></a>
+</td>
+<td class=''><pre><span  class=''> * @return True if Entities are inside each other while on the same X-axis.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_79'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_80'></a>
+</td>
+<td class=''><pre><span  class=''>    private static boolean isInsideInSameHorizontalSpace(Positioned a, Positioned b)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_81'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_82'/>
+82
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_82'>9</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        return  a.leftBorder() == b.leftBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_83'></a>
+</td>
+<td class=''><pre><span  class=''>                a.rightBorder() == b.rightBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_84'/>
+84
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_84'></a>
+</td>
+<td class=''><pre><span  class=''>                    (pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.topBorder(), true) ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_85'></a>
+</td>
+<td class=''><pre><span  class=''>                    pointInside(a, (b.leftBorder() + b.rightBorder()) / 2, b.bottomBorder(), true));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_86'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_87'/>
+87
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_87'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_88'/>
+88
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_88'></a>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_89'/>
+89
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_89'></a>
+</td>
+<td class=''><pre><span  class=''> * @param a Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_90'/>
+90
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_90'></a>
+</td>
+<td class=''><pre><span  class=''> * @param b Certain Positioned Entity.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_91'/>
+91
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_91'></a>
+</td>
+<td class=''><pre><span  class=''> * @return True if Entities are inside each other while on the same Y-axis.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_92'/>
+92
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_92'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_93'></a>
+</td>
+<td class=''><pre><span  class=''>    private static boolean isInsideInSameVerticalSpace(Positioned a, Positioned b)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_94'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_95'/>
+95
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_95'>9</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        return  a.topBorder() == b.topBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_96'/>
+96
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_96'></a>
+</td>
+<td class=''><pre><span  class=''>                a.bottomBorder() == b.bottomBorder() &#38;&#38;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_97'></a>
+</td>
+<td class=''><pre><span  class=''>                    (pointInside(a, b.leftBorder(), (b.topBorder() + b.bottomBorder()) / 2, true) ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_98'></a>
+</td>
+<td class=''><pre><span  class=''>                    pointInside(a, b.rightBorder(), (b.topBorder() + b.bottomBorder()) / 2, true));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_99'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_100'/>
+100
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_100'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_101'/>
+101
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_101'></a>
+</td>
+<td class=''><pre><span  class=''> * Rounds the value to a certain precision. Used for rounding off coordinates.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_102'/>
+102
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_102'></a>
+</td>
+<td class=''><pre><span  class=''> * @param a Value that needs to be round off.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_103'/>
+103
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_103'></a>
+</td>
+<td class=''><pre><span  class=''> * @return Rounded off value of a.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_104'/>
+104
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_104'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_105'/>
+105
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_105'></a>
+</td>
+<td class=''><pre><span  class=''>    public static double round(double a)</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_106'/>
+106
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_106'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_107'/>
+107
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_107'></a>
+</td>
+<td class='covered'><pre><span  class=''>        double i = Math.floor(a);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_108'/>
+108
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_108'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        double d = a - i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_109'/>
+109
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_109'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_110'/>
+110
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_110'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        d *= Const.roundPrecision;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_111'/>
+111
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_111'></a>
+</td>
+<td class='covered'><pre><span  class=''>        d = Math.round(d);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_112'/>
+112
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_112'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        d /= Const.roundPrecision;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_113'/>
+113
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_113'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_114'/>
+114
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_114'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return i + d;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_115'/>
+115
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_115'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_116'/>
+116
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_116'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_117'/>
+117
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_117'></a>
+</td>
+<td class=''><pre><span  class=''> * Chooses one of four diagonal directions randomly.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_118'/>
+118
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_118'></a>
+</td>
+<td class=''><pre><span  class=''> * @return Randomly chosen diagonal direction.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_119'/>
+119
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_119'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_120'/>
+120
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_120'></a>
+</td>
+<td class=''><pre><span  class=''>    public static double randomDiagonalDirection()</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_121'/>
+121
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_121'></a>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_122'/>
+122
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_122'></a>
+</td>
+<td class='covered'><pre><span  class=''>        double randomNumber = Math.random();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_123'/>
+123
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_123'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_124'/>
+124
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_124'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (randomNumber &#60; 0.25)    return Const.rightdown;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_125'/>
+125
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_125'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (randomNumber &#60; 0.5)    return Const.leftdown;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_126'/>
+126
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_126'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (randomNumber &#60; 0.75)    return Const.leftup;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_127'/>
+127
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_127'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Const.rightup;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_128'/>
+128
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_128'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1525b89_129'/>
+129
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_129'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_26'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_28'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_29'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_31'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_32'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_34'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_35'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_38'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_54'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_55'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.pointIsInsideNotOnTheEdge(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_58'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.resource.ToolsTest.pointIsInside2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.resource.ToolsTest.pointIsInside2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.resource.ToolsTest.pointIsInside3(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.resource.ToolsTest.pointIsInside3(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnother2(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_69'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_82'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='KILLED'>Replaced double division with multiplication : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>Replaced double division with multiplication : SURVIVED</p> <p class='SURVIVED'>Replaced double addition with subtraction : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_95'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>Replaced double addition with subtraction : SURVIVED</p> <p class='KILLED'>Replaced double division with multiplication : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> <p class='SURVIVED'>Replaced double division with multiplication : SURVIVED</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_108'/> 
+
+<p class='KILLED'>Replaced double subtraction with addition : KILLED -> rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_110'/> 
+
+<p class='KILLED'>Replaced double multiplication with division : KILLED -> rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_112'/> 
+
+<p class='KILLED'>Replaced double division with multiplication : KILLED -> rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_114'/> 
+
+<p class='KILLED'>replaced return of double value with -(x + 1) for rottapeli/resource/Tools::round : KILLED -> rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_124'/> 
+
+<p class='KILLED'>replaced return of double value with -(x + 1) for rottapeli/resource/Tools::randomDiagonalDirection : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_125'/> 
+
+<p class='KILLED'>replaced return of double value with -(x + 1) for rottapeli/resource/Tools::randomDiagonalDirection : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_126'/> 
+
+<p class='KILLED'>replaced return of double value with -(x + 1) for rottapeli/resource/Tools::randomDiagonalDirection : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> <p class='KILLED'>negated conditional : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> <p class='KILLED'>changed conditional boundary : KILLED -> rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1525b89_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1525b89_127'/> 
+
+<p class='KILLED'>replaced return of double value with -(x + 1) for rottapeli/resource/Tools::randomDiagonalDirection : KILLED -> rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>rottapeli.peli.EntityListTest.removesItemsByClass(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetBalls(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.domain.RatTest.onDeathDestroyTails(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.domain.RatTest.ratEatsCheese(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratStaysStillWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.checksCollisionViaMovement(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileDoesntExist(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.domain.RatTest.ratFacesRightWhenHidingToTheLeft(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.positionEntitiesToFreeSpots(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter2(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.BallTest.bounce3(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.pointIsInside(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenGiveTimeBonus(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter3(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.addedItemKnowEntityList(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsUnpaused(rottapeli.peli.GameTimerTest) (282 ms)</li><li>rottapeli.peli.RottaPeliTest.noPlayersInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.RatTest.ratMovesUp(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnotherWithSpecialParameter(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.RatTest.whenAllLivesLostDisappear(rottapeli.domain.RatTest) (94 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly3(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.onDeathLoseALife(rottapeli.peli.RottaPeliTest) (79 ms)</li><li>rottapeli.peli.ScoreKeeperTest.decreaseLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.resource.LanguageTest.dontsetLanguageIfFileIsNotStandard(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly5(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOneOfMultiplePlayersLostAllLives(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.resource.LanguageTest.mapsWord(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusCantBeNegative(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.correctsPosition3(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDestroysTailsWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratFacesLeftWhenHidingToTheRight(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.getListWithoutParameter(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.RatTest.onDeathPositionToDefaultPosition(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.pointNotInside(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratstretchesTail(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.peli.EntityListTest.removedItemForgetsEntityList(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly6(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.RatTest.onDeathStopMoving(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.domain.RatTest.ratEatsCheese2(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfOnlyOneLifeLost(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.onDeathFaceDown(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.timerIsCreatedAndItWorks(rottapeli.peli.GameTimerTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratfacesAwayWhenItHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetRatAndPositionToFreeSpot(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.findWhichNearbySpotIsFree2(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.domain.RatTest.onDeathStopCreatingTails(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.peli.ScoreKeeperTest.eatingCheeseIncreasesCombo(rottapeli.peli.ScoreKeeperTest) (15 ms)</li><li>rottapeli.peli.GameTimerTest.gameIsPaused(rottapeli.peli.GameTimerTest) (125 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.directionChangesCorrectly(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.ifTimeBonusIsGivenResetTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratStaysFacingAway(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.pointIsInsideNotOnTheEdge(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.testCollisiontype5(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.testCollisiontype1(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.BallTest.ballMovesDownLeft(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.testCollisiontype4(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.BallTest.killsRatOnCollision(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.dontMoveImmediatelyToTheOppositeDirection(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.findWhichNearbySpotIsFree(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.RottaPeliTest.whenSinglePlayerResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.updateDecreasesTimeBonus(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect3(rottapeli.peli.ScoreKeeperTest) (31 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.movesCorrectly(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.dontBotherRecalculatingDirectionIfSpeedsAreSame(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.checksCollision(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratCorrectsPositionWhenHides(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.ifSpotNotFreePlaceNearBy(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.timerCreatesActionEvents(rottapeli.peli.GameTimerTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetCheese(rottapeli.peli.RottaPeliTest) (109 ms)</li><li>rottapeli.domain.RatTest.ratMovesDown(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly1(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.cantPauseIfGameIsOver(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.peli.ScoreKeeperTest.interruptCombo(rottapeli.peli.ScoreKeeperTest) (63 ms)</li><li>rottapeli.peli.RottaPeliTest.onePlayerInGame(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.resource.ToolsTest.touchingEdgeIsntEnoughWithSpecialParameter(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.RatTest.changeDirection(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.amountOfAttendedPlayersIsCorrect2(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.morePointsGiveExtraLife(rottapeli.peli.ScoreKeeperTest) (78 ms)</li><li>rottapeli.domain.RatTest.dontGiveARatsAssWhenItsSomeoneElsesTail(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnother2(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.BallTest.bounce1(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.setsLanguage(rottapeli.resource.LanguageTest) (16 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnother(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.demoIsResetted(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratDoesntEatCheeseIfItMerelyTouchesSide(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesScore(rottapeli.peli.GameTimerTest) (172 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.checksCollision2(rottapeli.domain.superclasses.PositionedTest) (16 ms)</li><li>rottapeli.domain.BallTest.correctsPosition3(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.twoPlayersInGame(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratMovesRight(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.inputDoesntControlWrongThings(rottapeli.peli.RottaPeliTest) (15 ms)</li><li>rottapeli.resource.LanguageTest.whenAskedToTranslateAnUntranslatableWordReturnWordItself(rottapeli.resource.LanguageTest) (15 ms)</li><li>rottapeli.peli.EntityListTest.getListOfBouncables(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.BallTest.ballMovesUpRight(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.peli.EntityListTest.removedItemForgetsEntityList2(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.componentsAreNotNull(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenResetRat(rottapeli.peli.RottaPeliTest) (94 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsReset(rottapeli.peli.ScoreKeeperTest) (46 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.correctsPosition2(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.directionChangesCorrectlyV2(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.correctsPosition1(rottapeli.domain.superclasses.MoveableTest) (15 ms)</li><li>rottapeli.domain.TailTest.onDeathKillOwner(rottapeli.domain.TailTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntCreateTailIfOneIsTouchingIt(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.checksCollision3(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.domain.CheeseTest.cheeseGetsEaten(rottapeli.domain.CheeseTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.pointIsInside2(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.speedsAreCorrect(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.PositionedTest.bogusCollision(rottapeli.domain.superclasses.PositionedTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.objectInsideAnother3(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.randomDiagonalDirectionIsRandom(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.resetBalls(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.testCollisiontype2(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.testCollisiontype3(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.scoreIsAdded(rottapeli.peli.ScoreKeeperTest) (16 ms)</li><li>rottapeli.domain.BallTest.ballMovesUpLeft(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDestroysTails(rottapeli.domain.RatTest) (15 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.correctsPosition4(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.peli.GameTimerTest.gameDoesntUpdateScoreWhenPaused(rottapeli.peli.GameTimerTest) (171 ms)</li><li>rottapeli.peli.RottaPeliTest.whenAllCheeseIsEatenAddBall(rottapeli.peli.RottaPeliTest) (63 ms)</li><li>rottapeli.domain.RatTest.dontDestroyTailsThatDontBelongToYou(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly2(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.ifPointIsOnTheEdgeDontCountWithSpecialParameter2(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsOverWhenNoMorePlayers(rottapeli.peli.RottaPeliTest) (46 ms)</li><li>rottapeli.peli.GameTimerTest.gameUpdatesEntities(rottapeli.peli.GameTimerTest) (140 ms)</li><li>rottapeli.peli.RottaPeliTest.whenMultiPlayerDontResetBallsOnDeath(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.BallTest.correctsPosition2(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.dieIfHitOwnTail(rottapeli.domain.RatTest) (16 ms)</li><li>rottapeli.domain.BallTest.correctsPosition(rottapeli.domain.BallTest) (15 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord2(rottapeli.resource.LanguageTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.whenPlayerLosesAllLivesRemoveRat(rottapeli.peli.RottaPeliTest) (47 ms)</li><li>rottapeli.domain.BallTest.killsRat(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.LanguageTest.mapsEmptyWord(rottapeli.resource.LanguageTest) (47 ms)</li><li>rottapeli.peli.EntityListTest.updatesEntities(rottapeli.peli.EntityListTest) (0 ms)</li><li>rottapeli.domain.BallTest.ballMovesDownRight(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.roundsCorrectly4(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.RottaPeliTest.gameIsNotOverIfItsJustStarting(rottapeli.peli.RottaPeliTest) (31 ms)</li><li>rottapeli.domain.BallTest.bounce2(rottapeli.domain.BallTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratFacesDownWhenHidingUp(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntMoveWhenSpawnedWithMultipleUpdates(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.pointIsInside3(rottapeli.resource.ToolsTest) (0 ms)</li><li>rottapeli.peli.ScoreKeeperTest.aLotOfPointsGiveSeveralExtraLives(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.peli.ScoreKeeperTest.timeBonusIsGiven(rottapeli.peli.ScoreKeeperTest) (47 ms)</li><li>rottapeli.domain.RatTest.ratMovesLeft(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.resource.ToolsTest.obectsOccupySameLocationWithSpecialParameter(rottapeli.resource.ToolsTest) (16 ms)</li><li>rottapeli.peli.RottaPeliTest.inputControlsRat(rottapeli.peli.RottaPeliTest) (32 ms)</li><li>rottapeli.resource.LanguageTest.dontMapWordIfDoesntStartWithSpecialCharacter(rottapeli.resource.LanguageTest) (31 ms)</li><li>rottapeli.domain.RatTest.ratDoesntDieIfItMerelyTouchesTailsSide(rottapeli.domain.RatTest) (0 ms)</li><li>rottapeli.domain.superclasses.MoveableTest.correctsPosition5(rottapeli.domain.superclasses.MoveableTest) (0 ms)</li><li>rottapeli.domain.RatTest.ratDoesntMoveWhenSpawned(rottapeli.domain.RatTest) (16 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>
