@@ -10,3 +10,5 @@ off walls, pieces of cheese and other balls. If a ball hits the rat or its
 tail, player loses a life. Player loses a life also if the rat hits it's tail.
 Once all of the pieces of cheese has been eaten, player proceeds to the next
 level. Consequtive levels increase the amount of balls by one.
+
+Project was written in Java.
