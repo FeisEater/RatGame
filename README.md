@@ -12,3 +12,5 @@ Once all of the pieces of cheese has been eaten, player proceeds to the next
 level. Consequtive levels increase the amount of balls by one.
 
 Project was written in Java. Documentation included in repository.
+
+![screenshot](https://raw.githubusercontent.com/FeisEater/RatGame/master/Documentation/screenshot.png)
